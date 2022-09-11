@@ -96,7 +96,16 @@ class BlogTag extends Resource
      */
     public function getBlog(): Blog
     {
-        return $this->mapTo('blog', Blog::class);
+        return $this->mapTo('blog.resource.embedded', Blog::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getBlogId(): int
+    {
+        return $this->get('blog.resource.id');
     }
 
     /**
@@ -115,8 +124,9 @@ class BlogTag extends Resource
      */
     public function getArticles(): array
     {
-        return $this->mapTo('articles', Article::class);
+        return $this->mapTo('articles.resource.embedded', Article::class);
     }
+
 
     /**
      * @param Article[] $articles

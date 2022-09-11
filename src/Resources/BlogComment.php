@@ -164,7 +164,16 @@ class BlogComment extends Resource
      */
     public function getBlog(): Blog
     {
-        return $this->mapTo('blog', Blog::class);
+        return $this->mapTo('blog.resource.embedded', Blog::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getBlogId(): int
+    {
+        return $this->get('blog.resource.id');
     }
 
     /**
@@ -183,7 +192,16 @@ class BlogComment extends Resource
      */
     public function getArticle(): Article
     {
-        return $this->mapTo('article', Article::class);
+        return $this->mapTo('article.resource.embedded', Article::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getArticleId(): int
+    {
+        return $this->get('article.resource.id');
     }
 
     /**

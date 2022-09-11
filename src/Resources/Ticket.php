@@ -181,7 +181,16 @@ class Ticket extends Resource
      */
     public function getCustomer(): Customer
     {
-        return $this->mapTo('customer', Customer::class);
+        return $this->mapTo('customer.resource.embedded', Customer::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getCustomerId(): int
+    {
+        return $this->get('customer.resource.id');
     }
 
     /**
@@ -200,8 +209,9 @@ class Ticket extends Resource
      */
     public function getMessages(): array
     {
-        return $this->mapTo('messages', Message::class);
+        return $this->mapTo('messages.resource.embedded', Message::class);
     }
+
 
     /**
      * @param Message[] $messages

@@ -181,7 +181,16 @@ class Invoice extends Resource
      */
     public function getInvoice(): Invoice
     {
-        return $this->mapTo('invoice', Invoice::class);
+        return $this->mapTo('invoice.resource.embedded', Invoice::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getInvoiceId(): int
+    {
+        return $this->get('invoice.resource.id');
     }
 
     /**
@@ -234,7 +243,16 @@ class Invoice extends Resource
      */
     public function getOrder(): Order
     {
-        return $this->mapTo('order', Order::class);
+        return $this->mapTo('order.resource.embedded', Order::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getOrderId(): int
+    {
+        return $this->get('order.resource.id');
     }
 
     /**
@@ -253,7 +271,16 @@ class Invoice extends Resource
      */
     public function getCustomer(): Customer
     {
-        return $this->mapTo('customer', Customer::class);
+        return $this->mapTo('customer.resource.embedded', Customer::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getCustomerId(): int
+    {
+        return $this->get('customer.resource.id');
     }
 
     /**
@@ -272,8 +299,9 @@ class Invoice extends Resource
      */
     public function getItems(): array
     {
-        return $this->mapTo('items', Item::class);
+        return $this->mapTo('items.resource.embedded', Item::class);
     }
+
 
     /**
      * @param Item[] $items
@@ -291,8 +319,9 @@ class Invoice extends Resource
      */
     public function getMetafields(): array
     {
-        return $this->mapTo('metafields', Metafield::class);
+        return $this->mapTo('metafields.resource.embedded', Metafield::class);
     }
+
 
     /**
      * @param Metafield[] $metafields
@@ -310,8 +339,9 @@ class Invoice extends Resource
      */
     public function getEvents(): array
     {
-        return $this->mapTo('events', Event::class);
+        return $this->mapTo('events.resource.embedded', Event::class);
     }
+
 
     /**
      * @param Event[] $events

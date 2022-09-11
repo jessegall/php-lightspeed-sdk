@@ -45,7 +45,16 @@ class TypesAttribute extends Resource
      */
     public function getType(): Type
     {
-        return $this->mapTo('type', Type::class);
+        return $this->mapTo('type.resource.embedded', Type::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getTypeId(): int
+    {
+        return $this->get('type.resource.id');
     }
 
     /**
@@ -64,7 +73,16 @@ class TypesAttribute extends Resource
      */
     public function getAttribute(): Attribute
     {
-        return $this->mapTo('attribute', Attribute::class);
+        return $this->mapTo('attribute.resource.embedded', Attribute::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getAttributeId(): int
+    {
+        return $this->get('attribute.resource.id');
     }
 
     /**

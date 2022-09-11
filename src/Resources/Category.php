@@ -266,7 +266,16 @@ class Category extends Resource
      */
     public function getParent(): Parent
     {
-        return $this->mapTo('parent', Parent::class);
+        return $this->mapTo('parent.resource.embedded', Parent::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getParentId(): int
+    {
+        return $this->get('parent.resource.id');
     }
 
     /**
@@ -285,8 +294,9 @@ class Category extends Resource
      */
     public function getChildren(): array
     {
-        return $this->mapTo('children', Child::class);
+        return $this->mapTo('children.resource.embedded', Child::class);
     }
+
 
     /**
      * @param Child[] $children
@@ -304,8 +314,9 @@ class Category extends Resource
      */
     public function getProducts(): array
     {
-        return $this->mapTo('products', Product::class);
+        return $this->mapTo('products.resource.embedded', Product::class);
     }
+
 
     /**
      * @param Product[] $products

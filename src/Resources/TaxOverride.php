@@ -62,7 +62,16 @@ class TaxOverride extends Resource
      */
     public function getTax(): Tax
     {
-        return $this->mapTo('tax', Tax::class);
+        return $this->mapTo('tax.resource.embedded', Tax::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getTaxId(): int
+    {
+        return $this->get('tax.resource.id');
     }
 
     /**

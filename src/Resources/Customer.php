@@ -2,9 +2,15 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use WebshopappApiResourceCustomers;
+
 class Customer extends Resource
 {
 
+    protected function endpoint(): WebshopappApiResourceCustomers
+    {
+        return $this->api()->client()->customers;
+    }
 
     /**
      * @return int
@@ -776,8 +782,9 @@ class Customer extends Resource
      */
     public function getGroups(): array
     {
-        return $this->mapTo('groups', Group::class);
+        return $this->mapTo('groups.resource.embedded', Group::class);
     }
+
 
     /**
      * @param Group[] $groups
@@ -795,8 +802,9 @@ class Customer extends Resource
      */
     public function getInvoices(): array
     {
-        return $this->mapTo('invoices', Invoice::class);
+        return $this->mapTo('invoices.resource.embedded', Invoice::class);
     }
+
 
     /**
      * @param Invoice[] $invoices
@@ -831,8 +839,9 @@ class Customer extends Resource
      */
     public function getOrders(): array
     {
-        return $this->mapTo('orders', Order::class);
+        return $this->mapTo('orders.resource.embedded', Order::class);
     }
+
 
     /**
      * @param Order[] $orders
@@ -850,8 +859,9 @@ class Customer extends Resource
      */
     public function getReviews(): array
     {
-        return $this->mapTo('reviews', Review::class);
+        return $this->mapTo('reviews.resource.embedded', Review::class);
     }
+
 
     /**
      * @param Review[] $reviews
@@ -869,8 +879,9 @@ class Customer extends Resource
      */
     public function getShipments(): array
     {
-        return $this->mapTo('shipments', Shipment::class);
+        return $this->mapTo('shipments.resource.embedded', Shipment::class);
     }
+
 
     /**
      * @param Shipment[] $shipments
@@ -888,8 +899,9 @@ class Customer extends Resource
      */
     public function getTickets(): array
     {
-        return $this->mapTo('tickets', Ticket::class);
+        return $this->mapTo('tickets.resource.embedded', Ticket::class);
     }
+
 
     /**
      * @param Ticket[] $tickets
@@ -907,8 +919,9 @@ class Customer extends Resource
      */
     public function getMetafields(): array
     {
-        return $this->mapTo('metafields', Metafield::class);
+        return $this->mapTo('metafields.resource.embedded', Metafield::class);
     }
+
 
     /**
      * @param Metafield[] $metafields
@@ -926,7 +939,16 @@ class Customer extends Resource
      */
     public function getLogin(): Login
     {
-        return $this->mapTo('login', Login::class);
+        return $this->mapTo('login.resource.embedded', Login::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getLoginId(): int
+    {
+        return $this->get('login.resource.id');
     }
 
     /**

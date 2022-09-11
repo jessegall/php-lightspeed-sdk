@@ -62,7 +62,16 @@ class Account extends Resource
      */
     public function getSignout(): Signout
     {
-        return $this->mapTo('signout', Signout::class);
+        return $this->mapTo('signout.resource.embedded', Signout::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getSignoutId(): int
+    {
+        return $this->get('signout.resource.id');
     }
 
     /**
@@ -81,8 +90,9 @@ class Account extends Resource
      */
     public function getPermissions(): array
     {
-        return $this->mapTo('permissions', Permission::class);
+        return $this->mapTo('permissions.resource.embedded', Permission::class);
     }
+
 
     /**
      * @param Permission[] $permissions
@@ -100,7 +110,16 @@ class Account extends Resource
      */
     public function getRatelimit(): Ratelimit
     {
-        return $this->mapTo('ratelimit', Ratelimit::class);
+        return $this->mapTo('ratelimit.resource.embedded', Ratelimit::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getRatelimitId(): int
+    {
+        return $this->get('ratelimit.resource.id');
     }
 
     /**
@@ -119,8 +138,9 @@ class Account extends Resource
      */
     public function getMetafields(): array
     {
-        return $this->mapTo('metafields', Metafield::class);
+        return $this->mapTo('metafields.resource.embedded', Metafield::class);
     }
+
 
     /**
      * @param Metafield[] $metafields

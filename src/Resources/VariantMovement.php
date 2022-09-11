@@ -79,7 +79,16 @@ class VariantMovement extends Resource
      */
     public function getProduct(): Product
     {
-        return $this->mapTo('product', Product::class);
+        return $this->mapTo('product.resource.embedded', Product::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getProductId(): int
+    {
+        return $this->get('product.resource.id');
     }
 
     /**
@@ -98,7 +107,16 @@ class VariantMovement extends Resource
      */
     public function getVariant(): Variant
     {
-        return $this->mapTo('variant', Variant::class);
+        return $this->mapTo('variant.resource.embedded', Variant::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getVariantId(): int
+    {
+        return $this->get('variant.resource.id');
     }
 
     /**

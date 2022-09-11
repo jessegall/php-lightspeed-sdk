@@ -351,7 +351,16 @@ class Shop extends Resource
      */
     public function getCompany(): Company
     {
-        return $this->mapTo('company', Company::class);
+        return $this->mapTo('company.resource.embedded', Company::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getCompanyId(): int
+    {
+        return $this->get('company.resource.id');
     }
 
     /**
@@ -370,8 +379,9 @@ class Shop extends Resource
      */
     public function getLimits(): array
     {
-        return $this->mapTo('limits', Limit::class);
+        return $this->mapTo('limits.resource.embedded', Limit::class);
     }
+
 
     /**
      * @param Limit[] $limits
@@ -389,7 +399,16 @@ class Shop extends Resource
      */
     public function getJavascript(): Javascript
     {
-        return $this->mapTo('javascript', Javascript::class);
+        return $this->mapTo('javascript.resource.embedded', Javascript::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getJavascriptId(): int
+    {
+        return $this->get('javascript.resource.id');
     }
 
     /**
@@ -408,7 +427,16 @@ class Shop extends Resource
      */
     public function getWebsite(): Website
     {
-        return $this->mapTo('website', Website::class);
+        return $this->mapTo('website.resource.embedded', Website::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getWebsiteId(): int
+    {
+        return $this->get('website.resource.id');
     }
 
     /**
@@ -427,8 +455,9 @@ class Shop extends Resource
      */
     public function getScripts(): array
     {
-        return $this->mapTo('scripts', Script::class);
+        return $this->mapTo('scripts.resource.embedded', Script::class);
     }
+
 
     /**
      * @param Script[] $scripts
@@ -446,8 +475,9 @@ class Shop extends Resource
      */
     public function getMetafields(): array
     {
-        return $this->mapTo('metafields', Metafield::class);
+        return $this->mapTo('metafields.resource.embedded', Metafield::class);
     }
+
 
     /**
      * @param Metafield[] $metafields

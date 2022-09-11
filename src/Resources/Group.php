@@ -79,8 +79,9 @@ class Group extends Resource
      */
     public function getCustomers(): array
     {
-        return $this->mapTo('customers', Customer::class);
+        return $this->mapTo('customers.resource.embedded', Customer::class);
     }
+
 
     /**
      * @param Customer[] $customers

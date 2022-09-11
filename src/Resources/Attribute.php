@@ -62,8 +62,9 @@ class Attribute extends Resource
      */
     public function getTypes(): array
     {
-        return $this->mapTo('types', Type::class);
+        return $this->mapTo('types.resource.embedded', Type::class);
     }
+
 
     /**
      * @param Type[] $types

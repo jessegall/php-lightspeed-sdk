@@ -181,8 +181,9 @@ class Shippingmethod extends Resource
      */
     public function getCountries(): array
     {
-        return $this->mapTo('countries', Country::class);
+        return $this->mapTo('countries.resource.embedded', Country::class);
     }
+
 
     /**
      * @param Country[] $countries
@@ -200,8 +201,9 @@ class Shippingmethod extends Resource
      */
     public function getValues(): array
     {
-        return $this->mapTo('values', Value::class);
+        return $this->mapTo('values.resource.embedded', Value::class);
     }
+
 
     /**
      * @param Value[] $values

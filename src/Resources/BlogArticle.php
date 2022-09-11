@@ -215,7 +215,16 @@ class BlogArticle extends Resource
      */
     public function getBlog(): Blog
     {
-        return $this->mapTo('blog', Blog::class);
+        return $this->mapTo('blog.resource.embedded', Blog::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getBlogId(): int
+    {
+        return $this->get('blog.resource.id');
     }
 
     /**
@@ -234,8 +243,9 @@ class BlogArticle extends Resource
      */
     public function getComments(): array
     {
-        return $this->mapTo('comments', Comment::class);
+        return $this->mapTo('comments.resource.embedded', Comment::class);
     }
+
 
     /**
      * @param Comment[] $comments
@@ -253,8 +263,9 @@ class BlogArticle extends Resource
      */
     public function getTags(): array
     {
-        return $this->mapTo('tags', Tag::class);
+        return $this->mapTo('tags.resource.embedded', Tag::class);
     }
+
 
     /**
      * @param Tag[] $tags

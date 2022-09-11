@@ -130,8 +130,9 @@ class Brand extends Resource
      */
     public function getProducts(): array
     {
-        return $this->mapTo('products', Product::class);
+        return $this->mapTo('products.resource.embedded', Product::class);
     }
+
 
     /**
      * @param Product[] $products

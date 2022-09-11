@@ -4,21 +4,28 @@ namespace JesseGall\LightspeedSDK\Resources;
 
 use InvalidArgumentException;
 use JesseGall\HasArrayData\HasArrayData;
+use JesseGall\LightspeedSDK\Api;
+use JesseGall\LightspeedSDK\Exceptions\NotImplementedException;
 
 class Resource
 {
     use HasArrayData {
         HasArrayData::set as private __set;
+        HasArrayData::get as private __get;
     }
 
-    public function __construct(array $data)
+    protected static Api $api;
+
+    public function __construct(array $data = [])
     {
         $this->data = $data;
     }
 
-    public static function hydrate(): static
+    public function hydrate(): static
     {
+        $this->set($this->endpoint()->get($this->getId()));
 
+        return $this;
     }
 
     /**
@@ -47,7 +54,15 @@ class Resource
         $data = $this->get($key);
 
         if (is_null($data)) {
-            return null;
+            if (str_ends_with($key, '.embedded')) {
+                [$name] = explode('.', $key);
+
+                $url = $this->get("$name.resource.url");
+
+                $data = $this->api()->client()->read($url);
+            } else {
+                return null;
+            }
         }
 
         if (! is_array($data)) {
@@ -66,6 +81,25 @@ class Resource
 
         return $list;
 
+    }
+
+    protected function newResource(string $class, array $data = []): Resource
+    {
+        return new $class($data);
+    }
+
+    protected function api(): Api
+    {
+        if (! isset(self::$api)) {
+            self::$api = new Api();
+        }
+
+        return self::$api;
+    }
+
+    protected function endpoint()
+    {
+        throw new NotImplementedException();
     }
 
 }

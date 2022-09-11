@@ -130,7 +130,16 @@ class Metafield extends Resource
      */
     public function getOwnerResource(): OwnerResource
     {
-        return $this->mapTo('ownerResource', OwnerResource::class);
+        return $this->mapTo('ownerResource.resource.embedded', OwnerResource::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getOwnerResourceId(): int
+    {
+        return $this->get('ownerResource.resource.id');
     }
 
     /**

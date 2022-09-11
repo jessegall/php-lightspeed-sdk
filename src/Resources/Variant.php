@@ -742,7 +742,16 @@ class Variant extends Resource
      */
     public function getProduct(): Product
     {
-        return $this->mapTo('product', Product::class);
+        return $this->mapTo('product.resource.embedded', Product::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getProductId(): int
+    {
+        return $this->get('product.resource.id');
     }
 
     /**
@@ -761,8 +770,9 @@ class Variant extends Resource
      */
     public function getMovements(): array
     {
-        return $this->mapTo('movements', Movement::class);
+        return $this->mapTo('movements.resource.embedded', Movement::class);
     }
+
 
     /**
      * @param Movement[] $movements
@@ -780,8 +790,9 @@ class Variant extends Resource
      */
     public function getMetafields(): array
     {
-        return $this->mapTo('metafields', Metafield::class);
+        return $this->mapTo('metafields.resource.embedded', Metafield::class);
     }
+
 
     /**
      * @param Metafield[] $metafields

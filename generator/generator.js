@@ -102,9 +102,18 @@ function generateResourceFile(resource, data) {
             */
             public function get${ ucfirst(key) }(): ${ returnType } 
             {
-                return $this->mapTo('${ key }', ${ resourceType }::class); 
-            }`
-
+                return $this->mapTo('${ key }.resource.embedded', ${ resourceType }::class); 
+            }
+            
+            ${ ! isSingle ? '' : `
+            /**
+            * @return int
+            */
+            public function get${ ucfirst(key) }Id(): int 
+            {
+                return $this->get('${ key }.resource.id'); 
+            }` }
+            `
 
             set = `
             /**

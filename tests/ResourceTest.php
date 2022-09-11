@@ -2,11 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Tests;
 
-use InvalidArgumentException;
+use JesseGall\LightspeedSDK\Api;
+use JesseGall\LightspeedSDK\Resources\Customer;
+use JesseGall\LightspeedSDK\Resources\Order;
 use JesseGall\LightspeedSDK\Resources\Resource;
 use JesseGall\LightspeedSDK\Tests\TestClasses\TestResource;
-use PHPUnit\Framework\TestCase;
-use stdClass;
 
 class ResourceTest extends TestCase
 {
@@ -84,5 +84,13 @@ class ResourceTest extends TestCase
         $this->assertNull($this->resource->mapTo('missing_relation', TestResource::class));
     }
 
+    public function test_hydration()
+    {
+        $order = new Order();
+
+        $order->setId(224652971)->hydrate();
+        //
+        //dd($order->getCustomer()->getOrders());
+    }
 
 }

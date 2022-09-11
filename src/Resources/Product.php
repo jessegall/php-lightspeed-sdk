@@ -266,7 +266,16 @@ class Product extends Resource
      */
     public function getBrand(): Brand
     {
-        return $this->mapTo('brand', Brand::class);
+        return $this->mapTo('brand.resource.embedded', Brand::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getBrandId(): int
+    {
+        return $this->get('brand.resource.id');
     }
 
     /**
@@ -285,8 +294,9 @@ class Product extends Resource
      */
     public function getCategories(): array
     {
-        return $this->mapTo('categories', Category::class);
+        return $this->mapTo('categories.resource.embedded', Category::class);
     }
+
 
     /**
      * @param Category[] $categories
@@ -304,7 +314,16 @@ class Product extends Resource
      */
     public function getDeliverydate(): Deliverydate
     {
-        return $this->mapTo('deliverydate', Deliverydate::class);
+        return $this->mapTo('deliverydate.resource.embedded', Deliverydate::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getDeliverydateId(): int
+    {
+        return $this->get('deliverydate.resource.id');
     }
 
     /**
@@ -340,8 +359,9 @@ class Product extends Resource
      */
     public function getImages(): array
     {
-        return $this->mapTo('images', Image::class);
+        return $this->mapTo('images.resource.embedded', Image::class);
     }
+
 
     /**
      * @param Image[] $images
@@ -359,8 +379,9 @@ class Product extends Resource
      */
     public function getRelations(): array
     {
-        return $this->mapTo('relations', Relation::class);
+        return $this->mapTo('relations.resource.embedded', Relation::class);
     }
+
 
     /**
      * @param Relation[] $relations
@@ -378,8 +399,9 @@ class Product extends Resource
      */
     public function getMetafields(): array
     {
-        return $this->mapTo('metafields', Metafield::class);
+        return $this->mapTo('metafields.resource.embedded', Metafield::class);
     }
+
 
     /**
      * @param Metafield[] $metafields
@@ -397,8 +419,9 @@ class Product extends Resource
      */
     public function getReviews(): array
     {
-        return $this->mapTo('reviews', Review::class);
+        return $this->mapTo('reviews.resource.embedded', Review::class);
     }
+
 
     /**
      * @param Review[] $reviews
@@ -433,8 +456,9 @@ class Product extends Resource
      */
     public function getAttributes(): array
     {
-        return $this->mapTo('attributes', Attribute::class);
+        return $this->mapTo('attributes.resource.embedded', Attribute::class);
     }
+
 
     /**
      * @param Attribute[] $attributes
@@ -452,7 +476,16 @@ class Product extends Resource
      */
     public function getSupplier(): Supplier
     {
-        return $this->mapTo('supplier', Supplier::class);
+        return $this->mapTo('supplier.resource.embedded', Supplier::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getSupplierId(): int
+    {
+        return $this->get('supplier.resource.id');
     }
 
     /**
@@ -471,8 +504,9 @@ class Product extends Resource
      */
     public function getTags(): array
     {
-        return $this->mapTo('tags', Tag::class);
+        return $this->mapTo('tags.resource.embedded', Tag::class);
     }
+
 
     /**
      * @param Tag[] $tags
@@ -490,8 +524,9 @@ class Product extends Resource
      */
     public function getVariants(): array
     {
-        return $this->mapTo('variants', Variant::class);
+        return $this->mapTo('variants.resource.embedded', Variant::class);
     }
+
 
     /**
      * @param Variant[] $variants
@@ -509,8 +544,9 @@ class Product extends Resource
      */
     public function getMovements(): array
     {
-        return $this->mapTo('movements', Movement::class);
+        return $this->mapTo('movements.resource.embedded', Movement::class);
     }
+
 
     /**
      * @param Movement[] $movements

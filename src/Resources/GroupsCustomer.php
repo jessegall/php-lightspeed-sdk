@@ -28,7 +28,16 @@ class GroupsCustomer extends Resource
      */
     public function getGroup(): Group
     {
-        return $this->mapTo('group', Group::class);
+        return $this->mapTo('group.resource.embedded', Group::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getGroupId(): int
+    {
+        return $this->get('group.resource.id');
     }
 
     /**
@@ -47,7 +56,16 @@ class GroupsCustomer extends Resource
      */
     public function getCustomer(): Customer
     {
-        return $this->mapTo('customer', Customer::class);
+        return $this->mapTo('customer.resource.embedded', Customer::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getCustomerId(): int
+    {
+        return $this->get('customer.resource.id');
     }
 
     /**

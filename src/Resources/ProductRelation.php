@@ -45,7 +45,16 @@ class ProductRelation extends Resource
      */
     public function getRelatedProduct(): RelatedProduct
     {
-        return $this->mapTo('relatedProduct', RelatedProduct::class);
+        return $this->mapTo('relatedProduct.resource.embedded', RelatedProduct::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getRelatedProductId(): int
+    {
+        return $this->get('relatedProduct.resource.id');
     }
 
     /**

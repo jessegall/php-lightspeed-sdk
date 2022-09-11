@@ -130,7 +130,16 @@ class Review extends Resource
      */
     public function getCustomer(): Customer
     {
-        return $this->mapTo('customer', Customer::class);
+        return $this->mapTo('customer.resource.embedded', Customer::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getCustomerId(): int
+    {
+        return $this->get('customer.resource.id');
     }
 
     /**
@@ -166,7 +175,16 @@ class Review extends Resource
      */
     public function getProduct(): Product
     {
-        return $this->mapTo('product', Product::class);
+        return $this->mapTo('product.resource.embedded', Product::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getProductId(): int
+    {
+        return $this->get('product.resource.id');
     }
 
     /**

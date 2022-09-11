@@ -28,7 +28,16 @@ class TagsProduct extends Resource
      */
     public function getTag(): Tag
     {
-        return $this->mapTo('tag', Tag::class);
+        return $this->mapTo('tag.resource.embedded', Tag::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getTagId(): int
+    {
+        return $this->get('tag.resource.id');
     }
 
     /**
@@ -47,7 +56,16 @@ class TagsProduct extends Resource
      */
     public function getProduct(): Product
     {
-        return $this->mapTo('product', Product::class);
+        return $this->mapTo('product.resource.embedded', Product::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getProductId(): int
+    {
+        return $this->get('product.resource.id');
     }
 
     /**

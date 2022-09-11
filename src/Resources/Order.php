@@ -2,9 +2,15 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use WebshopappApiResourceOrders;
+
 class Order extends Resource
 {
 
+    protected function endpoint(): WebshopappApiResourceOrders
+    {
+        return $this->api()->client()->orders;
+    }
 
     /**
      * @return int
@@ -1592,7 +1598,16 @@ class Order extends Resource
      */
     public function getCustomer(): Customer
     {
-        return $this->mapTo('customer', Customer::class);
+        return $this->mapTo('customer.resource.embedded', Customer::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getCustomerId(): int
+    {
+        return $this->get('customer.resource.id');
     }
 
     /**
@@ -1611,8 +1626,9 @@ class Order extends Resource
      */
     public function getInvoices(): array
     {
-        return $this->mapTo('invoices', Invoice::class);
+        return $this->mapTo('invoices.resource.embedded', Invoice::class);
     }
+
 
     /**
      * @param Invoice[] $invoices
@@ -1630,8 +1646,9 @@ class Order extends Resource
      */
     public function getShipments(): array
     {
-        return $this->mapTo('shipments', Shipment::class);
+        return $this->mapTo('shipments.resource.embedded', Shipment::class);
     }
+
 
     /**
      * @param Shipment[] $shipments
@@ -1645,15 +1662,16 @@ class Order extends Resource
     }
 
     /**
-     * @return Product[]
+     * @return OrderProduct[]
      */
     public function getProducts(): array
     {
-        return $this->mapTo('products', Product::class);
+        return $this->mapTo('products.resource.embedded', OrderProduct::class);
     }
 
+
     /**
-     * @param Product[] $products
+     * @param OrderProduct[] $products
      * @return $this
      */
     public function setProducts(array $products): static
@@ -1668,8 +1686,9 @@ class Order extends Resource
      */
     public function getMetafields(): array
     {
-        return $this->mapTo('metafields', Metafield::class);
+        return $this->mapTo('metafields.resource.embedded', Metafield::class);
     }
+
 
     /**
      * @param Metafield[] $metafields
@@ -1687,7 +1706,16 @@ class Order extends Resource
      */
     public function getQuote(): Quote
     {
-        return $this->mapTo('quote', Quote::class);
+        return $this->mapTo('quote.resource.embedded', Quote::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getQuoteId(): int
+    {
+        return $this->get('quote.resource.id');
     }
 
     /**
@@ -1706,8 +1734,9 @@ class Order extends Resource
      */
     public function getEvents(): array
     {
-        return $this->mapTo('events', Event::class);
+        return $this->mapTo('events.resource.embedded', Event::class);
     }
+
 
     /**
      * @param Event[] $events

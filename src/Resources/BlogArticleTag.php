@@ -28,7 +28,16 @@ class BlogArticleTag extends Resource
      */
     public function getBlog(): Blog
     {
-        return $this->mapTo('blog', Blog::class);
+        return $this->mapTo('blog.resource.embedded', Blog::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getBlogId(): int
+    {
+        return $this->get('blog.resource.id');
     }
 
     /**
@@ -47,7 +56,16 @@ class BlogArticleTag extends Resource
      */
     public function getArticle(): Article
     {
-        return $this->mapTo('article', Article::class);
+        return $this->mapTo('article.resource.embedded', Article::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getArticleId(): int
+    {
+        return $this->get('article.resource.id');
     }
 
     /**
@@ -66,7 +84,16 @@ class BlogArticleTag extends Resource
      */
     public function getTag(): Tag
     {
-        return $this->mapTo('tag', Tag::class);
+        return $this->mapTo('tag.resource.embedded', Tag::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getTagId(): int
+    {
+        return $this->get('tag.resource.id');
     }
 
     /**

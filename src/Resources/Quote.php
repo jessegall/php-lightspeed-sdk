@@ -1116,7 +1116,16 @@ class Quote extends Resource
      */
     public function getCustomer(): Customer
     {
-        return $this->mapTo('customer', Customer::class);
+        return $this->mapTo('customer.resource.embedded', Customer::class);
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getCustomerId(): int
+    {
+        return $this->get('customer.resource.id');
     }
 
     /**
@@ -1152,8 +1161,9 @@ class Quote extends Resource
      */
     public function getProducts(): array
     {
-        return $this->mapTo('products', Product::class);
+        return $this->mapTo('products.resource.embedded', Product::class);
     }
+
 
     /**
      * @param Product[] $products
@@ -1171,8 +1181,9 @@ class Quote extends Resource
      */
     public function getShippingmethods(): array
     {
-        return $this->mapTo('shippingmethods', Shippingmethod::class);
+        return $this->mapTo('shippingmethods.resource.embedded', Shippingmethod::class);
     }
+
 
     /**
      * @param Shippingmethod[] $shippingmethods
@@ -1190,8 +1201,9 @@ class Quote extends Resource
      */
     public function getPaymentmethods(): array
     {
-        return $this->mapTo('paymentmethods', Paymentmethod::class);
+        return $this->mapTo('paymentmethods.resource.embedded', Paymentmethod::class);
     }
+
 
     /**
      * @param Paymentmethod[] $paymentmethods

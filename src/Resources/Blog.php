@@ -130,8 +130,9 @@ class Blog extends Resource
      */
     public function getArticles(): array
     {
-        return $this->mapTo('articles', Article::class);
+        return $this->mapTo('articles.resource.embedded', Article::class);
     }
+
 
     /**
      * @param Article[] $articles
@@ -149,8 +150,9 @@ class Blog extends Resource
      */
     public function getComments(): array
     {
-        return $this->mapTo('comments', Comment::class);
+        return $this->mapTo('comments.resource.embedded', Comment::class);
     }
+
 
     /**
      * @param Comment[] $comments
@@ -168,8 +170,9 @@ class Blog extends Resource
      */
     public function getTags(): array
     {
-        return $this->mapTo('tags', Tag::class);
+        return $this->mapTo('tags.resource.embedded', Tag::class);
     }
+
 
     /**
      * @param Tag[] $tags
