@@ -227,38 +227,4 @@ class Supplier extends Resource
         return $this->set('country_id', $country_id);
     }
 
-    /**
-     * @return string
-     */
-    public function getCode(): string
-    {
-        return $this->get('code');
-    }
-
-    /**
-     * @param string $code
-     * @return $this
-     */
-    public function setCode(string $code): static
-    {
-        return $this->set('code', $code);
-    }
-
-    /**
-     * @return string
-     */
-    public function getCode3(): string
-    {
-        return $this->get('code3');
-    }
-
-    /**
-     * @param string $code3
-     * @return $this
-     */
-    public function setCode3(string $code3): static
-    {
-        return $this->set('code3', $code3);
-    }
-
 }

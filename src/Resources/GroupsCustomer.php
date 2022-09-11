@@ -43,57 +43,6 @@ class GroupsCustomer extends Resource
     }
 
     /**
-     * @return array
-     */
-    public function getResource(): array
-    {
-        return $this->get('resource');
-    }
-
-    /**
-     * @param array $resource
-     * @return $this
-     */
-    public function setResource(array $resource): static
-    {
-        return $this->set('resource', $resource);
-    }
-
-    /**
-     * @return string
-     */
-    public function getUrl(): string
-    {
-        return $this->get('url');
-    }
-
-    /**
-     * @param string $url
-     * @return $this
-     */
-    public function setUrl(string $url): static
-    {
-        return $this->set('url', $url);
-    }
-
-    /**
-     * @return string
-     */
-    public function getLink(): string
-    {
-        return $this->get('link');
-    }
-
-    /**
-     * @param string $link
-     * @return $this
-     */
-    public function setLink(string $link): static
-    {
-        return $this->set('link', $link);
-    }
-
-    /**
      * @return Customer
      */
     public function getCustomer(): Customer

@@ -47,21 +47,15 @@ function generateResource(data) {
         resource[key] = {
             _properties: {
                 name: key,
-                ...generateAttribute(value)
+                ...generateAttribute(key, value)
             }
         };
-
-        if (Array.isArray(value) && value.length > 0) {
-            Object.assign(resource, generateResource(value[0]));
-        } else if (typeof value === "object" && !! value) {
-            Object.assign(resource, generateResource(value));
-        }
     }
 
     return resource;
 }
 
-function generateAttribute(value) {
+function generateAttribute(key, value) {
     return {
         type: getPhpType(value),
         optional: false,

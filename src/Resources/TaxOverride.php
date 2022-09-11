@@ -58,57 +58,6 @@ class TaxOverride extends Resource
     }
 
     /**
-     * @return string
-     */
-    public function getCode(): string
-    {
-        return $this->get('code');
-    }
-
-    /**
-     * @param string $code
-     * @return $this
-     */
-    public function setCode(string $code): static
-    {
-        return $this->set('code', $code);
-    }
-
-    /**
-     * @return string
-     */
-    public function getCode3(): string
-    {
-        return $this->get('code3');
-    }
-
-    /**
-     * @param string $code3
-     * @return $this
-     */
-    public function setCode3(string $code3): static
-    {
-        return $this->set('code3', $code3);
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return $this->get('title');
-    }
-
-    /**
-     * @param string $title
-     * @return $this
-     */
-    public function setTitle(string $title): static
-    {
-        return $this->set('title', $title);
-    }
-
-    /**
      * @return Tax
      */
     public function getTax(): Tax
@@ -125,57 +74,6 @@ class TaxOverride extends Resource
         $this->set('tax', $tax);
 
         return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getResource(): array
-    {
-        return $this->get('resource');
-    }
-
-    /**
-     * @param array $resource
-     * @return $this
-     */
-    public function setResource(array $resource): static
-    {
-        return $this->set('resource', $resource);
-    }
-
-    /**
-     * @return string
-     */
-    public function getUrl(): string
-    {
-        return $this->get('url');
-    }
-
-    /**
-     * @param string $url
-     * @return $this
-     */
-    public function setUrl(string $url): static
-    {
-        return $this->set('url', $url);
-    }
-
-    /**
-     * @return string
-     */
-    public function getLink(): string
-    {
-        return $this->get('link');
-    }
-
-    /**
-     * @param string $link
-     * @return $this
-     */
-    public function setLink(string $link): static
-    {
-        return $this->set('link', $link);
     }
 
 }

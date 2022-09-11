@@ -7,18 +7,18 @@ class Shop extends Resource
 
 
     /**
-     * @return bool
+     * @return int
      */
-    public function getId(): bool
+    public function getId(): int
     {
         return $this->get('id');
     }
 
     /**
-     * @param bool $id
+     * @param int $id
      * @return $this
      */
-    public function setId(bool $id): static
+    public function setId(int $id): static
     {
         return $this->set('id', $id);
     }
@@ -281,57 +281,6 @@ class Shop extends Resource
     /**
      * @return string
      */
-    public function getCode(): string
-    {
-        return $this->get('code');
-    }
-
-    /**
-     * @param string $code
-     * @return $this
-     */
-    public function setCode(string $code): static
-    {
-        return $this->set('code', $code);
-    }
-
-    /**
-     * @return string
-     */
-    public function getCode3(): string
-    {
-        return $this->get('code3');
-    }
-
-    /**
-     * @param string $code3
-     * @return $this
-     */
-    public function setCode3(string $code3): static
-    {
-        return $this->set('code3', $code3);
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return $this->get('title');
-    }
-
-    /**
-     * @param string $title
-     * @return $this
-     */
-    public function setTitle(string $title): static
-    {
-        return $this->set('title', $title);
-    }
-
-    /**
-     * @return string
-     */
     public function getVatNumber(): string
     {
         return $this->get('vatNumber');
@@ -398,74 +347,6 @@ class Shop extends Resource
     }
 
     /**
-     * @return string
-     */
-    public function getShortcode(): string
-    {
-        return $this->get('shortcode');
-    }
-
-    /**
-     * @param string $shortcode
-     * @return $this
-     */
-    public function setShortcode(string $shortcode): static
-    {
-        return $this->set('shortcode', $shortcode);
-    }
-
-    /**
-     * @return string
-     */
-    public function getSymbol(): string
-    {
-        return $this->get('symbol');
-    }
-
-    /**
-     * @param string $symbol
-     * @return $this
-     */
-    public function setSymbol(string $symbol): static
-    {
-        return $this->set('symbol', $symbol);
-    }
-
-    /**
-     * @return bool
-     */
-    public function getIsDefault(): bool
-    {
-        return $this->get('isDefault');
-    }
-
-    /**
-     * @param bool $isDefault
-     * @return $this
-     */
-    public function setIsDefault(bool $isDefault): static
-    {
-        return $this->set('isDefault', $isDefault);
-    }
-
-    /**
-     * @return string
-     */
-    public function getCurrencyRate(): string
-    {
-        return $this->get('currencyRate');
-    }
-
-    /**
-     * @param string $currencyRate
-     * @return $this
-     */
-    public function setCurrencyRate(string $currencyRate): static
-    {
-        return $this->set('currencyRate', $currencyRate);
-    }
-
-    /**
      * @return Company
      */
     public function getCompany(): Company
@@ -482,57 +363,6 @@ class Shop extends Resource
         $this->set('company', $company);
 
         return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getResource(): array
-    {
-        return $this->get('resource');
-    }
-
-    /**
-     * @param array $resource
-     * @return $this
-     */
-    public function setResource(array $resource): static
-    {
-        return $this->set('resource', $resource);
-    }
-
-    /**
-     * @return string
-     */
-    public function getUrl(): string
-    {
-        return $this->get('url');
-    }
-
-    /**
-     * @param string $url
-     * @return $this
-     */
-    public function setUrl(string $url): static
-    {
-        return $this->set('url', $url);
-    }
-
-    /**
-     * @return string
-     */
-    public function getLink(): string
-    {
-        return $this->get('link');
-    }
-
-    /**
-     * @param string $link
-     * @return $this
-     */
-    public function setLink(string $link): static
-    {
-        return $this->set('link', $link);
     }
 
     /**

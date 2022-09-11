@@ -7,18 +7,18 @@ class Product extends Resource
 
 
     /**
-     * @return bool
+     * @return int
      */
-    public function getId(): bool
+    public function getId(): int
     {
         return $this->get('id');
     }
 
     /**
-     * @param bool $id
+     * @param int $id
      * @return $this
      */
-    public function setId(bool $id): static
+    public function setId(int $id): static
     {
         return $this->set('id', $id);
     }
@@ -262,74 +262,6 @@ class Product extends Resource
     }
 
     /**
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->get('name');
-    }
-
-    /**
-     * @param string $name
-     * @return $this
-     */
-    public function setName(string $name): static
-    {
-        return $this->set('name', $name);
-    }
-
-    /**
-     * @return array
-     */
-    public function getOptions(): array
-    {
-        return $this->get('options');
-    }
-
-    /**
-     * @param array $options
-     * @return $this
-     */
-    public function setOptions(array $options): static
-    {
-        return $this->set('options', $options);
-    }
-
-    /**
-     * @return int
-     */
-    public function getSortOrder(): int
-    {
-        return $this->get('sortOrder');
-    }
-
-    /**
-     * @param int $sortOrder
-     * @return $this
-     */
-    public function setSortOrder(int $sortOrder): static
-    {
-        return $this->set('sortOrder', $sortOrder);
-    }
-
-    /**
-     * @return array
-     */
-    public function getValues(): array
-    {
-        return $this->get('values');
-    }
-
-    /**
-     * @param array $values
-     * @return $this
-     */
-    public function setValues(array $values): static
-    {
-        return $this->set('values', $values);
-    }
-
-    /**
      * @return Brand
      */
     public function getBrand(): Brand
@@ -346,40 +278,6 @@ class Product extends Resource
         $this->set('brand', $brand);
 
         return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getResource(): array
-    {
-        return $this->get('resource');
-    }
-
-    /**
-     * @param array $resource
-     * @return $this
-     */
-    public function setResource(array $resource): static
-    {
-        return $this->set('resource', $resource);
-    }
-
-    /**
-     * @return string
-     */
-    public function getLink(): string
-    {
-        return $this->get('link');
-    }
-
-    /**
-     * @param string $link
-     * @return $this
-     */
-    public function setLink(string $link): static
-    {
-        return $this->set('link', $link);
     }
 
     /**
@@ -435,74 +333,6 @@ class Product extends Resource
     public function setImage(array $image): static
     {
         return $this->set('image', $image);
-    }
-
-    /**
-     * @return string
-     */
-    public function getExtension(): string
-    {
-        return $this->get('extension');
-    }
-
-    /**
-     * @param string $extension
-     * @return $this
-     */
-    public function setExtension(string $extension): static
-    {
-        return $this->set('extension', $extension);
-    }
-
-    /**
-     * @return int
-     */
-    public function getSize(): int
-    {
-        return $this->get('size');
-    }
-
-    /**
-     * @param int $size
-     * @return $this
-     */
-    public function setSize(int $size): static
-    {
-        return $this->set('size', $size);
-    }
-
-    /**
-     * @return string
-     */
-    public function getThumb(): string
-    {
-        return $this->get('thumb');
-    }
-
-    /**
-     * @param string $thumb
-     * @return $this
-     */
-    public function setThumb(string $thumb): static
-    {
-        return $this->set('thumb', $thumb);
-    }
-
-    /**
-     * @return string
-     */
-    public function getSrc(): string
-    {
-        return $this->get('src');
-    }
-
-    /**
-     * @param string $src
-     * @return $this
-     */
-    public function setSrc(string $src): static
-    {
-        return $this->set('src', $src);
     }
 
     /**

@@ -91,38 +91,4 @@ class Set extends Resource
         return $this->set('options', $options);
     }
 
-    /**
-     * @return int
-     */
-    public function getSortOrder(): int
-    {
-        return $this->get('sortOrder');
-    }
-
-    /**
-     * @param int $sortOrder
-     * @return $this
-     */
-    public function setSortOrder(int $sortOrder): static
-    {
-        return $this->set('sortOrder', $sortOrder);
-    }
-
-    /**
-     * @return array
-     */
-    public function getValues(): array
-    {
-        return $this->get('values');
-    }
-
-    /**
-     * @param array $values
-     * @return $this
-     */
-    public function setValues(array $values): static
-    {
-        return $this->set('values', $values);
-    }
-
 }

@@ -329,23 +329,4 @@ class return extends Resource
         return $this->set('orderProducts', $orderProducts);
     }
 
-    /**
-     * @return int
-     */
-    public
-    function getQuantity(): int
-    {
-        return $this->get('quantity');
-    }
-
-    /**
-     * @param int $quantity
-     * @return $this
-     */
-    public
-    function setQuantity(int $quantity): static
-    {
-        return $this->set('quantity', $quantity);
-    }
-
 }

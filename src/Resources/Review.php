@@ -147,57 +147,6 @@ class Review extends Resource
     /**
      * @return array
      */
-    public function getResource(): array
-    {
-        return $this->get('resource');
-    }
-
-    /**
-     * @param array $resource
-     * @return $this
-     */
-    public function setResource(array $resource): static
-    {
-        return $this->set('resource', $resource);
-    }
-
-    /**
-     * @return string
-     */
-    public function getUrl(): string
-    {
-        return $this->get('url');
-    }
-
-    /**
-     * @param string $url
-     * @return $this
-     */
-    public function setUrl(string $url): static
-    {
-        return $this->set('url', $url);
-    }
-
-    /**
-     * @return string
-     */
-    public function getLink(): string
-    {
-        return $this->get('link');
-    }
-
-    /**
-     * @param string $link
-     * @return $this
-     */
-    public function setLink(string $link): static
-    {
-        return $this->set('link', $link);
-    }
-
-    /**
-     * @return array
-     */
     public function getLanguage(): array
     {
         return $this->get('language');
@@ -210,57 +159,6 @@ class Review extends Resource
     public function setLanguage(array $language): static
     {
         return $this->set('language', $language);
-    }
-
-    /**
-     * @return string
-     */
-    public function getCode(): string
-    {
-        return $this->get('code');
-    }
-
-    /**
-     * @param string $code
-     * @return $this
-     */
-    public function setCode(string $code): static
-    {
-        return $this->set('code', $code);
-    }
-
-    /**
-     * @return string
-     */
-    public function getLocale(): string
-    {
-        return $this->get('locale');
-    }
-
-    /**
-     * @param string $locale
-     * @return $this
-     */
-    public function setLocale(string $locale): static
-    {
-        return $this->set('locale', $locale);
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return $this->get('title');
-    }
-
-    /**
-     * @param string $title
-     * @return $this
-     */
-    public function setTitle(string $title): static
-    {
-        return $this->set('title', $title);
     }
 
     /**

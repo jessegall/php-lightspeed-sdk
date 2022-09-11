@@ -7,18 +7,18 @@ class Category extends Resource
 
 
     /**
-     * @return bool
+     * @return int
      */
-    public function getId(): bool
+    public function getId(): int
     {
         return $this->get('id');
     }
 
     /**
-     * @param bool $id
+     * @param int $id
      * @return $this
      */
-    public function setId(bool $id): static
+    public function setId(int $id): static
     {
         return $this->set('id', $id);
     }
@@ -278,40 +278,6 @@ class Category extends Resource
         $this->set('parent', $parent);
 
         return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getResource(): array
-    {
-        return $this->get('resource');
-    }
-
-    /**
-     * @param array $resource
-     * @return $this
-     */
-    public function setResource(array $resource): static
-    {
-        return $this->set('resource', $resource);
-    }
-
-    /**
-     * @return string
-     */
-    public function getLink(): string
-    {
-        return $this->get('link');
-    }
-
-    /**
-     * @param string $link
-     * @return $this
-     */
-    public function setLink(string $link): static
-    {
-        return $this->set('link', $link);
     }
 
     /**

@@ -16,9 +16,21 @@ class Resource
         $this->data = $data;
     }
 
+    public static function hydrate(): static
+    {
+
+    }
+
+    /**
+     * Overrides the set method from the HasArrayData trait to make it a fluent setter
+     *
+     * @param array|string $key
+     * @param mixed|null $value
+     * @return $this
+     */
     public function set(array|string $key, mixed $value = null): static
     {
-        $this->set($key, $value);
+        $this->__set($key, $value);
 
         return $this;
     }

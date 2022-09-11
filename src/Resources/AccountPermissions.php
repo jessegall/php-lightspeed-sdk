@@ -24,40 +24,6 @@ class AccountPermissions extends Resource
     }
 
     /**
-     * @return bool
-     */
-    public function getRead(): bool
-    {
-        return $this->get('read');
-    }
-
-    /**
-     * @param bool $read
-     * @return $this
-     */
-    public function setRead(bool $read): static
-    {
-        return $this->set('read', $read);
-    }
-
-    /**
-     * @return bool
-     */
-    public function getWrite(): bool
-    {
-        return $this->get('write');
-    }
-
-    /**
-     * @param bool $write
-     * @return $this
-     */
-    public function setWrite(bool $write): static
-    {
-        return $this->set('write', $write);
-    }
-
-    /**
      * @return array
      */
     public function getProducts(): array

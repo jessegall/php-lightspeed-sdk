@@ -7,18 +7,18 @@ class Order extends Resource
 
 
     /**
-     * @return bool
+     * @return int
      */
-    public function getId(): bool
+    public function getId(): int
     {
         return $this->get('id');
     }
 
     /**
-     * @param bool $id
+     * @param int $id
      * @return $this
      */
-    public function setId(bool $id): static
+    public function setId(int $id): static
     {
         return $this->set('id', $id);
     }
@@ -670,57 +670,6 @@ class Order extends Resource
     }
 
     /**
-     * @return string
-     */
-    public function getCode(): string
-    {
-        return $this->get('code');
-    }
-
-    /**
-     * @param string $code
-     * @return $this
-     */
-    public function setCode(string $code): static
-    {
-        return $this->set('code', $code);
-    }
-
-    /**
-     * @return string
-     */
-    public function getCode3(): string
-    {
-        return $this->get('code3');
-    }
-
-    /**
-     * @param string $code3
-     * @return $this
-     */
-    public function setCode3(string $code3): static
-    {
-        return $this->set('code3', $code3);
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return $this->get('title');
-    }
-
-    /**
-     * @param string $title
-     * @return $this
-     */
-    public function setTitle(string $title): static
-    {
-        return $this->set('title', $title);
-    }
-
-    /**
      * @return array
      */
     public function getAddressBillingRegionData(): array
@@ -735,23 +684,6 @@ class Order extends Resource
     public function setAddressBillingRegionData(array $addressBillingRegionData): static
     {
         return $this->set('addressBillingRegionData', $addressBillingRegionData);
-    }
-
-    /**
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->get('name');
-    }
-
-    /**
-     * @param string $name
-     * @return $this
-     */
-    public function setName(string $name): static
-    {
-        return $this->set('name', $name);
     }
 
     /**
@@ -1044,40 +976,6 @@ class Order extends Resource
     }
 
     /**
-     * @return float
-     */
-    public function getRate(): float
-    {
-        return $this->get('rate');
-    }
-
-    /**
-     * @param float $rate
-     * @return $this
-     */
-    public function setRate(float $rate): static
-    {
-        return $this->set('rate', $rate);
-    }
-
-    /**
-     * @return float
-     */
-    public function getAmount(): float
-    {
-        return $this->get('amount');
-    }
-
-    /**
-     * @param float $amount
-     * @return $this
-     */
-    public function setAmount(float $amount): static
-    {
-        return $this->set('amount', $amount);
-    }
-
-    /**
      * @return int
      */
     public function getPaymentBasePriceExcl(): int
@@ -1177,23 +1075,6 @@ class Order extends Resource
     public function setPaymentData(array $paymentData): static
     {
         return $this->set('paymentData', $paymentData);
-    }
-
-    /**
-     * @return string
-     */
-    public function getMethod(): string
-    {
-        return $this->get('method');
-    }
-
-    /**
-     * @param string $method
-     * @return $this
-     */
-    public function setMethod(string $method): static
-    {
-        return $this->set('method', $method);
     }
 
     /**
@@ -1432,40 +1313,6 @@ class Order extends Resource
     public function setShipmentData(array $shipmentData): static
     {
         return $this->set('shipmentData', $shipmentData);
-    }
-
-    /**
-     * @return int
-     */
-    public function getShipment_id(): int
-    {
-        return $this->get('shipment_id');
-    }
-
-    /**
-     * @param int $shipment_id
-     * @return $this
-     */
-    public function setShipment_id(int $shipment_id): static
-    {
-        return $this->set('shipment_id', $shipment_id);
-    }
-
-    /**
-     * @return int
-     */
-    public function getShipping_value_id(): int
-    {
-        return $this->get('shipping_value_id');
-    }
-
-    /**
-     * @param int $shipping_value_id
-     * @return $this
-     */
-    public function setShipping_value_id(int $shipping_value_id): static
-    {
-        return $this->set('shipping_value_id', $shipping_value_id);
     }
 
     /**
@@ -1741,23 +1588,6 @@ class Order extends Resource
     }
 
     /**
-     * @return string
-     */
-    public function getLocale(): string
-    {
-        return $this->get('locale');
-    }
-
-    /**
-     * @param string $locale
-     * @return $this
-     */
-    public function setLocale(string $locale): static
-    {
-        return $this->set('locale', $locale);
-    }
-
-    /**
      * @return Customer
      */
     public function getCustomer(): Customer
@@ -1774,57 +1604,6 @@ class Order extends Resource
         $this->set('customer', $customer);
 
         return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getResource(): array
-    {
-        return $this->get('resource');
-    }
-
-    /**
-     * @param array $resource
-     * @return $this
-     */
-    public function setResource(array $resource): static
-    {
-        return $this->set('resource', $resource);
-    }
-
-    /**
-     * @return string
-     */
-    public function getUrl(): string
-    {
-        return $this->get('url');
-    }
-
-    /**
-     * @param string $url
-     * @return $this
-     */
-    public function setUrl(string $url): static
-    {
-        return $this->set('url', $url);
-    }
-
-    /**
-     * @return string
-     */
-    public function getLink(): string
-    {
-        return $this->get('link');
-    }
-
-    /**
-     * @param string $link
-     * @return $this
-     */
-    public function setLink(string $link): static
-    {
-        return $this->set('link', $link);
     }
 
     /**

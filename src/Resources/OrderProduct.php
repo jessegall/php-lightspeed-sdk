@@ -126,57 +126,6 @@ class OrderProduct extends Resource
     }
 
     /**
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->get('name');
-    }
-
-    /**
-     * @param string $name
-     * @return $this
-     */
-    public function setName(string $name): static
-    {
-        return $this->set('name', $name);
-    }
-
-    /**
-     * @return float
-     */
-    public function getRate(): float
-    {
-        return $this->get('rate');
-    }
-
-    /**
-     * @param float $rate
-     * @return $this
-     */
-    public function setRate(float $rate): static
-    {
-        return $this->set('rate', $rate);
-    }
-
-    /**
-     * @return float
-     */
-    public function getAmount(): float
-    {
-        return $this->get('amount');
-    }
-
-    /**
-     * @param float $amount
-     * @return $this
-     */
-    public function setAmount(float $amount): static
-    {
-        return $this->set('amount', $amount);
-    }
-
-    /**
      * @return int
      */
     public function getQuantityOrdered(): int
@@ -601,57 +550,6 @@ class OrderProduct extends Resource
         $this->set('product', $product);
 
         return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getResource(): array
-    {
-        return $this->get('resource');
-    }
-
-    /**
-     * @param array $resource
-     * @return $this
-     */
-    public function setResource(array $resource): static
-    {
-        return $this->set('resource', $resource);
-    }
-
-    /**
-     * @return string
-     */
-    public function getUrl(): string
-    {
-        return $this->get('url');
-    }
-
-    /**
-     * @param string $url
-     * @return $this
-     */
-    public function setUrl(string $url): static
-    {
-        return $this->set('url', $url);
-    }
-
-    /**
-     * @return string
-     */
-    public function getLink(): string
-    {
-        return $this->get('link');
-    }
-
-    /**
-     * @param string $link
-     * @return $this
-     */
-    public function setLink(string $link): static
-    {
-        return $this->set('link', $link);
     }
 
     /**
