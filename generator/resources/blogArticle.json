@@ -1,0 +1,42 @@
+{
+    "blogArticle": {
+        "id": 23154,
+        "createdAt": "2019-08-12T20:19:07+00:00",
+        "updatedAt": "2019-08-12T20:19:59+00:00",
+        "publishedAt": "2018-04-09T14:17:40+00:00",
+        "isPublished": true,
+        "url": "article",
+        "title": "Article",
+        "author": "John Doe",
+        "summary": "excerpt",
+        "content": "article",
+        "image": false,
+        "language": {
+            "id": 18,
+            "code": "us",
+            "locale": "en_US",
+            "title": "English (US)"
+        },
+        "blog": {
+            "resource": {
+                "id": 3851,
+                "url": "blogs/3851",
+                "link": "https://api.shoplightspeed.com/us/blogs/3851.json"
+            }
+        },
+        "comments": {
+            "resource": {
+                "id": false,
+                "url": "blogs/comments?article=23154",
+                "link": "https://api.shoplightspeed.com/us/blogs/comments.json?article=23154"
+            }
+        },
+        "tags": {
+            "resource": {
+                "id": false,
+                "url": "blogs/articles/tags?article=23154",
+                "link": "https://api.shoplightspeed.com/us/blogs/articles/tags.json?article=23154"
+            }
+        }
+    }
+}

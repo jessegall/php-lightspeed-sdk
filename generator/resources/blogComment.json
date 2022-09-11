@@ -1,0 +1,33 @@
+{
+    "blogComment": {
+        "id": 3428,
+        "createdAt": "2019-08-13T14:32:24+00:00",
+        "updatedAt": "2019-08-13T14:32:24+00:00",
+        "isApproved": true,
+        "from": "customer",
+        "name": "lightspeed Test",
+        "email": "info@lightspeedhq.com",
+        "content": "Comment Content",
+        "language": {
+            "id": 18,
+            "code": "us",
+            "locale": "en_US",
+            "title": "English (US)"
+        },
+        "blog": {
+            "resource": {
+                "id": 3851,
+                "url": "blogs/3851",
+                "link": "https://api.shoplightspeed.com/us/blogs/3851.json"
+            }
+        },
+        "article": {
+            "resource": {
+                "id": 23154,
+                "url": "blogs/articles/23154",
+                "link": "https://api.shoplightspeed.com/us/blogs/articles/23154.json"
+            }
+        },
+        "customer": false
+    }
+}

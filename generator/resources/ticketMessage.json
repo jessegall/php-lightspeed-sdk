@@ -1,0 +1,9 @@
+{
+    "ticketMessage": {
+        "id": 20337,
+        "createdAt": "2019-08-07T19:04:03+00:00",
+        "updatedAt": null,
+        "from": "customer",
+        "message": "Ticket Message"
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "group": {
+        "id": 2694,
+        "createdAt": "2019-09-06T18:31:23+00:00",
+        "updatedAt": "2019-09-06T18:31:23+00:00",
+        "title": "Customer Group",
+        "customers": {
+            "resource": {
+                "id": false,
+                "url": "groups/customers?group=2694",
+                "link": "https://api.shoplightspeed.com/us/groups/customers.json?group=2694"
+            }
+        }
+    }
+}

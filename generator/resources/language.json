@@ -1,0 +1,10 @@
+{
+    "language": {
+        "id": 18,
+        "isActive": true,
+        "isDefault": true,
+        "code": "us",
+        "locale": "en_US",
+        "title": "English (US)"
+    }
+}

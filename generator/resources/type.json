@@ -1,0 +1,13 @@
+{
+    "type": {
+        "id": 3029,
+        "title": "Sunglasses",
+        "attributes": {
+            "resource": {
+                "id": false,
+                "url": "types/attributes?type=3029",
+                "link": "https://api.shoplightspeed.com/us/types/attributes.json?type=3029"
+            }
+        }
+    }
+}

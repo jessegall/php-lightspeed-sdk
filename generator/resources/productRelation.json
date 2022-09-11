@@ -1,0 +1,13 @@
+{
+    "productRelation": {
+        "id": 3662505,
+        "sortOrder": 0,
+        "relatedProduct": {
+            "resource": {
+                "id": 20967264,
+                "url": "products/20967264",
+                "link": "https://api.shoplightspeed.com/us/products/20967264.json"
+            }
+        }
+    }
+}

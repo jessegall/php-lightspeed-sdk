@@ -1,0 +1,11 @@
+{
+    "externalService": {
+        "id": 1861,
+        "type": "payment",
+        "name": "External Payment",
+        "urlEndpoint": "https://api.yourdomainhere.com/",
+        "isActive": true,
+        "createdAt": "2019-09-18T19:21:34+00:00",
+        "updatedAt": "2019-09-18T19:21:34+00:00"
+    }
+}

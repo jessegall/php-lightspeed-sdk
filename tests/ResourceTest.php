@@ -84,18 +84,5 @@ class ResourceTest extends TestCase
         $this->assertNull($this->resource->mapTo('missing_relation', TestResource::class));
     }
 
-    public function test_throws_exception_when_class_is_not_a_subclass_of_resource()
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->resource->mapTo('single_relation', stdClass::class);
-    }
-
-    public function test_throws_exception_when_key_does_not_point_to_an_array()
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        $this->resource->mapTo('item_one', TestResource::class);
-    }
 
 }

@@ -1,0 +1,55 @@
+{
+    "orderProduct": {
+        "id": 3661590,
+        "supplierTitle": "Clay Cactus",
+        "brandTitle": "Pyrex",
+        "productTitle": "Butterprint Bowl",
+        "variantTitle": "butterprintbowl",
+        "taxRate": 0.05,
+        "taxRates": [
+            {
+                "name": "GST",
+                "rate": 0.05,
+                "amount": 0.95
+            }
+        ],
+        "quantityOrdered": 1,
+        "quantityInvoiced": 1,
+        "quantityShipped": 1,
+        "quantityRefunded": 1,
+        "quantityReturned": 0,
+        "articleCode": "butterprintbowl",
+        "ean": "",
+        "sku": "",
+        "weight": 0,
+        "volume": 0,
+        "colli": 0,
+        "sizeX": 0,
+        "sizeY": 0,
+        "sizeZ": 0,
+        "priceCost": 0,
+        "customExcl": 0,
+        "customIncl": 0,
+        "basePriceExcl": 40,
+        "basePriceIncl": 42,
+        "priceExcl": 19,
+        "priceIncl": 19.95,
+        "discountExcl": 21,
+        "discountIncl": 22.05,
+        "customFields": false,
+        "product": {
+            "resource": {
+                "id": 20967258,
+                "url": "products/20967258",
+                "link": "https://api.shoplightspeed.com/us/products/20967258.json"
+            }
+        },
+        "variant": {
+            "resource": {
+                "id": 34771155,
+                "url": "variants/34771155",
+                "link": "https://api.shoplightspeed.com/us/variants/34771155.json"
+            }
+        }
+    }
+}

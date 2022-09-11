@@ -1,0 +1,8 @@
+{
+    "tax": {
+        "id": 26998,
+        "isDefault": true,
+        "rate": 0.1,
+        "title": "Default Tax"
+    }
+}

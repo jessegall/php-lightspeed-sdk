@@ -1,0 +1,18 @@
+{
+    "contact": {
+        "id": 98382,
+        "createdAt": "2019-08-20T15:45:38+00:00",
+        "name": "John Doe",
+        "company": "Lightspeed",
+        "email": "info@lightspeedhq.com",
+        "phone": "5555555555",
+        "subject": "Hello",
+        "message": "This is a contact message",
+        "language": {
+            "id": 18,
+            "code": "us",
+            "locale": "en_US",
+            "title": "English (US)"
+        }
+    }
+}

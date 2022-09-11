@@ -1,0 +1,14 @@
+{
+    "attribute": {
+        "id": 15992,
+        "title": "Camera",
+        "defaultValue": "Nikon",
+        "types": {
+            "resource": {
+                "id": false,
+                "url": "types/attributes?type=15992",
+                "link": "https://api.shoplightspeed.com/en/types/attributes.json?attribute=15992"
+            }
+        }
+    }
+}

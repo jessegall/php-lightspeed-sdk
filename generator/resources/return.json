@@ -1,0 +1,26 @@
+{
+    "return": {
+        "id": 17792,
+        "createdAt": "2019-09-18T17:46:09+00:00",
+        "updatedAt": "2019-09-18T17:46:09+00:00",
+        "customerId": 2026523,
+        "orderId": 1623573,
+        "status": "authorized",
+        "numProducts": 0,
+        "priceExcl": "29.00",
+        "priceIncl": "30.45",
+        "isStockAdjusted": true,
+        "returnReason": "Return Reason",
+        "returnAction": "Return Action",
+        "customerComment": "Customer Comment",
+        "staffNote": "Note for Staff",
+        "mailMessage": "Customer Message",
+        "notifyStatus": false,
+        "orderProducts": [
+            {
+                "id": 3515329,
+                "quantity": 1
+            }
+        ]
+    }
+}

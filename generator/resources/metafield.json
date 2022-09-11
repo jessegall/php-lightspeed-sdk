@@ -1,0 +1,18 @@
+{
+    "metafield": {
+        "id": 5571481,
+        "createdAt": "2019-08-20T16:41:30+00:00",
+        "updatedAt": "2019-08-20T16:47:03+00:00",
+        "key": "external_email",
+        "value": "info@lightspeedhq.com",
+        "ownerType": "customer",
+        "ownerId": 2145124,
+        "ownerResource": {
+            "resource": {
+                "id": 2145124,
+                "url": "customers/2145124",
+                "link": "https://api.shoplightspeed.com/us/customers/2145124.json"
+            }
+        }
+    }
+}

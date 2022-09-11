@@ -1,0 +1,46 @@
+{
+    "quoteProduct": {
+        "id": 32944757,
+        "createdAt": "2019-08-21T14:58:24+00:00",
+        "updatedAt": "2019-08-21T14:58:32+00:00",
+        "isCustom": false,
+        "customFields": false,
+        "baseWeight": 0,
+        "baseVolume": 0,
+        "baseColli": 0,
+        "basePriceCost": 0,
+        "basePriceExcl": 50,
+        "basePriceIncl": 52.5,
+        "weight": 0,
+        "volume": 0,
+        "colli": 0,
+        "quantity": 5,
+        "hasDiscount": true,
+        "discountPercentage": 0,
+        "taxRate": 0.05,
+        "priceCost": 0,
+        "priceTax": 11.25,
+        "priceExcl": 225,
+        "priceIncl": 236.25,
+        "discountExcl": 25,
+        "discountIncl": 26.25,
+        "additionalCostIncl": 0,
+        "additionalCostExcl": 0,
+        "baseAdditionalCostIncl": 0,
+        "baseAdditionalCostExcl": 0,
+        "product": {
+            "resource": {
+                "id": 20967251,
+                "url": "products/20967251",
+                "link": "https://api.shoplightspeed.com/us/products/20967251.json"
+            }
+        },
+        "variant": {
+            "resource": {
+                "id": 34771147,
+                "url": "variants/34771147",
+                "link": "https://api.shoplightspeed.com/us/variants/34771147.json"
+            }
+        }
+    }
+}

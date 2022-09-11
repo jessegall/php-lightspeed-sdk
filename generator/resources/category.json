@@ -1,0 +1,44 @@
+{
+    "category": {
+        "id": 1541387,
+        "createdAt": "2019-05-28T15:25:48+00:00",
+        "updatedAt": "2019-05-28T15:25:49+00:00",
+        "isVisible": true,
+        "depth": 3,
+        "path": [
+            "1541387",
+            "1541383",
+            "1541378"
+        ],
+        "type": "category",
+        "sortOrder": 2,
+        "sorting": "popular",
+        "url": "clothes/womens/footwear",
+        "title": "Footwear",
+        "fulltitle": "Footwear",
+        "description": "",
+        "content": "",
+        "image": false,
+        "parent": {
+            "resource": {
+                "id": 1541383,
+                "url": "categories/1541383",
+                "link": "https://api.shoplightspeed.com/us/categories/1541383.json"
+            }
+        },
+        "children": {
+            "resource": {
+                "id": false,
+                "url": "categories?parent=1541387",
+                "link": "https://api.shoplightspeed.com/us/categories.json?parent=1541387"
+            }
+        },
+        "products": {
+            "resource": {
+                "id": false,
+                "url": "categories/products?category=1541387",
+                "link": "https://api.shoplightspeed.com/us/categories/products.json?category=1541387"
+            }
+        }
+    }
+}

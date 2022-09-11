@@ -1,0 +1,19 @@
+{
+    "groupsCustomer": {
+        "id": 61038,
+        "group": {
+            "resource": {
+                "id": 2694,
+                "url": "groups/2694",
+                "link": "https://api.shoplightspeed.com/us/groups/2694.json"
+            }
+        },
+        "customer": {
+            "resource": {
+                "id": 2178882,
+                "url": "customers/2178882",
+                "link": "https://api.shoplightspeed.com/us/customers/2178882.json"
+            }
+        }
+    }
+}

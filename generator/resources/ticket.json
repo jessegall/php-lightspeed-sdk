@@ -1,0 +1,33 @@
+{
+    "ticket": {
+        "id": 2546,
+        "createdAt": "2018-01-25T18:21:47+00:00",
+        "updatedAt": "2018-01-25T18:21:47+00:00",
+        "isAnswered": false,
+        "isClosed": false,
+        "isTodo": false,
+        "subject": "test ticket",
+        "memo": "",
+        "doNotifyAnswered": false,
+        "language": {
+            "id": 18,
+            "code": "us",
+            "locale": "en_US",
+            "title": "English (US)"
+        },
+        "customer": {
+            "resource": {
+                "id": 1118417,
+                "url": "customers/1118417",
+                "link": "https://api.shoplightspeed.com/us/customers/1118417.json"
+            }
+        },
+        "messages": {
+            "resource": {
+                "id": false,
+                "url": "tickets/2546/messages",
+                "link": "https://api.shoplightspeed.com/us/tickets/2546/messages.json"
+            }
+        }
+    }
+}

@@ -1,0 +1,188 @@
+{
+    "discount":  {
+        "id": 922444,
+        "createdAt": "2019-08-20T17:10:06+00:00",
+        "updatedAt": "2019-08-20T17:13:14+00:00",
+        "isActive": true,
+        "startDate": "2019-08-20",
+        "endDate": "2019-09-03",
+        "type": "percentage",
+        "discount": 25,
+        "applyTo": "productscategories",
+        "shipment": "default",
+        "usageLimit": 10,
+        "timesUsed": 0,
+        "minimumAmount": 0,
+        "before_tax": true,
+        "minimum_after": true,
+        "code": "coupon_code",
+        "categories": [
+            {
+                "id": 1541364,
+                "createdAt": "2019-05-28T15:25:36+00:00",
+                "updatedAt": "2019-05-28T16:04:49+00:00",
+                "isVisible": true,
+                "depth": 1,
+                "path": [
+                    "1541364"
+                ],
+                "type": "category",
+                "sortOrder": 1,
+                "sorting": "popular",
+                "url": "ceramics",
+                "title": "Ceramics",
+                "fulltitle": "Ceramics",
+                "description": "",
+                "content": "<p>Ceramics</p>",
+                "image": false,
+                "parent": false,
+                "children": {
+                    "resource": {
+                        "id": false,
+                        "url": "categories?parent=1541364",
+                        "link": "https://api.shoplightspeed.com/us/categories.json?parent=1541364"
+                    }
+                },
+                "products": {
+                    "resource": {
+                        "id": false,
+                        "url": "categories/products?category=1541364",
+                        "link": "https://api.shoplightspeed.com/us/categories/products.json?category=1541364"
+                    }
+                }
+            }
+        ],
+        "products": [
+            {
+                "id": 20967270,
+                "createdAt": "2019-05-28T15:25:48+00:00",
+                "updatedAt": "2019-08-13T15:05:50+00:00",
+                "isVisible": true,
+                "visibility": "visible",
+                "hasMatrix": false,
+                "data01": "",
+                "data02": "",
+                "data03": "",
+                "url": "toms-shoes-cactus-print",
+                "title": "Cactus TOMS",
+                "fulltitle": "Cactus TOMS",
+                "description": "Toms Shoes - Cactus Print",
+                "content": "<div class=\"row\">\r\n<div class=\"col-sm-12\">\r\n<div class=\"tabs\">\r\n<div class=\"tab-content\">\r\n<div id=\"tab-description\" class=\"entry-content in fade tab-pane active\">\r\n<p>Although the print may feature a prickly plant, these Classic Alpargatas are sure to keep feet comfortable all day long. The playful pattern adds a quirky touch to any outfit.<br />Fern green cactus printed canvas upper <br />Traditional Alpargata style with elastic “V” for easy fit <br />Vegan <br />Removable molded insole, cotton twill sock liner fights bacteria <br />Rubber outsole for increased traction <br />With every pair of shoes you purchase, TOMS will give a new pair of shoes to a child in need. One for One®</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n<div class=\"row\">\r\n<div class=\"related products\"> </div>\r\n</div>",
+                "set": {
+                    "id": 2784,
+                    "createdAt": "2019-05-28T15:31:12+00:00",
+                    "updatedAt": "2019-05-28T15:47:31+00:00",
+                    "name": "Shoes",
+                    "options": [
+                        {
+                            "id": 4625,
+                            "sortOrder": 1,
+                            "name": "Size",
+                            "values": [
+                                {
+                                    "id": 14040,
+                                    "sortOrder": 1,
+                                    "name": "6"
+                                },
+                                {
+                                    "id": 14041,
+                                    "sortOrder": 2,
+                                    "name": "7"
+                                },
+                                {
+                                    "id": 14042,
+                                    "sortOrder": 3,
+                                    "name": "8"
+                                },
+                                {
+                                    "id": 14043,
+                                    "sortOrder": 4,
+                                    "name": "9"
+                                },
+                                {
+                                    "id": 14044,
+                                    "sortOrder": 5,
+                                    "name": "10"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "brand": {
+                    "resource": {
+                        "id": 1171079,
+                        "url": "brands/1171079",
+                        "link": "https://api.shoplightspeed.com/us/brands/1171079.json"
+                    }
+                },
+                "categories": {
+                    "resource": {
+                        "id": false,
+                        "url": "categories/products?product=20967270",
+                        "link": "https://api.shoplightspeed.com/us/categories/products.json?product=20967270"
+                    }
+                },
+                "deliverydate": false,
+                "image": false,
+                "images": false,
+                "relations": {
+                    "resource": {
+                        "id": false,
+                        "url": "products/20967270/relations",
+                        "link": "https://api.shoplightspeed.com/us/products/20967270/relations.json"
+                    }
+                },
+                "metafields": {
+                    "resource": {
+                        "id": false,
+                        "url": "products/20967270/metafields",
+                        "link": "https://api.shoplightspeed.com/us/products/20967270/metafields.json"
+                    }
+                },
+                "reviews": {
+                    "resource": {
+                        "id": false,
+                        "url": "reviews?product=20967270",
+                        "link": "https://api.shoplightspeed.com/us/reviews.json?product=20967270"
+                    }
+                },
+                "type": false,
+                "attributes": {
+                    "resource": {
+                        "id": false,
+                        "url": "products/20967270/attributes",
+                        "link": "https://api.shoplightspeed.com/us/products/20967270/attributes.json"
+                    }
+                },
+                "supplier": {
+                    "resource": {
+                        "id": 78794,
+                        "url": "suppliers/78794",
+                        "link": "https://api.shoplightspeed.com/us/suppliers/78794.json"
+                    }
+                },
+                "tags": {
+                    "resource": {
+                        "id": false,
+                        "url": "tags/products?product=20967270",
+                        "link": "https://api.shoplightspeed.com/us/tags/products.json?product=20967270"
+                    }
+                },
+                "variants": {
+                    "resource": {
+                        "id": false,
+                        "url": "variants?product=20967270",
+                        "link": "https://api.shoplightspeed.com/us/variants.json?product=20967270"
+                    }
+                },
+                "movements": {
+                    "resource": {
+                        "id": false,
+                        "url": "variants/movements?product=20967270",
+                        "link": "https://api.shoplightspeed.com/us/variants/movements.json?product=20967270"
+                    }
+                }
+            }
+        ]
+    }
+}

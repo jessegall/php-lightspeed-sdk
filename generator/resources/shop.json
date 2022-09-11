@@ -1,0 +1,77 @@
+{
+    "shop": {
+        "id": 1,
+        "createdAt": "2019-05-28T14:09:52+00:00",
+        "status": "test",
+        "isB2b": true,
+        "isRetail": false,
+        "subDomain": "shop",
+        "mainDomain": "www.domain.com",
+        "email": "info@domain.com",
+        "phone": "555-555-5555",
+        "fax": "555-555-5555",
+        "street": "123 Street St.",
+        "street2": "Suite 123",
+        "zipcode": "10001",
+        "city": "New York",
+        "region": "New York",
+        "country": {
+            "id": 226,
+            "code": "us",
+            "code3": "usa",
+            "title": "United States"
+        },
+        "vatNumber": "123456789",
+        "cocNumber": "",
+        "industry": "",
+        "currency": {
+            "shortcode": "USD",
+            "symbol": "$",
+            "title": "United States Dollar",
+            "isDefault": false,
+            "currencyRate": "1.227560"
+        },
+        "company": {
+            "resource": {
+                "id": false,
+                "url": "shop/company",
+                "link": "https://api.shoplightspeed.com/us/shop/company.json"
+            }
+        },
+        "limits": {
+            "resource": {
+                "id": false,
+                "url": "shop/limits",
+                "link": "https://api.shoplightspeed.com/us/shop/limits.json"
+            }
+        },
+        "javascript": {
+            "resource": {
+                "id": false,
+                "url": "shop/javascript",
+                "link": "https://api.shoplightspeed.com/us/shop/javascript.json"
+            }
+        },
+        "website": {
+            "resource": {
+                "id": false,
+                "url": "shop/website",
+                "link": "https://api.shoplightspeed.com/us/shop/website.json"
+            }
+        },
+        "scripts": {
+            "resource": {
+                "id": false,
+                "url": "shop/scripts",
+                "link": "https://api.shoplightspeed.com/us/shop/scripts.json"
+            }
+        },
+        "metafields": {
+            "resource": {
+                "id": false,
+                "url": "shop/metafields",
+                "link": "https://api.shoplightspeed.com/us/shop/metafields.json"
+            }
+        }
+    }
+}

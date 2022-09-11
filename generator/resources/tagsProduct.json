@@ -1,0 +1,19 @@
+{
+    "tagsProduct": {
+        "id": 6831828,
+        "tag": {
+            "resource": {
+                "id": 921421,
+                "url": "tags/921421",
+                "link": "https://api.shoplightspeed.com/us/tags/921421.json"
+            }
+        },
+        "product": {
+            "resource": {
+                "id": 17725047,
+                "url": "products/17725047",
+                "link": "https://api.shoplightspeed.com/us/products/17725047.json"
+            }
+        }
+    }
+}

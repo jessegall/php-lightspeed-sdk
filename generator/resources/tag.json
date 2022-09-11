@@ -1,0 +1,17 @@
+{
+    "tag": {
+        "id": 472694,
+        "createdAt": "2018-01-25T17:38:39+00:00",
+        "updatedAt": "2019-01-31T17:27:35+00:00",
+        "isVisible": true,
+        "url": "camera",
+        "title": "camera",
+        "products": {
+            "resource": {
+                "id": false,
+                "url": "tags/products?tag=472694",
+                "link": "https://api.shoplightspeed.com/us/tags/products.json?tag=472694"
+            }
+        }
+    }
+}

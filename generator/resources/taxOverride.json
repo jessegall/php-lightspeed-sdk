@@ -1,0 +1,19 @@
+{
+    "taxOverride": {
+        "id": 4568,
+        "rate": 0,
+        "country": {
+            "id": 38,
+            "code": "ca",
+            "code3": "can",
+            "title": "Canada"
+        },
+        "tax": {
+            "resource": {
+                "id": 26998,
+                "url": "taxes/26998",
+                "link": "https://api.shoplightspeed.com/us/taxes/26998.json"
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<?php
+
+namespace JesseGall\LightspeedSDK\Resources;
+
+use JesseGall\LightspeedSDK\Resources\Resource;
+
+class {{ class }} extends Resource
+{
+
+   {{ methods }}
+
+}

@@ -1,0 +1,26 @@
+{
+    "blogArticleTag": {
+        "id": 238896,
+        "blog": {
+            "resource": {
+                "id": 3851,
+                "url": "blogs/3851",
+                "link": "https://api.shoplightspeed.com/us/blogs/3851.json"
+            }
+        },
+        "article": {
+            "resource": {
+                "id": 23154,
+                "url": "blogs/articles/23154",
+                "link": "https://api.shoplightspeed.com/us/blogs/articles/23154.json"
+            }
+        },
+        "tag": {
+            "resource": {
+                "id": 25183,
+                "url": "blogs/tags/25183",
+                "link": "https://api.shoplightspeed.com/us/blogs/tags/25183.json"
+            }
+        }
+    }
+}

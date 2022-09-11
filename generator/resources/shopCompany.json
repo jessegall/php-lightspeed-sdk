@@ -1,0 +1,31 @@
+{
+    "shopCompany": {
+        "name": "api-test-shop",
+        "owner": null,
+        "cocNumber": "",
+        "cocLocation": null,
+        "vatNumber": "123456789",
+        "nationalId": "123456789",
+        "phone": "555-555-5555",
+        "email": "test@test.com",
+        "fax": "555-555-5555",
+        "street": "123 Street St.",
+        "street2": "Suite 123",
+        "zipcode": "10001",
+        "city": "New York",
+        "region": "New York",
+        "country": {
+            "id": 226,
+            "code": "us",
+            "code3": "usa",
+            "title": "United States"
+        },
+        "bankName": "The Bank",
+        "bankAccountHolder": "",
+        "bankAccountNumber": "",
+        "bankLocation": "new york",
+        "bankCode": "123456789",
+        "bankIban": "123456789",
+        "bankSwift": "123456789"
+    }
+}

@@ -1,0 +1,113 @@
+{
+    "quote": {
+        "id": 21645874,
+        "createdAt": "2019-09-17T20:47:30+00:00",
+        "updatedAt": "2019-09-17T20:47:30+00:00",
+        "recalculatedAt": "2019-09-17T20:47:30+00:00",
+        "isLocked": false,
+        "channel": "api",
+        "recoveryHash": "19709c7132f01f8a7c38aaaa21645874",
+        "remoteIp": false,
+        "userAgent": false,
+        "referralId": false,
+        "weight": 0,
+        "volume": 0,
+        "colli": 0,
+        "paymentCountry": {
+            "id": 38,
+            "code": "ca",
+            "code3": "can",
+            "title": "Canada"
+        },
+        "shipmentCountry": {
+            "id": 38,
+            "code": "ca",
+            "code3": "can",
+            "title": "Canada"
+        },
+        "shipmentZipcode": "h4a4r4",
+        "shipmentSameAddress": false,
+        "priceCost": 0,
+        "priceExcl": 0,
+        "priceIncl": 0,
+        "discountExcl": 0,
+        "discountIncl": 0,
+        "productsCount": 0,
+        "productsQuantity": 0,
+        "shipmentIsSet": false,
+        "shipmentId": "",
+        "shipmentIsVirtual": false,
+        "shipmentIsCashOnDelivery": false,
+        "shipmentDiscountPercentage": 0,
+        "shipmentIsServicePoint": false,
+        "shipmentIsPickup": false,
+        "shipmentTaxRate": 0,
+        "shipmentBasePriceExcl": 0,
+        "shipmentBasePriceIncl": 0,
+        "shipmentPriceTax": 0,
+        "shipmentPriceExcl": 0,
+        "shipmentPriceIncl": 0,
+        "shipmentDiscountExcl": 0,
+        "shipmentDiscountIncl": 0,
+        "shipmentTitle": "",
+        "shipmentData": [],
+        "paymentIsSet": false,
+        "paymentId": "",
+        "paymentIsPost": false,
+        "paymentIsInvoiceExternal": false,
+        "paymentData": "",
+        "paymentTaxRate": 0,
+        "paymentBasePriceExcl": 0,
+        "paymentBasePriceIncl": 0,
+        "paymentPriceTax": 0,
+        "paymentPriceExcl": 0,
+        "paymentPriceIncl": 0,
+        "additionalCostIncl": "0.0000",
+        "additionalCostExcl": "0.0000",
+        "paymentTitle": "",
+        "discountIsSet": false,
+        "discountId": 0,
+        "discountType": "amount",
+        "discountAmount": 0,
+        "discountPercentage": 0,
+        "discountShipment": "default",
+        "discountMinimumAmount": "0.00",
+        "discountCouponCode": "",
+        "comment": null,
+        "allowNotifications": true,
+        "customer": {
+            "resource": {
+                "id": 2179248,
+                "url": "customers/2179248",
+                "link": "https://api.shoplightspeed.com/us/customers/2179248.json"
+            }
+        },
+        "language": {
+            "id": 18,
+            "code": "us",
+            "locale": "en_US",
+            "title": "English (US)"
+        },
+        "products": {
+            "resource": {
+                "id": false,
+                "url": "quotes/21645874/products",
+                "link": "https://api.shoplightspeed.com/us/quotes/21645874/products.json"
+            }
+        },
+        "shippingmethods": {
+            "resource": {
+                "id": false,
+                "url": "quotes/21645874/shippingmethods",
+                "link": "https://api.shoplightspeed.com/us/quotes/21645874/shippingmethods.json"
+            }
+        },
+        "paymentmethods": {
+            "resource": {
+                "id": false,
+                "url": "quotes/21645874/paymentmethods",
+                "link": "https://api.shoplightspeed.com/us/quotes/21645874/paymentmethods.json"
+            }
+        }
+    }
+}

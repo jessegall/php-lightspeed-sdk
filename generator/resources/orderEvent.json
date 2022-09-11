@@ -1,0 +1,25 @@
+{
+    "orderEvent": {
+        "id": 15477773,
+        "createdAt": "2019-09-17T19:23:01+00:00",
+        "channel": "api",
+        "type": "invoice",
+        "message": "new",
+        "comment": null,
+        "order": {
+            "resource": {
+                "id": 1692324,
+                "url": "orders/1692324",
+                "link": "https://api.shoplightspeed.com/us/orders/1692324.json"
+            }
+        },
+        "invoice": {
+            "resource": {
+                "id": 1815233,
+                "url": "invoices/1815233",
+                "link": "https://api.shoplightspeed.com/us/invoices/1815233.json"
+            }
+        },
+        "shipment": false
+    }
+}

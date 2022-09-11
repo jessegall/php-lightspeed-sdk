@@ -1,0 +1,58 @@
+{
+    "invoice": {
+        "id": 1742005,
+        "createdAt": "2019-08-21T17:23:58+00:00",
+        "updatedAt": "2019-08-21T17:24:01+00:00",
+        "number": "INV00038",
+        "status": "not_paid",
+        "isVatShifted": false,
+        "priceExcl": 44.95,
+        "priceIncl": 44.95,
+        "doNotifyNew": false,
+        "doNotifyPaid": false,
+        "invoice": {
+            "resource": {
+                "id": 1742004,
+                "url": "invoices/1742004",
+                "link": "https://api.shoplightspeed.com/us/invoices/1742004.json"
+            }
+        },
+        "isCreditNote": true,
+        "creditNote": false,
+        "order": {
+            "resource": {
+                "id": 1623573,
+                "url": "orders/1623573",
+                "link": "https://api.shoplightspeed.com/us/orders/1623573.json"
+            }
+        },
+        "customer": {
+            "resource": {
+                "id": 2026523,
+                "url": "customers/2026523",
+                "link": "https://api.shoplightspeed.com/us/customers/2026523.json"
+            }
+        },
+        "items": {
+            "resource": {
+                "id": false,
+                "url": "invoices/1742005/items",
+                "link": "https://api.shoplightspeed.com/us/invoices/1742005/items.json"
+            }
+        },
+        "metafields": {
+            "resource": {
+                "id": false,
+                "url": "invoices/1742005/metafields",
+                "link": "https://api.shoplightspeed.com/us/invoices/1742005/metafields.json"
+            }
+        },
+        "events": {
+            "resource": {
+                "id": false,
+                "url": "orders/events?invoice=1742005",
+                "link": "https://api.shoplightspeed.com/us/orders/events.json?invoice=1742005"
+            }
+        }
+    }
+}

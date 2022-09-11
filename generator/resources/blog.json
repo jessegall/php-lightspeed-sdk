@@ -1,0 +1,32 @@
+{
+    "blog": {
+        "id": 3680,
+        "createdAt": "2019-06-05T19:45:28+00:00",
+        "updatedAt": "2019-06-05T19:45:28+00:00",
+        "sortOrder": 0,
+        "commentable": "no",
+        "url": "lorem-ipsum",
+        "title": "Lorem Ipsum",
+        "articles": {
+            "resource": {
+                "id": false,
+                "url": "blogs/articles?blog=3680",
+                "link": "https://api.shoplightspeed.com/us/blogs/articles.json?blog=3680"
+            }
+        },
+        "comments": {
+            "resource": {
+                "id": false,
+                "url": "blogs/comments?blog=3680",
+                "link": "https://api.shoplightspeed.com/us/blogs/comments.json?blog=3680"
+            }
+        },
+        "tags": {
+            "resource": {
+                "id": false,
+                "url": "blogs/tags?blog=3680",
+                "link": "https://api.shoplightspeed.com/us/blogs/tags.json?blog=3680"
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "blogTag": {
+        "id": 25181,
+        "createdAt": "2019-08-13T14:26:50+00:00",
+        "updatedAt": null,
+        "url": "tag1",
+        "title": "tag1",
+        "blog": {
+            "resource": {
+                "id": 3851,
+                "url": "blogs/3851",
+                "link": "https://api.shoplightspeed.com/us/blogs/3851.json"
+            }
+        },
+        "articles": {
+            "resource": {
+                "id": false,
+                "url": "blogs/articles/tags?tag=25181",
+                "link": "https://api.shoplightspeed.com/us/blogs/articles/tags.json?tag=25181"
+            }
+        }
+    }
+}

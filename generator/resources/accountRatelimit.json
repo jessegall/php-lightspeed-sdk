@@ -1,0 +1,22 @@
+{
+    "accountRatelimit": {
+        "limit5Min": {
+            "limit": 1000,
+            "remaining": 999,
+            "reset": 277,
+            "resetTime": "2019-08-12T18:10:00+00:00"
+        },
+        "limitHour": {
+            "limit": 12000,
+            "remaining": 11994,
+            "reset": 3277,
+            "resetTime": "2019-08-12T19:00:00+00:00"
+        },
+        "limitDay": {
+            "limit": 288000,
+            "remaining": 287993,
+            "reset": 21277,
+            "resetTime": "2019-08-13T00:00:00+00:00"
+        }
+    }
+}

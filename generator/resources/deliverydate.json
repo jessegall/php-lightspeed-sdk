@@ -1,0 +1,10 @@
+{
+    "deliverydate": {
+        "id": 6488,
+        "createdAt": "2019-05-28T15:38:35+00:00",
+        "updatedAt": "2019-05-28T15:38:35+00:00",
+        "name": "Standard Delivery",
+        "inStockMessage": "Ships in 1-3 Business Days",
+        "outStockMessage": "Ships in 2-3 Weeks"
+    }
+}

@@ -1,0 +1,98 @@
+{
+    "dashboard": {
+        "dateMin": "2019-08-13",
+        "dateMax": "2019-08-20",
+        "totals": {
+            "visitors": 2,
+            "pageviews": 15,
+            "orders": 1,
+            "salesExcl": 99.7,
+            "salesIncl": 99.7,
+            "paidExcl": 0,
+            "paidIncl": 0
+        },
+        "periods": [
+            {
+                "date": "2019-08-20",
+                "visitors": 1,
+                "pageviews": 12,
+                "orders": 1,
+                "salesExcl": 99.7,
+                "salesIncl": 99.7,
+                "paidExcl": 0,
+                "paidIncl": 0
+            },
+            {
+                "date": "2019-08-19",
+                "visitors": 0,
+                "pageviews": 0,
+                "orders": 0,
+                "salesExcl": 0,
+                "salesIncl": 0,
+                "paidExcl": 0,
+                "paidIncl": 0
+            },
+            {
+                "date": "2019-08-18",
+                "visitors": 0,
+                "pageviews": 0,
+                "orders": 0,
+                "salesExcl": 0,
+                "salesIncl": 0,
+                "paidExcl": 0,
+                "paidIncl": 0
+            },
+            {
+                "date": "2019-08-17",
+                "visitors": 0,
+                "pageviews": 0,
+                "orders": 0,
+                "salesExcl": 0,
+                "salesIncl": 0,
+                "paidExcl": 0,
+                "paidIncl": 0
+            },
+            {
+                "date": "2019-08-16",
+                "visitors": 0,
+                "pageviews": 0,
+                "orders": 0,
+                "salesExcl": 0,
+                "salesIncl": 0,
+                "paidExcl": 0,
+                "paidIncl": 0
+            },
+            {
+                "date": "2019-08-15",
+                "visitors": 0,
+                "pageviews": 0,
+                "orders": 0,
+                "salesExcl": 0,
+                "salesIncl": 0,
+                "paidExcl": 0,
+                "paidIncl": 0
+            },
+            {
+                "date": "2019-08-14",
+                "visitors": 0,
+                "pageviews": 0,
+                "orders": 0,
+                "salesExcl": 0,
+                "salesIncl": 0,
+                "paidExcl": 0,
+                "paidIncl": 0
+            },
+            {
+                "date": "2019-08-13",
+                "visitors": 1,
+                "pageviews": 3,
+                "orders": 0,
+                "salesExcl": 0,
+                "salesIncl": 0,
+                "paidExcl": 0,
+                "paidIncl": 0
+            }
+        ],
+        "type": "daily"
+    }
+}
