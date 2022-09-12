@@ -109,7 +109,7 @@ class BlogTag extends Resource
      */
     public function getArticles(): ResourceCollection
     {
-        return $this->relation('articles.resource.embedded', Article::class);
+        return $this->relation('articles.resource.embedded', Article::class, true);
     }
 
 

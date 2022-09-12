@@ -7,9 +7,11 @@ use WebshopappApiClient;
 class Api
 {
 
+    private static Api $instance;
+
     protected WebshopappApiClient $client;
 
-    public function __construct()
+    private function __construct()
     {
         $sdk = LightspeedSDK::instance();
 
@@ -21,9 +23,13 @@ class Api
         );
     }
 
-    public function client(): WebshopappApiClient
+    public static function client()
     {
-        return $this->client;
+        if (! isset(self::$instance)) {
+            self::$instance = new Api();
+        }
+
+        return self::$instance->client;
     }
 
 }

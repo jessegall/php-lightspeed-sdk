@@ -755,7 +755,7 @@ class Variant extends Resource
      */
     public function getMovements(): ResourceCollection
     {
-        return $this->relation('movements.resource.embedded', Movement::class);
+        return $this->relation('movements.resource.embedded', Movement::class, true);
     }
 
 
@@ -775,7 +775,7 @@ class Variant extends Resource
      */
     public function getMetafields(): ResourceCollection
     {
-        return $this->relation('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class, true);
     }
 
 

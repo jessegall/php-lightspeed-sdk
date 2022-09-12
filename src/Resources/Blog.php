@@ -115,7 +115,7 @@ class Blog extends Resource
      */
     public function getArticles(): ResourceCollection
     {
-        return $this->relation('articles.resource.embedded', Article::class);
+        return $this->relation('articles.resource.embedded', Article::class, true);
     }
 
 
@@ -135,7 +135,7 @@ class Blog extends Resource
      */
     public function getComments(): ResourceCollection
     {
-        return $this->relation('comments.resource.embedded', Comment::class);
+        return $this->relation('comments.resource.embedded', Comment::class, true);
     }
 
 
@@ -155,7 +155,7 @@ class Blog extends Resource
      */
     public function getTags(): ResourceCollection
     {
-        return $this->relation('tags.resource.embedded', Tag::class);
+        return $this->relation('tags.resource.embedded', Tag::class, true);
     }
 
 

@@ -64,7 +64,7 @@ class Group extends Resource
      */
     public function getCustomers(): ResourceCollection
     {
-        return $this->relation('customers.resource.embedded', Customer::class);
+        return $this->relation('customers.resource.embedded', Customer::class, true);
     }
 
 

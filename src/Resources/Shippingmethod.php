@@ -166,7 +166,7 @@ class Shippingmethod extends Resource
      */
     public function getCountries(): ResourceCollection
     {
-        return $this->relation('countries.resource.embedded', Country::class);
+        return $this->relation('countries.resource.embedded', Country::class, true);
     }
 
 
@@ -186,7 +186,7 @@ class Shippingmethod extends Resource
      */
     public function getValues(): ResourceCollection
     {
-        return $this->relation('values.resource.embedded', Value::class);
+        return $this->relation('values.resource.embedded', Value::class, true);
     }
 
 

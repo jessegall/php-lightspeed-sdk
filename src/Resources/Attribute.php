@@ -47,7 +47,7 @@ class Attribute extends Resource
      */
     public function getTypes(): ResourceCollection
     {
-        return $this->relation('types.resource.embedded', Type::class);
+        return $this->relation('types.resource.embedded', Type::class, true);
     }
 
 

@@ -115,7 +115,7 @@ class Brand extends Resource
      */
     public function getProducts(): ResourceCollection
     {
-        return $this->relation('products.resource.embedded', Product::class);
+        return $this->relation('products.resource.embedded', Product::class, true);
     }
 
 

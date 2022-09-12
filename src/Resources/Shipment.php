@@ -273,7 +273,7 @@ class Shipment extends Resource
      */
     public function getProducts(): ResourceCollection
     {
-        return $this->relation('products.resource.embedded', Product::class);
+        return $this->relation('products.resource.embedded', Product::class, true);
     }
 
 
@@ -293,7 +293,7 @@ class Shipment extends Resource
      */
     public function getMetafields(): ResourceCollection
     {
-        return $this->relation('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class, true);
     }
 
 
@@ -313,7 +313,7 @@ class Shipment extends Resource
      */
     public function getEvents(): ResourceCollection
     {
-        return $this->relation('events.resource.embedded', Event::class);
+        return $this->relation('events.resource.embedded', Event::class, true);
     }
 
 

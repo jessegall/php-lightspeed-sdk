@@ -194,7 +194,7 @@ class Ticket extends Resource
      */
     public function getMessages(): ResourceCollection
     {
-        return $this->relation('messages.resource.embedded', Message::class);
+        return $this->relation('messages.resource.embedded', Message::class, true);
     }
 
 

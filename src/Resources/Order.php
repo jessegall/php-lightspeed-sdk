@@ -1605,7 +1605,7 @@ class Order extends Resource
      */
     public function getInvoices(): ResourceCollection
     {
-        return $this->relation('invoices.resource.embedded', Invoice::class);
+        return $this->relation('invoices.resource.embedded', Invoice::class, true);
     }
 
 
@@ -1625,7 +1625,7 @@ class Order extends Resource
      */
     public function getShipments(): ResourceCollection
     {
-        return $this->relation('shipments.resource.embedded', Shipment::class);
+        return $this->relation('shipments.resource.embedded', Shipment::class, true);
     }
 
 
@@ -1645,7 +1645,7 @@ class Order extends Resource
      */
     public function getProducts(): ResourceCollection
     {
-        return $this->relation('products.resource.embedded', OrderProduct::class);
+        return $this->relation('products.resource.embedded', OrderProduct::class, true);
     }
 
 
@@ -1665,7 +1665,7 @@ class Order extends Resource
      */
     public function getMetafields(): ResourceCollection
     {
-        return $this->relation('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class, true);
     }
 
 
@@ -1713,7 +1713,7 @@ class Order extends Resource
      */
     public function getEvents(): ResourceCollection
     {
-        return $this->relation('events.resource.embedded', Event::class);
+        return $this->relation('events.resource.embedded', Event::class, true);
     }
 
 

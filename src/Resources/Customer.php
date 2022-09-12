@@ -761,7 +761,7 @@ class Customer extends Resource
      */
     public function getGroups(): ResourceCollection
     {
-        return $this->relation('groups.resource.embedded', Group::class);
+        return $this->relation('groups.resource.embedded', Group::class, true);
     }
 
 
@@ -781,7 +781,7 @@ class Customer extends Resource
      */
     public function getInvoices(): ResourceCollection
     {
-        return $this->relation('invoices.resource.embedded', Invoice::class);
+        return $this->relation('invoices.resource.embedded', Invoice::class, true);
     }
 
 
@@ -818,7 +818,7 @@ class Customer extends Resource
      */
     public function getOrders(): ResourceCollection
     {
-        return $this->relation('orders.resource.embedded', Order::class);
+        return $this->relation('orders.resource.embedded', Order::class, true);
     }
 
 
@@ -838,7 +838,7 @@ class Customer extends Resource
      */
     public function getReviews(): ResourceCollection
     {
-        return $this->relation('reviews.resource.embedded', Review::class);
+        return $this->relation('reviews.resource.embedded', Review::class, true);
     }
 
 
@@ -858,7 +858,7 @@ class Customer extends Resource
      */
     public function getShipments(): ResourceCollection
     {
-        return $this->relation('shipments.resource.embedded', Shipment::class);
+        return $this->relation('shipments.resource.embedded', Shipment::class, true);
     }
 
 
@@ -878,7 +878,7 @@ class Customer extends Resource
      */
     public function getTickets(): ResourceCollection
     {
-        return $this->relation('tickets.resource.embedded', Ticket::class);
+        return $this->relation('tickets.resource.embedded', Ticket::class, true);
     }
 
 
@@ -898,7 +898,7 @@ class Customer extends Resource
      */
     public function getMetafields(): ResourceCollection
     {
-        return $this->relation('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class, true);
     }
 
 

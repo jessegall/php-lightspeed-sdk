@@ -284,7 +284,7 @@ class Invoice extends Resource
      */
     public function getItems(): ResourceCollection
     {
-        return $this->relation('items.resource.embedded', Item::class);
+        return $this->relation('items.resource.embedded', Item::class, true);
     }
 
 
@@ -304,7 +304,7 @@ class Invoice extends Resource
      */
     public function getMetafields(): ResourceCollection
     {
-        return $this->relation('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class, true);
     }
 
 
@@ -324,7 +324,7 @@ class Invoice extends Resource
      */
     public function getEvents(): ResourceCollection
     {
-        return $this->relation('events.resource.embedded', Event::class);
+        return $this->relation('events.resource.embedded', Event::class, true);
     }
 
 

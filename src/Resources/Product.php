@@ -279,7 +279,7 @@ class Product extends Resource
      */
     public function getCategories(): ResourceCollection
     {
-        return $this->relation('categories.resource.embedded', Category::class);
+        return $this->relation('categories.resource.embedded', Category::class, true);
     }
 
 
@@ -344,7 +344,7 @@ class Product extends Resource
      */
     public function getImages(): ResourceCollection
     {
-        return $this->relation('images.resource.embedded', Image::class);
+        return $this->relation('images.resource.embedded', Image::class, true);
     }
 
 
@@ -364,7 +364,7 @@ class Product extends Resource
      */
     public function getRelations(): ResourceCollection
     {
-        return $this->relation('relations.resource.embedded', Relation::class);
+        return $this->relation('relations.resource.embedded', Relation::class, true);
     }
 
 
@@ -384,7 +384,7 @@ class Product extends Resource
      */
     public function getMetafields(): ResourceCollection
     {
-        return $this->relation('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class, true);
     }
 
 
@@ -404,7 +404,7 @@ class Product extends Resource
      */
     public function getReviews(): ResourceCollection
     {
-        return $this->relation('reviews.resource.embedded', Review::class);
+        return $this->relation('reviews.resource.embedded', Review::class, true);
     }
 
 
@@ -441,7 +441,7 @@ class Product extends Resource
      */
     public function getAttributes(): ResourceCollection
     {
-        return $this->relation('attributes.resource.embedded', Attribute::class);
+        return $this->relation('attributes.resource.embedded', Attribute::class, true);
     }
 
 
@@ -489,7 +489,7 @@ class Product extends Resource
      */
     public function getTags(): ResourceCollection
     {
-        return $this->relation('tags.resource.embedded', Tag::class);
+        return $this->relation('tags.resource.embedded', Tag::class, true);
     }
 
 
@@ -509,7 +509,7 @@ class Product extends Resource
      */
     public function getVariants(): ResourceCollection
     {
-        return $this->relation('variants.resource.embedded', Variant::class);
+        return $this->relation('variants.resource.embedded', Variant::class, true);
     }
 
 
@@ -529,7 +529,7 @@ class Product extends Resource
      */
     public function getMovements(): ResourceCollection
     {
-        return $this->relation('movements.resource.embedded', Movement::class);
+        return $this->relation('movements.resource.embedded', Movement::class, true);
     }
 
 

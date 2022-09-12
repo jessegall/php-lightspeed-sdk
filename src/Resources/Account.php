@@ -75,7 +75,7 @@ class Account extends Resource
      */
     public function getPermissions(): ResourceCollection
     {
-        return $this->relation('permissions.resource.embedded', Permission::class);
+        return $this->relation('permissions.resource.embedded', Permission::class, true);
     }
 
 
@@ -123,7 +123,7 @@ class Account extends Resource
      */
     public function getMetafields(): ResourceCollection
     {
-        return $this->relation('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class, true);
     }
 
 

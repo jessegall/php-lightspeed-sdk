@@ -1146,7 +1146,7 @@ class Quote extends Resource
      */
     public function getProducts(): ResourceCollection
     {
-        return $this->relation('products.resource.embedded', Product::class);
+        return $this->relation('products.resource.embedded', Product::class, true);
     }
 
 
@@ -1166,7 +1166,7 @@ class Quote extends Resource
      */
     public function getShippingmethods(): ResourceCollection
     {
-        return $this->relation('shippingmethods.resource.embedded', Shippingmethod::class);
+        return $this->relation('shippingmethods.resource.embedded', Shippingmethod::class, true);
     }
 
 
@@ -1186,7 +1186,7 @@ class Quote extends Resource
      */
     public function getPaymentmethods(): ResourceCollection
     {
-        return $this->relation('paymentmethods.resource.embedded', Paymentmethod::class);
+        return $this->relation('paymentmethods.resource.embedded', Paymentmethod::class, true);
     }
 
 

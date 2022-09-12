@@ -228,7 +228,7 @@ class BlogArticle extends Resource
      */
     public function getComments(): ResourceCollection
     {
-        return $this->relation('comments.resource.embedded', Comment::class);
+        return $this->relation('comments.resource.embedded', Comment::class, true);
     }
 
 
@@ -248,7 +248,7 @@ class BlogArticle extends Resource
      */
     public function getTags(): ResourceCollection
     {
-        return $this->relation('tags.resource.embedded', Tag::class);
+        return $this->relation('tags.resource.embedded', Tag::class, true);
     }
 
 

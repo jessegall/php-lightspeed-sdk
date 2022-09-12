@@ -90,6 +90,10 @@ function getPhpType(value) {
 function generateResourceFile(resource, data) {
     const className = ucfirst(resource);
     const methods = Object.entries(data).map(([key, value]) => {
+        if (key === 'id') {
+            return;
+        }
+
         let get, set = '';
 
         if (value._properties.type === 'resource') {
@@ -102,7 +106,7 @@ function generateResourceFile(resource, data) {
             */
             public function get${ ucfirst(key) }(): ${ returnType } 
             {
-                return $this->relation('${ key }.resource.embedded', ${ resourceType }::class); 
+                return $this->relation('${ key }.resource.embedded', ${ resourceType }::class ${ ! isSingle ? ', true);' : ');' } 
             }
             
             ${ ! isSingle ? '' : `

@@ -364,7 +364,7 @@ class Shop extends Resource
      */
     public function getLimits(): ResourceCollection
     {
-        return $this->relation('limits.resource.embedded', Limit::class);
+        return $this->relation('limits.resource.embedded', Limit::class, true);
     }
 
 
@@ -440,7 +440,7 @@ class Shop extends Resource
      */
     public function getScripts(): ResourceCollection
     {
-        return $this->relation('scripts.resource.embedded', Script::class);
+        return $this->relation('scripts.resource.embedded', Script::class, true);
     }
 
 
@@ -460,7 +460,7 @@ class Shop extends Resource
      */
     public function getMetafields(): ResourceCollection
     {
-        return $this->relation('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class, true);
     }
 
 

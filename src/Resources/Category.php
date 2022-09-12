@@ -279,7 +279,7 @@ class Category extends Resource
      */
     public function getChildren(): ResourceCollection
     {
-        return $this->relation('children.resource.embedded', Child::class);
+        return $this->relation('children.resource.embedded', Child::class, true);
     }
 
 
@@ -299,7 +299,7 @@ class Category extends Resource
      */
     public function getProducts(): ResourceCollection
     {
-        return $this->relation('products.resource.embedded', Product::class);
+        return $this->relation('products.resource.embedded', Product::class, true);
     }
 
 

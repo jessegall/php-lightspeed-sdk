@@ -3,20 +3,29 @@
 namespace JesseGall\LightspeedSDK\Tests;
 
 use JesseGall\LightspeedSDK\Resources\Order;
+use JesseGall\LightspeedSDK\Tests\TestClasses\ResourceFiller;
+use JesseGall\Resources\ResourceCollection;
 
 class ResourceTest extends TestCase
 {
 
-    public function test_relation_is_fed_when_missing()
+    public function test_test()
     {
-        $variant = (new Order())
-            ->setId('224854308')
-            ->hydrate()
-            ->getProducts()
-            ->first()
-            ->getVariant();
+        $filler = new ResourceFiller();
 
-        dd($variant);
+        $values = $filler->fill($order = new Order());
+
+        $order->setFeed(false);
+
+        foreach ($values as $key => $value) {
+            $actual = $order->{"get$key"}();
+
+            if ($actual instanceof ResourceCollection) {
+                continue;
+            }
+
+            $this->assertEquals($value, $actual);
+        }
     }
 
 }
