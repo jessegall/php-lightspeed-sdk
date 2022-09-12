@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class BlogArticle extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -215,7 +200,7 @@ class BlogArticle extends Resource
      */
     public function getBlog(): Blog
     {
-        return $this->mapTo('blog.resource.embedded', Blog::class);
+        return $this->relation('blog.resource.embedded', Blog::class);
     }
 
 
@@ -239,19 +224,19 @@ class BlogArticle extends Resource
     }
 
     /**
-     * @return Comment[]
+     * @return ResourceCollection<Comment>
      */
-    public function getComments(): array
+    public function getComments(): ResourceCollection
     {
-        return $this->mapTo('comments.resource.embedded', Comment::class);
+        return $this->relation('comments.resource.embedded', Comment::class);
     }
 
 
     /**
-     * @param Comment[] $comments
+     * @param ResourceCollection<Comment> $comments
      * @return $this
      */
-    public function setComments(array $comments): static
+    public function setComments(ResourceCollection $comments): static
     {
         $this->set('comments', $comments);
 
@@ -259,19 +244,19 @@ class BlogArticle extends Resource
     }
 
     /**
-     * @return Tag[]
+     * @return ResourceCollection<Tag>
      */
-    public function getTags(): array
+    public function getTags(): ResourceCollection
     {
-        return $this->mapTo('tags.resource.embedded', Tag::class);
+        return $this->relation('tags.resource.embedded', Tag::class);
     }
 
 
     /**
-     * @param Tag[] $tags
+     * @param ResourceCollection<Tag> $tags
      * @return $this
      */
-    public function setTags(array $tags): static
+    public function setTags(ResourceCollection $tags): static
     {
         $this->set('tags', $tags);
 

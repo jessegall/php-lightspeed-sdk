@@ -9,23 +9,6 @@ class ProductRelation extends Resource
     /**
      * @return int
      */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
-
-    /**
-     * @return int
-     */
     public function getSortOrder(): int
     {
         return $this->get('sortOrder');
@@ -45,7 +28,7 @@ class ProductRelation extends Resource
      */
     public function getRelatedProduct(): RelatedProduct
     {
-        return $this->mapTo('relatedProduct.resource.embedded', RelatedProduct::class);
+        return $this->relation('relatedProduct.resource.embedded', RelatedProduct::class);
     }
 
 

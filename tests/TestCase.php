@@ -14,11 +14,7 @@ class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        if (! isset($this->sdk)) {
-            $this->sdk = new LightspeedSDK();
-
-            $this->sdk->initialize();
-        }
+        $this->sdk = LightspeedSDK::instance();
     }
 
     protected function tearDown(): void

@@ -95,14 +95,14 @@ function generateResourceFile(resource, data) {
         if (value._properties.type === 'resource') {
             const isSingle = pluralize.isSingular(key);
             const resourceType = ucfirst(pluralize.singular(key));
-            const returnType = isSingle ? resourceType : 'array';
+            const returnType = isSingle ? resourceType : 'ResourceCollection';
             get = `
             /**
-            * @return ${ resourceType }${ ! isSingle ? '[]' : '' }
+            * @return ${ isSingle ? resourceType : `ResourceCollection<${ resourceType }>` }
             */
             public function get${ ucfirst(key) }(): ${ returnType } 
             {
-                return $this->mapTo('${ key }.resource.embedded', ${ resourceType }::class); 
+                return $this->relation('${ key }.resource.embedded', ${ resourceType }::class); 
             }
             
             ${ ! isSingle ? '' : `
@@ -112,12 +112,11 @@ function generateResourceFile(resource, data) {
             public function get${ ucfirst(key) }Id(): int 
             {
                 return $this->get('${ key }.resource.id'); 
-            }` }
-            `
+            }` }`
 
             set = `
             /**
-             * @param ${ resourceType }${ ! isSingle ? '[]' : '' } $${ key }
+             * @param ${ isSingle ? resourceType : `ResourceCollection<${ resourceType }>` } $${ key }
              * @return $this
              */
             public function set${ ucfirst(key) }(${ returnType } $${ key }): static 

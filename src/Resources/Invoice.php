@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class Invoice extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -181,7 +166,7 @@ class Invoice extends Resource
      */
     public function getInvoice(): Invoice
     {
-        return $this->mapTo('invoice.resource.embedded', Invoice::class);
+        return $this->relation('invoice.resource.embedded', Invoice::class);
     }
 
 
@@ -243,7 +228,7 @@ class Invoice extends Resource
      */
     public function getOrder(): Order
     {
-        return $this->mapTo('order.resource.embedded', Order::class);
+        return $this->relation('order.resource.embedded', Order::class);
     }
 
 
@@ -271,7 +256,7 @@ class Invoice extends Resource
      */
     public function getCustomer(): Customer
     {
-        return $this->mapTo('customer.resource.embedded', Customer::class);
+        return $this->relation('customer.resource.embedded', Customer::class);
     }
 
 
@@ -295,19 +280,19 @@ class Invoice extends Resource
     }
 
     /**
-     * @return Item[]
+     * @return ResourceCollection<Item>
      */
-    public function getItems(): array
+    public function getItems(): ResourceCollection
     {
-        return $this->mapTo('items.resource.embedded', Item::class);
+        return $this->relation('items.resource.embedded', Item::class);
     }
 
 
     /**
-     * @param Item[] $items
+     * @param ResourceCollection<Item> $items
      * @return $this
      */
-    public function setItems(array $items): static
+    public function setItems(ResourceCollection $items): static
     {
         $this->set('items', $items);
 
@@ -315,19 +300,19 @@ class Invoice extends Resource
     }
 
     /**
-     * @return Metafield[]
+     * @return ResourceCollection<Metafield>
      */
-    public function getMetafields(): array
+    public function getMetafields(): ResourceCollection
     {
-        return $this->mapTo('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class);
     }
 
 
     /**
-     * @param Metafield[] $metafields
+     * @param ResourceCollection<Metafield> $metafields
      * @return $this
      */
-    public function setMetafields(array $metafields): static
+    public function setMetafields(ResourceCollection $metafields): static
     {
         $this->set('metafields', $metafields);
 
@@ -335,19 +320,19 @@ class Invoice extends Resource
     }
 
     /**
-     * @return Event[]
+     * @return ResourceCollection<Event>
      */
-    public function getEvents(): array
+    public function getEvents(): ResourceCollection
     {
-        return $this->mapTo('events.resource.embedded', Event::class);
+        return $this->relation('events.resource.embedded', Event::class);
     }
 
 
     /**
-     * @param Event[] $events
+     * @param ResourceCollection<Event> $events
      * @return $this
      */
-    public function setEvents(array $events): static
+    public function setEvents(ResourceCollection $events): static
     {
         $this->set('events', $events);
 

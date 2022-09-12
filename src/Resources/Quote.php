@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class Quote extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -1116,7 +1101,7 @@ class Quote extends Resource
      */
     public function getCustomer(): Customer
     {
-        return $this->mapTo('customer.resource.embedded', Customer::class);
+        return $this->relation('customer.resource.embedded', Customer::class);
     }
 
 
@@ -1157,19 +1142,19 @@ class Quote extends Resource
     }
 
     /**
-     * @return Product[]
+     * @return ResourceCollection<Product>
      */
-    public function getProducts(): array
+    public function getProducts(): ResourceCollection
     {
-        return $this->mapTo('products.resource.embedded', Product::class);
+        return $this->relation('products.resource.embedded', Product::class);
     }
 
 
     /**
-     * @param Product[] $products
+     * @param ResourceCollection<Product> $products
      * @return $this
      */
-    public function setProducts(array $products): static
+    public function setProducts(ResourceCollection $products): static
     {
         $this->set('products', $products);
 
@@ -1177,19 +1162,19 @@ class Quote extends Resource
     }
 
     /**
-     * @return Shippingmethod[]
+     * @return ResourceCollection<Shippingmethod>
      */
-    public function getShippingmethods(): array
+    public function getShippingmethods(): ResourceCollection
     {
-        return $this->mapTo('shippingmethods.resource.embedded', Shippingmethod::class);
+        return $this->relation('shippingmethods.resource.embedded', Shippingmethod::class);
     }
 
 
     /**
-     * @param Shippingmethod[] $shippingmethods
+     * @param ResourceCollection<Shippingmethod> $shippingmethods
      * @return $this
      */
-    public function setShippingmethods(array $shippingmethods): static
+    public function setShippingmethods(ResourceCollection $shippingmethods): static
     {
         $this->set('shippingmethods', $shippingmethods);
 
@@ -1197,19 +1182,19 @@ class Quote extends Resource
     }
 
     /**
-     * @return Paymentmethod[]
+     * @return ResourceCollection<Paymentmethod>
      */
-    public function getPaymentmethods(): array
+    public function getPaymentmethods(): ResourceCollection
     {
-        return $this->mapTo('paymentmethods.resource.embedded', Paymentmethod::class);
+        return $this->relation('paymentmethods.resource.embedded', Paymentmethod::class);
     }
 
 
     /**
-     * @param Paymentmethod[] $paymentmethods
+     * @param ResourceCollection<Paymentmethod> $paymentmethods
      * @return $this
      */
-    public function setPaymentmethods(array $paymentmethods): static
+    public function setPaymentmethods(ResourceCollection $paymentmethods): static
     {
         $this->set('paymentmethods', $paymentmethods);
 

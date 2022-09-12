@@ -7,28 +7,11 @@ class BlogArticleTag extends Resource
 
 
     /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
-
-    /**
      * @return Blog
      */
     public function getBlog(): Blog
     {
-        return $this->mapTo('blog.resource.embedded', Blog::class);
+        return $this->relation('blog.resource.embedded', Blog::class);
     }
 
 
@@ -56,7 +39,7 @@ class BlogArticleTag extends Resource
      */
     public function getArticle(): Article
     {
-        return $this->mapTo('article.resource.embedded', Article::class);
+        return $this->relation('article.resource.embedded', Article::class);
     }
 
 
@@ -84,7 +67,7 @@ class BlogArticleTag extends Resource
      */
     public function getTag(): Tag
     {
-        return $this->mapTo('tag.resource.embedded', Tag::class);
+        return $this->relation('tag.resource.embedded', Tag::class);
     }
 
 

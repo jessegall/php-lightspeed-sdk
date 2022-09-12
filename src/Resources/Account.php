@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class Account extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return bool
@@ -62,7 +47,7 @@ class Account extends Resource
      */
     public function getSignout(): Signout
     {
-        return $this->mapTo('signout.resource.embedded', Signout::class);
+        return $this->relation('signout.resource.embedded', Signout::class);
     }
 
 
@@ -86,19 +71,19 @@ class Account extends Resource
     }
 
     /**
-     * @return Permission[]
+     * @return ResourceCollection<Permission>
      */
-    public function getPermissions(): array
+    public function getPermissions(): ResourceCollection
     {
-        return $this->mapTo('permissions.resource.embedded', Permission::class);
+        return $this->relation('permissions.resource.embedded', Permission::class);
     }
 
 
     /**
-     * @param Permission[] $permissions
+     * @param ResourceCollection<Permission> $permissions
      * @return $this
      */
-    public function setPermissions(array $permissions): static
+    public function setPermissions(ResourceCollection $permissions): static
     {
         $this->set('permissions', $permissions);
 
@@ -110,7 +95,7 @@ class Account extends Resource
      */
     public function getRatelimit(): Ratelimit
     {
-        return $this->mapTo('ratelimit.resource.embedded', Ratelimit::class);
+        return $this->relation('ratelimit.resource.embedded', Ratelimit::class);
     }
 
 
@@ -134,19 +119,19 @@ class Account extends Resource
     }
 
     /**
-     * @return Metafield[]
+     * @return ResourceCollection<Metafield>
      */
-    public function getMetafields(): array
+    public function getMetafields(): ResourceCollection
     {
-        return $this->mapTo('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class);
     }
 
 
     /**
-     * @param Metafield[] $metafields
+     * @param ResourceCollection<Metafield> $metafields
      * @return $this
      */
-    public function setMetafields(array $metafields): static
+    public function setMetafields(ResourceCollection $metafields): static
     {
         $this->set('metafields', $metafields);
 

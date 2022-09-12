@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class Shop extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -351,7 +336,7 @@ class Shop extends Resource
      */
     public function getCompany(): Company
     {
-        return $this->mapTo('company.resource.embedded', Company::class);
+        return $this->relation('company.resource.embedded', Company::class);
     }
 
 
@@ -375,19 +360,19 @@ class Shop extends Resource
     }
 
     /**
-     * @return Limit[]
+     * @return ResourceCollection<Limit>
      */
-    public function getLimits(): array
+    public function getLimits(): ResourceCollection
     {
-        return $this->mapTo('limits.resource.embedded', Limit::class);
+        return $this->relation('limits.resource.embedded', Limit::class);
     }
 
 
     /**
-     * @param Limit[] $limits
+     * @param ResourceCollection<Limit> $limits
      * @return $this
      */
-    public function setLimits(array $limits): static
+    public function setLimits(ResourceCollection $limits): static
     {
         $this->set('limits', $limits);
 
@@ -399,7 +384,7 @@ class Shop extends Resource
      */
     public function getJavascript(): Javascript
     {
-        return $this->mapTo('javascript.resource.embedded', Javascript::class);
+        return $this->relation('javascript.resource.embedded', Javascript::class);
     }
 
 
@@ -427,7 +412,7 @@ class Shop extends Resource
      */
     public function getWebsite(): Website
     {
-        return $this->mapTo('website.resource.embedded', Website::class);
+        return $this->relation('website.resource.embedded', Website::class);
     }
 
 
@@ -451,19 +436,19 @@ class Shop extends Resource
     }
 
     /**
-     * @return Script[]
+     * @return ResourceCollection<Script>
      */
-    public function getScripts(): array
+    public function getScripts(): ResourceCollection
     {
-        return $this->mapTo('scripts.resource.embedded', Script::class);
+        return $this->relation('scripts.resource.embedded', Script::class);
     }
 
 
     /**
-     * @param Script[] $scripts
+     * @param ResourceCollection<Script> $scripts
      * @return $this
      */
-    public function setScripts(array $scripts): static
+    public function setScripts(ResourceCollection $scripts): static
     {
         $this->set('scripts', $scripts);
 
@@ -471,19 +456,19 @@ class Shop extends Resource
     }
 
     /**
-     * @return Metafield[]
+     * @return ResourceCollection<Metafield>
      */
-    public function getMetafields(): array
+    public function getMetafields(): ResourceCollection
     {
-        return $this->mapTo('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class);
     }
 
 
     /**
-     * @param Metafield[] $metafields
+     * @param ResourceCollection<Metafield> $metafields
      * @return $this
      */
-    public function setMetafields(array $metafields): static
+    public function setMetafields(ResourceCollection $metafields): static
     {
         $this->set('metafields', $metafields);
 

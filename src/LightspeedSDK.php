@@ -3,26 +3,23 @@
 namespace JesseGall\LightspeedSDK;
 
 use Dotenv\Dotenv;
-use JesseGall\LightspeedSDK\Exceptions\MultipleInstancesException;
 
 class LightspeedSDK
 {
 
-    private static ?LightspeedSDK $instance = null;
+    private static LightspeedSDK $instance;
 
     protected array $env;
 
-    public function __construct()
-    {
-        if (self::$instance) {
-            throw new MultipleInstancesException();
-        }
-
-        self::$instance = $this;
-    }
+    private function __construct() { }
 
     public static function instance(): LightspeedSDK
     {
+        if (! isset(self::$instance)) {
+            self::$instance = new LightspeedSDK();
+            self::$instance->initialize();
+        }
+
         return self::$instance;
     }
 
@@ -43,20 +40,11 @@ class LightspeedSDK
         return $this->env;
     }
 
-    public function setEnv(array $env): void
-    {
-        $this->env = $env;
-    }
-
     private function loadEnvironmentVariables(): void
     {
         $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
         $this->env = $dotenv->load();
     }
 
-    public static function __clearInstance(): void
-    {
-        self::$instance = null;
-    }
 
 }

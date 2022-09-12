@@ -7,23 +7,6 @@ class QuoteProduct extends Resource
 
 
     /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
-
-    /**
      * @return string
      */
     public function getCreatedAt(): string
@@ -487,7 +470,7 @@ class QuoteProduct extends Resource
      */
     public function getProduct(): Product
     {
-        return $this->mapTo('product.resource.embedded', Product::class);
+        return $this->relation('product.resource.embedded', Product::class);
     }
 
 
@@ -515,7 +498,7 @@ class QuoteProduct extends Resource
      */
     public function getVariant(): Variant
     {
-        return $this->mapTo('variant.resource.embedded', Variant::class);
+        return $this->relation('variant.resource.embedded', Variant::class);
     }
 
 

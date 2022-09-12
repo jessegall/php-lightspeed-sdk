@@ -2,32 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
-use WebshopappApiResourceCustomers;
+use JesseGall\Resources\ResourceCollection;
 
 class Customer extends Resource
 {
 
-    protected function endpoint(): WebshopappApiResourceCustomers
-    {
-        return $this->api()->client()->customers;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -778,19 +757,19 @@ class Customer extends Resource
     }
 
     /**
-     * @return Group[]
+     * @return ResourceCollection<Group>
      */
-    public function getGroups(): array
+    public function getGroups(): ResourceCollection
     {
-        return $this->mapTo('groups.resource.embedded', Group::class);
+        return $this->relation('groups.resource.embedded', Group::class);
     }
 
 
     /**
-     * @param Group[] $groups
+     * @param ResourceCollection<Group> $groups
      * @return $this
      */
-    public function setGroups(array $groups): static
+    public function setGroups(ResourceCollection $groups): static
     {
         $this->set('groups', $groups);
 
@@ -798,19 +777,19 @@ class Customer extends Resource
     }
 
     /**
-     * @return Invoice[]
+     * @return ResourceCollection<Invoice>
      */
-    public function getInvoices(): array
+    public function getInvoices(): ResourceCollection
     {
-        return $this->mapTo('invoices.resource.embedded', Invoice::class);
+        return $this->relation('invoices.resource.embedded', Invoice::class);
     }
 
 
     /**
-     * @param Invoice[] $invoices
+     * @param ResourceCollection<Invoice> $invoices
      * @return $this
      */
-    public function setInvoices(array $invoices): static
+    public function setInvoices(ResourceCollection $invoices): static
     {
         $this->set('invoices', $invoices);
 
@@ -835,19 +814,19 @@ class Customer extends Resource
     }
 
     /**
-     * @return Order[]
+     * @return ResourceCollection<Order>
      */
-    public function getOrders(): array
+    public function getOrders(): ResourceCollection
     {
-        return $this->mapTo('orders.resource.embedded', Order::class);
+        return $this->relation('orders.resource.embedded', Order::class);
     }
 
 
     /**
-     * @param Order[] $orders
+     * @param ResourceCollection<Order> $orders
      * @return $this
      */
-    public function setOrders(array $orders): static
+    public function setOrders(ResourceCollection $orders): static
     {
         $this->set('orders', $orders);
 
@@ -855,19 +834,19 @@ class Customer extends Resource
     }
 
     /**
-     * @return Review[]
+     * @return ResourceCollection<Review>
      */
-    public function getReviews(): array
+    public function getReviews(): ResourceCollection
     {
-        return $this->mapTo('reviews.resource.embedded', Review::class);
+        return $this->relation('reviews.resource.embedded', Review::class);
     }
 
 
     /**
-     * @param Review[] $reviews
+     * @param ResourceCollection<Review> $reviews
      * @return $this
      */
-    public function setReviews(array $reviews): static
+    public function setReviews(ResourceCollection $reviews): static
     {
         $this->set('reviews', $reviews);
 
@@ -875,19 +854,19 @@ class Customer extends Resource
     }
 
     /**
-     * @return Shipment[]
+     * @return ResourceCollection<Shipment>
      */
-    public function getShipments(): array
+    public function getShipments(): ResourceCollection
     {
-        return $this->mapTo('shipments.resource.embedded', Shipment::class);
+        return $this->relation('shipments.resource.embedded', Shipment::class);
     }
 
 
     /**
-     * @param Shipment[] $shipments
+     * @param ResourceCollection<Shipment> $shipments
      * @return $this
      */
-    public function setShipments(array $shipments): static
+    public function setShipments(ResourceCollection $shipments): static
     {
         $this->set('shipments', $shipments);
 
@@ -895,19 +874,19 @@ class Customer extends Resource
     }
 
     /**
-     * @return Ticket[]
+     * @return ResourceCollection<Ticket>
      */
-    public function getTickets(): array
+    public function getTickets(): ResourceCollection
     {
-        return $this->mapTo('tickets.resource.embedded', Ticket::class);
+        return $this->relation('tickets.resource.embedded', Ticket::class);
     }
 
 
     /**
-     * @param Ticket[] $tickets
+     * @param ResourceCollection<Ticket> $tickets
      * @return $this
      */
-    public function setTickets(array $tickets): static
+    public function setTickets(ResourceCollection $tickets): static
     {
         $this->set('tickets', $tickets);
 
@@ -915,19 +894,19 @@ class Customer extends Resource
     }
 
     /**
-     * @return Metafield[]
+     * @return ResourceCollection<Metafield>
      */
-    public function getMetafields(): array
+    public function getMetafields(): ResourceCollection
     {
-        return $this->mapTo('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class);
     }
 
 
     /**
-     * @param Metafield[] $metafields
+     * @param ResourceCollection<Metafield> $metafields
      * @return $this
      */
-    public function setMetafields(array $metafields): static
+    public function setMetafields(ResourceCollection $metafields): static
     {
         $this->set('metafields', $metafields);
 
@@ -939,7 +918,7 @@ class Customer extends Resource
      */
     public function getLogin(): Login
     {
-        return $this->mapTo('login.resource.embedded', Login::class);
+        return $this->relation('login.resource.embedded', Login::class);
     }
 
 

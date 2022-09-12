@@ -7,28 +7,11 @@ class TagsProduct extends Resource
 
 
     /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
-
-    /**
      * @return Tag
      */
     public function getTag(): Tag
     {
-        return $this->mapTo('tag.resource.embedded', Tag::class);
+        return $this->relation('tag.resource.embedded', Tag::class);
     }
 
 
@@ -56,7 +39,7 @@ class TagsProduct extends Resource
      */
     public function getProduct(): Product
     {
-        return $this->mapTo('product.resource.embedded', Product::class);
+        return $this->relation('product.resource.embedded', Product::class);
     }
 
 

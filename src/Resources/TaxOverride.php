@@ -9,23 +9,6 @@ class TaxOverride extends Resource
     /**
      * @return int
      */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
-
-    /**
-     * @return int
-     */
     public function getRate(): int
     {
         return $this->get('rate');
@@ -62,7 +45,7 @@ class TaxOverride extends Resource
      */
     public function getTax(): Tax
     {
-        return $this->mapTo('tax.resource.embedded', Tax::class);
+        return $this->relation('tax.resource.embedded', Tax::class);
     }
 
 

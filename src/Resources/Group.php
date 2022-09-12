@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class Group extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -75,19 +60,19 @@ class Group extends Resource
     }
 
     /**
-     * @return Customer[]
+     * @return ResourceCollection<Customer>
      */
-    public function getCustomers(): array
+    public function getCustomers(): ResourceCollection
     {
-        return $this->mapTo('customers.resource.embedded', Customer::class);
+        return $this->relation('customers.resource.embedded', Customer::class);
     }
 
 
     /**
-     * @param Customer[] $customers
+     * @param ResourceCollection<Customer> $customers
      * @return $this
      */
-    public function setCustomers(array $customers): static
+    public function setCustomers(ResourceCollection $customers): static
     {
         $this->set('customers', $customers);
 

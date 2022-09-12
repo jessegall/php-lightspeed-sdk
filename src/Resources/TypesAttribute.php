@@ -9,23 +9,6 @@ class TypesAttribute extends Resource
     /**
      * @return int
      */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
-
-    /**
-     * @return int
-     */
     public function getSortOrder(): int
     {
         return $this->get('sortOrder');
@@ -45,7 +28,7 @@ class TypesAttribute extends Resource
      */
     public function getType(): Type
     {
-        return $this->mapTo('type.resource.embedded', Type::class);
+        return $this->relation('type.resource.embedded', Type::class);
     }
 
 
@@ -73,7 +56,7 @@ class TypesAttribute extends Resource
      */
     public function getAttribute(): Attribute
     {
-        return $this->mapTo('attribute.resource.embedded', Attribute::class);
+        return $this->relation('attribute.resource.embedded', Attribute::class);
     }
 
 

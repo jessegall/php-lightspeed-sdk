@@ -7,23 +7,6 @@ class OrderEvent extends Resource
 
 
     /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
-
-    /**
      * @return string
      */
     public function getCreatedAt(): string
@@ -113,7 +96,7 @@ class OrderEvent extends Resource
      */
     public function getOrder(): Order
     {
-        return $this->mapTo('order.resource.embedded', Order::class);
+        return $this->relation('order.resource.embedded', Order::class);
     }
 
 
@@ -141,7 +124,7 @@ class OrderEvent extends Resource
      */
     public function getInvoice(): Invoice
     {
-        return $this->mapTo('invoice.resource.embedded', Invoice::class);
+        return $this->relation('invoice.resource.embedded', Invoice::class);
     }
 
 

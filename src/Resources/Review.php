@@ -7,23 +7,6 @@ class Review extends Resource
 
 
     /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
-
-    /**
      * @return string
      */
     public function getCreatedAt(): string
@@ -130,7 +113,7 @@ class Review extends Resource
      */
     public function getCustomer(): Customer
     {
-        return $this->mapTo('customer.resource.embedded', Customer::class);
+        return $this->relation('customer.resource.embedded', Customer::class);
     }
 
 
@@ -175,7 +158,7 @@ class Review extends Resource
      */
     public function getProduct(): Product
     {
-        return $this->mapTo('product.resource.embedded', Product::class);
+        return $this->relation('product.resource.embedded', Product::class);
     }
 
 

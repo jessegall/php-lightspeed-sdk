@@ -3,6 +3,7 @@
 namespace JesseGall\LightspeedSDK\Resources;
 
 use JesseGall\LightspeedSDK\Resources\Resource;
+use JesseGall\Resources\ResourceCollection;
 
 class {{ class }} extends Resource
 {

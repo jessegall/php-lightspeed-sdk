@@ -7,28 +7,11 @@ class GroupsCustomer extends Resource
 
 
     /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
-
-    /**
      * @return Group
      */
     public function getGroup(): Group
     {
-        return $this->mapTo('group.resource.embedded', Group::class);
+        return $this->relation('group.resource.embedded', Group::class);
     }
 
 
@@ -56,7 +39,7 @@ class GroupsCustomer extends Resource
      */
     public function getCustomer(): Customer
     {
-        return $this->mapTo('customer.resource.embedded', Customer::class);
+        return $this->relation('customer.resource.embedded', Customer::class);
     }
 
 

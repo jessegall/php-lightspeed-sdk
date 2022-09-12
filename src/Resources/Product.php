@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class Product extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -266,7 +251,7 @@ class Product extends Resource
      */
     public function getBrand(): Brand
     {
-        return $this->mapTo('brand.resource.embedded', Brand::class);
+        return $this->relation('brand.resource.embedded', Brand::class);
     }
 
 
@@ -290,19 +275,19 @@ class Product extends Resource
     }
 
     /**
-     * @return Category[]
+     * @return ResourceCollection<Category>
      */
-    public function getCategories(): array
+    public function getCategories(): ResourceCollection
     {
-        return $this->mapTo('categories.resource.embedded', Category::class);
+        return $this->relation('categories.resource.embedded', Category::class);
     }
 
 
     /**
-     * @param Category[] $categories
+     * @param ResourceCollection<Category> $categories
      * @return $this
      */
-    public function setCategories(array $categories): static
+    public function setCategories(ResourceCollection $categories): static
     {
         $this->set('categories', $categories);
 
@@ -314,7 +299,7 @@ class Product extends Resource
      */
     public function getDeliverydate(): Deliverydate
     {
-        return $this->mapTo('deliverydate.resource.embedded', Deliverydate::class);
+        return $this->relation('deliverydate.resource.embedded', Deliverydate::class);
     }
 
 
@@ -355,19 +340,19 @@ class Product extends Resource
     }
 
     /**
-     * @return Image[]
+     * @return ResourceCollection<Image>
      */
-    public function getImages(): array
+    public function getImages(): ResourceCollection
     {
-        return $this->mapTo('images.resource.embedded', Image::class);
+        return $this->relation('images.resource.embedded', Image::class);
     }
 
 
     /**
-     * @param Image[] $images
+     * @param ResourceCollection<Image> $images
      * @return $this
      */
-    public function setImages(array $images): static
+    public function setImages(ResourceCollection $images): static
     {
         $this->set('images', $images);
 
@@ -375,19 +360,19 @@ class Product extends Resource
     }
 
     /**
-     * @return Relation[]
+     * @return ResourceCollection<Relation>
      */
-    public function getRelations(): array
+    public function getRelations(): ResourceCollection
     {
-        return $this->mapTo('relations.resource.embedded', Relation::class);
+        return $this->relation('relations.resource.embedded', Relation::class);
     }
 
 
     /**
-     * @param Relation[] $relations
+     * @param ResourceCollection<Relation> $relations
      * @return $this
      */
-    public function setRelations(array $relations): static
+    public function setRelations(ResourceCollection $relations): static
     {
         $this->set('relations', $relations);
 
@@ -395,19 +380,19 @@ class Product extends Resource
     }
 
     /**
-     * @return Metafield[]
+     * @return ResourceCollection<Metafield>
      */
-    public function getMetafields(): array
+    public function getMetafields(): ResourceCollection
     {
-        return $this->mapTo('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class);
     }
 
 
     /**
-     * @param Metafield[] $metafields
+     * @param ResourceCollection<Metafield> $metafields
      * @return $this
      */
-    public function setMetafields(array $metafields): static
+    public function setMetafields(ResourceCollection $metafields): static
     {
         $this->set('metafields', $metafields);
 
@@ -415,19 +400,19 @@ class Product extends Resource
     }
 
     /**
-     * @return Review[]
+     * @return ResourceCollection<Review>
      */
-    public function getReviews(): array
+    public function getReviews(): ResourceCollection
     {
-        return $this->mapTo('reviews.resource.embedded', Review::class);
+        return $this->relation('reviews.resource.embedded', Review::class);
     }
 
 
     /**
-     * @param Review[] $reviews
+     * @param ResourceCollection<Review> $reviews
      * @return $this
      */
-    public function setReviews(array $reviews): static
+    public function setReviews(ResourceCollection $reviews): static
     {
         $this->set('reviews', $reviews);
 
@@ -452,19 +437,19 @@ class Product extends Resource
     }
 
     /**
-     * @return Attribute[]
+     * @return ResourceCollection<Attribute>
      */
-    public function getAttributes(): array
+    public function getAttributes(): ResourceCollection
     {
-        return $this->mapTo('attributes.resource.embedded', Attribute::class);
+        return $this->relation('attributes.resource.embedded', Attribute::class);
     }
 
 
     /**
-     * @param Attribute[] $attributes
+     * @param ResourceCollection<Attribute> $attributes
      * @return $this
      */
-    public function setAttributes(array $attributes): static
+    public function setAttributes(ResourceCollection $attributes): static
     {
         $this->set('attributes', $attributes);
 
@@ -476,7 +461,7 @@ class Product extends Resource
      */
     public function getSupplier(): Supplier
     {
-        return $this->mapTo('supplier.resource.embedded', Supplier::class);
+        return $this->relation('supplier.resource.embedded', Supplier::class);
     }
 
 
@@ -500,19 +485,19 @@ class Product extends Resource
     }
 
     /**
-     * @return Tag[]
+     * @return ResourceCollection<Tag>
      */
-    public function getTags(): array
+    public function getTags(): ResourceCollection
     {
-        return $this->mapTo('tags.resource.embedded', Tag::class);
+        return $this->relation('tags.resource.embedded', Tag::class);
     }
 
 
     /**
-     * @param Tag[] $tags
+     * @param ResourceCollection<Tag> $tags
      * @return $this
      */
-    public function setTags(array $tags): static
+    public function setTags(ResourceCollection $tags): static
     {
         $this->set('tags', $tags);
 
@@ -520,19 +505,19 @@ class Product extends Resource
     }
 
     /**
-     * @return Variant[]
+     * @return ResourceCollection<Variant>
      */
-    public function getVariants(): array
+    public function getVariants(): ResourceCollection
     {
-        return $this->mapTo('variants.resource.embedded', Variant::class);
+        return $this->relation('variants.resource.embedded', Variant::class);
     }
 
 
     /**
-     * @param Variant[] $variants
+     * @param ResourceCollection<Variant> $variants
      * @return $this
      */
-    public function setVariants(array $variants): static
+    public function setVariants(ResourceCollection $variants): static
     {
         $this->set('variants', $variants);
 
@@ -540,19 +525,19 @@ class Product extends Resource
     }
 
     /**
-     * @return Movement[]
+     * @return ResourceCollection<Movement>
      */
-    public function getMovements(): array
+    public function getMovements(): ResourceCollection
     {
-        return $this->mapTo('movements.resource.embedded', Movement::class);
+        return $this->relation('movements.resource.embedded', Movement::class);
     }
 
 
     /**
-     * @param Movement[] $movements
+     * @param ResourceCollection<Movement> $movements
      * @return $this
      */
-    public function setMovements(array $movements): static
+    public function setMovements(ResourceCollection $movements): static
     {
         $this->set('movements', $movements);
 

@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class Type extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -41,19 +26,19 @@ class Type extends Resource
     }
 
     /**
-     * @return Attribute[]
+     * @return ResourceCollection<Attribute>
      */
-    public function getAttributes(): array
+    public function getAttributes(): ResourceCollection
     {
-        return $this->mapTo('attributes.resource.embedded', Attribute::class);
+        return $this->relation('attributes.resource.embedded', Attribute::class);
     }
 
 
     /**
-     * @param Attribute[] $attributes
+     * @param ResourceCollection<Attribute> $attributes
      * @return $this
      */
-    public function setAttributes(array $attributes): static
+    public function setAttributes(ResourceCollection $attributes): static
     {
         $this->set('attributes', $attributes);
 

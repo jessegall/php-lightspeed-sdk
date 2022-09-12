@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class Brand extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -126,19 +111,19 @@ class Brand extends Resource
     }
 
     /**
-     * @return Product[]
+     * @return ResourceCollection<Product>
      */
-    public function getProducts(): array
+    public function getProducts(): ResourceCollection
     {
-        return $this->mapTo('products.resource.embedded', Product::class);
+        return $this->relation('products.resource.embedded', Product::class);
     }
 
 
     /**
-     * @param Product[] $products
+     * @param ResourceCollection<Product> $products
      * @return $this
      */
-    public function setProducts(array $products): static
+    public function setProducts(ResourceCollection $products): static
     {
         $this->set('products', $products);
 

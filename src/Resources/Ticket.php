@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class Ticket extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -181,7 +166,7 @@ class Ticket extends Resource
      */
     public function getCustomer(): Customer
     {
-        return $this->mapTo('customer.resource.embedded', Customer::class);
+        return $this->relation('customer.resource.embedded', Customer::class);
     }
 
 
@@ -205,19 +190,19 @@ class Ticket extends Resource
     }
 
     /**
-     * @return Message[]
+     * @return ResourceCollection<Message>
      */
-    public function getMessages(): array
+    public function getMessages(): ResourceCollection
     {
-        return $this->mapTo('messages.resource.embedded', Message::class);
+        return $this->relation('messages.resource.embedded', Message::class);
     }
 
 
     /**
-     * @param Message[] $messages
+     * @param ResourceCollection<Message> $messages
      * @return $this
      */
-    public function setMessages(array $messages): static
+    public function setMessages(ResourceCollection $messages): static
     {
         $this->set('messages', $messages);
 

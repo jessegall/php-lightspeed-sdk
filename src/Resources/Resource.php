@@ -2,104 +2,66 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
-use InvalidArgumentException;
-use JesseGall\HasArrayData\HasArrayData;
 use JesseGall\LightspeedSDK\Api;
-use JesseGall\LightspeedSDK\Exceptions\NotImplementedException;
+use JesseGall\Resources\Resource as BaseResource;
+use JesseGall\Resources\ResourceCollection;
 
-class Resource
+class Resource extends BaseResource
 {
-    use HasArrayData {
-        HasArrayData::set as private __set;
-        HasArrayData::get as private __get;
-    }
-
-    protected static Api $api;
-
-    public function __construct(array $data = [])
+    /**
+     * @return int
+     */
+    public function getId(): int
     {
-        $this->data = $data;
-    }
-
-    public function hydrate(): static
-    {
-        $this->set($this->endpoint()->get($this->getId()));
-
-        return $this;
+        return $this->get('id');
     }
 
     /**
-     * Overrides the set method from the HasArrayData trait to make it a fluent setter
-     *
-     * @param array|string $key
-     * @param mixed|null $value
+     * @param int $id
      * @return $this
      */
-    public function set(array|string $key, mixed $value = null): static
+    public function setId(int $id): static
     {
-        $this->__set($key, $value);
+        return $this->set('id', $id);
+    }
+
+    public function hydrate()
+    {
+        $this->set(
+            (new Api())->client()->orders->get($this->getId())
+        );
 
         return $this;
     }
 
     /**
-     * Map the item corresponding with the given key to the given class.
-     *
      * @param string $key
-     * @param class-string<Resource> $class Subclass of Resource
-     * @return Resource|Resource[]|null
+     * @param class-string<\JesseGall\LightspeedSDK\Resources\Resource> $type
+     * @return BaseResource|ResourceCollection|null
+     * @throws \WebshopappApiException
      */
-    public function mapTo(string $key, string $class): Resource|array|null
+    public function relation(string $key, string $type): BaseResource|ResourceCollection|null
     {
-        $data = $this->get($key);
+        $relation = BaseResource::relation($key, $type);
 
-        if (is_null($data)) {
-            if (str_ends_with($key, '.embedded')) {
-                [$name] = explode('.', $key);
+        if (! $this->relationIsLoaded($key)) {
+            $url = $this->getRelationUrl($key);
 
-                $url = $this->get("$name.resource.url");
+            $data = (new Api())->client()->read($url);
 
-                $data = $this->api()->client()->read($url);
-            } else {
-                return null;
-            }
+            $relation = $type::create($data);
+
+            $this->setRelation($key, $relation);
         }
 
-        if (! is_array($data)) {
-            throw new InvalidArgumentException('Key should point to an array');
-        }
-
-        if (! array_is_list($data)) {
-            return new $class($data);
-        }
-
-        $list = [];
-
-        foreach ($data as $_data) {
-            $list[] = new $class($_data);
-        }
-
-        return $list;
-
+        return $relation;
     }
 
-    protected function newResource(string $class, array $data = []): Resource
+    public function getRelationUrl(string $key)
     {
-        return new $class($data);
-    }
+        [$name] = explode('.', $key);
 
-    protected function api(): Api
-    {
-        if (! isset(self::$api)) {
-            self::$api = new Api();
-        }
-
-        return self::$api;
-    }
-
-    protected function endpoint()
-    {
-        throw new NotImplementedException();
+        return $this->get("$name.resource.url");
     }
 
 }

@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class Shipment extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -232,7 +217,7 @@ class Shipment extends Resource
      */
     public function getCustomer(): Customer
     {
-        return $this->mapTo('customer.resource.embedded', Customer::class);
+        return $this->relation('customer.resource.embedded', Customer::class);
     }
 
 
@@ -260,7 +245,7 @@ class Shipment extends Resource
      */
     public function getOrder(): Order
     {
-        return $this->mapTo('order.resource.embedded', Order::class);
+        return $this->relation('order.resource.embedded', Order::class);
     }
 
 
@@ -284,19 +269,19 @@ class Shipment extends Resource
     }
 
     /**
-     * @return Product[]
+     * @return ResourceCollection<Product>
      */
-    public function getProducts(): array
+    public function getProducts(): ResourceCollection
     {
-        return $this->mapTo('products.resource.embedded', Product::class);
+        return $this->relation('products.resource.embedded', Product::class);
     }
 
 
     /**
-     * @param Product[] $products
+     * @param ResourceCollection<Product> $products
      * @return $this
      */
-    public function setProducts(array $products): static
+    public function setProducts(ResourceCollection $products): static
     {
         $this->set('products', $products);
 
@@ -304,19 +289,19 @@ class Shipment extends Resource
     }
 
     /**
-     * @return Metafield[]
+     * @return ResourceCollection<Metafield>
      */
-    public function getMetafields(): array
+    public function getMetafields(): ResourceCollection
     {
-        return $this->mapTo('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class);
     }
 
 
     /**
-     * @param Metafield[] $metafields
+     * @param ResourceCollection<Metafield> $metafields
      * @return $this
      */
-    public function setMetafields(array $metafields): static
+    public function setMetafields(ResourceCollection $metafields): static
     {
         $this->set('metafields', $metafields);
 
@@ -324,19 +309,19 @@ class Shipment extends Resource
     }
 
     /**
-     * @return Event[]
+     * @return ResourceCollection<Event>
      */
-    public function getEvents(): array
+    public function getEvents(): ResourceCollection
     {
-        return $this->mapTo('events.resource.embedded', Event::class);
+        return $this->relation('events.resource.embedded', Event::class);
     }
 
 
     /**
-     * @param Event[] $events
+     * @param ResourceCollection<Event> $events
      * @return $this
      */
-    public function setEvents(array $events): static
+    public function setEvents(ResourceCollection $events): static
     {
         $this->set('events', $events);
 

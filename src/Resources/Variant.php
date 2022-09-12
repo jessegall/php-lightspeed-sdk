@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class Variant extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -742,7 +727,7 @@ class Variant extends Resource
      */
     public function getProduct(): Product
     {
-        return $this->mapTo('product.resource.embedded', Product::class);
+        return $this->relation('product.resource.embedded', Product::class);
     }
 
 
@@ -766,19 +751,19 @@ class Variant extends Resource
     }
 
     /**
-     * @return Movement[]
+     * @return ResourceCollection<Movement>
      */
-    public function getMovements(): array
+    public function getMovements(): ResourceCollection
     {
-        return $this->mapTo('movements.resource.embedded', Movement::class);
+        return $this->relation('movements.resource.embedded', Movement::class);
     }
 
 
     /**
-     * @param Movement[] $movements
+     * @param ResourceCollection<Movement> $movements
      * @return $this
      */
-    public function setMovements(array $movements): static
+    public function setMovements(ResourceCollection $movements): static
     {
         $this->set('movements', $movements);
 
@@ -786,19 +771,19 @@ class Variant extends Resource
     }
 
     /**
-     * @return Metafield[]
+     * @return ResourceCollection<Metafield>
      */
-    public function getMetafields(): array
+    public function getMetafields(): ResourceCollection
     {
-        return $this->mapTo('metafields.resource.embedded', Metafield::class);
+        return $this->relation('metafields.resource.embedded', Metafield::class);
     }
 
 
     /**
-     * @param Metafield[] $metafields
+     * @param ResourceCollection<Metafield> $metafields
      * @return $this
      */
-    public function setMetafields(array $metafields): static
+    public function setMetafields(ResourceCollection $metafields): static
     {
         $this->set('metafields', $metafields);
 

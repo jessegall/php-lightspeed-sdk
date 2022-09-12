@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class BlogTag extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -96,7 +81,7 @@ class BlogTag extends Resource
      */
     public function getBlog(): Blog
     {
-        return $this->mapTo('blog.resource.embedded', Blog::class);
+        return $this->relation('blog.resource.embedded', Blog::class);
     }
 
 
@@ -120,19 +105,19 @@ class BlogTag extends Resource
     }
 
     /**
-     * @return Article[]
+     * @return ResourceCollection<Article>
      */
-    public function getArticles(): array
+    public function getArticles(): ResourceCollection
     {
-        return $this->mapTo('articles.resource.embedded', Article::class);
+        return $this->relation('articles.resource.embedded', Article::class);
     }
 
 
     /**
-     * @param Article[] $articles
+     * @param ResourceCollection<Article> $articles
      * @return $this
      */
-    public function setArticles(array $articles): static
+    public function setArticles(ResourceCollection $articles): static
     {
         $this->set('articles', $articles);
 

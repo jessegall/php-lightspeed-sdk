@@ -2,26 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\Resources\ResourceCollection;
+
 class Shippingmethod extends Resource
 {
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
 
     /**
      * @return string
@@ -177,19 +162,19 @@ class Shippingmethod extends Resource
     }
 
     /**
-     * @return Country[]
+     * @return ResourceCollection<Country>
      */
-    public function getCountries(): array
+    public function getCountries(): ResourceCollection
     {
-        return $this->mapTo('countries.resource.embedded', Country::class);
+        return $this->relation('countries.resource.embedded', Country::class);
     }
 
 
     /**
-     * @param Country[] $countries
+     * @param ResourceCollection<Country> $countries
      * @return $this
      */
-    public function setCountries(array $countries): static
+    public function setCountries(ResourceCollection $countries): static
     {
         $this->set('countries', $countries);
 
@@ -197,19 +182,19 @@ class Shippingmethod extends Resource
     }
 
     /**
-     * @return Value[]
+     * @return ResourceCollection<Value>
      */
-    public function getValues(): array
+    public function getValues(): ResourceCollection
     {
-        return $this->mapTo('values.resource.embedded', Value::class);
+        return $this->relation('values.resource.embedded', Value::class);
     }
 
 
     /**
-     * @param Value[] $values
+     * @param ResourceCollection<Value> $values
      * @return $this
      */
-    public function setValues(array $values): static
+    public function setValues(ResourceCollection $values): static
     {
         $this->set('values', $values);
 

@@ -7,28 +7,11 @@ class ProductFilterValue extends Resource
 
 
     /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * @param int $id
-     * @return $this
-     */
-    public function setId(int $id): static
-    {
-        return $this->set('id', $id);
-    }
-
-    /**
      * @return Filter
      */
     public function getFilter(): Filter
     {
-        return $this->mapTo('filter.resource.embedded', Filter::class);
+        return $this->relation('filter.resource.embedded', Filter::class);
     }
 
 
@@ -56,7 +39,7 @@ class ProductFilterValue extends Resource
      */
     public function getFiltervalue(): Filtervalue
     {
-        return $this->mapTo('filtervalue.resource.embedded', Filtervalue::class);
+        return $this->relation('filtervalue.resource.embedded', Filtervalue::class);
     }
 
 
