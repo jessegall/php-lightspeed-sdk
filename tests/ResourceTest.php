@@ -19,30 +19,54 @@ class ResourceTest extends TestCase
                 continue;
             }
 
-            $values = $filler->fill($order = new $type());
+            $values = $filler->fill($resource = new $type());
 
-            $order->setFeedMissingRelations(false);
+            $resource->setFeedMissingRelations(false);
 
             foreach ($values as $key => $value) {
                 if ($key === 'signout') {
                     continue;
                 }
 
-                try {
-                    $actual = $order->{"get$key"}();
-                } catch (\Throwable $e) {
-                    dd($type, $key, $value, $e->getMessage());
+                $reflection = new \ReflectionClass($resource);
+
+                $method = $reflection->getMethod("get$key");
+
+                $result = $method->invoke($resource);
+
+                if ($result instanceof Resource) {
+                    $this->assertEquals($value['resource']['id'], $resource->{"get{$key}Id"}());
+
+                    $resource->{"set$key"}($expected = new (get_class($result))([
+                        'property' => 'one'
+                    ]));
+
+                    $this->assertEquals($expected, $method->invoke($resource));
+
+                    continue;
+                }
+
+                if ($result instanceof ResourceCollection) {
+                    $resource->{"set$key"}($expected = new ResourceCollection($result->getType(), [
+                        new ($result->getType())
+                    ]));
+
+                    $this->assertEquals($expected, $method->invoke($resource));
+
+                    continue;
+                }
+
+                $newValue = match (gettype($result)) {
+                    'string' => 'new value',
+                    'integer', 'double' => $result + 10,
+                    'boolean' => ! $result,
+                    'array' => [1, 2, 3],
+                    default => null,
                 };
 
-                if ($actual instanceof Resource) {
-                    continue;
-                }
+                $resource->{"set$key"}($newValue);
 
-                if ($actual instanceof ResourceCollection) {
-                    continue;
-                }
-
-                $this->assertEquals($value, $actual, $key);
+                $this->assertEquals($newValue, $method->invoke($resource));
             }
         }
     }

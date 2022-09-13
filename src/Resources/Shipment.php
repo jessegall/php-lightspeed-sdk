@@ -237,7 +237,7 @@ class Shipment extends Resource
      */
     public function setCustomer(Customer $customer): static
     {
-        $this->set('customer', $customer);
+        $this->set('customer.resource.embedded', $customer);
 
         return $this;
     }
@@ -265,7 +265,7 @@ class Shipment extends Resource
      */
     public function setOrder(Order $order): static
     {
-        $this->set('order', $order);
+        $this->set('order.resource.embedded', $order);
 
         return $this;
     }
@@ -285,7 +285,7 @@ class Shipment extends Resource
      */
     public function setProducts(ResourceCollection $products): static
     {
-        $this->set('products', $products);
+        $this->set('products.resource.embedded', $products);
 
         return $this;
     }
@@ -305,7 +305,7 @@ class Shipment extends Resource
      */
     public function setMetafields(ResourceCollection $metafields): static
     {
-        $this->set('metafields', $metafields);
+        $this->set('metafields.resource.embedded', $metafields);
 
         return $this;
     }
@@ -325,7 +325,7 @@ class Shipment extends Resource
      */
     public function setEvents(ResourceCollection $events): static
     {
-        $this->set('events', $events);
+        $this->set('events.resource.embedded', $events);
 
         return $this;
     }

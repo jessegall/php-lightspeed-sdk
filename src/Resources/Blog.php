@@ -127,7 +127,7 @@ class Blog extends Resource
      */
     public function setArticles(ResourceCollection $articles): static
     {
-        $this->set('articles', $articles);
+        $this->set('articles.resource.embedded', $articles);
 
         return $this;
     }
@@ -147,7 +147,7 @@ class Blog extends Resource
      */
     public function setComments(ResourceCollection $comments): static
     {
-        $this->set('comments', $comments);
+        $this->set('comments.resource.embedded', $comments);
 
         return $this;
     }
@@ -167,7 +167,7 @@ class Blog extends Resource
      */
     public function setTags(ResourceCollection $tags): static
     {
-        $this->set('tags', $tags);
+        $this->set('tags.resource.embedded', $tags);
 
         return $this;
     }

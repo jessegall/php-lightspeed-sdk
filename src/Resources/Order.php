@@ -1597,7 +1597,7 @@ class Order extends Resource
      */
     public function setCustomer(Customer $customer): static
     {
-        $this->set('customer', $customer);
+        $this->set('customer.resource.embedded', $customer);
 
         return $this;
     }
@@ -1617,7 +1617,7 @@ class Order extends Resource
      */
     public function setInvoices(ResourceCollection $invoices): static
     {
-        $this->set('invoices', $invoices);
+        $this->set('invoices.resource.embedded', $invoices);
 
         return $this;
     }
@@ -1637,7 +1637,7 @@ class Order extends Resource
      */
     public function setShipments(ResourceCollection $shipments): static
     {
-        $this->set('shipments', $shipments);
+        $this->set('shipments.resource.embedded', $shipments);
 
         return $this;
     }
@@ -1657,7 +1657,7 @@ class Order extends Resource
      */
     public function setProducts(ResourceCollection $products): static
     {
-        $this->set('products', $products);
+        $this->set('products.resource.embedded', $products);
 
         return $this;
     }
@@ -1677,7 +1677,7 @@ class Order extends Resource
      */
     public function setMetafields(ResourceCollection $metafields): static
     {
-        $this->set('metafields', $metafields);
+        $this->set('metafields.resource.embedded', $metafields);
 
         return $this;
     }
@@ -1705,7 +1705,7 @@ class Order extends Resource
      */
     public function setQuote(Quote $quote): static
     {
-        $this->set('quote', $quote);
+        $this->set('quote.resource.embedded', $quote);
 
         return $this;
     }
@@ -1725,7 +1725,7 @@ class Order extends Resource
      */
     public function setEvents(ResourceCollection $events): static
     {
-        $this->set('events', $events);
+        $this->set('events.resource.embedded', $events);
 
         return $this;
     }

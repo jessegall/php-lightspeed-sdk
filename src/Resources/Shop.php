@@ -348,7 +348,7 @@ class Shop extends Resource
      */
     public function setCompany(ResourceCollection $company): static
     {
-        $this->set('company', $company);
+        $this->set('company.resource.embedded', $company);
 
         return $this;
     }
@@ -368,7 +368,7 @@ class Shop extends Resource
      */
     public function setLimits(ResourceCollection $limits): static
     {
-        $this->set('limits', $limits);
+        $this->set('limits.resource.embedded', $limits);
 
         return $this;
     }
@@ -388,7 +388,7 @@ class Shop extends Resource
      */
     public function setJavascript(ResourceCollection $javascript): static
     {
-        $this->set('javascript', $javascript);
+        $this->set('javascript.resource.embedded', $javascript);
 
         return $this;
     }
@@ -408,7 +408,7 @@ class Shop extends Resource
      */
     public function setWebsite(ResourceCollection $website): static
     {
-        $this->set('website', $website);
+        $this->set('website.resource.embedded', $website);
 
         return $this;
     }
@@ -428,7 +428,7 @@ class Shop extends Resource
      */
     public function setScripts(ResourceCollection $scripts): static
     {
-        $this->set('scripts', $scripts);
+        $this->set('scripts.resource.embedded', $scripts);
 
         return $this;
     }
@@ -448,7 +448,7 @@ class Shop extends Resource
      */
     public function setMetafields(ResourceCollection $metafields): static
     {
-        $this->set('metafields', $metafields);
+        $this->set('metafields.resource.embedded', $metafields);
 
         return $this;
     }

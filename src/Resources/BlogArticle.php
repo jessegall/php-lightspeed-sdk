@@ -220,7 +220,7 @@ class BlogArticle extends Resource
      */
     public function setBlog(Blog $blog): static
     {
-        $this->set('blog', $blog);
+        $this->set('blog.resource.embedded', $blog);
 
         return $this;
     }
@@ -240,7 +240,7 @@ class BlogArticle extends Resource
      */
     public function setComments(ResourceCollection $comments): static
     {
-        $this->set('comments', $comments);
+        $this->set('comments.resource.embedded', $comments);
 
         return $this;
     }
@@ -260,7 +260,7 @@ class BlogArticle extends Resource
      */
     public function setTags(ResourceCollection $tags): static
     {
-        $this->set('tags', $tags);
+        $this->set('tags.resource.embedded', $tags);
 
         return $this;
     }

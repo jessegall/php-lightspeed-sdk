@@ -137,7 +137,7 @@ function generateResourceFile(resource, data) {
              */
             public function set${ ucfirst(key) }(${ returnType } $${ key }): static 
             {
-                $this->set('${ key }', $${ key });
+                $this->set('${ key }.resource.embedded', $${ key });
                 
                 return $this;
             }`

@@ -101,7 +101,7 @@ class BlogTag extends Resource
      */
     public function setBlog(Blog $blog): static
     {
-        $this->set('blog', $blog);
+        $this->set('blog.resource.embedded', $blog);
 
         return $this;
     }
@@ -121,7 +121,7 @@ class BlogTag extends Resource
      */
     public function setArticles(ResourceCollection $articles): static
     {
-        $this->set('articles', $articles);
+        $this->set('articles.resource.embedded', $articles);
 
         return $this;
     }

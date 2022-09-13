@@ -35,6 +35,23 @@ class Resource extends BaseResource
     }
 
     /**
+     * @return int|string
+     */
+    public function getId(): int|string
+    {
+        return $this->get('id');
+    }
+
+    public function set(array|string $key, mixed $value = null): static
+    {
+        if ($value instanceof Resource || $value instanceof ResourceCollection) {
+            $this->setRelation($key, $value);
+        }
+
+        return parent::set($key, $value);
+    }
+
+    /**
      * Map the item(s) to the given resource type.
      * If the relation is not loaded, fetch the data from lightspeed.
      *
@@ -52,19 +69,6 @@ class Resource extends BaseResource
         }
 
         return $relation;
-    }
-
-    /**
-     * Returns the relation url of the given key
-     *
-     * @param string $key
-     * @return mixed
-     */
-    public function getRelationUrl(string $key): string
-    {
-        [$name] = explode('.', $key);
-
-        return $this->get("$name.resource.url");
     }
 
     /**
@@ -91,11 +95,16 @@ class Resource extends BaseResource
     # --- Getters and setters ---
 
     /**
-     * @return int|string
+     * Returns the relation url of the given key
+     *
+     * @param string $key
+     * @return mixed
      */
-    public function getId(): int|string
+    public function getRelationUrl(string $key): string
     {
-        return $this->get('id');
+        [$name] = explode('.', $key);
+
+        return $this->get("$name.resource.url");
     }
 
     /**

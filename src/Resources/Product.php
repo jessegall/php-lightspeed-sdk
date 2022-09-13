@@ -271,7 +271,7 @@ class Product extends Resource
      */
     public function setBrand(Brand $brand): static
     {
-        $this->set('brand', $brand);
+        $this->set('brand.resource.embedded', $brand);
 
         return $this;
     }
@@ -291,7 +291,7 @@ class Product extends Resource
      */
     public function setCategories(ResourceCollection $categories): static
     {
-        $this->set('categories', $categories);
+        $this->set('categories.resource.embedded', $categories);
 
         return $this;
     }
@@ -319,7 +319,7 @@ class Product extends Resource
      */
     public function setDeliverydate(Deliverydate $deliverydate): static
     {
-        $this->set('deliverydate', $deliverydate);
+        $this->set('deliverydate.resource.embedded', $deliverydate);
 
         return $this;
     }
@@ -356,7 +356,7 @@ class Product extends Resource
      */
     public function setImages(ResourceCollection $images): static
     {
-        $this->set('images', $images);
+        $this->set('images.resource.embedded', $images);
 
         return $this;
     }
@@ -376,7 +376,7 @@ class Product extends Resource
      */
     public function setRelations(ResourceCollection $relations): static
     {
-        $this->set('relations', $relations);
+        $this->set('relations.resource.embedded', $relations);
 
         return $this;
     }
@@ -396,7 +396,7 @@ class Product extends Resource
      */
     public function setMetafields(ResourceCollection $metafields): static
     {
-        $this->set('metafields', $metafields);
+        $this->set('metafields.resource.embedded', $metafields);
 
         return $this;
     }
@@ -416,7 +416,7 @@ class Product extends Resource
      */
     public function setReviews(ResourceCollection $reviews): static
     {
-        $this->set('reviews', $reviews);
+        $this->set('reviews.resource.embedded', $reviews);
 
         return $this;
     }
@@ -453,7 +453,7 @@ class Product extends Resource
      */
     public function setAttributes(ResourceCollection $attributes): static
     {
-        $this->set('attributes', $attributes);
+        $this->set('attributes.resource.embedded', $attributes);
 
         return $this;
     }
@@ -481,7 +481,7 @@ class Product extends Resource
      */
     public function setSupplier(Supplier $supplier): static
     {
-        $this->set('supplier', $supplier);
+        $this->set('supplier.resource.embedded', $supplier);
 
         return $this;
     }
@@ -501,7 +501,7 @@ class Product extends Resource
      */
     public function setTags(ResourceCollection $tags): static
     {
-        $this->set('tags', $tags);
+        $this->set('tags.resource.embedded', $tags);
 
         return $this;
     }
@@ -521,7 +521,7 @@ class Product extends Resource
      */
     public function setVariants(ResourceCollection $variants): static
     {
-        $this->set('variants', $variants);
+        $this->set('variants.resource.embedded', $variants);
 
         return $this;
     }
@@ -541,7 +541,7 @@ class Product extends Resource
      */
     public function setMovements(ResourceCollection $movements): static
     {
-        $this->set('movements', $movements);
+        $this->set('movements.resource.embedded', $movements);
 
         return $this;
     }
