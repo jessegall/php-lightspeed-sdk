@@ -24,7 +24,7 @@ const pluralize = require('pluralize');
             return;
         }
 
-        generateResourceFile(name, generateResource(data));
+        generateResourceFile(name, generateResource(name, data));
     })
 })();
 
@@ -36,7 +36,7 @@ function readFile(file) {
     }
 }
 
-function generateResource(data) {
+function generateResource(name, data) {
     const resource = {};
 
     for (const [key, value] of Object.entries(data)) {
@@ -45,6 +45,8 @@ function generateResource(data) {
         }
 
         resource[key] = {
+            name,
+            ...value,
             _properties: {
                 name: key,
                 ...generateAttribute(key, value)
@@ -80,7 +82,7 @@ function getPhpType(value) {
             return 'bool';
         case "object":
             if (!! value.resource) {
-                return 'resource';
+                return 'relation';
             }
 
             return 'array';
@@ -88,17 +90,27 @@ function getPhpType(value) {
 }
 
 function generateResourceFile(resource, data) {
-    const className = ucfirst(resource);
-    const methods = Object.entries(data).map(([key, value]) => {
+    const methods = Object.entries(data).map(([key, attribute]) => {
         if (key === 'id') {
             return;
         }
 
         let get, set = '';
 
-        if (value._properties.type === 'resource') {
-            const isSingle = pluralize.isSingular(key);
-            const resourceType = ucfirst(pluralize.singular(key));
+        if (attribute._properties.type === 'relation') {
+            const isSingle = !! attribute.resource.id;
+
+            const url = attribute.resource.url;
+            let [name, leftovers] = url.split('?');
+
+            let resourceType = name.split('/').filter(i => isNaN(i)).map(i => ucfirst(pluralize.singular(i)));
+
+            if (!!leftovers && resourceType.length > 1) {
+                resourceType[0] = pluralize.plural(resourceType[0])
+            }
+
+            resourceType = resourceType.join('');
+
             const returnType = isSingle ? resourceType : 'ResourceCollection';
             get = `
             /**
@@ -133,19 +145,19 @@ function generateResourceFile(resource, data) {
 
             get = `
             /**
-            * @return ${ value._properties.type }
+            * @return ${ attribute._properties.type }
             */
-            public function get${ ucfirst(key) }(): ${ value._properties.type }
+            public function get${ ucfirst(key) }(): ${ attribute._properties.type }
             {
                 return $this->get('${ key }');       
             }`
 
             set = `
             /**
-             * @param ${ value._properties.type } $${ key }
+             * @param ${ attribute._properties.type } $${ key }
              * @return $this
              */
-            public function set${ ucfirst(key) }(${ value._properties.type } $${ key }): static
+            public function set${ ucfirst(key) }(${ attribute._properties.type } $${ key }): static
             {
                 return $this->set('${ key }', $${ key });
             }`
@@ -155,9 +167,21 @@ function generateResourceFile(resource, data) {
         return get + set;
     }).join("\n");
 
+
+    let className = resource.split(/(?=[A-Z])/);
+    let first = className[0];
+    if (pluralize.isPlural(first)) {
+        className.map(i => pluralize.singular(i));
+    }
+    className[0] = ucfirst(first);
+    className = className.join('');
+
+    const url = resource.split(/(?=[A-Z])/).map(i => pluralize.plural(i).toLowerCase()).join('/{id}/');
+
     const content = getStub()
         .replace('{{ class }}', className)
-        .replace('{{ methods }}', methods);
+        .replace('{{ methods }}', methods)
+        .replace('{{ url }}', `'/${ url }'`);
 
     fs.writeFileSync(`${ __dirname }/generated/${ className }.php`, content);
 }

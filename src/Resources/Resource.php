@@ -14,7 +14,7 @@ class Resource extends BaseResource
     /**
      * @var bool
      */
-    protected bool $feed = true;
+    protected bool $feedMissingRelations = true;
 
     /**
      * Fill the model with the data from lightspeed
@@ -47,8 +47,8 @@ class Resource extends BaseResource
     {
         $relation = BaseResource::relation($key, $type, $multiple);
 
-        if (! $this->relationIsLoaded($key) && $this->feed) {
-            $relation = $this->loadRelation($key, $type);
+        if (! $this->relationIsLoaded($key)) {
+            $relation = $this->loadRelation($key, $type, $multiple);
         }
 
         return $relation;
@@ -75,44 +75,44 @@ class Resource extends BaseResource
      * @return ResourceCollection|BaseResource
      * @throws WebshopappApiException
      */
-    private function loadRelation(string $key, string $type): ResourceCollection|BaseResource
+    private function loadRelation(string $key, string $type, bool $multiple): ResourceCollection|BaseResource
     {
         $url = $this->getRelationUrl($key);
 
-        $data = Api::client()->read($url);
+        $data = $this->feedMissingRelations ? Api::client()->read($url) : [];
 
-        $relation = $type::create($data);
+        $relation = $multiple ? $type::collection($data) : $type::create($data);
 
         $this->setRelation($key, $relation);
 
         return $relation;
     }
 
-    # --- Getters and setters
+    # --- Getters and setters ---
 
     /**
-     * @return int
+     * @return int|string
      */
-    public function getId(): int
+    public function getId(): int|string
     {
         return $this->get('id');
     }
 
     /**
-     * @param int $id
+     * @param int|string $id
      * @return $this
      */
-    public function setId(int $id): static
+    public function setId(int|string $id): static
     {
         return $this->set('id', $id);
     }
 
     /**
-     * @param bool $feed
+     * @param bool $feedMissingRelations
      */
-    public function setFeed(bool $feed): void
+    public function setFeedMissingRelations(bool $feedMissingRelations): void
     {
-        $this->feed = $feed;
+        $this->feedMissingRelations = $feedMissingRelations;
     }
 
 }

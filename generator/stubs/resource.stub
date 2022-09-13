@@ -8,6 +8,8 @@ use JesseGall\Resources\ResourceCollection;
 class {{ class }} extends Resource
 {
 
+   protected string $url = {{ url }};
+
    {{ methods }}
 
 }

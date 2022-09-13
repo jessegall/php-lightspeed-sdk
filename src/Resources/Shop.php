@@ -7,6 +7,8 @@ use JesseGall\Resources\ResourceCollection;
 class Shop extends Resource
 {
 
+    protected string $url = '/shops';
+
 
     /**
      * @return string
@@ -332,27 +334,19 @@ class Shop extends Resource
     }
 
     /**
-     * @return Company
+     * @return ResourceCollection<ShopCompany>
      */
-    public function getCompany(): Company
+    public function getCompany(): ResourceCollection
     {
-        return $this->relation('company.resource.embedded', Company::class);
+        return $this->relation('company.resource.embedded', ShopCompany::class, true);
     }
 
 
     /**
-     * @return int
-     */
-    public function getCompanyId(): int
-    {
-        return $this->get('company.resource.id');
-    }
-
-    /**
-     * @param Company $company
+     * @param ResourceCollection<ShopCompany> $company
      * @return $this
      */
-    public function setCompany(Company $company): static
+    public function setCompany(ResourceCollection $company): static
     {
         $this->set('company', $company);
 
@@ -360,16 +354,16 @@ class Shop extends Resource
     }
 
     /**
-     * @return ResourceCollection<Limit>
+     * @return ResourceCollection<ShopLimits>
      */
     public function getLimits(): ResourceCollection
     {
-        return $this->relation('limits.resource.embedded', Limit::class, true);
+        return $this->relation('limits.resource.embedded', ShopLimits::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Limit> $limits
+     * @param ResourceCollection<ShopLimits> $limits
      * @return $this
      */
     public function setLimits(ResourceCollection $limits): static
@@ -380,27 +374,19 @@ class Shop extends Resource
     }
 
     /**
-     * @return Javascript
+     * @return ResourceCollection<ShopJavascript>
      */
-    public function getJavascript(): Javascript
+    public function getJavascript(): ResourceCollection
     {
-        return $this->relation('javascript.resource.embedded', Javascript::class);
+        return $this->relation('javascript.resource.embedded', ShopJavascript::class, true);
     }
 
 
     /**
-     * @return int
-     */
-    public function getJavascriptId(): int
-    {
-        return $this->get('javascript.resource.id');
-    }
-
-    /**
-     * @param Javascript $javascript
+     * @param ResourceCollection<ShopJavascript> $javascript
      * @return $this
      */
-    public function setJavascript(Javascript $javascript): static
+    public function setJavascript(ResourceCollection $javascript): static
     {
         $this->set('javascript', $javascript);
 
@@ -408,27 +394,19 @@ class Shop extends Resource
     }
 
     /**
-     * @return Website
+     * @return ResourceCollection<ShopWebsite>
      */
-    public function getWebsite(): Website
+    public function getWebsite(): ResourceCollection
     {
-        return $this->relation('website.resource.embedded', Website::class);
+        return $this->relation('website.resource.embedded', ShopWebsite::class, true);
     }
 
 
     /**
-     * @return int
-     */
-    public function getWebsiteId(): int
-    {
-        return $this->get('website.resource.id');
-    }
-
-    /**
-     * @param Website $website
+     * @param ResourceCollection<ShopWebsite> $website
      * @return $this
      */
-    public function setWebsite(Website $website): static
+    public function setWebsite(ResourceCollection $website): static
     {
         $this->set('website', $website);
 
@@ -436,16 +414,16 @@ class Shop extends Resource
     }
 
     /**
-     * @return ResourceCollection<Script>
+     * @return ResourceCollection<ShopScript>
      */
     public function getScripts(): ResourceCollection
     {
-        return $this->relation('scripts.resource.embedded', Script::class, true);
+        return $this->relation('scripts.resource.embedded', ShopScript::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Script> $scripts
+     * @param ResourceCollection<ShopScript> $scripts
      * @return $this
      */
     public function setScripts(ResourceCollection $scripts): static
@@ -456,16 +434,16 @@ class Shop extends Resource
     }
 
     /**
-     * @return ResourceCollection<Metafield>
+     * @return ResourceCollection<ShopMetafield>
      */
     public function getMetafields(): ResourceCollection
     {
-        return $this->relation('metafields.resource.embedded', Metafield::class, true);
+        return $this->relation('metafields.resource.embedded', ShopMetafield::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Metafield> $metafields
+     * @param ResourceCollection<ShopMetafield> $metafields
      * @return $this
      */
     public function setMetafields(ResourceCollection $metafields): static

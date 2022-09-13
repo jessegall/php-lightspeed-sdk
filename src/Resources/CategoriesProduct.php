@@ -5,36 +5,52 @@ namespace JesseGall\LightspeedSDK\Resources;
 use JesseGall\LightspeedSDK\Resources\Resource;
 use JesseGall\Resources\ResourceCollection;
 
-class TagsProduct extends Resource
+class CategoriesProduct extends Resource
 {
 
-   protected string $url = '/tags/{id}/products';
+   protected string $url = '/categories/{id}/products';
 
    
 
             /**
-            * @return Tag
+            * @return int
             */
-            public function getTag(): Tag 
+            public function getSortOrder(): int
             {
-                return $this->relation('tag.resource.embedded', Tag::class ); 
+                return $this->get('sortOrder');       
+            }
+            /**
+             * @param int $sortOrder
+             * @return $this
+             */
+            public function setSortOrder(int $sortOrder): static
+            {
+                return $this->set('sortOrder', $sortOrder);
+            }
+
+            /**
+            * @return Category
+            */
+            public function getCategory(): Category 
+            {
+                return $this->relation('category.resource.embedded', Category::class ); 
             }
             
             
             /**
             * @return int
             */
-            public function getTagId(): int 
+            public function getCategoryId(): int 
             {
-                return $this->get('tag.resource.id'); 
+                return $this->get('category.resource.id'); 
             }
             /**
-             * @param Tag $tag
+             * @param Category $category
              * @return $this
              */
-            public function setTag(Tag $tag): static 
+            public function setCategory(Category $category): static 
             {
-                $this->set('tag', $tag);
+                $this->set('category', $category);
                 
                 return $this;
             }

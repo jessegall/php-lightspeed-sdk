@@ -1,0 +1,19 @@
+{
+    "event": {
+        "id": 14874034,
+        "createdAt": "2019-08-21T17:15:00+00:00",
+        "channel": "auto",
+        "type": "order",
+        "message": "new",
+        "comment": null,
+        "order": {
+            "resource": {
+                "id": 1623550,
+                "url": "orders/1623550",
+                "link": "https://api.shoplightspeed.com/us/orders/1623550.json"
+            }
+        },
+        "invoice": false,
+        "shipment": false
+    }
+}

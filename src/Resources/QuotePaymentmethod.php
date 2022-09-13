@@ -5,10 +5,10 @@ namespace JesseGall\LightspeedSDK\Resources;
 use JesseGall\LightspeedSDK\Resources\Resource;
 use JesseGall\Resources\ResourceCollection;
 
-class Attribute extends Resource
+class QuotePaymentmethod extends Resource
 {
 
-   protected string $url = '/attributes';
+   protected string $url = '/quotes/{id}/paymentmethods';
 
    
 
@@ -29,39 +29,35 @@ class Attribute extends Resource
             }
 
             /**
-            * @return string
+            * @return int
             */
-            public function getDefaultValue(): string
+            public function getPriceExcl(): int
             {
-                return $this->get('defaultValue');       
+                return $this->get('priceExcl');       
             }
             /**
-             * @param string $defaultValue
+             * @param int $priceExcl
              * @return $this
              */
-            public function setDefaultValue(string $defaultValue): static
+            public function setPriceExcl(int $priceExcl): static
             {
-                return $this->set('defaultValue', $defaultValue);
+                return $this->set('priceExcl', $priceExcl);
             }
 
             /**
-            * @return ResourceCollection<TypesAttribute>
+            * @return int
             */
-            public function getTypes(): ResourceCollection 
+            public function getPriceIncl(): int
             {
-                return $this->relation('types.resource.embedded', TypesAttribute::class , true); 
+                return $this->get('priceIncl');       
             }
-            
-            
             /**
-             * @param ResourceCollection<TypesAttribute> $types
+             * @param int $priceIncl
              * @return $this
              */
-            public function setTypes(ResourceCollection $types): static 
+            public function setPriceIncl(int $priceIncl): static
             {
-                $this->set('types', $types);
-                
-                return $this;
+                return $this->set('priceIncl', $priceIncl);
             }
 
 }

@@ -7,6 +7,8 @@ use JesseGall\Resources\ResourceCollection;
 class Order extends Resource
 {
 
+    protected string $url = '/orders';
+
 
     /**
      * @return string
@@ -1650,7 +1652,7 @@ class Order extends Resource
 
 
     /**
-     * @param ResourceCollection<Product> $products
+     * @param ResourceCollection<OrderProduct> $products
      * @return $this
      */
     public function setProducts(ResourceCollection $products): static
@@ -1661,16 +1663,16 @@ class Order extends Resource
     }
 
     /**
-     * @return ResourceCollection<Metafield>
+     * @return ResourceCollection<OrderMetafield>
      */
     public function getMetafields(): ResourceCollection
     {
-        return $this->relation('metafields.resource.embedded', Metafield::class, true);
+        return $this->relation('metafields.resource.embedded', OrderMetafield::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Metafield> $metafields
+     * @param ResourceCollection<OrderMetafield> $metafields
      * @return $this
      */
     public function setMetafields(ResourceCollection $metafields): static
@@ -1709,16 +1711,16 @@ class Order extends Resource
     }
 
     /**
-     * @return ResourceCollection<Event>
+     * @return ResourceCollection<OrderEvent>
      */
     public function getEvents(): ResourceCollection
     {
-        return $this->relation('events.resource.embedded', Event::class, true);
+        return $this->relation('events.resource.embedded', OrderEvent::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Event> $events
+     * @param ResourceCollection<OrderEvent> $events
      * @return $this
      */
     public function setEvents(ResourceCollection $events): static

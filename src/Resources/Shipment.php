@@ -7,6 +7,8 @@ use JesseGall\Resources\ResourceCollection;
 class Shipment extends Resource
 {
 
+    protected string $url = '/shipments';
+
 
     /**
      * @return string
@@ -269,16 +271,16 @@ class Shipment extends Resource
     }
 
     /**
-     * @return ResourceCollection<Product>
+     * @return ResourceCollection<ShipmentProduct>
      */
     public function getProducts(): ResourceCollection
     {
-        return $this->relation('products.resource.embedded', Product::class, true);
+        return $this->relation('products.resource.embedded', ShipmentProduct::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Product> $products
+     * @param ResourceCollection<ShipmentProduct> $products
      * @return $this
      */
     public function setProducts(ResourceCollection $products): static
@@ -289,16 +291,16 @@ class Shipment extends Resource
     }
 
     /**
-     * @return ResourceCollection<Metafield>
+     * @return ResourceCollection<ShipmentMetafield>
      */
     public function getMetafields(): ResourceCollection
     {
-        return $this->relation('metafields.resource.embedded', Metafield::class, true);
+        return $this->relation('metafields.resource.embedded', ShipmentMetafield::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Metafield> $metafields
+     * @param ResourceCollection<ShipmentMetafield> $metafields
      * @return $this
      */
     public function setMetafields(ResourceCollection $metafields): static
@@ -309,16 +311,16 @@ class Shipment extends Resource
     }
 
     /**
-     * @return ResourceCollection<Event>
+     * @return ResourceCollection<OrderEvent>
      */
     public function getEvents(): ResourceCollection
     {
-        return $this->relation('events.resource.embedded', Event::class, true);
+        return $this->relation('events.resource.embedded', OrderEvent::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Event> $events
+     * @param ResourceCollection<OrderEvent> $events
      * @return $this
      */
     public function setEvents(ResourceCollection $events): static

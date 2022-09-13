@@ -2,140 +2,126 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\LightspeedSDK\Resources\Resource;
 use JesseGall\Resources\ResourceCollection;
 
 class Account extends Resource
 {
 
+   protected string $url = '/accounts';
 
-    /**
-     * @return bool
-     */
-    public function getAppId(): bool
-    {
-        return $this->get('appId');
-    }
+   
 
-    /**
-     * @param bool $appId
-     * @return $this
-     */
-    public function setAppId(bool $appId): static
-    {
-        return $this->set('appId', $appId);
-    }
+            /**
+            * @return bool
+            */
+            public function getAppId(): bool
+            {
+                return $this->get('appId');       
+            }
+            /**
+             * @param bool $appId
+             * @return $this
+             */
+            public function setAppId(bool $appId): static
+            {
+                return $this->set('appId', $appId);
+            }
 
-    /**
-     * @return string
-     */
-    public function getApiKey(): string
-    {
-        return $this->get('apiKey');
-    }
+            /**
+            * @return string
+            */
+            public function getApiKey(): string
+            {
+                return $this->get('apiKey');       
+            }
+            /**
+             * @param string $apiKey
+             * @return $this
+             */
+            public function setApiKey(string $apiKey): static
+            {
+                return $this->set('apiKey', $apiKey);
+            }
 
-    /**
-     * @param string $apiKey
-     * @return $this
-     */
-    public function setApiKey(string $apiKey): static
-    {
-        return $this->set('apiKey', $apiKey);
-    }
+            /**
+            * @return ResourceCollection<AccountSignout>
+            */
+            public function getSignout(): ResourceCollection 
+            {
+                return $this->relation('signout.resource.embedded', AccountSignout::class , true); 
+            }
+            
+            
+            /**
+             * @param ResourceCollection<AccountSignout> $signout
+             * @return $this
+             */
+            public function setSignout(ResourceCollection $signout): static 
+            {
+                $this->set('signout', $signout);
+                
+                return $this;
+            }
 
-    /**
-     * @return Signout
-     */
-    public function getSignout(): Signout
-    {
-        return $this->relation('signout.resource.embedded', Signout::class);
-    }
+            /**
+            * @return ResourceCollection<AccountPermissions>
+            */
+            public function getPermissions(): ResourceCollection 
+            {
+                return $this->relation('permissions.resource.embedded', AccountPermissions::class , true); 
+            }
+            
+            
+            /**
+             * @param ResourceCollection<AccountPermissions> $permissions
+             * @return $this
+             */
+            public function setPermissions(ResourceCollection $permissions): static 
+            {
+                $this->set('permissions', $permissions);
+                
+                return $this;
+            }
 
+            /**
+            * @return ResourceCollection<AccountRatelimit>
+            */
+            public function getRatelimit(): ResourceCollection 
+            {
+                return $this->relation('ratelimit.resource.embedded', AccountRatelimit::class , true); 
+            }
+            
+            
+            /**
+             * @param ResourceCollection<AccountRatelimit> $ratelimit
+             * @return $this
+             */
+            public function setRatelimit(ResourceCollection $ratelimit): static 
+            {
+                $this->set('ratelimit', $ratelimit);
+                
+                return $this;
+            }
 
-    /**
-     * @return int
-     */
-    public function getSignoutId(): int
-    {
-        return $this->get('signout.resource.id');
-    }
-
-    /**
-     * @param Signout $signout
-     * @return $this
-     */
-    public function setSignout(Signout $signout): static
-    {
-        $this->set('signout', $signout);
-
-        return $this;
-    }
-
-    /**
-     * @return ResourceCollection<Permission>
-     */
-    public function getPermissions(): ResourceCollection
-    {
-        return $this->relation('permissions.resource.embedded', Permission::class, true);
-    }
-
-
-    /**
-     * @param ResourceCollection<Permission> $permissions
-     * @return $this
-     */
-    public function setPermissions(ResourceCollection $permissions): static
-    {
-        $this->set('permissions', $permissions);
-
-        return $this;
-    }
-
-    /**
-     * @return Ratelimit
-     */
-    public function getRatelimit(): Ratelimit
-    {
-        return $this->relation('ratelimit.resource.embedded', Ratelimit::class);
-    }
-
-
-    /**
-     * @return int
-     */
-    public function getRatelimitId(): int
-    {
-        return $this->get('ratelimit.resource.id');
-    }
-
-    /**
-     * @param Ratelimit $ratelimit
-     * @return $this
-     */
-    public function setRatelimit(Ratelimit $ratelimit): static
-    {
-        $this->set('ratelimit', $ratelimit);
-
-        return $this;
-    }
-
-    /**
-     * @return ResourceCollection<Metafield>
-     */
-    public function getMetafields(): ResourceCollection
-    {
-        return $this->relation('metafields.resource.embedded', Metafield::class, true);
-    }
-
-
-    /**
-     * @param ResourceCollection<Metafield> $metafields
-     * @return $this
-     */
-    public function setMetafields(ResourceCollection $metafields): static
-    {
-        $this->set('metafields', $metafields);
-
-        return $this;
-    }
+            /**
+            * @return ResourceCollection<AccountMetafield>
+            */
+            public function getMetafields(): ResourceCollection 
+            {
+                return $this->relation('metafields.resource.embedded', AccountMetafield::class , true); 
+            }
+            
+            
+            /**
+             * @param ResourceCollection<AccountMetafield> $metafields
+             * @return $this
+             */
+            public function setMetafields(ResourceCollection $metafields): static 
+            {
+                $this->set('metafields', $metafields);
+                
+                return $this;
+            }
 
 }

@@ -5,10 +5,10 @@ namespace JesseGall\LightspeedSDK\Resources;
 use JesseGall\LightspeedSDK\Resources\Resource;
 use JesseGall\Resources\ResourceCollection;
 
-class OrderEvent extends Resource
+class Event extends Resource
 {
 
-   protected string $url = '/orders/{id}/events';
+   protected string $url = '/events';
 
    
 
@@ -120,30 +120,19 @@ class OrderEvent extends Resource
             }
 
             /**
-            * @return Invoice
+            * @return bool
             */
-            public function getInvoice(): Invoice 
+            public function getInvoice(): bool
             {
-                return $this->relation('invoice.resource.embedded', Invoice::class ); 
-            }
-            
-            
-            /**
-            * @return int
-            */
-            public function getInvoiceId(): int 
-            {
-                return $this->get('invoice.resource.id'); 
+                return $this->get('invoice');       
             }
             /**
-             * @param Invoice $invoice
+             * @param bool $invoice
              * @return $this
              */
-            public function setInvoice(Invoice $invoice): static 
+            public function setInvoice(bool $invoice): static
             {
-                $this->set('invoice', $invoice);
-                
-                return $this;
+                return $this->set('invoice', $invoice);
             }
 
             /**

@@ -7,6 +7,8 @@ use JesseGall\Resources\ResourceCollection;
 class BlogTag extends Resource
 {
 
+    protected string $url = '/blogs/{id}/tags';
+
 
     /**
      * @return string
@@ -105,16 +107,16 @@ class BlogTag extends Resource
     }
 
     /**
-     * @return ResourceCollection<Article>
+     * @return ResourceCollection<BlogArticleTag>
      */
     public function getArticles(): ResourceCollection
     {
-        return $this->relation('articles.resource.embedded', Article::class, true);
+        return $this->relation('articles.resource.embedded', BlogArticleTag::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Article> $articles
+     * @param ResourceCollection<BlogArticleTag> $articles
      * @return $this
      */
     public function setArticles(ResourceCollection $articles): static

@@ -7,6 +7,8 @@ use JesseGall\Resources\ResourceCollection;
 class Blog extends Resource
 {
 
+    protected string $url = '/blogs';
+
 
     /**
      * @return string
@@ -111,16 +113,16 @@ class Blog extends Resource
     }
 
     /**
-     * @return ResourceCollection<Article>
+     * @return ResourceCollection<BlogArticle>
      */
     public function getArticles(): ResourceCollection
     {
-        return $this->relation('articles.resource.embedded', Article::class, true);
+        return $this->relation('articles.resource.embedded', BlogArticle::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Article> $articles
+     * @param ResourceCollection<BlogArticle> $articles
      * @return $this
      */
     public function setArticles(ResourceCollection $articles): static
@@ -131,16 +133,16 @@ class Blog extends Resource
     }
 
     /**
-     * @return ResourceCollection<Comment>
+     * @return ResourceCollection<BlogComment>
      */
     public function getComments(): ResourceCollection
     {
-        return $this->relation('comments.resource.embedded', Comment::class, true);
+        return $this->relation('comments.resource.embedded', BlogComment::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Comment> $comments
+     * @param ResourceCollection<BlogComment> $comments
      * @return $this
      */
     public function setComments(ResourceCollection $comments): static
@@ -151,16 +153,16 @@ class Blog extends Resource
     }
 
     /**
-     * @return ResourceCollection<Tag>
+     * @return ResourceCollection<BlogTag>
      */
     public function getTags(): ResourceCollection
     {
-        return $this->relation('tags.resource.embedded', Tag::class, true);
+        return $this->relation('tags.resource.embedded', BlogTag::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Tag> $tags
+     * @param ResourceCollection<BlogTag> $tags
      * @return $this
      */
     public function setTags(ResourceCollection $tags): static

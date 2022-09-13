@@ -1,0 +1,8 @@
+{
+    "quotePaymentmethod": {
+        "id": "invoice",
+        "title": "Pay by invoice",
+        "priceExcl": 0,
+        "priceIncl": 0
+    }
+}

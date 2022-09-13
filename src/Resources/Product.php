@@ -7,6 +7,8 @@ use JesseGall\Resources\ResourceCollection;
 class Product extends Resource
 {
 
+    protected string $url = '/products';
+
 
     /**
      * @return string
@@ -275,16 +277,16 @@ class Product extends Resource
     }
 
     /**
-     * @return ResourceCollection<Category>
+     * @return ResourceCollection<CategoriesProduct>
      */
     public function getCategories(): ResourceCollection
     {
-        return $this->relation('categories.resource.embedded', Category::class, true);
+        return $this->relation('categories.resource.embedded', CategoriesProduct::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Category> $categories
+     * @param ResourceCollection<CategoriesProduct> $categories
      * @return $this
      */
     public function setCategories(ResourceCollection $categories): static
@@ -340,16 +342,16 @@ class Product extends Resource
     }
 
     /**
-     * @return ResourceCollection<Image>
+     * @return ResourceCollection<ProductImage>
      */
     public function getImages(): ResourceCollection
     {
-        return $this->relation('images.resource.embedded', Image::class, true);
+        return $this->relation('images.resource.embedded', ProductImage::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Image> $images
+     * @param ResourceCollection<ProductImage> $images
      * @return $this
      */
     public function setImages(ResourceCollection $images): static
@@ -360,16 +362,16 @@ class Product extends Resource
     }
 
     /**
-     * @return ResourceCollection<Relation>
+     * @return ResourceCollection<ProductRelation>
      */
     public function getRelations(): ResourceCollection
     {
-        return $this->relation('relations.resource.embedded', Relation::class, true);
+        return $this->relation('relations.resource.embedded', ProductRelation::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Relation> $relations
+     * @param ResourceCollection<ProductRelation> $relations
      * @return $this
      */
     public function setRelations(ResourceCollection $relations): static
@@ -380,16 +382,16 @@ class Product extends Resource
     }
 
     /**
-     * @return ResourceCollection<Metafield>
+     * @return ResourceCollection<ProductMetafield>
      */
     public function getMetafields(): ResourceCollection
     {
-        return $this->relation('metafields.resource.embedded', Metafield::class, true);
+        return $this->relation('metafields.resource.embedded', ProductMetafield::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Metafield> $metafields
+     * @param ResourceCollection<ProductMetafield> $metafields
      * @return $this
      */
     public function setMetafields(ResourceCollection $metafields): static
@@ -437,16 +439,16 @@ class Product extends Resource
     }
 
     /**
-     * @return ResourceCollection<Attribute>
+     * @return ResourceCollection<ProductAttribute>
      */
     public function getAttributes(): ResourceCollection
     {
-        return $this->relation('attributes.resource.embedded', Attribute::class, true);
+        return $this->relation('attributes.resource.embedded', ProductAttribute::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Attribute> $attributes
+     * @param ResourceCollection<ProductAttribute> $attributes
      * @return $this
      */
     public function setAttributes(ResourceCollection $attributes): static
@@ -485,16 +487,16 @@ class Product extends Resource
     }
 
     /**
-     * @return ResourceCollection<Tag>
+     * @return ResourceCollection<TagsProduct>
      */
     public function getTags(): ResourceCollection
     {
-        return $this->relation('tags.resource.embedded', Tag::class, true);
+        return $this->relation('tags.resource.embedded', TagsProduct::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Tag> $tags
+     * @param ResourceCollection<TagsProduct> $tags
      * @return $this
      */
     public function setTags(ResourceCollection $tags): static
@@ -525,16 +527,16 @@ class Product extends Resource
     }
 
     /**
-     * @return ResourceCollection<Movement>
+     * @return ResourceCollection<VariantMovement>
      */
     public function getMovements(): ResourceCollection
     {
-        return $this->relation('movements.resource.embedded', Movement::class, true);
+        return $this->relation('movements.resource.embedded', VariantMovement::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Movement> $movements
+     * @param ResourceCollection<VariantMovement> $movements
      * @return $this
      */
     public function setMovements(ResourceCollection $movements): static
