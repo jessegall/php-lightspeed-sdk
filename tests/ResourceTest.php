@@ -9,21 +9,25 @@ class ResourceTest extends TestCase
 
     public function test_resource()
     {
-        $order = new Order();
-
-        $variant = $order->setId(224905911)
+        $one = (new Order)->setId(224905911)
             ->hydrate()
             ->getProducts()
             ->first()
             ->getVariant();
 
-        $variant = $order->setId(224905911)
+        $two = (new Order)->setId(224854308)
             ->hydrate()
             ->getProducts()
             ->first()
             ->getVariant();
 
-        dd($variant);
+        $three = (new Order)->setId(224854308)
+            ->hydrate()
+            ->getProducts()
+            ->first()
+            ->getVariant();
+
+        dd($one->getId(), $two->getId(), $three->getId());
     }
 
 

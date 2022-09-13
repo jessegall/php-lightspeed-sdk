@@ -34,14 +34,6 @@ class Resource extends BaseResource
         return $this;
     }
 
-    /**
-     * @return int|string
-     */
-    public function getId(): int|string
-    {
-        return $this->get('id');
-    }
-
     public function set(array|string $key, mixed $value = null): static
     {
         if ($value instanceof Resource || $value instanceof ResourceCollection) {
@@ -105,6 +97,14 @@ class Resource extends BaseResource
         [$name] = explode('.', $key);
 
         return $this->get("$name.resource.url");
+    }
+
+    /**
+     * @return int|string
+     */
+    public function getId(): int|string
+    {
+        return $this->get('id');
     }
 
     /**
