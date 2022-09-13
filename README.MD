@@ -53,5 +53,5 @@ $data = [
     ]
 ]
 
-$customer = new Customer($data);
+$customer = new Customer($data['customer']);
 ```
