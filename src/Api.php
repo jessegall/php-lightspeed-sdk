@@ -155,10 +155,6 @@ class Api
                 $sdk->getEnv('LIGHTSPEED_API_SECRET'),
                 $sdk->getEnv('LIGHTSPEED_API_LANGUAGE'),
             ));
-
-            self::$instance->getForwarder()->registerInterceptor(
-                fn(Interacts $interacts) => ray($interacts)
-            );
         }
 
         return self::$instance;

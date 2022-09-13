@@ -8,6 +8,7 @@ This package includes
 * Automatically hydrate relations by fetching remote data when missing
 * The possibility to sync local changes with lightspeed
 
+## Installation
 ```
 composer require jessegall/lightspeed-sdk
 ```
