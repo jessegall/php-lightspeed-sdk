@@ -12,6 +12,11 @@ class Resource extends BaseResource
 {
 
     /**
+     * @var string
+     */
+    protected string $url;
+
+    /**
      * @var bool
      */
     protected bool $feedMissingRelations = true;
@@ -29,7 +34,7 @@ class Resource extends BaseResource
             throw new IdNullException();
         }
 
-        $this->set(Api::orders()->get($id));
+        $this->set(Api::read("$this->url/$id"));
 
         return $this;
     }
