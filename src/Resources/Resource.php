@@ -29,7 +29,7 @@ class Resource extends BaseResource
             throw new IdNullException();
         }
 
-        $this->set(Api::client()->orders->get($id));
+        $this->set(Api::orders()->get($id));
 
         return $this;
     }
@@ -83,7 +83,7 @@ class Resource extends BaseResource
     {
         $url = $this->getRelationUrl($key);
 
-        $data = $this->feedMissingRelations ? Api::client()->read($url) : [];
+        $data = $this->feedMissingRelations ? Api::read($url) : [];
 
         $relation = $multiple ? $type::collection($data) : $type::create($data);
 

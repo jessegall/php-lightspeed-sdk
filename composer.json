@@ -25,7 +25,7 @@
         "seoshop/seoshop-php": "~1.9",
         "vlucas/phpdotenv": "^5.4",
         "jessegall/contains-data": "^0.0.1",
-        "jessegall/proxy": "^0.0.5",
+        "jessegall/proxy": "^0.0.7",
         "jessegall/invader": "^1.0",
         "jessegall/resources": "^0.0.5"
     },
