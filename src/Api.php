@@ -149,10 +149,10 @@ class Api
             $sdk = LightspeedSDK::instance();
 
             $proxy = new Proxy(new WebshopappApiClient(
-                $sdk->getEnv('LIGHTSPEED_API_SERVER'),
-                $sdk->getEnv('LIGHTSPEED_API_KEY'),
-                $sdk->getEnv('LIGHTSPEED_API_SECRET'),
-                $sdk->getEnv('LIGHTSPEED_API_LANGUAGE'),
+                $sdk->get('api.server'),
+                $sdk->get('api.key'),
+                $sdk->get('api.secret'),
+                $sdk->get('api.language'),
             ));
 
             self::$instance = $proxy;

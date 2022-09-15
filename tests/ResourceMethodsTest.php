@@ -7,12 +7,12 @@ use JesseGall\LightspeedSDK\Resources\Resource;
 use JesseGall\LightspeedSDK\Tests\TestClasses\ResourceFiller;
 use JesseGall\Resources\ResourceCollection;
 
-class LightspeedTest extends TestCase
+class ResourceMethodsTest extends TestCase
 {
 
     public static int $test;
 
-    public function test_test()
+    public function test_resource_get_and_set_methods_return_expected_values()
     {
         $filler = new ResourceFiller();
 

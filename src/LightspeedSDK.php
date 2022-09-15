@@ -4,15 +4,13 @@ namespace JesseGall\LightspeedSDK;
 
 use Closure;
 use Dotenv\Dotenv;
+use JesseGall\ContainsData\ContainsData;
 
 class LightspeedSDK
 {
+    use ContainsData;
 
     private static LightspeedSDK $instance;
-
-    protected ?Closure $envResolver = null;
-    protected array $env = [];
-
 
     private function __construct() { }
 
@@ -25,45 +23,14 @@ class LightspeedSDK
         return self::$instance;
     }
 
-    public function initialize(): void
+    public function loadEnvironmentVariables(): void
     {
-        $this->loadEnvironmentVariables();
+        $env = (Dotenv::createImmutable(__DIR__ . "/../"))->load();
+
+        $this->set('api.server', $env['LIGHTSPEED_API_SERVER']);
+        $this->set('api.key', $env['LIGHTSPEED_API_KEY']);
+        $this->set('api.secret', $env['LIGHTSPEED_API_SECRET']);
+        $this->set('api.language', $env['LIGHTSPEED_API_LANGUAGE']);
     }
 
-    public function getEnv(string $key): mixed
-    {
-        if ($this->envResolver) {
-            return ($this->envResolver)($key);
-        }
-
-        return $this->env[$key] ?? null;
-    }
-
-    /**
-     *
-     * @return void
-     */
-    private function loadEnvironmentVariables(): void
-    {
-        $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
-        $this->env = $dotenv->load();
-    }
-
-    # --- Getters and setters ---
-
-    /**
-     * @return Closure|null
-     */
-    public function getEnvResolver(): ?Closure
-    {
-        return $this->envResolver;
-    }
-
-    /**
-     * @param Closure|null $envResolver
-     */
-    public function setEnvResolver(?Closure $envResolver): void
-    {
-        $this->envResolver = $envResolver;
-    }
 }
