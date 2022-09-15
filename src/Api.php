@@ -2,7 +2,6 @@
 
 namespace JesseGall\LightspeedSDK;
 
-use JesseGall\Proxy\Interactions\Contracts\Interacts;
 use JesseGall\Proxy\Proxy;
 use WebshopappApiClient;
 
@@ -112,7 +111,7 @@ use WebshopappApiClient;
  * @method static \WebshopappApiResourceVariantsBulk variantsBulk()
  * @method static \WebshopappApiResourceVariantsMovements variantsMovements()
  * @method static \WebshopappApiResourceWebhooks webhooks()
- * @method static array read(string $url, array $params = [])()
+ * @method static array read(string $url, array $params = [])
  */
 class Api
 {
@@ -122,7 +121,7 @@ class Api
      */
     public static Proxy $instance;
 
-    private function __construct() { }
+    protected function __construct() { }
 
     /**
      * @throws \WebshopappApiException
@@ -144,17 +143,19 @@ class Api
      * @return Proxy|WebshopappApiClient
      * @throws \WebshopappApiException
      */
-    private static function client(): WebshopappApiClient|Proxy
+    protected static function client(): WebshopappApiClient|Proxy
     {
         if (! isset(self::$instance)) {
             $sdk = LightspeedSDK::instance();
 
-            self::$instance = new Proxy(new WebshopappApiClient(
+            $proxy = new Proxy(new WebshopappApiClient(
                 $sdk->getEnv('LIGHTSPEED_API_SERVER'),
                 $sdk->getEnv('LIGHTSPEED_API_KEY'),
                 $sdk->getEnv('LIGHTSPEED_API_SECRET'),
                 $sdk->getEnv('LIGHTSPEED_API_LANGUAGE'),
             ));
+
+            self::$instance = $proxy;
         }
 
         return self::$instance;
