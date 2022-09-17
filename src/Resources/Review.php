@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Review extends Resource
 {
 
-    protected string $apiUrl = '/reviews';
+    protected string $endpoint = '/reviews';
 
     protected string $handle = 'review';
 

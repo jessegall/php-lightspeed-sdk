@@ -7,7 +7,6 @@ use JesseGall\LightspeedSDK\Api;
 use JesseGall\LightspeedSDK\Exceptions\IdNullException;
 use JesseGall\Resources\Resource as BaseResource;
 use JesseGall\Resources\ResourceCollection;
-use WebshopappApiException;
 
 class Resource extends BaseResource
 {
@@ -15,7 +14,7 @@ class Resource extends BaseResource
     /**
      * @var string
      */
-    protected string $apiUrl;
+    protected string $endpoint;
 
     /**
      * @var string
@@ -26,6 +25,17 @@ class Resource extends BaseResource
      * @var bool
      */
     protected bool $feedMissingRelations = true;
+
+    /**
+     * Returns the api url of the resource
+     *
+     * @param int|string $id
+     * @return string
+     */
+    private function url(int|string $id): string
+    {
+        return "$this->endpoint/$id";
+    }
 
     /**
      * Fill the model with the data from lightspeed
@@ -39,7 +49,7 @@ class Resource extends BaseResource
             throw new IdNullException();
         }
 
-        $response = Api::read("$this->apiUrl/$id");
+        $response = Api::read($this->url($id));
 
         $this->container($response);
 
@@ -58,7 +68,7 @@ class Resource extends BaseResource
             throw new IdNullException();
         }
 
-        $response = Api::update("$this->apiUrl/$id", [
+        $response = Api::update($this->url($id), [
             $this->handle => $this->container()
         ]);
 
@@ -67,6 +77,14 @@ class Resource extends BaseResource
         return $this;
     }
 
+    /**
+     * Set data using in the resource using the dot notation.
+     * Set relation when the value is a resource or resource collection.
+     *
+     * @param string $key
+     * @param mixed|null $value
+     * @return $this
+     */
     public function set(string $key, mixed $value = null): static
     {
         if ($value instanceof Resource || $value instanceof ResourceCollection) {
@@ -150,17 +168,17 @@ class Resource extends BaseResource
     /**
      * @return string
      */
-    public function getApiUrl(): string
+    public function getEndpoint(): string
     {
-        return $this->apiUrl;
+        return $this->endpoint;
     }
 
     /**
-     * @param string $apiUrl
+     * @param string $endpoint
      */
-    public function setApiUrl(string $apiUrl): void
+    public function setEndpoint(string $endpoint): void
     {
-        $this->apiUrl = $apiUrl;
+        $this->endpoint = $endpoint;
     }
 
     /**

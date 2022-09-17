@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class InvoiceItem extends Resource
 {
 
-    protected string $apiUrl = '/invoices/{id}/items';
+    protected string $endpoint = '/invoices/{id}/items';
 
     protected string $handle = 'invoiceItem';
 

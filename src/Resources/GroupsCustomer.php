@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class GroupsCustomer extends Resource
 {
 
-    protected string $apiUrl = '/groups/{id}/customers';
+    protected string $endpoint = '/groups/{id}/customers';
 
     protected string $handle = 'groupCustomer';
 

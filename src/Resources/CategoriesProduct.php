@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class CategoriesProduct extends Resource
 {
 
-    protected string $apiUrl = '/categories/{id}/products';
+    protected string $endpoint = '/categories/{id}/products';
 
     protected string $handle = 'categoriesProduct';
 

@@ -7,7 +7,7 @@ use JesseGall\Resources\ResourceCollection;
 class Shippingmethod extends Resource
 {
 
-    protected string $apiUrl = '/shippingmethods';
+    protected string $endpoint = '/shippingmethods';
 
     protected string $handle = 'shippingmethod';
 

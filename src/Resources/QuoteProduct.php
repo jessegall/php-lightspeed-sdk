@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class QuoteProduct extends Resource
 {
 
-    protected string $apiUrl = '/quotes/{id}/products';
+    protected string $endpoint = '/quotes/{id}/products';
 
     protected string $handle = 'quoteProduct';
 

@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class AccountMetafield extends Resource
 {
 
-    protected string $apiUrl = '/accounts/{id}/metafields';
+    protected string $endpoint = '/accounts/{id}/metafields';
 
     protected string $handle = 'accountMetafield';
 

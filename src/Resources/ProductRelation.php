@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class ProductRelation extends Resource
 {
 
-    protected string $apiUrl = '/products/{id}/relations';
+    protected string $endpoint = '/products/{id}/relations';
 
     protected string $handle = 'productRelation';
 

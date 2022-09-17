@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Dashboard extends Resource
 {
 
-    protected string $apiUrl = '/dashboards';
+    protected string $endpoint = '/dashboards';
 
     protected string $handle = 'dashboard';
 

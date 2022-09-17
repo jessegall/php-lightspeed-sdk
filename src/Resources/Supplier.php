@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Supplier extends Resource
 {
 
-    protected string $apiUrl = '/suppliers';
+    protected string $endpoint = '/suppliers';
 
     protected string $handle = 'supplier';
 

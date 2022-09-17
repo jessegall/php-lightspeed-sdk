@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class ExternalService extends Resource
 {
 
-    protected string $apiUrl = '/externals/{id}/services';
+    protected string $endpoint = '/externals/{id}/services';
 
     protected string $handle = 'externalService';
 

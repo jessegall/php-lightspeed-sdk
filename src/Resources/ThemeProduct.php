@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class ThemeProduct extends Resource
 {
 
-    protected string $apiUrl = '/themes/{id}/products';
+    protected string $endpoint = '/themes/{id}/products';
 
     protected string $handle = 'themeProduct';
 

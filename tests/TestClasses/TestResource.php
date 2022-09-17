@@ -7,7 +7,7 @@ use JesseGall\Resources\ResourceCollection;
 
 class TestResource extends Resource
 {
-    protected string $apiUrl = 'test';
+    protected string $endpoint = 'test';
 
     protected string $handle = 'test';
 

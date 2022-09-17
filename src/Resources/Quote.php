@@ -7,7 +7,7 @@ use JesseGall\Resources\ResourceCollection;
 class Quote extends Resource
 {
 
-    protected string $apiUrl = '/quotes';
+    protected string $endpoint = '/quotes';
 
     protected string $handle = 'quote';
 

@@ -7,7 +7,7 @@ use JesseGall\Resources\ResourceCollection;
 class Blog extends Resource
 {
 
-    protected string $apiUrl = '/blogs';
+    protected string $endpoint = '/blogs';
 
     protected string $handle = 'blog';
 

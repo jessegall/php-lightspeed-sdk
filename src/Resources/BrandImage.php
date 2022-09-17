@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class BrandImage extends Resource
 {
 
-    protected string $apiUrl = '/brands/{id}/images';
+    protected string $endpoint = '/brands/{id}/images';
 
     protected string $handle = 'brandImage';
 

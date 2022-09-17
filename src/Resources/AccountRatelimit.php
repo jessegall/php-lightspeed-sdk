@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class AccountRatelimit extends Resource
 {
 
-    protected string $apiUrl = '/accounts/{id}/ratelimits';
+    protected string $endpoint = '/accounts/{id}/ratelimits';
 
     protected string $handle = 'accountRateLimit';
 

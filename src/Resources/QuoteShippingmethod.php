@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class QuoteShippingmethod extends Resource
 {
 
-    protected string $apiUrl = '/quotes/{id}/shippingmethods';
+    protected string $endpoint = '/quotes/{id}/shippingmethods';
 
     protected string $handle = 'quoteShippingmethod';
 

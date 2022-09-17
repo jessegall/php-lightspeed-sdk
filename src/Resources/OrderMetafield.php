@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class OrderMetafield extends Resource
 {
 
-    protected string $apiUrl = '/orders/{id}/metafields';
+    protected string $endpoint = '/orders/{id}/metafields';
 
     protected string $handle = 'orderMetafield';
 

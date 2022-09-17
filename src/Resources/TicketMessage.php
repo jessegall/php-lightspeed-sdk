@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class TicketMessage extends Resource
 {
 
-    protected string $apiUrl = '/tickets/{id}/messages';
+    protected string $endpoint = '/tickets/{id}/messages';
 
     protected string $handle = 'ticketMessage';
 

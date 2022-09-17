@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class ShipmentMetafield extends Resource
 {
 
-    protected string $apiUrl = '/shipments/{id}/metafields';
+    protected string $endpoint = '/shipments/{id}/metafields';
 
     protected string $handle = 'shipmentMetafield';
 

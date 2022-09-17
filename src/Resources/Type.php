@@ -7,7 +7,7 @@ use JesseGall\Resources\ResourceCollection;
 class Type extends Resource
 {
 
-    protected string $apiUrl = '/types';
+    protected string $endpoint = '/types';
 
     protected string $handle = 'type';
 

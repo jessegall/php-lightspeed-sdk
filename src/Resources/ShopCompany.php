@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class ShopCompany extends Resource
 {
 
-    protected string $apiUrl = '/shops/{id}/companies';
+    protected string $endpoint = '/shops/{id}/companies';
 
     protected string $handle = 'shopCompany';
 

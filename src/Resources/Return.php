@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Return_ extends Resource
 {
 
-    protected string $apiUrl = '/returns';
+    protected string $endpoint = '/returns';
 
     protected string $handle = 'return';
 

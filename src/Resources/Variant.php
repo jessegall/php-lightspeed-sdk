@@ -7,7 +7,7 @@ use JesseGall\Resources\ResourceCollection;
 class Variant extends Resource
 {
 
-    protected string $apiUrl = '/variants';
+    protected string $endpoint = '/variants';
 
     protected string $handle = 'variant';
 

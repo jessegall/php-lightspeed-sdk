@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class DiscountRule extends Resource
 {
 
-    protected string $apiUrl = '/discounts/{id}/rules';
+    protected string $endpoint = '/discounts/{id}/rules';
 
     protected string $handle = 'discountRule';
 

@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Subscription extends Resource
 {
 
-    protected string $apiUrl = '/subscriptions';
+    protected string $endpoint = '/subscriptions';
 
     protected string $handle = 'subscription';
 

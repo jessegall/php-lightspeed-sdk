@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class ShopJavascript extends Resource
 {
 
-    protected string $apiUrl = '/shops/{id}/javascripts';
+    protected string $endpoint = '/shops/{id}/javascripts';
 
     protected string $handle = 'shopJavascript';
 

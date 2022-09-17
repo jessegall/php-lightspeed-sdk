@@ -7,7 +7,7 @@ use JesseGall\Resources\ResourceCollection;
 class Invoice extends Resource
 {
 
-    protected string $apiUrl = '/invoices';
+    protected string $endpoint = '/invoices';
 
     protected string $handle = 'invoices';
 

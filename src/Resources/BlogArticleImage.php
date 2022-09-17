@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class BlogArticleImage extends Resource
 {
 
-    protected string $apiUrl = '/blogs/{id}/articles/{id}/images';
+    protected string $endpoint = '/blogs/{id}/articles/{id}/images';
 
     protected string $handle = 'blogArticleImage';
 

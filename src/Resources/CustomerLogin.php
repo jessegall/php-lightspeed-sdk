@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class CustomerLogin extends Resource
 {
 
-    protected string $apiUrl = '/customers/{id}/logins';
+    protected string $endpoint = '/customers/{id}/logins';
 
     protected string $handle = 'customerLogin';
 

@@ -5,7 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 class OrderProduct extends Resource
 {
 
-    protected string $apiUrl = '/orders/{id}/products';
+    protected string $endpoint = '/orders/{id}/products';
 
     protected string $handle = 'orderProduct';
 
