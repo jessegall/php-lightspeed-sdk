@@ -4,32 +4,48 @@ namespace JesseGall\LightspeedSDK\Resources;
 
 use JesseGall\Resources\ResourceCollection;
 
+/**
+ * BlogTag
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/blogtag
+ */
 class BlogTag extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/blogs/{id}/tags';
 
-    protected string $handle = 'blogTag';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'blogTag';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->get('createdAt');
     }
 
     /**
-     * @param string $createdAt
+     * @param string|null $createdAt
      * @return $this
      */
-    public function setCreatedAt(string $createdAt): static
+    public function setCreatedAt(string $createdAt = null): static
     {
         return $this->set('createdAt', $createdAt);
     }
 
     /**
-     * @return mixed
+     * @return mixed|null
      */
     public function getUpdatedAt(): mixed
     {
@@ -37,70 +53,70 @@ class BlogTag extends Resource
     }
 
     /**
-     * @param mixed $updatedAt
+     * @param mixed|null $updatedAt
      * @return $this
      */
-    public function setUpdatedAt(mixed $updatedAt): static
+    public function setUpdatedAt(mixed $updatedAt = null): static
     {
         return $this->set('updatedAt', $updatedAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
         return $this->get('url');
     }
 
     /**
-     * @param string $url
+     * @param string|null $url
      * @return $this
      */
-    public function setUrl(string $url): static
+    public function setUrl(string $url = null): static
     {
         return $this->set('url', $url);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->get('title');
     }
 
     /**
-     * @param string $title
+     * @param string|null $title
      * @return $this
      */
-    public function setTitle(string $title): static
+    public function setTitle(string $title = null): static
     {
         return $this->set('title', $title);
     }
 
     /**
-     * @return Blog
+     * @return Blog|null
      */
-    public function getBlog(): Blog
+    public function getBlog(): ?Blog
     {
         return $this->relation('blog.resource.embedded', Blog::class);
     }
 
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getBlogId(): int
+    public function getBlogId(): ?int
     {
         return $this->get('blog.resource.id');
     }
 
     /**
-     * @param Blog $blog
+     * @param Blog|null $blog
      * @return $this
      */
-    public function setBlog(Blog $blog): static
+    public function setBlog(Blog $blog = null): static
     {
         $this->set('blog.resource.embedded', $blog);
 
@@ -108,19 +124,19 @@ class BlogTag extends Resource
     }
 
     /**
-     * @return ResourceCollection<BlogArticleTag>
+     * @return ResourceCollection<BlogArticleTag>|null
      */
-    public function getArticles(): ResourceCollection
+    public function getArticles(): ?ResourceCollection
     {
         return $this->relation('articles.resource.embedded', BlogArticleTag::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<BlogArticleTag> $articles
+     * @param ResourceCollection<BlogArticleTag>|null $articles
      * @return $this
      */
-    public function setArticles(ResourceCollection $articles): static
+    public function setArticles(ResourceCollection $articles = null): static
     {
         $this->set('articles.resource.embedded', $articles);
 

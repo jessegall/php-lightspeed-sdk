@@ -2,145 +2,161 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * Webhook
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/webhook
+ */
 class Webhook extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/webhooks';
 
-    protected string $handle = 'webhook';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'webhook';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->get('createdAt');
     }
 
     /**
-     * @param string $createdAt
+     * @param string|null $createdAt
      * @return $this
      */
-    public function setCreatedAt(string $createdAt): static
+    public function setCreatedAt(string $createdAt = null): static
     {
         return $this->set('createdAt', $createdAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->get('updatedAt');
     }
 
     /**
-     * @param string $updatedAt
+     * @param string|null $updatedAt
      * @return $this
      */
-    public function setUpdatedAt(string $updatedAt): static
+    public function setUpdatedAt(string $updatedAt = null): static
     {
         return $this->set('updatedAt', $updatedAt);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsActive(): bool
+    public function getIsActive(): ?bool
     {
         return $this->get('isActive');
     }
 
     /**
-     * @param bool $isActive
+     * @param bool|null $isActive
      * @return $this
      */
-    public function setIsActive(bool $isActive): static
+    public function setIsActive(bool $isActive = null): static
     {
         return $this->set('isActive', $isActive);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getItemGroup(): string
+    public function getItemGroup(): ?string
     {
         return $this->get('itemGroup');
     }
 
     /**
-     * @param string $itemGroup
+     * @param string|null $itemGroup
      * @return $this
      */
-    public function setItemGroup(string $itemGroup): static
+    public function setItemGroup(string $itemGroup = null): static
     {
         return $this->set('itemGroup', $itemGroup);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getItemAction(): string
+    public function getItemAction(): ?string
     {
         return $this->get('itemAction');
     }
 
     /**
-     * @param string $itemAction
+     * @param string|null $itemAction
      * @return $this
      */
-    public function setItemAction(string $itemAction): static
+    public function setItemAction(string $itemAction = null): static
     {
         return $this->set('itemAction', $itemAction);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getLanguage(): array
+    public function getLanguage(): ?array
     {
         return $this->get('language');
     }
 
     /**
-     * @param array $language
+     * @param array|null $language
      * @return $this
      */
-    public function setLanguage(array $language): static
+    public function setLanguage(array $language = null): static
     {
         return $this->set('language', $language);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFormat(): string
+    public function getFormat(): ?string
     {
         return $this->get('format');
     }
 
     /**
-     * @param string $format
+     * @param string|null $format
      * @return $this
      */
-    public function setFormat(string $format): static
+    public function setFormat(string $format = null): static
     {
         return $this->set('format', $format);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddress(): string
+    public function getAddress(): ?string
     {
         return $this->get('address');
     }
 
     /**
-     * @param string $address
+     * @param string|null $address
      * @return $this
      */
-    public function setAddress(string $address): static
+    public function setAddress(string $address = null): static
     {
         return $this->set('address', $address);
     }

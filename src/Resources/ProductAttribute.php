@@ -2,43 +2,59 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * ProductAttribute
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/productattribute
+ */
 class ProductAttribute extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/products/{id}/attributes';
 
-    protected string $handle = 'productAttribute';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'productAttribute';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->get('value');
     }
 
     /**
-     * @param string $value
+     * @param string|null $value
      * @return $this
      */
-    public function setValue(string $value): static
+    public function setValue(string $value = null): static
     {
         return $this->set('value', $value);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getAttribute(): array
+    public function getAttribute(): ?array
     {
         return $this->get('attribute');
     }
 
     /**
-     * @param array $attribute
+     * @param array|null $attribute
      * @return $this
      */
-    public function setAttribute(array $attribute): static
+    public function setAttribute(array $attribute = null): static
     {
         return $this->set('attribute', $attribute);
     }

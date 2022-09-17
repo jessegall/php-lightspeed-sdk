@@ -3,6 +3,7 @@
 namespace JesseGall\LightspeedSDK\Tests;
 
 use FilesystemIterator;
+use JesseGall\LightspeedSDK\Resources\Account;
 use JesseGall\LightspeedSDK\Resources\Resource;
 use JesseGall\LightspeedSDK\Tests\TestClasses\ResourceFiller;
 use JesseGall\Resources\ResourceCollection;
@@ -23,7 +24,7 @@ class ResourceMethodsTest extends TestCase
 
             $values = $filler->fill($resource = new $type());
 
-            $resource->setFeedMissingRelations(false);
+            $resource->setLazyLoadRelations(false);
 
             foreach ($values as $key => $value) {
                 if ($key === 'signout') {
@@ -34,12 +35,20 @@ class ResourceMethodsTest extends TestCase
 
                 $method = $reflection->getMethod("get$key");
 
-                $result = $method->invoke($resource);
+                $returnType = $method->getReturnType();
 
-                if ($result instanceof Resource) {
+                if ($returnType instanceof \ReflectionNamedType) {
+                    $returnType = $returnType->getName();
+                }
+
+                if (str_contains($returnType, '\Resource') && ! class_exists($returnType)) {
+                    $this->fail("$returnType was returned but is not a valid class");
+                }
+
+                if (is_subclass_of($returnType, Resource::class)) {
                     $this->assertEquals($value['resource']['id'], $resource->{"get{$key}Id"}());
 
-                    $resource->{"set$key"}($expected = new (get_class($result))([
+                    $resource->{"set$key"}($expected = new $returnType([
                         'property' => 'one'
                     ]));
 
@@ -48,15 +57,17 @@ class ResourceMethodsTest extends TestCase
                     continue;
                 }
 
-                if ($result instanceof ResourceCollection) {
-                    $resource->{"set$key"}($expected = new ResourceCollection($result->getType(), [
-                        new ($result->getType())
+                if ($returnType === ResourceCollection::class) {
+                    $resource->{"set$key"}(new ResourceCollection(Resource::class, [
+                        new Resource()
                     ]));
 
-                    $this->assertEquals($expected, $method->invoke($resource));
+                    $this->assertInstanceOf(ResourceCollection::class, $method->invoke($resource));
 
                     continue;
                 }
+
+                $result = $method->invoke($resource);
 
                 $newValue = match (gettype($result)) {
                     'string' => 'new value',

@@ -2,60 +2,76 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * AccountRatelimit
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/accountratelimit
+ */
 class AccountRatelimit extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/accounts/{id}/ratelimits';
 
-    protected string $handle = 'accountRateLimit';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'accountRatelimit';
+
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getLimit5Min(): array
+    public function getLimit5Min(): ?array
     {
         return $this->get('limit5Min');
     }
 
     /**
-     * @param array $limit5Min
+     * @param array|null $limit5Min
      * @return $this
      */
-    public function setLimit5Min(array $limit5Min): static
+    public function setLimit5Min(array $limit5Min = null): static
     {
         return $this->set('limit5Min', $limit5Min);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getLimitHour(): array
+    public function getLimitHour(): ?array
     {
         return $this->get('limitHour');
     }
 
     /**
-     * @param array $limitHour
+     * @param array|null $limitHour
      * @return $this
      */
-    public function setLimitHour(array $limitHour): static
+    public function setLimitHour(array $limitHour = null): static
     {
         return $this->set('limitHour', $limitHour);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getLimitDay(): array
+    public function getLimitDay(): ?array
     {
         return $this->get('limitDay');
     }
 
     /**
-     * @param array $limitDay
+     * @param array|null $limitDay
      * @return $this
      */
-    public function setLimitDay(array $limitDay): static
+    public function setLimitDay(array $limitDay = null): static
     {
         return $this->set('limitDay', $limitDay);
     }

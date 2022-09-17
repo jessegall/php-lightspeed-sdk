@@ -2,26 +2,42 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * CustomerLogin
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/customerlogin
+ */
 class CustomerLogin extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/customers/{id}/logins';
 
-    protected string $handle = 'customerLogin';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'customerLogin';
+
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getLoggedin(): bool
+    public function getLoggedin(): ?bool
     {
         return $this->get('loggedin');
     }
 
     /**
-     * @param bool $loggedin
+     * @param bool|null $loggedin
      * @return $this
      */
-    public function setLoggedin(bool $loggedin): static
+    public function setLoggedin(bool $loggedin = null): static
     {
         return $this->set('loggedin', $loggedin);
     }

@@ -2,128 +2,144 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * ShipmentProduct
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/shipmentproduct
+ */
 class ShipmentProduct extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/shipments/{id}/products';
 
-    protected string $handle = 'shipmentProduct';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'shipmentProduct';
+
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getQuantity(): int
+    public function getQuantity(): ?int
     {
         return $this->get('quantity');
     }
 
     /**
-     * @param int $quantity
+     * @param int|null $quantity
      * @return $this
      */
-    public function setQuantity(int $quantity): static
+    public function setQuantity(int $quantity = null): static
     {
         return $this->set('quantity', $quantity);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->get('title');
     }
 
     /**
-     * @param string $title
+     * @param string|null $title
      * @return $this
      */
-    public function setTitle(string $title): static
+    public function setTitle(string $title = null): static
     {
         return $this->set('title', $title);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getVariant(): string
+    public function getVariant(): ?string
     {
         return $this->get('variant');
     }
 
     /**
-     * @param string $variant
+     * @param string|null $variant
      * @return $this
      */
-    public function setVariant(string $variant): static
+    public function setVariant(string $variant = null): static
     {
         return $this->set('variant', $variant);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getArticleCode(): string
+    public function getArticleCode(): ?string
     {
         return $this->get('articleCode');
     }
 
     /**
-     * @param string $articleCode
+     * @param string|null $articleCode
      * @return $this
      */
-    public function setArticleCode(string $articleCode): static
+    public function setArticleCode(string $articleCode = null): static
     {
         return $this->set('articleCode', $articleCode);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEan(): string
+    public function getEan(): ?string
     {
         return $this->get('ean');
     }
 
     /**
-     * @param string $ean
+     * @param string|null $ean
      * @return $this
      */
-    public function setEan(string $ean): static
+    public function setEan(string $ean = null): static
     {
         return $this->set('ean', $ean);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSku(): string
+    public function getSku(): ?string
     {
         return $this->get('sku');
     }
 
     /**
-     * @param string $sku
+     * @param string|null $sku
      * @return $this
      */
-    public function setSku(string $sku): static
+    public function setSku(string $sku = null): static
     {
         return $this->set('sku', $sku);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getCustomData(): array
+    public function getCustomData(): ?array
     {
         return $this->get('customData');
     }
 
     /**
-     * @param array $customData
+     * @param array|null $customData
      * @return $this
      */
-    public function setCustomData(array $customData): static
+    public function setCustomData(array $customData = null): static
     {
         return $this->set('customData', $customData);
     }

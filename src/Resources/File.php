@@ -2,128 +2,144 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * File
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/file
+ */
 class File extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/files';
 
-    protected string $handle = 'file';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'file';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->get('createdAt');
     }
 
     /**
-     * @param string $createdAt
+     * @param string|null $createdAt
      * @return $this
      */
-    public function setCreatedAt(string $createdAt): static
+    public function setCreatedAt(string $createdAt = null): static
     {
         return $this->set('createdAt', $createdAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->get('updatedAt');
     }
 
     /**
-     * @param string $updatedAt
+     * @param string|null $updatedAt
      * @return $this
      */
-    public function setUpdatedAt(string $updatedAt): static
+    public function setUpdatedAt(string $updatedAt = null): static
     {
         return $this->set('updatedAt', $updatedAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->get('type');
     }
 
     /**
-     * @param string $type
+     * @param string|null $type
      * @return $this
      */
-    public function setType(string $type): static
+    public function setType(string $type = null): static
     {
         return $this->set('type', $type);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getExtension(): string
+    public function getExtension(): ?string
     {
         return $this->get('extension');
     }
 
     /**
-     * @param string $extension
+     * @param string|null $extension
      * @return $this
      */
-    public function setExtension(string $extension): static
+    public function setExtension(string $extension = null): static
     {
         return $this->set('extension', $extension);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getSize(): int
+    public function getSize(): ?int
     {
         return $this->get('size');
     }
 
     /**
-     * @param int $size
+     * @param int|null $size
      * @return $this
      */
-    public function setSize(int $size): static
+    public function setSize(int $size = null): static
     {
         return $this->set('size', $size);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->get('title');
     }
 
     /**
-     * @param string $title
+     * @param string|null $title
      * @return $this
      */
-    public function setTitle(string $title): static
+    public function setTitle(string $title = null): static
     {
         return $this->set('title', $title);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSrc(): string
+    public function getSrc(): ?string
     {
         return $this->get('src');
     }
 
     /**
-     * @param string $src
+     * @param string|null $src
      * @return $this
      */
-    public function setSrc(string $src): static
+    public function setSrc(string $src = null): static
     {
         return $this->set('src', $src);
     }

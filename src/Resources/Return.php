@@ -2,281 +2,297 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * Return
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/return
+ */
 class Return_ extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/returns';
 
-    protected string $handle = 'return';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'return';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->get('createdAt');
     }
 
     /**
-     * @param string $createdAt
+     * @param string|null $createdAt
      * @return $this
      */
-    public function setCreatedAt(string $createdAt): static
+    public function setCreatedAt(string $createdAt = null): static
     {
         return $this->set('createdAt', $createdAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->get('updatedAt');
     }
 
     /**
-     * @param string $updatedAt
+     * @param string|null $updatedAt
      * @return $this
      */
-    public function setUpdatedAt(string $updatedAt): static
+    public function setUpdatedAt(string $updatedAt = null): static
     {
         return $this->set('updatedAt', $updatedAt);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCustomerId(): int
+    public function getCustomerId(): ?int
     {
         return $this->get('customerId');
     }
 
     /**
-     * @param int $customerId
+     * @param int|null $customerId
      * @return $this
      */
-    public function setCustomerId(int $customerId): static
+    public function setCustomerId(int $customerId = null): static
     {
         return $this->set('customerId', $customerId);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getOrderId(): int
+    public function getOrderId(): ?int
     {
         return $this->get('orderId');
     }
 
     /**
-     * @param int $orderId
+     * @param int|null $orderId
      * @return $this
      */
-    public function setOrderId(int $orderId): static
+    public function setOrderId(int $orderId = null): static
     {
         return $this->set('orderId', $orderId);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatus(): string
+    public function getStatus(): ?string
     {
         return $this->get('status');
     }
 
     /**
-     * @param string $status
+     * @param string|null $status
      * @return $this
      */
-    public function setStatus(string $status): static
+    public function setStatus(string $status = null): static
     {
         return $this->set('status', $status);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getNumProducts(): int
+    public function getNumProducts(): ?int
     {
         return $this->get('numProducts');
     }
 
     /**
-     * @param int $numProducts
+     * @param int|null $numProducts
      * @return $this
      */
-    public function setNumProducts(int $numProducts): static
+    public function setNumProducts(int $numProducts = null): static
     {
         return $this->set('numProducts', $numProducts);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPriceExcl(): string
+    public function getPriceExcl(): ?string
     {
         return $this->get('priceExcl');
     }
 
     /**
-     * @param string $priceExcl
+     * @param string|null $priceExcl
      * @return $this
      */
-    public function setPriceExcl(string $priceExcl): static
+    public function setPriceExcl(string $priceExcl = null): static
     {
         return $this->set('priceExcl', $priceExcl);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPriceIncl(): string
+    public function getPriceIncl(): ?string
     {
         return $this->get('priceIncl');
     }
 
     /**
-     * @param string $priceIncl
+     * @param string|null $priceIncl
      * @return $this
      */
-    public function setPriceIncl(string $priceIncl): static
+    public function setPriceIncl(string $priceIncl = null): static
     {
         return $this->set('priceIncl', $priceIncl);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsStockAdjusted(): bool
+    public function getIsStockAdjusted(): ?bool
     {
         return $this->get('isStockAdjusted');
     }
 
     /**
-     * @param bool $isStockAdjusted
+     * @param bool|null $isStockAdjusted
      * @return $this
      */
-    public function setIsStockAdjusted(bool $isStockAdjusted): static
+    public function setIsStockAdjusted(bool $isStockAdjusted = null): static
     {
         return $this->set('isStockAdjusted', $isStockAdjusted);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getReturnReason(): string
+    public function getReturnReason(): ?string
     {
         return $this->get('returnReason');
     }
 
     /**
-     * @param string $returnReason
+     * @param string|null $returnReason
      * @return $this
      */
-    public function setReturnReason(string $returnReason): static
+    public function setReturnReason(string $returnReason = null): static
     {
         return $this->set('returnReason', $returnReason);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getReturnAction(): string
+    public function getReturnAction(): ?string
     {
         return $this->get('returnAction');
     }
 
     /**
-     * @param string $returnAction
+     * @param string|null $returnAction
      * @return $this
      */
-    public function setReturnAction(string $returnAction): static
+    public function setReturnAction(string $returnAction = null): static
     {
         return $this->set('returnAction', $returnAction);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCustomerComment(): string
+    public function getCustomerComment(): ?string
     {
         return $this->get('customerComment');
     }
 
     /**
-     * @param string $customerComment
+     * @param string|null $customerComment
      * @return $this
      */
-    public function setCustomerComment(string $customerComment): static
+    public function setCustomerComment(string $customerComment = null): static
     {
         return $this->set('customerComment', $customerComment);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStaffNote(): string
+    public function getStaffNote(): ?string
     {
         return $this->get('staffNote');
     }
 
     /**
-     * @param string $staffNote
+     * @param string|null $staffNote
      * @return $this
      */
-    public function setStaffNote(string $staffNote): static
+    public function setStaffNote(string $staffNote = null): static
     {
         return $this->set('staffNote', $staffNote);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMailMessage(): string
+    public function getMailMessage(): ?string
     {
         return $this->get('mailMessage');
     }
 
     /**
-     * @param string $mailMessage
+     * @param string|null $mailMessage
      * @return $this
      */
-    public function setMailMessage(string $mailMessage): static
+    public function setMailMessage(string $mailMessage = null): static
     {
         return $this->set('mailMessage', $mailMessage);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getNotifyStatus(): bool
+    public function getNotifyStatus(): ?bool
     {
         return $this->get('notifyStatus');
     }
 
     /**
-     * @param bool $notifyStatus
+     * @param bool|null $notifyStatus
      * @return $this
      */
-    public function setNotifyStatus(bool $notifyStatus): static
+    public function setNotifyStatus(bool $notifyStatus = null): static
     {
         return $this->set('notifyStatus', $notifyStatus);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getOrderProducts(): array
+    public function getOrderProducts(): ?array
     {
         return $this->get('orderProducts');
     }
 
     /**
-     * @param array $orderProducts
+     * @param array|null $orderProducts
      * @return $this
      */
-    public function setOrderProducts(array $orderProducts): static
+    public function setOrderProducts(array $orderProducts = null): static
     {
         return $this->set('orderProducts', $orderProducts);
     }

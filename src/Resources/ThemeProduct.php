@@ -2,43 +2,59 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * ThemeProduct
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/themeproduct
+ */
 class ThemeProduct extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/themes/{id}/products';
 
-    protected string $handle = 'themeProduct';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'themeProduct';
+
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getProductId(): int
+    public function getProductId(): ?int
     {
         return $this->get('productId');
     }
 
     /**
-     * @param int $productId
+     * @param int|null $productId
      * @return $this
      */
-    public function setProductId(int $productId): static
+    public function setProductId(int $productId = null): static
     {
         return $this->set('productId', $productId);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getSortOrder(): int
+    public function getSortOrder(): ?int
     {
         return $this->get('sortOrder');
     }
 
     /**
-     * @param int $sortOrder
+     * @param int|null $sortOrder
      * @return $this
      */
-    public function setSortOrder(int $sortOrder): static
+    public function setSortOrder(int $sortOrder = null): static
     {
         return $this->set('sortOrder', $sortOrder);
     }

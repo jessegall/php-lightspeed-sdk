@@ -2,111 +2,127 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * ExternalService
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/externalservice
+ */
 class ExternalService extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/externals/{id}/services';
 
-    protected string $handle = 'externalService';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'externalService';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->get('type');
     }
 
     /**
-     * @param string $type
+     * @param string|null $type
      * @return $this
      */
-    public function setType(string $type): static
+    public function setType(string $type = null): static
     {
         return $this->set('type', $type);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->get('name');
     }
 
     /**
-     * @param string $name
+     * @param string|null $name
      * @return $this
      */
-    public function setName(string $name): static
+    public function setName(string $name = null): static
     {
         return $this->set('name', $name);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUrlEndpoint(): string
+    public function getUrlEndpoint(): ?string
     {
         return $this->get('urlEndpoint');
     }
 
     /**
-     * @param string $urlEndpoint
+     * @param string|null $urlEndpoint
      * @return $this
      */
-    public function setUrlEndpoint(string $urlEndpoint): static
+    public function setUrlEndpoint(string $urlEndpoint = null): static
     {
         return $this->set('urlEndpoint', $urlEndpoint);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsActive(): bool
+    public function getIsActive(): ?bool
     {
         return $this->get('isActive');
     }
 
     /**
-     * @param bool $isActive
+     * @param bool|null $isActive
      * @return $this
      */
-    public function setIsActive(bool $isActive): static
+    public function setIsActive(bool $isActive = null): static
     {
         return $this->set('isActive', $isActive);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->get('createdAt');
     }
 
     /**
-     * @param string $createdAt
+     * @param string|null $createdAt
      * @return $this
      */
-    public function setCreatedAt(string $createdAt): static
+    public function setCreatedAt(string $createdAt = null): static
     {
         return $this->set('createdAt', $createdAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->get('updatedAt');
     }
 
     /**
-     * @param string $updatedAt
+     * @param string|null $updatedAt
      * @return $this
      */
-    public function setUpdatedAt(string $updatedAt): static
+    public function setUpdatedAt(string $updatedAt = null): static
     {
         return $this->set('updatedAt', $updatedAt);
     }

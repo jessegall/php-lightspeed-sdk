@@ -105,8 +105,8 @@ function generateResourceFile(resource, data) {
 
             let resourceType = name.split('/').filter(i => isNaN(i)).map(i => ucfirst(pluralize.singular(i)));
 
-            if (!!leftovers && resourceType.length > 1) {
-                resourceType[0] = pluralize.plural(resourceType[0])
+            if (!! leftovers && resourceType.length > 1) {
+                // resourceType[0] = pluralize.plural(resourceType[0])
             }
 
             resourceType = resourceType.join('');
@@ -114,28 +114,28 @@ function generateResourceFile(resource, data) {
             const returnType = isSingle ? resourceType : 'ResourceCollection';
             get = `
             /**
-            * @return ${ isSingle ? resourceType : `ResourceCollection<${ resourceType }>` }
+            * @return ${ isSingle ? resourceType : `ResourceCollection<${ resourceType }>` }|null
             */
-            public function get${ ucfirst(key) }(): ${ returnType } 
+            public function get${ ucfirst(key) }(): ?${ returnType } 
             {
                 return $this->relation('${ key }.resource.embedded', ${ resourceType }::class ${ ! isSingle ? ', true);' : ');' } 
             }
             
             ${ ! isSingle ? '' : `
             /**
-            * @return int
+            * @return int|null
             */
-            public function get${ ucfirst(key) }Id(): int 
+            public function get${ ucfirst(key) }Id(): ?int 
             {
                 return $this->get('${ key }.resource.id'); 
             }` }`
 
             set = `
             /**
-             * @param ${ isSingle ? resourceType : `ResourceCollection<${ resourceType }>` } $${ key }
+             * @param ${ isSingle ? resourceType : `ResourceCollection<${ resourceType }>` }|null $${ key }
              * @return $this
              */
-            public function set${ ucfirst(key) }(${ returnType } $${ key }): static 
+            public function set${ ucfirst(key) }(${ returnType } $${ key } = null): static 
             {
                 $this->set('${ key }.resource.embedded', $${ key });
                 
@@ -145,19 +145,19 @@ function generateResourceFile(resource, data) {
 
             get = `
             /**
-            * @return ${ attribute._properties.type }
+            * @return ${ attribute._properties.type }|null
             */
-            public function get${ ucfirst(key) }(): ${ attribute._properties.type }
+            public function get${ ucfirst(key) }(): ${ attribute._properties.type !== 'mixed' ? '?' : '' }${ attribute._properties.type }
             {
                 return $this->get('${ key }');       
             }`
 
             set = `
             /**
-             * @param ${ attribute._properties.type } $${ key }
+             * @param ${ attribute._properties.type }|null $${ key }
              * @return $this
              */
-            public function set${ ucfirst(key) }(${ attribute._properties.type } $${ key }): static
+            public function set${ ucfirst(key) }(${ attribute._properties.type } $${ key } = null): static
             {
                 return $this->set('${ key }', $${ key });
             }`
@@ -176,12 +176,14 @@ function generateResourceFile(resource, data) {
     className[0] = ucfirst(first);
     className = className.join('');
 
-    const url = resource.split(/(?=[A-Z])/).map(i => pluralize.plural(i).toLowerCase()).join('/{id}/');
+    const endpoint = resource.split(/(?=[A-Z])/).map(i => pluralize.plural(i).toLowerCase()).join('/{id}/');
 
     const content = getStub()
-        .replace('{{ class }}', className)
+        .replaceAll('{{ class }}', className)
+        .replace('{{ lightspeedResource }}', resource)
+        .replace('{{ lightspeedResourceDocs }}', resource.toLowerCase())
         .replace('{{ methods }}', methods)
-        .replace('{{ url }}', `'/${ url }'`);
+        .replace('{{ endpoint }}', `/${ endpoint }`);
 
     fs.writeFileSync(`${ __dirname }/generated/${ className }.php`, content);
 }

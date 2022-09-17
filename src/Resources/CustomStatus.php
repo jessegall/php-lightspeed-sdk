@@ -2,77 +2,93 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * CustomStatus
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/customstatus
+ */
 class CustomStatus extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/customs/{id}/statuses';
 
-    protected string $handle = 'customerStatus';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'customStatus';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->get('createdAt');
     }
 
     /**
-     * @param string $createdAt
+     * @param string|null $createdAt
      * @return $this
      */
-    public function setCreatedAt(string $createdAt): static
+    public function setCreatedAt(string $createdAt = null): static
     {
         return $this->set('createdAt', $createdAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->get('updatedAt');
     }
 
     /**
-     * @param string $updatedAt
+     * @param string|null $updatedAt
      * @return $this
      */
-    public function setUpdatedAt(string $updatedAt): static
+    public function setUpdatedAt(string $updatedAt = null): static
     {
         return $this->set('updatedAt', $updatedAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->get('title');
     }
 
     /**
-     * @param string $title
+     * @param string|null $title
      * @return $this
      */
-    public function setTitle(string $title): static
+    public function setTitle(string $title = null): static
     {
         return $this->set('title', $title);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getColor(): string
+    public function getColor(): ?string
     {
         return $this->get('color');
     }
 
     /**
-     * @param string $color
+     * @param string|null $color
      * @return $this
      */
-    public function setColor(string $color): static
+    public function setColor(string $color = null): static
     {
         return $this->set('color', $color);
     }

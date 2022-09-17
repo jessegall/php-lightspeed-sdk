@@ -2,25 +2,42 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * ShippingmethodCountry
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/shippingmethodcountry
+ */
 class ShippingmethodCountry extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/shippingmethods/{id}/countries';
 
-    protected string $handle = 'shippingmethodCountry';
     /**
-     * @return array
+     * The lightspeed resource this class represents
+     *
+     * @var string
      */
-    public function getCountry(): array
+    protected string $lightspeedResource = 'shippingmethodCountry';
+
+
+    /**
+     * @return array|null
+     */
+    public function getCountry(): ?array
     {
         return $this->get('country');
     }
 
     /**
-     * @param array $country
+     * @param array|null $country
      * @return $this
      */
-    public function setCountry(array $country): static
+    public function setCountry(array $country = null): static
     {
         return $this->set('country', $country);
     }

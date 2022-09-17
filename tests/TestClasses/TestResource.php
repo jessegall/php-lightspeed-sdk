@@ -9,7 +9,7 @@ class TestResource extends Resource
 {
     protected string $endpoint = 'test';
 
-    protected string $handle = 'test';
+    protected string $lightspeedResource = 'test';
 
     /**
      * @return TestResource

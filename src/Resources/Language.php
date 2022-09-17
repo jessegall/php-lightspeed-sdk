@@ -2,94 +2,110 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * Language
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/language
+ */
 class Language extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/languages';
 
-    protected string $handle = 'language';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'language';
+
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsActive(): bool
+    public function getIsActive(): ?bool
     {
         return $this->get('isActive');
     }
 
     /**
-     * @param bool $isActive
+     * @param bool|null $isActive
      * @return $this
      */
-    public function setIsActive(bool $isActive): static
+    public function setIsActive(bool $isActive = null): static
     {
         return $this->set('isActive', $isActive);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsDefault(): bool
+    public function getIsDefault(): ?bool
     {
         return $this->get('isDefault');
     }
 
     /**
-     * @param bool $isDefault
+     * @param bool|null $isDefault
      * @return $this
      */
-    public function setIsDefault(bool $isDefault): static
+    public function setIsDefault(bool $isDefault = null): static
     {
         return $this->set('isDefault', $isDefault);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->get('code');
     }
 
     /**
-     * @param string $code
+     * @param string|null $code
      * @return $this
      */
-    public function setCode(string $code): static
+    public function setCode(string $code = null): static
     {
         return $this->set('code', $code);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLocale(): string
+    public function getLocale(): ?string
     {
         return $this->get('locale');
     }
 
     /**
-     * @param string $locale
+     * @param string|null $locale
      * @return $this
      */
-    public function setLocale(string $locale): static
+    public function setLocale(string $locale = null): static
     {
         return $this->set('locale', $locale);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->get('title');
     }
 
     /**
-     * @param string $title
+     * @param string|null $title
      * @return $this
      */
-    public function setTitle(string $title): static
+    public function setTitle(string $title = null): static
     {
         return $this->set('title', $title);
     }

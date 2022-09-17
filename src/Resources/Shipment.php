@@ -4,239 +4,255 @@ namespace JesseGall\LightspeedSDK\Resources;
 
 use JesseGall\Resources\ResourceCollection;
 
+/**
+ * Shipment
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/shipment
+ */
 class Shipment extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/shipments';
 
-    protected string $handle = 'shipment';
-    
     /**
-     * @return string
+     * The lightspeed resource this class represents
+     *
+     * @var string
      */
-    public function getCreatedAt(): string
+    protected string $lightspeedResource = 'shipment';
+
+
+    /**
+     * @return string|null
+     */
+    public function getCreatedAt(): ?string
     {
         return $this->get('createdAt');
     }
 
     /**
-     * @param string $createdAt
+     * @param string|null $createdAt
      * @return $this
      */
-    public function setCreatedAt(string $createdAt): static
+    public function setCreatedAt(string $createdAt = null): static
     {
         return $this->set('createdAt', $createdAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->get('updatedAt');
     }
 
     /**
-     * @param string $updatedAt
+     * @param string|null $updatedAt
      * @return $this
      */
-    public function setUpdatedAt(string $updatedAt): static
+    public function setUpdatedAt(string $updatedAt = null): static
     {
         return $this->set('updatedAt', $updatedAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getNumber(): string
+    public function getNumber(): ?string
     {
         return $this->get('number');
     }
 
     /**
-     * @param string $number
+     * @param string|null $number
      * @return $this
      */
-    public function setNumber(string $number): static
+    public function setNumber(string $number = null): static
     {
         return $this->set('number', $number);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatus(): string
+    public function getStatus(): ?string
     {
         return $this->get('status');
     }
 
     /**
-     * @param string $status
+     * @param string|null $status
      * @return $this
      */
-    public function setStatus(string $status): static
+    public function setStatus(string $status = null): static
     {
         return $this->set('status', $status);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTrackingCode(): string
+    public function getTrackingCode(): ?string
     {
         return $this->get('trackingCode');
     }
 
     /**
-     * @param string $trackingCode
+     * @param string|null $trackingCode
      * @return $this
      */
-    public function setTrackingCode(string $trackingCode): static
+    public function setTrackingCode(string $trackingCode = null): static
     {
         return $this->set('trackingCode', $trackingCode);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getDoNotifyShipped(): bool
+    public function getDoNotifyShipped(): ?bool
     {
         return $this->get('doNotifyShipped');
     }
 
     /**
-     * @param bool $doNotifyShipped
+     * @param bool|null $doNotifyShipped
      * @return $this
      */
-    public function setDoNotifyShipped(bool $doNotifyShipped): static
+    public function setDoNotifyShipped(bool $doNotifyShipped = null): static
     {
         return $this->set('doNotifyShipped', $doNotifyShipped);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getDoNotifyReadyForPickup(): bool
+    public function getDoNotifyReadyForPickup(): ?bool
     {
         return $this->get('doNotifyReadyForPickup');
     }
 
     /**
-     * @param bool $doNotifyReadyForPickup
+     * @param bool|null $doNotifyReadyForPickup
      * @return $this
      */
-    public function setDoNotifyReadyForPickup(bool $doNotifyReadyForPickup): static
+    public function setDoNotifyReadyForPickup(bool $doNotifyReadyForPickup = null): static
     {
         return $this->set('doNotifyReadyForPickup', $doNotifyReadyForPickup);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getDoNotifyTrackingCode(): bool
+    public function getDoNotifyTrackingCode(): ?bool
     {
         return $this->get('doNotifyTrackingCode');
     }
 
     /**
-     * @param bool $doNotifyTrackingCode
+     * @param bool|null $doNotifyTrackingCode
      * @return $this
      */
-    public function setDoNotifyTrackingCode(bool $doNotifyTrackingCode): static
+    public function setDoNotifyTrackingCode(bool $doNotifyTrackingCode = null): static
     {
         return $this->set('doNotifyTrackingCode', $doNotifyTrackingCode);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalWeight(): int
+    public function getTotalWeight(): ?int
     {
         return $this->get('totalWeight');
     }
 
     /**
-     * @param int $totalWeight
+     * @param int|null $totalWeight
      * @return $this
      */
-    public function setTotalWeight(int $totalWeight): static
+    public function setTotalWeight(int $totalWeight = null): static
     {
         return $this->set('totalWeight', $totalWeight);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalSizeX(): int
+    public function getTotalSizeX(): ?int
     {
         return $this->get('totalSizeX');
     }
 
     /**
-     * @param int $totalSizeX
+     * @param int|null $totalSizeX
      * @return $this
      */
-    public function setTotalSizeX(int $totalSizeX): static
+    public function setTotalSizeX(int $totalSizeX = null): static
     {
         return $this->set('totalSizeX', $totalSizeX);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalSizeY(): int
+    public function getTotalSizeY(): ?int
     {
         return $this->get('totalSizeY');
     }
 
     /**
-     * @param int $totalSizeY
+     * @param int|null $totalSizeY
      * @return $this
      */
-    public function setTotalSizeY(int $totalSizeY): static
+    public function setTotalSizeY(int $totalSizeY = null): static
     {
         return $this->set('totalSizeY', $totalSizeY);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTotalSizeZ(): int
+    public function getTotalSizeZ(): ?int
     {
         return $this->get('totalSizeZ');
     }
 
     /**
-     * @param int $totalSizeZ
+     * @param int|null $totalSizeZ
      * @return $this
      */
-    public function setTotalSizeZ(int $totalSizeZ): static
+    public function setTotalSizeZ(int $totalSizeZ = null): static
     {
         return $this->set('totalSizeZ', $totalSizeZ);
     }
 
     /**
-     * @return Customer
+     * @return Customer|null
      */
-    public function getCustomer(): Customer
+    public function getCustomer(): ?Customer
     {
         return $this->relation('customer.resource.embedded', Customer::class);
     }
 
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCustomerId(): int
+    public function getCustomerId(): ?int
     {
         return $this->get('customer.resource.id');
     }
 
     /**
-     * @param Customer $customer
+     * @param Customer|null $customer
      * @return $this
      */
-    public function setCustomer(Customer $customer): static
+    public function setCustomer(Customer $customer = null): static
     {
         $this->set('customer.resource.embedded', $customer);
 
@@ -244,27 +260,27 @@ class Shipment extends Resource
     }
 
     /**
-     * @return Order
+     * @return Order|null
      */
-    public function getOrder(): Order
+    public function getOrder(): ?Order
     {
         return $this->relation('order.resource.embedded', Order::class);
     }
 
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getOrderId(): int
+    public function getOrderId(): ?int
     {
         return $this->get('order.resource.id');
     }
 
     /**
-     * @param Order $order
+     * @param Order|null $order
      * @return $this
      */
-    public function setOrder(Order $order): static
+    public function setOrder(Order $order = null): static
     {
         $this->set('order.resource.embedded', $order);
 
@@ -272,19 +288,19 @@ class Shipment extends Resource
     }
 
     /**
-     * @return ResourceCollection<ShipmentProduct>
+     * @return ResourceCollection<ShipmentProduct>|null
      */
-    public function getProducts(): ResourceCollection
+    public function getProducts(): ?ResourceCollection
     {
         return $this->relation('products.resource.embedded', ShipmentProduct::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<ShipmentProduct> $products
+     * @param ResourceCollection<ShipmentProduct>|null $products
      * @return $this
      */
-    public function setProducts(ResourceCollection $products): static
+    public function setProducts(ResourceCollection $products = null): static
     {
         $this->set('products.resource.embedded', $products);
 
@@ -292,19 +308,19 @@ class Shipment extends Resource
     }
 
     /**
-     * @return ResourceCollection<ShipmentMetafield>
+     * @return ResourceCollection<ShipmentMetafield>|null
      */
-    public function getMetafields(): ResourceCollection
+    public function getMetafields(): ?ResourceCollection
     {
         return $this->relation('metafields.resource.embedded', ShipmentMetafield::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<ShipmentMetafield> $metafields
+     * @param ResourceCollection<ShipmentMetafield>|null $metafields
      * @return $this
      */
-    public function setMetafields(ResourceCollection $metafields): static
+    public function setMetafields(ResourceCollection $metafields = null): static
     {
         $this->set('metafields.resource.embedded', $metafields);
 
@@ -312,19 +328,19 @@ class Shipment extends Resource
     }
 
     /**
-     * @return ResourceCollection<OrderEvent>
+     * @return ResourceCollection<OrderEvent>|null
      */
-    public function getEvents(): ResourceCollection
+    public function getEvents(): ?ResourceCollection
     {
         return $this->relation('events.resource.embedded', OrderEvent::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<OrderEvent> $events
+     * @param ResourceCollection<OrderEvent>|null $events
      * @return $this
      */
-    public function setEvents(ResourceCollection $events): static
+    public function setEvents(ResourceCollection $events = null): static
     {
         $this->set('events.resource.embedded', $events);
 

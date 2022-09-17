@@ -4,83 +4,99 @@ namespace JesseGall\LightspeedSDK\Resources;
 
 use JesseGall\Resources\ResourceCollection;
 
+/**
+ * Order
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/order
+ */
 class Order extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/orders';
 
-    protected string $handle = 'order';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'order';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->get('createdAt');
     }
 
     /**
-     * @param string $createdAt
+     * @param string|null $createdAt
      * @return $this
      */
-    public function setCreatedAt(string $createdAt): static
+    public function setCreatedAt(string $createdAt = null): static
     {
         return $this->set('createdAt', $createdAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->get('updatedAt');
     }
 
     /**
-     * @param string $updatedAt
+     * @param string|null $updatedAt
      * @return $this
      */
-    public function setUpdatedAt(string $updatedAt): static
+    public function setUpdatedAt(string $updatedAt = null): static
     {
         return $this->set('updatedAt', $updatedAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getNumber(): string
+    public function getNumber(): ?string
     {
         return $this->get('number');
     }
 
     /**
-     * @param string $number
+     * @param string|null $number
      * @return $this
      */
-    public function setNumber(string $number): static
+    public function setNumber(string $number = null): static
     {
         return $this->set('number', $number);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStatus(): string
+    public function getStatus(): ?string
     {
         return $this->get('status');
     }
 
     /**
-     * @param string $status
+     * @param string|null $status
      * @return $this
      */
-    public function setStatus(string $status): static
+    public function setStatus(string $status = null): static
     {
         return $this->set('status', $status);
     }
 
     /**
-     * @return mixed
+     * @return mixed|null
      */
     public function getCustomStatusId(): mixed
     {
@@ -88,1223 +104,1223 @@ class Order extends Resource
     }
 
     /**
-     * @param mixed $customStatusId
+     * @param mixed|null $customStatusId
      * @return $this
      */
-    public function setCustomStatusId(mixed $customStatusId): static
+    public function setCustomStatusId(mixed $customStatusId = null): static
     {
         return $this->set('customStatusId', $customStatusId);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getChannel(): string
+    public function getChannel(): ?string
     {
         return $this->get('channel');
     }
 
     /**
-     * @param string $channel
+     * @param string|null $channel
      * @return $this
      */
-    public function setChannel(string $channel): static
+    public function setChannel(string $channel = null): static
     {
         return $this->set('channel', $channel);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getRemoteIp(): string
+    public function getRemoteIp(): ?string
     {
         return $this->get('remoteIp');
     }
 
     /**
-     * @param string $remoteIp
+     * @param string|null $remoteIp
      * @return $this
      */
-    public function setRemoteIp(string $remoteIp): static
+    public function setRemoteIp(string $remoteIp = null): static
     {
         return $this->set('remoteIp', $remoteIp);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUserAgent(): string
+    public function getUserAgent(): ?string
     {
         return $this->get('userAgent');
     }
 
     /**
-     * @param string $userAgent
+     * @param string|null $userAgent
      * @return $this
      */
-    public function setUserAgent(string $userAgent): static
+    public function setUserAgent(string $userAgent = null): static
     {
         return $this->set('userAgent', $userAgent);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getReferralId(): bool
+    public function getReferralId(): ?bool
     {
         return $this->get('referralId');
     }
 
     /**
-     * @param bool $referralId
+     * @param bool|null $referralId
      * @return $this
      */
-    public function setReferralId(bool $referralId): static
+    public function setReferralId(bool $referralId = null): static
     {
         return $this->set('referralId', $referralId);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPriceCost(): int
+    public function getPriceCost(): ?int
     {
         return $this->get('priceCost');
     }
 
     /**
-     * @param int $priceCost
+     * @param int|null $priceCost
      * @return $this
      */
-    public function setPriceCost(int $priceCost): static
+    public function setPriceCost(int $priceCost = null): static
     {
         return $this->set('priceCost', $priceCost);
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getPriceExcl(): float
+    public function getPriceExcl(): ?float
     {
         return $this->get('priceExcl');
     }
 
     /**
-     * @param float $priceExcl
+     * @param float|null $priceExcl
      * @return $this
      */
-    public function setPriceExcl(float $priceExcl): static
+    public function setPriceExcl(float $priceExcl = null): static
     {
         return $this->set('priceExcl', $priceExcl);
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getPriceIncl(): float
+    public function getPriceIncl(): ?float
     {
         return $this->get('priceIncl');
     }
 
     /**
-     * @param float $priceIncl
+     * @param float|null $priceIncl
      * @return $this
      */
-    public function setPriceIncl(float $priceIncl): static
+    public function setPriceIncl(float $priceIncl = null): static
     {
         return $this->set('priceIncl', $priceIncl);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getWeight(): int
+    public function getWeight(): ?int
     {
         return $this->get('weight');
     }
 
     /**
-     * @param int $weight
+     * @param int|null $weight
      * @return $this
      */
-    public function setWeight(int $weight): static
+    public function setWeight(int $weight = null): static
     {
         return $this->set('weight', $weight);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getVolume(): int
+    public function getVolume(): ?int
     {
         return $this->get('volume');
     }
 
     /**
-     * @param int $volume
+     * @param int|null $volume
      * @return $this
      */
-    public function setVolume(int $volume): static
+    public function setVolume(int $volume = null): static
     {
         return $this->set('volume', $volume);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getColli(): int
+    public function getColli(): ?int
     {
         return $this->get('colli');
     }
 
     /**
-     * @param int $colli
+     * @param int|null $colli
      * @return $this
      */
-    public function setColli(int $colli): static
+    public function setColli(int $colli = null): static
     {
         return $this->set('colli', $colli);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getGender(): string
+    public function getGender(): ?string
     {
         return $this->get('gender');
     }
 
     /**
-     * @param string $gender
+     * @param string|null $gender
      * @return $this
      */
-    public function setGender(string $gender): static
+    public function setGender(string $gender = null): static
     {
         return $this->set('gender', $gender);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getBirthDate(): bool
+    public function getBirthDate(): ?bool
     {
         return $this->get('birthDate');
     }
 
     /**
-     * @param bool $birthDate
+     * @param bool|null $birthDate
      * @return $this
      */
-    public function setBirthDate(bool $birthDate): static
+    public function setBirthDate(bool $birthDate = null): static
     {
         return $this->set('birthDate', $birthDate);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getNationalId(): string
+    public function getNationalId(): ?string
     {
         return $this->get('nationalId');
     }
 
     /**
-     * @param string $nationalId
+     * @param string|null $nationalId
      * @return $this
      */
-    public function setNationalId(string $nationalId): static
+    public function setNationalId(string $nationalId = null): static
     {
         return $this->set('nationalId', $nationalId);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->get('email');
     }
 
     /**
-     * @param string $email
+     * @param string|null $email
      * @return $this
      */
-    public function setEmail(string $email): static
+    public function setEmail(string $email = null): static
     {
         return $this->set('email', $email);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFirstname(): string
+    public function getFirstname(): ?string
     {
         return $this->get('firstname');
     }
 
     /**
-     * @param string $firstname
+     * @param string|null $firstname
      * @return $this
      */
-    public function setFirstname(string $firstname): static
+    public function setFirstname(string $firstname = null): static
     {
         return $this->set('firstname', $firstname);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMiddlename(): string
+    public function getMiddlename(): ?string
     {
         return $this->get('middlename');
     }
 
     /**
-     * @param string $middlename
+     * @param string|null $middlename
      * @return $this
      */
-    public function setMiddlename(string $middlename): static
+    public function setMiddlename(string $middlename = null): static
     {
         return $this->set('middlename', $middlename);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLastname(): string
+    public function getLastname(): ?string
     {
         return $this->get('lastname');
     }
 
     /**
-     * @param string $lastname
+     * @param string|null $lastname
      * @return $this
      */
-    public function setLastname(string $lastname): static
+    public function setLastname(string $lastname = null): static
     {
         return $this->set('lastname', $lastname);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPhone(): string
+    public function getPhone(): ?string
     {
         return $this->get('phone');
     }
 
     /**
-     * @param string $phone
+     * @param string|null $phone
      * @return $this
      */
-    public function setPhone(string $phone): static
+    public function setPhone(string $phone = null): static
     {
         return $this->set('phone', $phone);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMobile(): string
+    public function getMobile(): ?string
     {
         return $this->get('mobile');
     }
 
     /**
-     * @param string $mobile
+     * @param string|null $mobile
      * @return $this
      */
-    public function setMobile(string $mobile): static
+    public function setMobile(string $mobile = null): static
     {
         return $this->set('mobile', $mobile);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getNewsletterSubscribed(): bool
+    public function getNewsletterSubscribed(): ?bool
     {
         return $this->get('newsletterSubscribed');
     }
 
     /**
-     * @param bool $newsletterSubscribed
+     * @param bool|null $newsletterSubscribed
      * @return $this
      */
-    public function setNewsletterSubscribed(bool $newsletterSubscribed): static
+    public function setNewsletterSubscribed(bool $newsletterSubscribed = null): static
     {
         return $this->set('newsletterSubscribed', $newsletterSubscribed);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsCompany(): bool
+    public function getIsCompany(): ?bool
     {
         return $this->get('isCompany');
     }
 
     /**
-     * @param bool $isCompany
+     * @param bool|null $isCompany
      * @return $this
      */
-    public function setIsCompany(bool $isCompany): static
+    public function setIsCompany(bool $isCompany = null): static
     {
         return $this->set('isCompany', $isCompany);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCompanyName(): string
+    public function getCompanyName(): ?string
     {
         return $this->get('companyName');
     }
 
     /**
-     * @param string $companyName
+     * @param string|null $companyName
      * @return $this
      */
-    public function setCompanyName(string $companyName): static
+    public function setCompanyName(string $companyName = null): static
     {
         return $this->set('companyName', $companyName);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCompanyCoCNumber(): string
+    public function getCompanyCoCNumber(): ?string
     {
         return $this->get('companyCoCNumber');
     }
 
     /**
-     * @param string $companyCoCNumber
+     * @param string|null $companyCoCNumber
      * @return $this
      */
-    public function setCompanyCoCNumber(string $companyCoCNumber): static
+    public function setCompanyCoCNumber(string $companyCoCNumber = null): static
     {
         return $this->set('companyCoCNumber', $companyCoCNumber);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCompanyVatNumber(): string
+    public function getCompanyVatNumber(): ?string
     {
         return $this->get('companyVatNumber');
     }
 
     /**
-     * @param string $companyVatNumber
+     * @param string|null $companyVatNumber
      * @return $this
      */
-    public function setCompanyVatNumber(string $companyVatNumber): static
+    public function setCompanyVatNumber(string $companyVatNumber = null): static
     {
         return $this->set('companyVatNumber', $companyVatNumber);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressBillingName(): string
+    public function getAddressBillingName(): ?string
     {
         return $this->get('addressBillingName');
     }
 
     /**
-     * @param string $addressBillingName
+     * @param string|null $addressBillingName
      * @return $this
      */
-    public function setAddressBillingName(string $addressBillingName): static
+    public function setAddressBillingName(string $addressBillingName = null): static
     {
         return $this->set('addressBillingName', $addressBillingName);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressBillingStreet(): string
+    public function getAddressBillingStreet(): ?string
     {
         return $this->get('addressBillingStreet');
     }
 
     /**
-     * @param string $addressBillingStreet
+     * @param string|null $addressBillingStreet
      * @return $this
      */
-    public function setAddressBillingStreet(string $addressBillingStreet): static
+    public function setAddressBillingStreet(string $addressBillingStreet = null): static
     {
         return $this->set('addressBillingStreet', $addressBillingStreet);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressBillingStreet2(): string
+    public function getAddressBillingStreet2(): ?string
     {
         return $this->get('addressBillingStreet2');
     }
 
     /**
-     * @param string $addressBillingStreet2
+     * @param string|null $addressBillingStreet2
      * @return $this
      */
-    public function setAddressBillingStreet2(string $addressBillingStreet2): static
+    public function setAddressBillingStreet2(string $addressBillingStreet2 = null): static
     {
         return $this->set('addressBillingStreet2', $addressBillingStreet2);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressBillingNumber(): string
+    public function getAddressBillingNumber(): ?string
     {
         return $this->get('addressBillingNumber');
     }
 
     /**
-     * @param string $addressBillingNumber
+     * @param string|null $addressBillingNumber
      * @return $this
      */
-    public function setAddressBillingNumber(string $addressBillingNumber): static
+    public function setAddressBillingNumber(string $addressBillingNumber = null): static
     {
         return $this->set('addressBillingNumber', $addressBillingNumber);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressBillingExtension(): string
+    public function getAddressBillingExtension(): ?string
     {
         return $this->get('addressBillingExtension');
     }
 
     /**
-     * @param string $addressBillingExtension
+     * @param string|null $addressBillingExtension
      * @return $this
      */
-    public function setAddressBillingExtension(string $addressBillingExtension): static
+    public function setAddressBillingExtension(string $addressBillingExtension = null): static
     {
         return $this->set('addressBillingExtension', $addressBillingExtension);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressBillingZipcode(): string
+    public function getAddressBillingZipcode(): ?string
     {
         return $this->get('addressBillingZipcode');
     }
 
     /**
-     * @param string $addressBillingZipcode
+     * @param string|null $addressBillingZipcode
      * @return $this
      */
-    public function setAddressBillingZipcode(string $addressBillingZipcode): static
+    public function setAddressBillingZipcode(string $addressBillingZipcode = null): static
     {
         return $this->set('addressBillingZipcode', $addressBillingZipcode);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressBillingCity(): string
+    public function getAddressBillingCity(): ?string
     {
         return $this->get('addressBillingCity');
     }
 
     /**
-     * @param string $addressBillingCity
+     * @param string|null $addressBillingCity
      * @return $this
      */
-    public function setAddressBillingCity(string $addressBillingCity): static
+    public function setAddressBillingCity(string $addressBillingCity = null): static
     {
         return $this->set('addressBillingCity', $addressBillingCity);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressBillingRegion(): string
+    public function getAddressBillingRegion(): ?string
     {
         return $this->get('addressBillingRegion');
     }
 
     /**
-     * @param string $addressBillingRegion
+     * @param string|null $addressBillingRegion
      * @return $this
      */
-    public function setAddressBillingRegion(string $addressBillingRegion): static
+    public function setAddressBillingRegion(string $addressBillingRegion = null): static
     {
         return $this->set('addressBillingRegion', $addressBillingRegion);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getAddressBillingCountry(): array
+    public function getAddressBillingCountry(): ?array
     {
         return $this->get('addressBillingCountry');
     }
 
     /**
-     * @param array $addressBillingCountry
+     * @param array|null $addressBillingCountry
      * @return $this
      */
-    public function setAddressBillingCountry(array $addressBillingCountry): static
+    public function setAddressBillingCountry(array $addressBillingCountry = null): static
     {
         return $this->set('addressBillingCountry', $addressBillingCountry);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getAddressBillingRegionData(): array
+    public function getAddressBillingRegionData(): ?array
     {
         return $this->get('addressBillingRegionData');
     }
 
     /**
-     * @param array $addressBillingRegionData
+     * @param array|null $addressBillingRegionData
      * @return $this
      */
-    public function setAddressBillingRegionData(array $addressBillingRegionData): static
+    public function setAddressBillingRegionData(array $addressBillingRegionData = null): static
     {
         return $this->set('addressBillingRegionData', $addressBillingRegionData);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getAddressShippingCompany(): bool
+    public function getAddressShippingCompany(): ?bool
     {
         return $this->get('addressShippingCompany');
     }
 
     /**
-     * @param bool $addressShippingCompany
+     * @param bool|null $addressShippingCompany
      * @return $this
      */
-    public function setAddressShippingCompany(bool $addressShippingCompany): static
+    public function setAddressShippingCompany(bool $addressShippingCompany = null): static
     {
         return $this->set('addressShippingCompany', $addressShippingCompany);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressShippingName(): string
+    public function getAddressShippingName(): ?string
     {
         return $this->get('addressShippingName');
     }
 
     /**
-     * @param string $addressShippingName
+     * @param string|null $addressShippingName
      * @return $this
      */
-    public function setAddressShippingName(string $addressShippingName): static
+    public function setAddressShippingName(string $addressShippingName = null): static
     {
         return $this->set('addressShippingName', $addressShippingName);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressShippingStreet(): string
+    public function getAddressShippingStreet(): ?string
     {
         return $this->get('addressShippingStreet');
     }
 
     /**
-     * @param string $addressShippingStreet
+     * @param string|null $addressShippingStreet
      * @return $this
      */
-    public function setAddressShippingStreet(string $addressShippingStreet): static
+    public function setAddressShippingStreet(string $addressShippingStreet = null): static
     {
         return $this->set('addressShippingStreet', $addressShippingStreet);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressShippingStreet2(): string
+    public function getAddressShippingStreet2(): ?string
     {
         return $this->get('addressShippingStreet2');
     }
 
     /**
-     * @param string $addressShippingStreet2
+     * @param string|null $addressShippingStreet2
      * @return $this
      */
-    public function setAddressShippingStreet2(string $addressShippingStreet2): static
+    public function setAddressShippingStreet2(string $addressShippingStreet2 = null): static
     {
         return $this->set('addressShippingStreet2', $addressShippingStreet2);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressShippingNumber(): string
+    public function getAddressShippingNumber(): ?string
     {
         return $this->get('addressShippingNumber');
     }
 
     /**
-     * @param string $addressShippingNumber
+     * @param string|null $addressShippingNumber
      * @return $this
      */
-    public function setAddressShippingNumber(string $addressShippingNumber): static
+    public function setAddressShippingNumber(string $addressShippingNumber = null): static
     {
         return $this->set('addressShippingNumber', $addressShippingNumber);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressShippingExtension(): string
+    public function getAddressShippingExtension(): ?string
     {
         return $this->get('addressShippingExtension');
     }
 
     /**
-     * @param string $addressShippingExtension
+     * @param string|null $addressShippingExtension
      * @return $this
      */
-    public function setAddressShippingExtension(string $addressShippingExtension): static
+    public function setAddressShippingExtension(string $addressShippingExtension = null): static
     {
         return $this->set('addressShippingExtension', $addressShippingExtension);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressShippingZipcode(): string
+    public function getAddressShippingZipcode(): ?string
     {
         return $this->get('addressShippingZipcode');
     }
 
     /**
-     * @param string $addressShippingZipcode
+     * @param string|null $addressShippingZipcode
      * @return $this
      */
-    public function setAddressShippingZipcode(string $addressShippingZipcode): static
+    public function setAddressShippingZipcode(string $addressShippingZipcode = null): static
     {
         return $this->set('addressShippingZipcode', $addressShippingZipcode);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressShippingCity(): string
+    public function getAddressShippingCity(): ?string
     {
         return $this->get('addressShippingCity');
     }
 
     /**
-     * @param string $addressShippingCity
+     * @param string|null $addressShippingCity
      * @return $this
      */
-    public function setAddressShippingCity(string $addressShippingCity): static
+    public function setAddressShippingCity(string $addressShippingCity = null): static
     {
         return $this->set('addressShippingCity', $addressShippingCity);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressShippingRegion(): string
+    public function getAddressShippingRegion(): ?string
     {
         return $this->get('addressShippingRegion');
     }
 
     /**
-     * @param string $addressShippingRegion
+     * @param string|null $addressShippingRegion
      * @return $this
      */
-    public function setAddressShippingRegion(string $addressShippingRegion): static
+    public function setAddressShippingRegion(string $addressShippingRegion = null): static
     {
         return $this->set('addressShippingRegion', $addressShippingRegion);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getAddressShippingCountry(): array
+    public function getAddressShippingCountry(): ?array
     {
         return $this->get('addressShippingCountry');
     }
 
     /**
-     * @param array $addressShippingCountry
+     * @param array|null $addressShippingCountry
      * @return $this
      */
-    public function setAddressShippingCountry(array $addressShippingCountry): static
+    public function setAddressShippingCountry(array $addressShippingCountry = null): static
     {
         return $this->set('addressShippingCountry', $addressShippingCountry);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getAddressShippingRegionData(): array
+    public function getAddressShippingRegionData(): ?array
     {
         return $this->get('addressShippingRegionData');
     }
 
     /**
-     * @param array $addressShippingRegionData
+     * @param array|null $addressShippingRegionData
      * @return $this
      */
-    public function setAddressShippingRegionData(array $addressShippingRegionData): static
+    public function setAddressShippingRegionData(array $addressShippingRegionData = null): static
     {
         return $this->set('addressShippingRegionData', $addressShippingRegionData);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentId(): string
+    public function getPaymentId(): ?string
     {
         return $this->get('paymentId');
     }
 
     /**
-     * @param string $paymentId
+     * @param string|null $paymentId
      * @return $this
      */
-    public function setPaymentId(string $paymentId): static
+    public function setPaymentId(string $paymentId = null): static
     {
         return $this->set('paymentId', $paymentId);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentStatus(): string
+    public function getPaymentStatus(): ?string
     {
         return $this->get('paymentStatus');
     }
 
     /**
-     * @param string $paymentStatus
+     * @param string|null $paymentStatus
      * @return $this
      */
-    public function setPaymentStatus(string $paymentStatus): static
+    public function setPaymentStatus(string $paymentStatus = null): static
     {
         return $this->set('paymentStatus', $paymentStatus);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getPaymentIsPost(): bool
+    public function getPaymentIsPost(): ?bool
     {
         return $this->get('paymentIsPost');
     }
 
     /**
-     * @param bool $paymentIsPost
+     * @param bool|null $paymentIsPost
      * @return $this
      */
-    public function setPaymentIsPost(bool $paymentIsPost): static
+    public function setPaymentIsPost(bool $paymentIsPost = null): static
     {
         return $this->set('paymentIsPost', $paymentIsPost);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getPaymentIsInvoiceExternal(): bool
+    public function getPaymentIsInvoiceExternal(): ?bool
     {
         return $this->get('paymentIsInvoiceExternal');
     }
 
     /**
-     * @param bool $paymentIsInvoiceExternal
+     * @param bool|null $paymentIsInvoiceExternal
      * @return $this
      */
-    public function setPaymentIsInvoiceExternal(bool $paymentIsInvoiceExternal): static
+    public function setPaymentIsInvoiceExternal(bool $paymentIsInvoiceExternal = null): static
     {
         return $this->set('paymentIsInvoiceExternal', $paymentIsInvoiceExternal);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentTaxRate(): int
+    public function getPaymentTaxRate(): ?int
     {
         return $this->get('paymentTaxRate');
     }
 
     /**
-     * @param int $paymentTaxRate
+     * @param int|null $paymentTaxRate
      * @return $this
      */
-    public function setPaymentTaxRate(int $paymentTaxRate): static
+    public function setPaymentTaxRate(int $paymentTaxRate = null): static
     {
         return $this->set('paymentTaxRate', $paymentTaxRate);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getPaymentTaxRates(): array
+    public function getPaymentTaxRates(): ?array
     {
         return $this->get('paymentTaxRates');
     }
 
     /**
-     * @param array $paymentTaxRates
+     * @param array|null $paymentTaxRates
      * @return $this
      */
-    public function setPaymentTaxRates(array $paymentTaxRates): static
+    public function setPaymentTaxRates(array $paymentTaxRates = null): static
     {
         return $this->set('paymentTaxRates', $paymentTaxRates);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentBasePriceExcl(): int
+    public function getPaymentBasePriceExcl(): ?int
     {
         return $this->get('paymentBasePriceExcl');
     }
 
     /**
-     * @param int $paymentBasePriceExcl
+     * @param int|null $paymentBasePriceExcl
      * @return $this
      */
-    public function setPaymentBasePriceExcl(int $paymentBasePriceExcl): static
+    public function setPaymentBasePriceExcl(int $paymentBasePriceExcl = null): static
     {
         return $this->set('paymentBasePriceExcl', $paymentBasePriceExcl);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentBasePriceIncl(): int
+    public function getPaymentBasePriceIncl(): ?int
     {
         return $this->get('paymentBasePriceIncl');
     }
 
     /**
-     * @param int $paymentBasePriceIncl
+     * @param int|null $paymentBasePriceIncl
      * @return $this
      */
-    public function setPaymentBasePriceIncl(int $paymentBasePriceIncl): static
+    public function setPaymentBasePriceIncl(int $paymentBasePriceIncl = null): static
     {
         return $this->set('paymentBasePriceIncl', $paymentBasePriceIncl);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentPriceExcl(): int
+    public function getPaymentPriceExcl(): ?int
     {
         return $this->get('paymentPriceExcl');
     }
 
     /**
-     * @param int $paymentPriceExcl
+     * @param int|null $paymentPriceExcl
      * @return $this
      */
-    public function setPaymentPriceExcl(int $paymentPriceExcl): static
+    public function setPaymentPriceExcl(int $paymentPriceExcl = null): static
     {
         return $this->set('paymentPriceExcl', $paymentPriceExcl);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPaymentPriceIncl(): int
+    public function getPaymentPriceIncl(): ?int
     {
         return $this->get('paymentPriceIncl');
     }
 
     /**
-     * @param int $paymentPriceIncl
+     * @param int|null $paymentPriceIncl
      * @return $this
      */
-    public function setPaymentPriceIncl(int $paymentPriceIncl): static
+    public function setPaymentPriceIncl(int $paymentPriceIncl = null): static
     {
         return $this->set('paymentPriceIncl', $paymentPriceIncl);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPaymentTitle(): string
+    public function getPaymentTitle(): ?string
     {
         return $this->get('paymentTitle');
     }
 
     /**
-     * @param string $paymentTitle
+     * @param string|null $paymentTitle
      * @return $this
      */
-    public function setPaymentTitle(string $paymentTitle): static
+    public function setPaymentTitle(string $paymentTitle = null): static
     {
         return $this->set('paymentTitle', $paymentTitle);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getPaymentData(): array
+    public function getPaymentData(): ?array
     {
         return $this->get('paymentData');
     }
 
     /**
-     * @param array $paymentData
+     * @param array|null $paymentData
      * @return $this
      */
-    public function setPaymentData(array $paymentData): static
+    public function setPaymentData(array $paymentData = null): static
     {
         return $this->set('paymentData', $paymentData);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getShipmentId(): string
+    public function getShipmentId(): ?string
     {
         return $this->get('shipmentId');
     }
 
     /**
-     * @param string $shipmentId
+     * @param string|null $shipmentId
      * @return $this
      */
-    public function setShipmentId(string $shipmentId): static
+    public function setShipmentId(string $shipmentId = null): static
     {
         return $this->set('shipmentId', $shipmentId);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getShipmentStatus(): string
+    public function getShipmentStatus(): ?string
     {
         return $this->get('shipmentStatus');
     }
 
     /**
-     * @param string $shipmentStatus
+     * @param string|null $shipmentStatus
      * @return $this
      */
-    public function setShipmentStatus(string $shipmentStatus): static
+    public function setShipmentStatus(string $shipmentStatus = null): static
     {
         return $this->set('shipmentStatus', $shipmentStatus);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getShipmentIsCashOnDelivery(): bool
+    public function getShipmentIsCashOnDelivery(): ?bool
     {
         return $this->get('shipmentIsCashOnDelivery');
     }
 
     /**
-     * @param bool $shipmentIsCashOnDelivery
+     * @param bool|null $shipmentIsCashOnDelivery
      * @return $this
      */
-    public function setShipmentIsCashOnDelivery(bool $shipmentIsCashOnDelivery): static
+    public function setShipmentIsCashOnDelivery(bool $shipmentIsCashOnDelivery = null): static
     {
         return $this->set('shipmentIsCashOnDelivery', $shipmentIsCashOnDelivery);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getShipmentIsPickup(): bool
+    public function getShipmentIsPickup(): ?bool
     {
         return $this->get('shipmentIsPickup');
     }
 
     /**
-     * @param bool $shipmentIsPickup
+     * @param bool|null $shipmentIsPickup
      * @return $this
      */
-    public function setShipmentIsPickup(bool $shipmentIsPickup): static
+    public function setShipmentIsPickup(bool $shipmentIsPickup = null): static
     {
         return $this->set('shipmentIsPickup', $shipmentIsPickup);
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getShipmentTaxRate(): float
+    public function getShipmentTaxRate(): ?float
     {
         return $this->get('shipmentTaxRate');
     }
 
     /**
-     * @param float $shipmentTaxRate
+     * @param float|null $shipmentTaxRate
      * @return $this
      */
-    public function setShipmentTaxRate(float $shipmentTaxRate): static
+    public function setShipmentTaxRate(float $shipmentTaxRate = null): static
     {
         return $this->set('shipmentTaxRate', $shipmentTaxRate);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getShipmentTaxRates(): array
+    public function getShipmentTaxRates(): ?array
     {
         return $this->get('shipmentTaxRates');
     }
 
     /**
-     * @param array $shipmentTaxRates
+     * @param array|null $shipmentTaxRates
      * @return $this
      */
-    public function setShipmentTaxRates(array $shipmentTaxRates): static
+    public function setShipmentTaxRates(array $shipmentTaxRates = null): static
     {
         return $this->set('shipmentTaxRates', $shipmentTaxRates);
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getShipmentBasePriceExcl(): float
+    public function getShipmentBasePriceExcl(): ?float
     {
         return $this->get('shipmentBasePriceExcl');
     }
 
     /**
-     * @param float $shipmentBasePriceExcl
+     * @param float|null $shipmentBasePriceExcl
      * @return $this
      */
-    public function setShipmentBasePriceExcl(float $shipmentBasePriceExcl): static
+    public function setShipmentBasePriceExcl(float $shipmentBasePriceExcl = null): static
     {
         return $this->set('shipmentBasePriceExcl', $shipmentBasePriceExcl);
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getShipmentBasePriceIncl(): float
+    public function getShipmentBasePriceIncl(): ?float
     {
         return $this->get('shipmentBasePriceIncl');
     }
 
     /**
-     * @param float $shipmentBasePriceIncl
+     * @param float|null $shipmentBasePriceIncl
      * @return $this
      */
-    public function setShipmentBasePriceIncl(float $shipmentBasePriceIncl): static
+    public function setShipmentBasePriceIncl(float $shipmentBasePriceIncl = null): static
     {
         return $this->set('shipmentBasePriceIncl', $shipmentBasePriceIncl);
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getShipmentPriceExcl(): float
+    public function getShipmentPriceExcl(): ?float
     {
         return $this->get('shipmentPriceExcl');
     }
 
     /**
-     * @param float $shipmentPriceExcl
+     * @param float|null $shipmentPriceExcl
      * @return $this
      */
-    public function setShipmentPriceExcl(float $shipmentPriceExcl): static
+    public function setShipmentPriceExcl(float $shipmentPriceExcl = null): static
     {
         return $this->set('shipmentPriceExcl', $shipmentPriceExcl);
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getShipmentPriceIncl(): float
+    public function getShipmentPriceIncl(): ?float
     {
         return $this->get('shipmentPriceIncl');
     }
 
     /**
-     * @param float $shipmentPriceIncl
+     * @param float|null $shipmentPriceIncl
      * @return $this
      */
-    public function setShipmentPriceIncl(float $shipmentPriceIncl): static
+    public function setShipmentPriceIncl(float $shipmentPriceIncl = null): static
     {
         return $this->set('shipmentPriceIncl', $shipmentPriceIncl);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getShipmentDiscountExcl(): int
+    public function getShipmentDiscountExcl(): ?int
     {
         return $this->get('shipmentDiscountExcl');
     }
 
     /**
-     * @param int $shipmentDiscountExcl
+     * @param int|null $shipmentDiscountExcl
      * @return $this
      */
-    public function setShipmentDiscountExcl(int $shipmentDiscountExcl): static
+    public function setShipmentDiscountExcl(int $shipmentDiscountExcl = null): static
     {
         return $this->set('shipmentDiscountExcl', $shipmentDiscountExcl);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getShipmentDiscountIncl(): int
+    public function getShipmentDiscountIncl(): ?int
     {
         return $this->get('shipmentDiscountIncl');
     }
 
     /**
-     * @param int $shipmentDiscountIncl
+     * @param int|null $shipmentDiscountIncl
      * @return $this
      */
-    public function setShipmentDiscountIncl(int $shipmentDiscountIncl): static
+    public function setShipmentDiscountIncl(int $shipmentDiscountIncl = null): static
     {
         return $this->set('shipmentDiscountIncl', $shipmentDiscountIncl);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getShipmentTitle(): string
+    public function getShipmentTitle(): ?string
     {
         return $this->get('shipmentTitle');
     }
 
     /**
-     * @param string $shipmentTitle
+     * @param string|null $shipmentTitle
      * @return $this
      */
-    public function setShipmentTitle(string $shipmentTitle): static
+    public function setShipmentTitle(string $shipmentTitle = null): static
     {
         return $this->set('shipmentTitle', $shipmentTitle);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getShipmentData(): array
+    public function getShipmentData(): ?array
     {
         return $this->get('shipmentData');
     }
 
     /**
-     * @param array $shipmentData
+     * @param array|null $shipmentData
      * @return $this
      */
-    public function setShipmentData(array $shipmentData): static
+    public function setShipmentData(array $shipmentData = null): static
     {
         return $this->set('shipmentData', $shipmentData);
     }
 
     /**
-     * @return mixed
+     * @return mixed|null
      */
     public function getShippingDate(): mixed
     {
@@ -1312,16 +1328,16 @@ class Order extends Resource
     }
 
     /**
-     * @param mixed $shippingDate
+     * @param mixed|null $shippingDate
      * @return $this
      */
-    public function setShippingDate(mixed $shippingDate): static
+    public function setShippingDate(mixed $shippingDate = null): static
     {
         return $this->set('shippingDate', $shippingDate);
     }
 
     /**
-     * @return mixed
+     * @return mixed|null
      */
     public function getDeliveryDate(): mixed
     {
@@ -1329,274 +1345,274 @@ class Order extends Resource
     }
 
     /**
-     * @param mixed $deliveryDate
+     * @param mixed|null $deliveryDate
      * @return $this
      */
-    public function setDeliveryDate(mixed $deliveryDate): static
+    public function setDeliveryDate(mixed $deliveryDate = null): static
     {
         return $this->set('deliveryDate', $deliveryDate);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsDiscounted(): bool
+    public function getIsDiscounted(): ?bool
     {
         return $this->get('isDiscounted');
     }
 
     /**
-     * @param bool $isDiscounted
+     * @param bool|null $isDiscounted
      * @return $this
      */
-    public function setIsDiscounted(bool $isDiscounted): static
+    public function setIsDiscounted(bool $isDiscounted = null): static
     {
         return $this->set('isDiscounted', $isDiscounted);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDiscountType(): string
+    public function getDiscountType(): ?string
     {
         return $this->get('discountType');
     }
 
     /**
-     * @param string $discountType
+     * @param string|null $discountType
      * @return $this
      */
-    public function setDiscountType(string $discountType): static
+    public function setDiscountType(string $discountType = null): static
     {
         return $this->set('discountType', $discountType);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getDiscountAmount(): int
+    public function getDiscountAmount(): ?int
     {
         return $this->get('discountAmount');
     }
 
     /**
-     * @param int $discountAmount
+     * @param int|null $discountAmount
      * @return $this
      */
-    public function setDiscountAmount(int $discountAmount): static
+    public function setDiscountAmount(int $discountAmount = null): static
     {
         return $this->set('discountAmount', $discountAmount);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getDiscountPercentage(): int
+    public function getDiscountPercentage(): ?int
     {
         return $this->get('discountPercentage');
     }
 
     /**
-     * @param int $discountPercentage
+     * @param int|null $discountPercentage
      * @return $this
      */
-    public function setDiscountPercentage(int $discountPercentage): static
+    public function setDiscountPercentage(int $discountPercentage = null): static
     {
         return $this->set('discountPercentage', $discountPercentage);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDiscountCouponCode(): string
+    public function getDiscountCouponCode(): ?string
     {
         return $this->get('discountCouponCode');
     }
 
     /**
-     * @param string $discountCouponCode
+     * @param string|null $discountCouponCode
      * @return $this
      */
-    public function setDiscountCouponCode(string $discountCouponCode): static
+    public function setDiscountCouponCode(string $discountCouponCode = null): static
     {
         return $this->set('discountCouponCode', $discountCouponCode);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getTaxRates(): array
+    public function getTaxRates(): ?array
     {
         return $this->get('taxRates');
     }
 
     /**
-     * @param array $taxRates
+     * @param array|null $taxRates
      * @return $this
      */
-    public function setTaxRates(array $taxRates): static
+    public function setTaxRates(array $taxRates = null): static
     {
         return $this->set('taxRates', $taxRates);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsNewCustomer(): bool
+    public function getIsNewCustomer(): ?bool
     {
         return $this->get('isNewCustomer');
     }
 
     /**
-     * @param bool $isNewCustomer
+     * @param bool|null $isNewCustomer
      * @return $this
      */
-    public function setIsNewCustomer(bool $isNewCustomer): static
+    public function setIsNewCustomer(bool $isNewCustomer = null): static
     {
         return $this->set('isNewCustomer', $isNewCustomer);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getComment(): string
+    public function getComment(): ?string
     {
         return $this->get('comment');
     }
 
     /**
-     * @param string $comment
+     * @param string|null $comment
      * @return $this
      */
-    public function setComment(string $comment): static
+    public function setComment(string $comment = null): static
     {
         return $this->set('comment', $comment);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMemo(): string
+    public function getMemo(): ?string
     {
         return $this->get('memo');
     }
 
     /**
-     * @param string $memo
+     * @param string|null $memo
      * @return $this
      */
-    public function setMemo(string $memo): static
+    public function setMemo(string $memo = null): static
     {
         return $this->set('memo', $memo);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getAllowNotifications(): bool
+    public function getAllowNotifications(): ?bool
     {
         return $this->get('allowNotifications');
     }
 
     /**
-     * @param bool $allowNotifications
+     * @param bool|null $allowNotifications
      * @return $this
      */
-    public function setAllowNotifications(bool $allowNotifications): static
+    public function setAllowNotifications(bool $allowNotifications = null): static
     {
         return $this->set('allowNotifications', $allowNotifications);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getDoNotifyNew(): bool
+    public function getDoNotifyNew(): ?bool
     {
         return $this->get('doNotifyNew');
     }
 
     /**
-     * @param bool $doNotifyNew
+     * @param bool|null $doNotifyNew
      * @return $this
      */
-    public function setDoNotifyNew(bool $doNotifyNew): static
+    public function setDoNotifyNew(bool $doNotifyNew = null): static
     {
         return $this->set('doNotifyNew', $doNotifyNew);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getDoNotifyReminder(): bool
+    public function getDoNotifyReminder(): ?bool
     {
         return $this->get('doNotifyReminder');
     }
 
     /**
-     * @param bool $doNotifyReminder
+     * @param bool|null $doNotifyReminder
      * @return $this
      */
-    public function setDoNotifyReminder(bool $doNotifyReminder): static
+    public function setDoNotifyReminder(bool $doNotifyReminder = null): static
     {
         return $this->set('doNotifyReminder', $doNotifyReminder);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getDoNotifyCancelled(): bool
+    public function getDoNotifyCancelled(): ?bool
     {
         return $this->get('doNotifyCancelled');
     }
 
     /**
-     * @param bool $doNotifyCancelled
+     * @param bool|null $doNotifyCancelled
      * @return $this
      */
-    public function setDoNotifyCancelled(bool $doNotifyCancelled): static
+    public function setDoNotifyCancelled(bool $doNotifyCancelled = null): static
     {
         return $this->set('doNotifyCancelled', $doNotifyCancelled);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getLanguage(): array
+    public function getLanguage(): ?array
     {
         return $this->get('language');
     }
 
     /**
-     * @param array $language
+     * @param array|null $language
      * @return $this
      */
-    public function setLanguage(array $language): static
+    public function setLanguage(array $language = null): static
     {
         return $this->set('language', $language);
     }
 
     /**
-     * @return Customer
+     * @return Customer|null
      */
-    public function getCustomer(): Customer
+    public function getCustomer(): ?Customer
     {
         return $this->relation('customer.resource.embedded', Customer::class);
     }
 
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCustomerId(): int
+    public function getCustomerId(): ?int
     {
         return $this->get('customer.resource.id');
     }
 
     /**
-     * @param Customer $customer
+     * @param Customer|null $customer
      * @return $this
      */
-    public function setCustomer(Customer $customer): static
+    public function setCustomer(Customer $customer = null): static
     {
         $this->set('customer.resource.embedded', $customer);
 
@@ -1604,19 +1620,19 @@ class Order extends Resource
     }
 
     /**
-     * @return ResourceCollection<Invoice>
+     * @return ResourceCollection<Invoice>|null
      */
-    public function getInvoices(): ResourceCollection
+    public function getInvoices(): ?ResourceCollection
     {
         return $this->relation('invoices.resource.embedded', Invoice::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Invoice> $invoices
+     * @param ResourceCollection<Invoice>|null $invoices
      * @return $this
      */
-    public function setInvoices(ResourceCollection $invoices): static
+    public function setInvoices(ResourceCollection $invoices = null): static
     {
         $this->set('invoices.resource.embedded', $invoices);
 
@@ -1624,19 +1640,19 @@ class Order extends Resource
     }
 
     /**
-     * @return ResourceCollection<Shipment>
+     * @return ResourceCollection<Shipment>|null
      */
-    public function getShipments(): ResourceCollection
+    public function getShipments(): ?ResourceCollection
     {
         return $this->relation('shipments.resource.embedded', Shipment::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<Shipment> $shipments
+     * @param ResourceCollection<Shipment>|null $shipments
      * @return $this
      */
-    public function setShipments(ResourceCollection $shipments): static
+    public function setShipments(ResourceCollection $shipments = null): static
     {
         $this->set('shipments.resource.embedded', $shipments);
 
@@ -1644,19 +1660,19 @@ class Order extends Resource
     }
 
     /**
-     * @return ResourceCollection<OrderProduct>
+     * @return ResourceCollection<OrderProduct>|null
      */
-    public function getProducts(): ResourceCollection
+    public function getProducts(): ?ResourceCollection
     {
         return $this->relation('products.resource.embedded', OrderProduct::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<OrderProduct> $products
+     * @param ResourceCollection<OrderProduct>|null $products
      * @return $this
      */
-    public function setProducts(ResourceCollection $products): static
+    public function setProducts(ResourceCollection $products = null): static
     {
         $this->set('products.resource.embedded', $products);
 
@@ -1664,19 +1680,19 @@ class Order extends Resource
     }
 
     /**
-     * @return ResourceCollection<OrderMetafield>
+     * @return ResourceCollection<OrderMetafield>|null
      */
-    public function getMetafields(): ResourceCollection
+    public function getMetafields(): ?ResourceCollection
     {
         return $this->relation('metafields.resource.embedded', OrderMetafield::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<OrderMetafield> $metafields
+     * @param ResourceCollection<OrderMetafield>|null $metafields
      * @return $this
      */
-    public function setMetafields(ResourceCollection $metafields): static
+    public function setMetafields(ResourceCollection $metafields = null): static
     {
         $this->set('metafields.resource.embedded', $metafields);
 
@@ -1684,27 +1700,27 @@ class Order extends Resource
     }
 
     /**
-     * @return Quote
+     * @return Quote|null
      */
-    public function getQuote(): Quote
+    public function getQuote(): ?Quote
     {
         return $this->relation('quote.resource.embedded', Quote::class);
     }
 
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getQuoteId(): int
+    public function getQuoteId(): ?int
     {
         return $this->get('quote.resource.id');
     }
 
     /**
-     * @param Quote $quote
+     * @param Quote|null $quote
      * @return $this
      */
-    public function setQuote(Quote $quote): static
+    public function setQuote(Quote $quote = null): static
     {
         $this->set('quote.resource.embedded', $quote);
 
@@ -1712,19 +1728,19 @@ class Order extends Resource
     }
 
     /**
-     * @return ResourceCollection<OrderEvent>
+     * @return ResourceCollection<OrderEvent>|null
      */
-    public function getEvents(): ResourceCollection
+    public function getEvents(): ?ResourceCollection
     {
         return $this->relation('events.resource.embedded', OrderEvent::class, true);
     }
 
 
     /**
-     * @param ResourceCollection<OrderEvent> $events
+     * @param ResourceCollection<OrderEvent>|null $events
      * @return $this
      */
-    public function setEvents(ResourceCollection $events): static
+    public function setEvents(ResourceCollection $events = null): static
     {
         $this->set('events.resource.embedded', $events);
 

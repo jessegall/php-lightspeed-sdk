@@ -2,6 +2,7 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use InvalidArgumentException;
 use JesseGall\ContainsData\ReferenceMissingException;
 use JesseGall\LightspeedSDK\Api;
 use JesseGall\LightspeedSDK\Exceptions\IdNullException;
@@ -12,22 +13,28 @@ class Resource extends BaseResource
 {
 
     /**
+     * The api endpoint of the resource.
+     *
      * @var string
      */
     protected string $endpoint;
 
     /**
+     * The lightspeed resource this class represents
+     *
      * @var string
      */
-    protected string $handle;
+    protected string $lightspeedResource;
 
     /**
+     * Indicates whether missing relations should be lazy loaded.
+     *
      * @var bool
      */
-    protected bool $feedMissingRelations = true;
+    protected bool $lazyLoadRelations = true;
 
     /**
-     * Returns the api url of the resource
+     * Returns the api url of the resource.
      *
      * @param int|string $id
      * @return string
@@ -38,7 +45,7 @@ class Resource extends BaseResource
     }
 
     /**
-     * Fill the model with the data from lightspeed
+     * Fill the model with the data from lightspeed.
      *
      * @return $this
      * @throws IdNullException
@@ -69,7 +76,7 @@ class Resource extends BaseResource
         }
 
         $response = Api::update($this->url($id), [
-            $this->handle => $this->container()
+            $this->lightspeedResource => $this->container()
         ]);
 
         $this->merge($response);
@@ -107,6 +114,14 @@ class Resource extends BaseResource
      */
     public function relation(string $key, string $type, bool $asCollection = false): BaseResource|ResourceCollection|null
     {
+        if (! class_exists($type)) {
+            throw new InvalidArgumentException("Type $type is not a valid class");
+        }
+
+        if (! is_subclass_of($type, self::class)) {
+            throw new InvalidArgumentException("Type $type is not a subclass of Resource");
+        }
+        
         try {
             $relation = BaseResource::relation($key, $type, $asCollection);
         } catch (ReferenceMissingException) {
@@ -128,7 +143,7 @@ class Resource extends BaseResource
     {
         $url = $this->getRelationUrl($key);
 
-        $data = $this->feedMissingRelations ? Api::read($url) : [];
+        $data = $this->lazyLoadRelations ? Api::read($url) : null;
 
         $this->set($key, $data);
     }
@@ -184,25 +199,25 @@ class Resource extends BaseResource
     /**
      * @return string
      */
-    public function getHandle(): string
+    public function getLightspeedResource(): string
     {
-        return $this->handle;
+        return $this->lightspeedResource;
     }
 
     /**
-     * @param string $handle
+     * @param string $lightspeedResource
      */
-    public function setHandle(string $handle): void
+    public function setLightspeedResource(string $lightspeedResource): void
     {
-        $this->handle = $handle;
+        $this->lightspeedResource = $lightspeedResource;
     }
 
     /**
-     * @param bool $feedMissingRelations
+     * @param bool $lazyLoadRelations
      */
-    public function setFeedMissingRelations(bool $feedMissingRelations): void
+    public function setLazyLoadRelations(bool $lazyLoadRelations): void
     {
-        $this->feedMissingRelations = $feedMissingRelations;
+        $this->lazyLoadRelations = $lazyLoadRelations;
     }
 
 }

@@ -2,145 +2,161 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * Contact
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/contact
+ */
 class Contact extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/contacts';
 
-    protected string $handle = 'contact';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'contact';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->get('createdAt');
     }
 
     /**
-     * @param string $createdAt
+     * @param string|null $createdAt
      * @return $this
      */
-    public function setCreatedAt(string $createdAt): static
+    public function setCreatedAt(string $createdAt = null): static
     {
         return $this->set('createdAt', $createdAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->get('name');
     }
 
     /**
-     * @param string $name
+     * @param string|null $name
      * @return $this
      */
-    public function setName(string $name): static
+    public function setName(string $name = null): static
     {
         return $this->set('name', $name);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCompany(): string
+    public function getCompany(): ?string
     {
         return $this->get('company');
     }
 
     /**
-     * @param string $company
+     * @param string|null $company
      * @return $this
      */
-    public function setCompany(string $company): static
+    public function setCompany(string $company = null): static
     {
         return $this->set('company', $company);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->get('email');
     }
 
     /**
-     * @param string $email
+     * @param string|null $email
      * @return $this
      */
-    public function setEmail(string $email): static
+    public function setEmail(string $email = null): static
     {
         return $this->set('email', $email);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPhone(): string
+    public function getPhone(): ?string
     {
         return $this->get('phone');
     }
 
     /**
-     * @param string $phone
+     * @param string|null $phone
      * @return $this
      */
-    public function setPhone(string $phone): static
+    public function setPhone(string $phone = null): static
     {
         return $this->set('phone', $phone);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSubject(): string
+    public function getSubject(): ?string
     {
         return $this->get('subject');
     }
 
     /**
-     * @param string $subject
+     * @param string|null $subject
      * @return $this
      */
-    public function setSubject(string $subject): static
+    public function setSubject(string $subject = null): static
     {
         return $this->set('subject', $subject);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->get('message');
     }
 
     /**
-     * @param string $message
+     * @param string|null $message
      * @return $this
      */
-    public function setMessage(string $message): static
+    public function setMessage(string $message = null): static
     {
         return $this->set('message', $message);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getLanguage(): array
+    public function getLanguage(): ?array
     {
         return $this->get('language');
     }
 
     /**
-     * @param array $language
+     * @param array|null $language
      * @return $this
      */
-    public function setLanguage(array $language): static
+    public function setLanguage(array $language = null): static
     {
         return $this->set('language', $language);
     }

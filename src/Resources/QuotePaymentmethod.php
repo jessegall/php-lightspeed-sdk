@@ -2,60 +2,76 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * QuotePaymentmethod
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/quotepaymentmethod
+ */
 class QuotePaymentmethod extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/quotes/{id}/paymentmethods';
 
-    protected string $handle = 'quotePaymentmethod';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'quotePaymentmethod';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->get('title');
     }
 
     /**
-     * @param string $title
+     * @param string|null $title
      * @return $this
      */
-    public function setTitle(string $title): static
+    public function setTitle(string $title = null): static
     {
         return $this->set('title', $title);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPriceExcl(): int
+    public function getPriceExcl(): ?int
     {
         return $this->get('priceExcl');
     }
 
     /**
-     * @param int $priceExcl
+     * @param int|null $priceExcl
      * @return $this
      */
-    public function setPriceExcl(int $priceExcl): static
+    public function setPriceExcl(int $priceExcl = null): static
     {
         return $this->set('priceExcl', $priceExcl);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPriceIncl(): int
+    public function getPriceIncl(): ?int
     {
         return $this->get('priceIncl');
     }
 
     /**
-     * @param int $priceIncl
+     * @param int|null $priceIncl
      * @return $this
      */
-    public function setPriceIncl(int $priceIncl): static
+    public function setPriceIncl(int $priceIncl = null): static
     {
         return $this->set('priceIncl', $priceIncl);
     }

@@ -2,77 +2,93 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * ShopMetafield
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/shopmetafield
+ */
 class ShopMetafield extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/shops/{id}/metafields';
 
-    protected string $handle = 'shopMetafield';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'shopMetafield';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->get('createdAt');
     }
 
     /**
-     * @param string $createdAt
+     * @param string|null $createdAt
      * @return $this
      */
-    public function setCreatedAt(string $createdAt): static
+    public function setCreatedAt(string $createdAt = null): static
     {
         return $this->set('createdAt', $createdAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->get('updatedAt');
     }
 
     /**
-     * @param string $updatedAt
+     * @param string|null $updatedAt
      * @return $this
      */
-    public function setUpdatedAt(string $updatedAt): static
+    public function setUpdatedAt(string $updatedAt = null): static
     {
         return $this->set('updatedAt', $updatedAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getKey(): string
+    public function getKey(): ?string
     {
         return $this->get('key');
     }
 
     /**
-     * @param string $key
+     * @param string|null $key
      * @return $this
      */
-    public function setKey(string $key): static
+    public function setKey(string $key = null): static
     {
         return $this->set('key', $key);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->get('value');
     }
 
     /**
-     * @param string $value
+     * @param string|null $value
      * @return $this
      */
-    public function setValue(string $value): static
+    public function setValue(string $value = null): static
     {
         return $this->set('value', $value);
     }

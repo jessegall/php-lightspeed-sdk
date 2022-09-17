@@ -5,11 +5,28 @@ namespace JesseGall\LightspeedSDK\Resources;
 use JesseGall\LightspeedSDK\Resources\Resource;
 use JesseGall\Resources\ResourceCollection;
 
+/**
+ * {{ class }}
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/{{ lightspeedResourceDocs }}
+ */
 class {{ class }} extends Resource
 {
 
-   protected string $url = {{ url }};
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
+    protected string $endpoint = '{{ endpoint }}';
 
-   {{ methods }}
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = '{{ lightspeedResource }}';
+
+    {{ methods }}
 
 }

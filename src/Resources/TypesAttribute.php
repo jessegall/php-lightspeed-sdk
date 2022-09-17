@@ -2,52 +2,68 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * TypesAttribute
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/typesattribute
+ */
 class TypesAttribute extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/types/{id}/attributes';
 
-    protected string $handle = 'typesAttribute';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'typesAttribute';
+
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getSortOrder(): int
+    public function getSortOrder(): ?int
     {
         return $this->get('sortOrder');
     }
 
     /**
-     * @param int $sortOrder
+     * @param int|null $sortOrder
      * @return $this
      */
-    public function setSortOrder(int $sortOrder): static
+    public function setSortOrder(int $sortOrder = null): static
     {
         return $this->set('sortOrder', $sortOrder);
     }
 
     /**
-     * @return Type
+     * @return Type|null
      */
-    public function getType(): Type
+    public function getType(): ?Type
     {
         return $this->relation('type.resource.embedded', Type::class);
     }
 
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getTypeId(): int
+    public function getTypeId(): ?int
     {
         return $this->get('type.resource.id');
     }
 
     /**
-     * @param Type $type
+     * @param Type|null $type
      * @return $this
      */
-    public function setType(Type $type): static
+    public function setType(Type $type = null): static
     {
         $this->set('type.resource.embedded', $type);
 
@@ -55,27 +71,27 @@ class TypesAttribute extends Resource
     }
 
     /**
-     * @return Attribute
+     * @return Attribute|null
      */
-    public function getAttribute(): Attribute
+    public function getAttribute(): ?Attribute
     {
         return $this->relation('attribute.resource.embedded', Attribute::class);
     }
 
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getAttributeId(): int
+    public function getAttributeId(): ?int
     {
         return $this->get('attribute.resource.id');
     }
 
     /**
-     * @param Attribute $attribute
+     * @param Attribute|null $attribute
      * @return $this
      */
-    public function setAttribute(Attribute $attribute): static
+    public function setAttribute(Attribute $attribute = null): static
     {
         $this->set('attribute.resource.embedded', $attribute);
 

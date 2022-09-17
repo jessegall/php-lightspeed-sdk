@@ -2,77 +2,93 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * ShopWebsite
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/shopwebsite
+ */
 class ShopWebsite extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/shops/{id}/websites';
 
-    protected string $handle = 'shopWebsite';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'shopWebsite';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->get('name');
     }
 
     /**
-     * @param string $name
+     * @param string|null $name
      * @return $this
      */
-    public function setName(string $name): static
+    public function setName(string $name = null): static
     {
         return $this->set('name', $name);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->get('title');
     }
 
     /**
-     * @param string $title
+     * @param string|null $title
      * @return $this
      */
-    public function setTitle(string $title): static
+    public function setTitle(string $title = null): static
     {
         return $this->set('title', $title);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->get('description');
     }
 
     /**
-     * @param string $description
+     * @param string|null $description
      * @return $this
      */
-    public function setDescription(string $description): static
+    public function setDescription(string $description = null): static
     {
         return $this->set('description', $description);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getKeywords(): string
+    public function getKeywords(): ?string
     {
         return $this->get('keywords');
     }
 
     /**
-     * @param string $keywords
+     * @param string|null $keywords
      * @return $this
      */
-    public function setKeywords(string $keywords): static
+    public function setKeywords(string $keywords = null): static
     {
         return $this->set('keywords', $keywords);
     }

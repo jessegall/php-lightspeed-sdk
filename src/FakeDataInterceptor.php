@@ -60,7 +60,7 @@ class FakeDataInterceptor implements Intercepts
      */
     private function getFakeData(Resource $resource)
     {
-        $handle = $resource->getHandle();
+        $handle = $resource->getLightspeedResource();
 
         $data = json_decode(file_get_contents(__DIR__ . "/../generator/resources/$handle.json"), true);
 

@@ -2,137 +2,153 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * Review
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/review
+ */
 class Review extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/reviews';
 
-    protected string $handle = 'review';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'review';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->get('createdAt');
     }
 
     /**
-     * @param string $createdAt
+     * @param string|null $createdAt
      * @return $this
      */
-    public function setCreatedAt(string $createdAt): static
+    public function setCreatedAt(string $createdAt = null): static
     {
         return $this->set('createdAt', $createdAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->get('updatedAt');
     }
 
     /**
-     * @param string $updatedAt
+     * @param string|null $updatedAt
      * @return $this
      */
-    public function setUpdatedAt(string $updatedAt): static
+    public function setUpdatedAt(string $updatedAt = null): static
     {
         return $this->set('updatedAt', $updatedAt);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getIsVisible(): bool
+    public function getIsVisible(): ?bool
     {
         return $this->get('isVisible');
     }
 
     /**
-     * @param bool $isVisible
+     * @param bool|null $isVisible
      * @return $this
      */
-    public function setIsVisible(bool $isVisible): static
+    public function setIsVisible(bool $isVisible = null): static
     {
         return $this->set('isVisible', $isVisible);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getScore(): int
+    public function getScore(): ?int
     {
         return $this->get('score');
     }
 
     /**
-     * @param int $score
+     * @param int|null $score
      * @return $this
      */
-    public function setScore(int $score): static
+    public function setScore(int $score = null): static
     {
         return $this->set('score', $score);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->get('name');
     }
 
     /**
-     * @param string $name
+     * @param string|null $name
      * @return $this
      */
-    public function setName(string $name): static
+    public function setName(string $name = null): static
     {
         return $this->set('name', $name);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getContent(): string
+    public function getContent(): ?string
     {
         return $this->get('content');
     }
 
     /**
-     * @param string $content
+     * @param string|null $content
      * @return $this
      */
-    public function setContent(string $content): static
+    public function setContent(string $content = null): static
     {
         return $this->set('content', $content);
     }
 
     /**
-     * @return Customer
+     * @return Customer|null
      */
-    public function getCustomer(): Customer
+    public function getCustomer(): ?Customer
     {
         return $this->relation('customer.resource.embedded', Customer::class);
     }
 
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCustomerId(): int
+    public function getCustomerId(): ?int
     {
         return $this->get('customer.resource.id');
     }
 
     /**
-     * @param Customer $customer
+     * @param Customer|null $customer
      * @return $this
      */
-    public function setCustomer(Customer $customer): static
+    public function setCustomer(Customer $customer = null): static
     {
         $this->set('customer.resource.embedded', $customer);
 
@@ -140,44 +156,44 @@ class Review extends Resource
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getLanguage(): array
+    public function getLanguage(): ?array
     {
         return $this->get('language');
     }
 
     /**
-     * @param array $language
+     * @param array|null $language
      * @return $this
      */
-    public function setLanguage(array $language): static
+    public function setLanguage(array $language = null): static
     {
         return $this->set('language', $language);
     }
 
     /**
-     * @return Product
+     * @return Product|null
      */
-    public function getProduct(): Product
+    public function getProduct(): ?Product
     {
         return $this->relation('product.resource.embedded', Product::class);
     }
 
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getProductId(): int
+    public function getProductId(): ?int
     {
         return $this->get('product.resource.id');
     }
 
     /**
-     * @param Product $product
+     * @param Product|null $product
      * @return $this
      */
-    public function setProduct(Product $product): static
+    public function setProduct(Product $product = null): static
     {
         $this->set('product.resource.embedded', $product);
 

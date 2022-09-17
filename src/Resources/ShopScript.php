@@ -2,66 +2,82 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * ShopScript
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/shopscript
+ */
 class ShopScript extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/shops/{id}/scripts';
 
-    protected string $handle = 'shopScript';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'shopScript';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->get('createdAt');
     }
 
     /**
-     * @param string $createdAt
+     * @param string|null $createdAt
      * @return $this
      */
-    public function setCreatedAt(string $createdAt): static
+    public function setCreatedAt(string $createdAt = null): static
     {
         return $this->set('createdAt', $createdAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->get('updatedAt');
     }
 
     /**
-     * @param string $updatedAt
+     * @param string|null $updatedAt
      * @return $this
      */
-    public function setUpdatedAt(string $updatedAt): static
+    public function setUpdatedAt(string $updatedAt = null): static
     {
         return $this->set('updatedAt', $updatedAt);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
         return $this->get('url');
     }
 
     /**
-     * @param string $url
+     * @param string|null $url
      * @return $this
      */
-    public function setUrl(string $url): static
+    public function setUrl(string $url = null): static
     {
         return $this->set('url', $url);
     }
 
     /**
-     * @return mixed
+     * @return mixed|null
      */
     public function getBody(): mixed
     {
@@ -69,27 +85,27 @@ class ShopScript extends Resource
     }
 
     /**
-     * @param mixed $body
+     * @param mixed|null $body
      * @return $this
      */
-    public function setBody(mixed $body): static
+    public function setBody(mixed $body = null): static
     {
         return $this->set('body', $body);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getLocation(): string
+    public function getLocation(): ?string
     {
         return $this->get('location');
     }
 
     /**
-     * @param string $location
+     * @param string|null $location
      * @return $this
      */
-    public function setLocation(string $location): static
+    public function setLocation(string $location = null): static
     {
         return $this->set('location', $location);
     }

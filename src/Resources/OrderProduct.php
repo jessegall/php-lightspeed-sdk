@@ -2,545 +2,561 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+/**
+ * OrderProduct
+ *
+ * @link https://developers.lightspeedhq.com/ecom/endpoints/orderproduct
+ */
 class OrderProduct extends Resource
 {
 
+    /**
+     * The api endpoint of the resource.
+     *
+     * @var string
+     */
     protected string $endpoint = '/orders/{id}/products';
 
-    protected string $handle = 'orderProduct';
+    /**
+     * The lightspeed resource this class represents
+     *
+     * @var string
+     */
+    protected string $lightspeedResource = 'orderProduct';
+
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSupplierTitle(): string
+    public function getSupplierTitle(): ?string
     {
         return $this->get('supplierTitle');
     }
 
     /**
-     * @param string $supplierTitle
+     * @param string|null $supplierTitle
      * @return $this
      */
-    public function setSupplierTitle(string $supplierTitle): static
+    public function setSupplierTitle(string $supplierTitle = null): static
     {
         return $this->set('supplierTitle', $supplierTitle);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getBrandTitle(): string
+    public function getBrandTitle(): ?string
     {
         return $this->get('brandTitle');
     }
 
     /**
-     * @param string $brandTitle
+     * @param string|null $brandTitle
      * @return $this
      */
-    public function setBrandTitle(string $brandTitle): static
+    public function setBrandTitle(string $brandTitle = null): static
     {
         return $this->set('brandTitle', $brandTitle);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getProductTitle(): string
+    public function getProductTitle(): ?string
     {
         return $this->get('productTitle');
     }
 
     /**
-     * @param string $productTitle
+     * @param string|null $productTitle
      * @return $this
      */
-    public function setProductTitle(string $productTitle): static
+    public function setProductTitle(string $productTitle = null): static
     {
         return $this->set('productTitle', $productTitle);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getVariantTitle(): string
+    public function getVariantTitle(): ?string
     {
         return $this->get('variantTitle');
     }
 
     /**
-     * @param string $variantTitle
+     * @param string|null $variantTitle
      * @return $this
      */
-    public function setVariantTitle(string $variantTitle): static
+    public function setVariantTitle(string $variantTitle = null): static
     {
         return $this->set('variantTitle', $variantTitle);
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getTaxRate(): float
+    public function getTaxRate(): ?float
     {
         return $this->get('taxRate');
     }
 
     /**
-     * @param float $taxRate
+     * @param float|null $taxRate
      * @return $this
      */
-    public function setTaxRate(float $taxRate): static
+    public function setTaxRate(float $taxRate = null): static
     {
         return $this->set('taxRate', $taxRate);
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getTaxRates(): array
+    public function getTaxRates(): ?array
     {
         return $this->get('taxRates');
     }
 
     /**
-     * @param array $taxRates
+     * @param array|null $taxRates
      * @return $this
      */
-    public function setTaxRates(array $taxRates): static
+    public function setTaxRates(array $taxRates = null): static
     {
         return $this->set('taxRates', $taxRates);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getQuantityOrdered(): int
+    public function getQuantityOrdered(): ?int
     {
         return $this->get('quantityOrdered');
     }
 
     /**
-     * @param int $quantityOrdered
+     * @param int|null $quantityOrdered
      * @return $this
      */
-    public function setQuantityOrdered(int $quantityOrdered): static
+    public function setQuantityOrdered(int $quantityOrdered = null): static
     {
         return $this->set('quantityOrdered', $quantityOrdered);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getQuantityInvoiced(): int
+    public function getQuantityInvoiced(): ?int
     {
         return $this->get('quantityInvoiced');
     }
 
     /**
-     * @param int $quantityInvoiced
+     * @param int|null $quantityInvoiced
      * @return $this
      */
-    public function setQuantityInvoiced(int $quantityInvoiced): static
+    public function setQuantityInvoiced(int $quantityInvoiced = null): static
     {
         return $this->set('quantityInvoiced', $quantityInvoiced);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getQuantityShipped(): int
+    public function getQuantityShipped(): ?int
     {
         return $this->get('quantityShipped');
     }
 
     /**
-     * @param int $quantityShipped
+     * @param int|null $quantityShipped
      * @return $this
      */
-    public function setQuantityShipped(int $quantityShipped): static
+    public function setQuantityShipped(int $quantityShipped = null): static
     {
         return $this->set('quantityShipped', $quantityShipped);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getQuantityRefunded(): int
+    public function getQuantityRefunded(): ?int
     {
         return $this->get('quantityRefunded');
     }
 
     /**
-     * @param int $quantityRefunded
+     * @param int|null $quantityRefunded
      * @return $this
      */
-    public function setQuantityRefunded(int $quantityRefunded): static
+    public function setQuantityRefunded(int $quantityRefunded = null): static
     {
         return $this->set('quantityRefunded', $quantityRefunded);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getQuantityReturned(): int
+    public function getQuantityReturned(): ?int
     {
         return $this->get('quantityReturned');
     }
 
     /**
-     * @param int $quantityReturned
+     * @param int|null $quantityReturned
      * @return $this
      */
-    public function setQuantityReturned(int $quantityReturned): static
+    public function setQuantityReturned(int $quantityReturned = null): static
     {
         return $this->set('quantityReturned', $quantityReturned);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getArticleCode(): string
+    public function getArticleCode(): ?string
     {
         return $this->get('articleCode');
     }
 
     /**
-     * @param string $articleCode
+     * @param string|null $articleCode
      * @return $this
      */
-    public function setArticleCode(string $articleCode): static
+    public function setArticleCode(string $articleCode = null): static
     {
         return $this->set('articleCode', $articleCode);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEan(): string
+    public function getEan(): ?string
     {
         return $this->get('ean');
     }
 
     /**
-     * @param string $ean
+     * @param string|null $ean
      * @return $this
      */
-    public function setEan(string $ean): static
+    public function setEan(string $ean = null): static
     {
         return $this->set('ean', $ean);
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSku(): string
+    public function getSku(): ?string
     {
         return $this->get('sku');
     }
 
     /**
-     * @param string $sku
+     * @param string|null $sku
      * @return $this
      */
-    public function setSku(string $sku): static
+    public function setSku(string $sku = null): static
     {
         return $this->set('sku', $sku);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getWeight(): int
+    public function getWeight(): ?int
     {
         return $this->get('weight');
     }
 
     /**
-     * @param int $weight
+     * @param int|null $weight
      * @return $this
      */
-    public function setWeight(int $weight): static
+    public function setWeight(int $weight = null): static
     {
         return $this->set('weight', $weight);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getVolume(): int
+    public function getVolume(): ?int
     {
         return $this->get('volume');
     }
 
     /**
-     * @param int $volume
+     * @param int|null $volume
      * @return $this
      */
-    public function setVolume(int $volume): static
+    public function setVolume(int $volume = null): static
     {
         return $this->set('volume', $volume);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getColli(): int
+    public function getColli(): ?int
     {
         return $this->get('colli');
     }
 
     /**
-     * @param int $colli
+     * @param int|null $colli
      * @return $this
      */
-    public function setColli(int $colli): static
+    public function setColli(int $colli = null): static
     {
         return $this->set('colli', $colli);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getSizeX(): int
+    public function getSizeX(): ?int
     {
         return $this->get('sizeX');
     }
 
     /**
-     * @param int $sizeX
+     * @param int|null $sizeX
      * @return $this
      */
-    public function setSizeX(int $sizeX): static
+    public function setSizeX(int $sizeX = null): static
     {
         return $this->set('sizeX', $sizeX);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getSizeY(): int
+    public function getSizeY(): ?int
     {
         return $this->get('sizeY');
     }
 
     /**
-     * @param int $sizeY
+     * @param int|null $sizeY
      * @return $this
      */
-    public function setSizeY(int $sizeY): static
+    public function setSizeY(int $sizeY = null): static
     {
         return $this->set('sizeY', $sizeY);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getSizeZ(): int
+    public function getSizeZ(): ?int
     {
         return $this->get('sizeZ');
     }
 
     /**
-     * @param int $sizeZ
+     * @param int|null $sizeZ
      * @return $this
      */
-    public function setSizeZ(int $sizeZ): static
+    public function setSizeZ(int $sizeZ = null): static
     {
         return $this->set('sizeZ', $sizeZ);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPriceCost(): int
+    public function getPriceCost(): ?int
     {
         return $this->get('priceCost');
     }
 
     /**
-     * @param int $priceCost
+     * @param int|null $priceCost
      * @return $this
      */
-    public function setPriceCost(int $priceCost): static
+    public function setPriceCost(int $priceCost = null): static
     {
         return $this->set('priceCost', $priceCost);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCustomExcl(): int
+    public function getCustomExcl(): ?int
     {
         return $this->get('customExcl');
     }
 
     /**
-     * @param int $customExcl
+     * @param int|null $customExcl
      * @return $this
      */
-    public function setCustomExcl(int $customExcl): static
+    public function setCustomExcl(int $customExcl = null): static
     {
         return $this->set('customExcl', $customExcl);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getCustomIncl(): int
+    public function getCustomIncl(): ?int
     {
         return $this->get('customIncl');
     }
 
     /**
-     * @param int $customIncl
+     * @param int|null $customIncl
      * @return $this
      */
-    public function setCustomIncl(int $customIncl): static
+    public function setCustomIncl(int $customIncl = null): static
     {
         return $this->set('customIncl', $customIncl);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getBasePriceExcl(): int
+    public function getBasePriceExcl(): ?int
     {
         return $this->get('basePriceExcl');
     }
 
     /**
-     * @param int $basePriceExcl
+     * @param int|null $basePriceExcl
      * @return $this
      */
-    public function setBasePriceExcl(int $basePriceExcl): static
+    public function setBasePriceExcl(int $basePriceExcl = null): static
     {
         return $this->set('basePriceExcl', $basePriceExcl);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getBasePriceIncl(): int
+    public function getBasePriceIncl(): ?int
     {
         return $this->get('basePriceIncl');
     }
 
     /**
-     * @param int $basePriceIncl
+     * @param int|null $basePriceIncl
      * @return $this
      */
-    public function setBasePriceIncl(int $basePriceIncl): static
+    public function setBasePriceIncl(int $basePriceIncl = null): static
     {
         return $this->set('basePriceIncl', $basePriceIncl);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPriceExcl(): int
+    public function getPriceExcl(): ?int
     {
         return $this->get('priceExcl');
     }
 
     /**
-     * @param int $priceExcl
+     * @param int|null $priceExcl
      * @return $this
      */
-    public function setPriceExcl(int $priceExcl): static
+    public function setPriceExcl(int $priceExcl = null): static
     {
         return $this->set('priceExcl', $priceExcl);
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getPriceIncl(): float
+    public function getPriceIncl(): ?float
     {
         return $this->get('priceIncl');
     }
 
     /**
-     * @param float $priceIncl
+     * @param float|null $priceIncl
      * @return $this
      */
-    public function setPriceIncl(float $priceIncl): static
+    public function setPriceIncl(float $priceIncl = null): static
     {
         return $this->set('priceIncl', $priceIncl);
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getDiscountExcl(): int
+    public function getDiscountExcl(): ?int
     {
         return $this->get('discountExcl');
     }
 
     /**
-     * @param int $discountExcl
+     * @param int|null $discountExcl
      * @return $this
      */
-    public function setDiscountExcl(int $discountExcl): static
+    public function setDiscountExcl(int $discountExcl = null): static
     {
         return $this->set('discountExcl', $discountExcl);
     }
 
     /**
-     * @return float
+     * @return float|null
      */
-    public function getDiscountIncl(): float
+    public function getDiscountIncl(): ?float
     {
         return $this->get('discountIncl');
     }
 
     /**
-     * @param float $discountIncl
+     * @param float|null $discountIncl
      * @return $this
      */
-    public function setDiscountIncl(float $discountIncl): static
+    public function setDiscountIncl(float $discountIncl = null): static
     {
         return $this->set('discountIncl', $discountIncl);
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function getCustomFields(): bool
+    public function getCustomFields(): ?bool
     {
         return $this->get('customFields');
     }
 
     /**
-     * @param bool $customFields
+     * @param bool|null $customFields
      * @return $this
      */
-    public function setCustomFields(bool $customFields): static
+    public function setCustomFields(bool $customFields = null): static
     {
         return $this->set('customFields', $customFields);
     }
 
     /**
-     * @return Product
+     * @return Product|null
      */
-    public function getProduct(): Product
+    public function getProduct(): ?Product
     {
         return $this->relation('product.resource.embedded', Product::class);
     }
 
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getProductId(): int
+    public function getProductId(): ?int
     {
         return $this->get('product.resource.id');
     }
 
     /**
-     * @param Product $product
+     * @param Product|null $product
      * @return $this
      */
-    public function setProduct(Product $product): static
+    public function setProduct(Product $product = null): static
     {
         $this->set('product.resource.embedded', $product);
 
@@ -548,27 +564,27 @@ class OrderProduct extends Resource
     }
 
     /**
-     * @return Variant
+     * @return Variant|null
      */
-    public function getVariant(): Variant
+    public function getVariant(): ?Variant
     {
         return $this->relation('variant.resource.embedded', Variant::class);
     }
 
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getVariantId(): int
+    public function getVariantId(): ?int
     {
         return $this->get('variant.resource.id');
     }
 
     /**
-     * @param Variant $variant
+     * @param Variant|null $variant
      * @return $this
      */
-    public function setVariant(Variant $variant): static
+    public function setVariant(Variant $variant = null): static
     {
         $this->set('variant.resource.embedded', $variant);
 
