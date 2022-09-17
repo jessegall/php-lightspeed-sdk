@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class ShopTracking extends Resource
 {
 
-    protected string $url = '/shops/{id}/trackings';
+    protected string $apiUrl = '/shops/{id}/trackings';
 
+    protected string $handle = 'shopTracking';
 
     /**
      * @return string

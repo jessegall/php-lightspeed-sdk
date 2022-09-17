@@ -5,9 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class InvoiceMetafield extends Resource
 {
 
-    protected string $url = '/invoices/{id}/metafields';
+    protected string $apiUrl = '/invoices/{id}/metafields';
 
-
+    protected string $handle = 'invoiceMetafield';
     /**
      * @return string
      */

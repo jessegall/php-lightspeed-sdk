@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class ProductAttribute extends Resource
 {
 
-    protected string $url = '/products/{id}/attributes';
+    protected string $apiUrl = '/products/{id}/attributes';
 
+    protected string $handle = 'productAttribute';
 
     /**
      * @return string

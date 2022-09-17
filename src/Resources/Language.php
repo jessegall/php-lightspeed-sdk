@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Language extends Resource
 {
 
-    protected string $url = '/languages';
+    protected string $apiUrl = '/languages';
 
+    protected string $handle = 'language';
 
     /**
      * @return bool

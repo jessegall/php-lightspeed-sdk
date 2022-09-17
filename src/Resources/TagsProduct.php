@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class TagsProduct extends Resource
 {
 
-    protected string $url = '/tags/{id}/products';
+    protected string $apiUrl = '/tags/{id}/products';
 
+    protected string $handle = 'tagsProduct';
 
     /**
      * @return Tag

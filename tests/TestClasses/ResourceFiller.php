@@ -11,7 +11,7 @@ class ResourceFiller
     {
         $json = $this->getJson($resource);
 
-        $resource->set($json);
+        $resource->container($json);
 
         return $json;
     }

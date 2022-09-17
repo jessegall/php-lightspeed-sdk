@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class TypesAttribute extends Resource
 {
 
-    protected string $url = '/types/{id}/attributes';
+    protected string $apiUrl = '/types/{id}/attributes';
 
+    protected string $handle = 'typesAttribute';
 
     /**
      * @return int

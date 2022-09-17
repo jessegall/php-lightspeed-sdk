@@ -2,6 +2,8 @@
 
 namespace JesseGall\LightspeedSDK;
 
+use JesseGall\Proxy\Interactions\CallInteraction;
+use JesseGall\Proxy\Interactions\Interaction;
 use JesseGall\Proxy\Proxy;
 use WebshopappApiClient;
 
@@ -112,6 +114,7 @@ use WebshopappApiClient;
  * @method static \WebshopappApiResourceVariantsMovements variantsMovements()
  * @method static \WebshopappApiResourceWebhooks webhooks()
  * @method static array read(string $url, array $params = [])
+ * @method static array update(string $url, array $payload, array $options = [])
  */
 class Api
 {
@@ -119,7 +122,7 @@ class Api
     /**
      * @var Proxy<WebshopappApiClient>
      */
-    public static Proxy $instance;
+    protected static Proxy $instance;
 
     protected function __construct() { }
 
@@ -159,6 +162,17 @@ class Api
         }
 
         return self::$instance;
+    }
+
+
+    public static function clearInterceptors(): void
+    {
+        self::client()->getForwarder()->clearInterceptors();
+    }
+
+    public static function fake(): void
+    {
+        self::client()->getForwarder()->registerInterceptor(new FakeDataInterceptor());
     }
 
 }

@@ -25,7 +25,7 @@ class LightspeedSDK
 
     public function loadEnvironmentVariables(): void
     {
-        $env = (Dotenv::createImmutable(__DIR__ . "/../"))->load();
+        $env = (Dotenv::createMutable(__DIR__ . "/../"))->load();
 
         $this->set('api.server', $env['LIGHTSPEED_API_SERVER']);
         $this->set('api.key', $env['LIGHTSPEED_API_KEY']);

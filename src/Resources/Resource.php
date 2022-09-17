@@ -2,6 +2,7 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\ContainsData\ReferenceMissingException;
 use JesseGall\LightspeedSDK\Api;
 use JesseGall\LightspeedSDK\Exceptions\IdNullException;
 use JesseGall\Resources\Resource as BaseResource;
@@ -14,7 +15,12 @@ class Resource extends BaseResource
     /**
      * @var string
      */
-    protected string $url;
+    protected string $apiUrl;
+
+    /**
+     * @var string
+     */
+    protected string $handle;
 
     /**
      * @var bool
@@ -25,7 +31,6 @@ class Resource extends BaseResource
      * Fill the model with the data from lightspeed
      *
      * @return $this
-     * @throws WebshopappApiException
      * @throws IdNullException
      */
     public function hydrate(): static
@@ -34,15 +39,40 @@ class Resource extends BaseResource
             throw new IdNullException();
         }
 
-        $this->set(Api::read("$this->url/$id"));
+        $response = Api::read("$this->apiUrl/$id");
+
+        $this->container($response);
 
         return $this;
     }
 
-    public function set(array|string $key, mixed $value = null): static
+    /**
+     * Sync the data of the resource with lightspeed
+     *
+     * @return $this
+     * @throws IdNullException
+     */
+    public function sync(): static
+    {
+        if (! ($id = $this->getId())) {
+            throw new IdNullException();
+        }
+
+        $response = Api::update("$this->apiUrl/$id", [
+            $this->handle => $this->container()
+        ]);
+
+        $this->merge($response);
+
+        return $this;
+    }
+
+    public function set(string $key, mixed $value = null): static
     {
         if ($value instanceof Resource || $value instanceof ResourceCollection) {
             $this->setRelation($key, $value);
+
+            $value = $value->toArray();
         }
 
         return parent::set($key, $value);
@@ -54,15 +84,17 @@ class Resource extends BaseResource
      *
      * @param string $key
      * @param class-string<\JesseGall\LightspeedSDK\Resources\Resource> $type
+     * @param bool $asCollection
      * @return BaseResource|ResourceCollection|null
-     * @throws WebshopappApiException
      */
-    public function relation(string $key, string $type, bool $multiple = false): BaseResource|ResourceCollection|null
+    public function relation(string $key, string $type, bool $asCollection = false): BaseResource|ResourceCollection|null
     {
-        $relation = BaseResource::relation($key, $type, $multiple);
+        try {
+            $relation = BaseResource::relation($key, $type, $asCollection);
+        } catch (ReferenceMissingException) {
+            $this->loadRelation($key);
 
-        if (! $this->relationIsLoaded($key)) {
-            $relation = $this->loadRelation($key, $type, $multiple);
+            return $this->relation($key, $type, $asCollection);
         }
 
         return $relation;
@@ -72,21 +104,15 @@ class Resource extends BaseResource
      * Load the relation data from lightspeed
      *
      * @param string $key
-     * @param class-string<\JesseGall\LightspeedSDK\Resources\Resource> $type
-     * @return ResourceCollection|BaseResource
-     * @throws WebshopappApiException
+     * @return void
      */
-    private function loadRelation(string $key, string $type, bool $multiple): ResourceCollection|BaseResource
+    protected function loadRelation(string $key): void
     {
         $url = $this->getRelationUrl($key);
 
         $data = $this->feedMissingRelations ? Api::read($url) : [];
 
-        $relation = $multiple ? $type::collection($data) : $type::create($data);
-
-        $this->setRelation($key, $relation);
-
-        return $relation;
+        $this->set($key, $data);
     }
 
     # --- Getters and setters ---
@@ -119,6 +145,38 @@ class Resource extends BaseResource
     public function setId(int|string $id): static
     {
         return $this->set('id', $id);
+    }
+
+    /**
+     * @return string
+     */
+    public function getApiUrl(): string
+    {
+        return $this->apiUrl;
+    }
+
+    /**
+     * @param string $apiUrl
+     */
+    public function setApiUrl(string $apiUrl): void
+    {
+        $this->apiUrl = $apiUrl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHandle(): string
+    {
+        return $this->handle;
+    }
+
+    /**
+     * @param string $handle
+     */
+    public function setHandle(string $handle): void
+    {
+        $this->handle = $handle;
     }
 
     /**

@@ -7,8 +7,9 @@ use JesseGall\Resources\ResourceCollection;
 class Attribute extends Resource
 {
 
-    protected string $url = '/attributes';
+    protected string $apiUrl = '/attributes';
 
+    protected string $handle = 'attribute';
 
     /**
      * @return string

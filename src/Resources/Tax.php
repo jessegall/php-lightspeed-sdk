@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Tax extends Resource
 {
 
-    protected string $url = '/taxes';
+    protected string $apiUrl = '/taxes';
 
+    protected string $handle = 'tax';
 
     /**
      * @return bool

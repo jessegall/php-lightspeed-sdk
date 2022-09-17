@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Contact extends Resource
 {
 
-    protected string $url = '/contacts';
+    protected string $apiUrl = '/contacts';
 
+    protected string $handle = 'contact';
 
     /**
      * @return string

@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Event extends Resource
 {
 
-    protected string $url = '/events';
+    protected string $apiUrl = '/events';
 
+    protected string $handle = 'event';
 
     /**
      * @return string

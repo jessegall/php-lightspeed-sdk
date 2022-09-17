@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Webhook extends Resource
 {
 
-    protected string $url = '/webhooks';
+    protected string $apiUrl = '/webhooks';
 
+    protected string $handle = 'webhook';
 
     /**
      * @return string

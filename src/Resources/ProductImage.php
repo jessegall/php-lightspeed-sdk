@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class ProductImage extends Resource
 {
 
-    protected string $url = '/products/{id}/images';
+    protected string $apiUrl = '/products/{id}/images';
 
+    protected string $handle = 'productImage';
 
     /**
      * @return int

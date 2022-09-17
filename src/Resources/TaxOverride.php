@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class TaxOverride extends Resource
 {
 
-    protected string $url = '/taxes/{id}/overrides';
+    protected string $apiUrl = '/taxes/{id}/overrides';
 
+    protected string $handle = 'taxOverride';
 
     /**
      * @return int

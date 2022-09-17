@@ -7,9 +7,10 @@ use JesseGall\Resources\ResourceCollection;
 class Product extends Resource
 {
 
-    protected string $url = '/products';
+    protected string $apiUrl = '/products';
 
-
+    protected string $handle = 'product';
+    
     /**
      * @return string
      */

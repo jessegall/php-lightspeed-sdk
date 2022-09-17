@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class ShopWebsite extends Resource
 {
 
-    protected string $url = '/shops/{id}/websites';
+    protected string $apiUrl = '/shops/{id}/websites';
 
+    protected string $handle = 'shopWebsite';
 
     /**
      * @return string

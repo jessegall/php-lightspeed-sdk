@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Set extends Resource
 {
 
-    protected string $url = '/sets';
+    protected string $apiUrl = '/sets';
 
+    protected string $handle = 'set';
 
     /**
      * @return string

@@ -7,8 +7,9 @@ use JesseGall\Resources\ResourceCollection;
 class Ticket extends Resource
 {
 
-    protected string $url = '/tickets';
+    protected string $apiUrl = '/tickets';
 
+    protected string $handle = 'ticket';
 
     /**
      * @return string

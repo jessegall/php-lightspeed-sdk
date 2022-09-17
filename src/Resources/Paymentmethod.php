@@ -5,9 +5,10 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Paymentmethod extends Resource
 {
 
-    protected string $url = '/paymentmethods';
+    protected string $apiUrl = '/paymentmethods';
 
-
+    protected string $handle = 'paymentmethod';
+    
     /**
      * @return string
      */

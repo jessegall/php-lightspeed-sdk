@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class ShopMetafield extends Resource
 {
 
-    protected string $url = '/shops/{id}/metafields';
+    protected string $apiUrl = '/shops/{id}/metafields';
 
+    protected string $handle = 'shopMetafield';
 
     /**
      * @return string

@@ -2,6 +2,7 @@
 
 namespace JesseGall\LightspeedSDK\Tests;
 
+use JesseGall\LightspeedSDK\Api;
 use JesseGall\LightspeedSDK\LightspeedSDK;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
@@ -15,11 +16,15 @@ class TestCase extends BaseTestCase
         parent::setUp();
 
         $this->sdk = LightspeedSDK::instance();
+
+        $this->sdk->loadEnvironmentVariables();
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
+
+        Api::clearInterceptors();
     }
 
 }

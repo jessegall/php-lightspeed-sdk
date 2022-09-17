@@ -7,8 +7,9 @@ use JesseGall\Resources\ResourceCollection;
 class Shop extends Resource
 {
 
-    protected string $url = '/shops';
+    protected string $apiUrl = '/shops';
 
+    protected string $handle = 'shop';
 
     /**
      * @return string

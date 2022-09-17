@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class OrderEvent extends Resource
 {
 
-    protected string $url = '/orders/{id}/events';
+    protected string $apiUrl = '/orders/{id}/events';
 
+    protected string $handle = 'orderEvent';
 
     /**
      * @return string

@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Redirect extends Resource
 {
 
-    protected string $url = '/redirects';
+    protected string $apiUrl = '/redirects';
 
+    protected string $handle = 'redirect';
 
     /**
      * @return string

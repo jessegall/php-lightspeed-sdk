@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Textpage extends Resource
 {
 
-    protected string $url = '/textpages';
+    protected string $apiUrl = '/textpages';
 
+    protected string $handle = 'textPage';
 
     /**
      * @return string

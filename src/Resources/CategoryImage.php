@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class CategoryImage extends Resource
 {
 
-    protected string $url = '/categories/{id}/images';
+    protected string $apiUrl = '/categories/{id}/images';
 
+    protected string $handle = 'categoryImage';
 
     /**
      * @return string

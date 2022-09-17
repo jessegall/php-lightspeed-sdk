@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Discount extends Resource
 {
 
-    protected string $url = '/discounts';
+    protected string $apiUrl = '/discounts';
 
+    protected string $handle = 'discount';
 
     /**
      * @return string

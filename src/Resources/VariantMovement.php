@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class VariantMovement extends Resource
 {
 
-    protected string $url = '/variants/{id}/movements';
+    protected string $apiUrl = '/variants/{id}/movements';
 
+    protected string $handle = 'variantMovement';
 
     /**
      * @return string

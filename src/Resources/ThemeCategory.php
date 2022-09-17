@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class ThemeCategory extends Resource
 {
 
-    protected string $url = '/themes/{id}/categories';
+    protected string $apiUrl = '/themes/{id}/categories';
 
+    protected string $handle = 'themeProductCategory';
 
     /**
      * @return int

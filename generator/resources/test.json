@@ -1,0 +1,21 @@
+{
+    "test": {
+        "id": 20967267,
+        "createdAt": "2019-05-28T15:25:46+00:00",
+        "updatedAt": "2019-05-28T17:16:16+00:00",
+        "title": "Test resource",
+        "description": "this is a test resource",
+        "singleRelation": {
+            "resource": {
+                "id": 1171202,
+                "url": "test/1171202"
+            }
+        },
+        "multipleRelation": {
+            "resource": {
+                "id": false,
+                "url": "test"
+            }
+        }
+    }
+}

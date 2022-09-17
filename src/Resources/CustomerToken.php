@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class CustomerToken extends Resource
 {
 
-    protected string $url = '/customers/{id}/tokens';
+    protected string $apiUrl = '/customers/{id}/tokens';
 
+    protected string $handle = 'customerToken';
 
     /**
      * @return string

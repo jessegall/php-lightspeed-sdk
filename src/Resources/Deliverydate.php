@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class Deliverydate extends Resource
 {
 
-    protected string $url = '/deliverydates';
+    protected string $apiUrl = '/deliverydates';
 
+    protected string $handle = 'deliveryDate';
 
     /**
      * @return string

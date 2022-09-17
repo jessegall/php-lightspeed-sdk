@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class CustomStatus extends Resource
 {
 
-    protected string $url = '/customs/{id}/statuses';
+    protected string $apiUrl = '/customs/{id}/statuses';
 
+    protected string $handle = 'customerStatus';
 
     /**
      * @return string

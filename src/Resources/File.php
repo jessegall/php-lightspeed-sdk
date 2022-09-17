@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class File extends Resource
 {
 
-    protected string $url = '/files';
+    protected string $apiUrl = '/files';
 
+    protected string $handle = 'file';
 
     /**
      * @return string

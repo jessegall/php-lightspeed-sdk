@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class BlogArticleTag extends Resource
 {
 
-    protected string $url = '/blogs/{id}/articles/{id}/tags';
+    protected string $apiUrl = '/blogs/{id}/articles/{id}/tags';
 
+    protected string $handle = 'blogArticleTag';
 
     /**
      * @return Blog

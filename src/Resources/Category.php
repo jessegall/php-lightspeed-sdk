@@ -7,8 +7,9 @@ use JesseGall\Resources\ResourceCollection;
 class Category extends Resource
 {
 
-    protected string $url = '/categories';
+    protected string $apiUrl = '/categories';
 
+    protected string $handle = 'category';
 
     /**
      * @return string

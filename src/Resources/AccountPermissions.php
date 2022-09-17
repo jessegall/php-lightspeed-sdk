@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class AccountPermissions extends Resource
 {
 
-    protected string $url = '/accounts/{id}/permissions';
+    protected string $apiUrl = '/accounts/{id}/permissions';
 
+    protected string $handle = 'accountPermissions';
 
     /**
      * @return array

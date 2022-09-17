@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class VariantMetafield extends Resource
 {
 
-    protected string $url = '/variants/{id}/metafields';
+    protected string $apiUrl = '/variants/{id}/metafields';
 
+    protected string $handle = 'variantMetafield';
 
     /**
      * @return string

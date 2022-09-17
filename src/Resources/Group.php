@@ -7,8 +7,9 @@ use JesseGall\Resources\ResourceCollection;
 class Group extends Resource
 {
 
-    protected string $url = '/groups';
+    protected string $apiUrl = '/groups';
 
+    protected string $handle = 'group';
 
     /**
      * @return string

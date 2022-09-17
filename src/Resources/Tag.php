@@ -7,8 +7,9 @@ use JesseGall\Resources\ResourceCollection;
 class Tag extends Resource
 {
 
-    protected string $url = '/tags';
+    protected string $apiUrl = '/tags';
 
+    protected string $handle = 'tag';
 
     /**
      * @return string

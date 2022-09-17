@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class BlogComment extends Resource
 {
 
-    protected string $url = '/blogs/{id}/comments';
+    protected string $apiUrl = '/blogs/{id}/comments';
 
+    protected string $handle = 'blogComment';
 
     /**
      * @return string

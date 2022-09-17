@@ -5,8 +5,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 class FilterValue extends Resource
 {
 
-    protected string $url = '/filters/{id}/values';
+    protected string $apiUrl = '/filters/{id}/values';
 
+    protected string $handle = 'filterValue';
 
     /**
      * @return string
