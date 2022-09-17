@@ -2,10 +2,12 @@
 
 namespace JesseGall\LightspeedSDK;
 
-use JesseGall\Proxy\Interactions\CallInteraction;
-use JesseGall\Proxy\Interactions\Interaction;
+use Closure;
+use JesseGall\LightspeedSDK\Interceptors\ReturnFakeDataInterceptor;
+use JesseGall\Proxy\Contracts\Intercepts;
 use JesseGall\Proxy\Proxy;
 use WebshopappApiClient;
+use WebshopappApiException;
 
 /**
  * @method static \WebshopappApiResourceAccount account()
@@ -120,6 +122,8 @@ class Api
 {
 
     /**
+     * The proxy that's wrapped around the api client
+     *
      * @var Proxy<WebshopappApiClient>
      */
     protected static Proxy $instance;
@@ -127,7 +131,7 @@ class Api
     protected function __construct() { }
 
     /**
-     * @throws \WebshopappApiException
+     * @throws WebshopappApiException
      */
     public static function __callStatic(string $method, array $parameters)
     {
@@ -143,10 +147,9 @@ class Api
     }
 
     /**
-     * @return Proxy|WebshopappApiClient
-     * @throws \WebshopappApiException
+     * @return Proxy&WebshopappApiClient
      */
-    protected static function client(): WebshopappApiClient|Proxy
+    protected static function client(): Proxy
     {
         if (! isset(self::$instance)) {
             $sdk = LightspeedSDK::instance();
@@ -164,15 +167,33 @@ class Api
         return self::$instance;
     }
 
+    /**
+     * Register an interceptor.
+     *
+     * @param Intercepts|Closure|class-string<Intercepts>|Closure[]|class-string<Intercepts>[] $interceptor
+     * @return void
+     */
+    public static function registerInterceptor(Intercepts|Closure|string|array $interceptor): void
+    {
+        self::client()->getForwarder()->registerInterceptor($interceptor);
+    }
 
+    /**
+     * Removes all the interceptors
+     *
+     * @return void
+     */
     public static function clearInterceptors(): void
     {
         self::client()->getForwarder()->clearInterceptors();
     }
 
+    /**
+     * @return void
+     */
     public static function fake(): void
     {
-        self::client()->getForwarder()->registerInterceptor(new FakeDataInterceptor());
+        self::registerInterceptor(new ReturnFakeDataInterceptor());
     }
 
 }

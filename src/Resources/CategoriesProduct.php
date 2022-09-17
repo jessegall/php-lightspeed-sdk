@@ -15,7 +15,7 @@ class CategoriesProduct extends Resource
      *
      * @var string
      */
-    protected string $endpoint = '/categories/{id}/products';
+    protected string $endpoint = '/categories/products';
 
     /**
      * The lightspeed resource this class represents
