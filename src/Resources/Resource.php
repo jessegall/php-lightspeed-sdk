@@ -34,6 +34,27 @@ class Resource extends BaseResource
     protected bool $lazyLoadRelations = true;
 
     /**
+     * Return all resources
+     *
+     * @param int $limit
+     * @param int $page
+     * @return ResourceCollection
+     */
+    public static function all(int $limit = 250, int $page = 1): ResourceCollection
+    {
+        $response = Api::read((new static)->endpoint, [
+            'limit' => $limit,
+            'page' => $page
+        ]);
+
+        if (! array_is_list($response)) {
+            $response = [$response];
+        }
+
+        return static::collection($response);
+    }
+
+    /**
      * Returns the api url of the resource.
      *
      * @param int|string $id
@@ -121,7 +142,7 @@ class Resource extends BaseResource
         if (! is_subclass_of($type, self::class)) {
             throw new InvalidArgumentException("Type $type is not a subclass of Resource");
         }
-        
+
         try {
             $relation = BaseResource::relation($key, $type, $asCollection);
         } catch (ReferenceMissingException) {

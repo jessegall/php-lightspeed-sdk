@@ -3,6 +3,7 @@
 namespace JesseGall\LightspeedSDK\Tests;
 
 use JesseGall\LightspeedSDK\Api;
+use JesseGall\LightspeedSDK\Resources\Order;
 use JesseGall\LightspeedSDK\Tests\TestClasses\TestResource;
 
 class ResourceTest extends TestCase
