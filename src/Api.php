@@ -4,6 +4,7 @@ namespace JesseGall\LightspeedSDK;
 
 use Closure;
 use JesseGall\LightspeedSDK\Interceptors\ReturnFakeDataInterceptor;
+use JesseGall\Proxy\Contracts\HandlesCache;
 use JesseGall\Proxy\Contracts\Intercepts;
 use JesseGall\Proxy\Proxy;
 use WebshopappApiClient;
@@ -165,6 +166,17 @@ class Api
         }
 
         return self::$instance;
+    }
+
+    /**
+     * Set the cache handler
+     *
+     * @param HandlesCache $handler
+     * @return void
+     */
+    public static function setCacheHandler(HandlesCache $handler): void
+    {
+        self::client()->setCache($handler);
     }
 
     /**
