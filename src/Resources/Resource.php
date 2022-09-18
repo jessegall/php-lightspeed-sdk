@@ -38,7 +38,7 @@ class Resource extends BaseResource
      *
      * @param int $limit
      * @param int $page
-     * @return ResourceCollection
+     * @return ResourceCollection<static>
      */
     public static function all(int $limit = 250, int $page = 1): ResourceCollection
     {
