@@ -169,6 +169,17 @@ class Api
     }
 
     /**
+     * Returns the cache handler
+     *
+     * @return HandlesCache
+     */
+    public static function getCacheHandler(): HandlesCache
+    {
+        return self::client()->getCache();
+    }
+
+
+    /**
      * Set the cache handler
      *
      * @param HandlesCache $handler
