@@ -6,11 +6,15 @@ use InvalidArgumentException;
 use JesseGall\ContainsData\ReferenceMissingException;
 use JesseGall\LightspeedSDK\Api;
 use JesseGall\LightspeedSDK\Exceptions\IdNullException;
+use JesseGall\LightspeedSDK\Exceptions\Lightspeed\ResourceNotFoundException;
+use JesseGall\LightspeedSDK\Resources\Concerns\LightspeedResource;
+use JesseGall\Resources\RemoteResource;
 use JesseGall\Resources\Resource as BaseResource;
 use JesseGall\Resources\ResourceCollection;
 
-class Resource extends BaseResource
+class Resource extends BaseResource implements RemoteResource
 {
+    use LightspeedResource;
 
     /**
      * The api endpoint of the resource.
@@ -34,27 +38,6 @@ class Resource extends BaseResource
     protected bool $lazyLoadRelations = true;
 
     /**
-     * Return all resources
-     *
-     * @param int $limit
-     * @param int $page
-     * @return ResourceCollection<static>
-     */
-    public static function all(int $limit = 250, int $page = 1): ResourceCollection
-    {
-        $response = Api::read((new static)->endpoint, [
-            'limit' => $limit,
-            'page' => $page
-        ]);
-
-        if (! array_is_list($response)) {
-            $response = [$response];
-        }
-
-        return static::collection($response);
-    }
-
-    /**
      * Returns the api url of the resource.
      *
      * @param int|string $id
@@ -63,46 +46,6 @@ class Resource extends BaseResource
     private function url(int|string $id): string
     {
         return "$this->endpoint/$id";
-    }
-
-    /**
-     * Fill the model with the data from lightspeed.
-     *
-     * @return $this
-     * @throws IdNullException
-     */
-    public function hydrate(): static
-    {
-        if (! ($id = $this->getId())) {
-            throw new IdNullException();
-        }
-
-        $response = Api::read($this->url($id));
-
-        $this->container($response);
-
-        return $this;
-    }
-
-    /**
-     * Sync the data of the resource with lightspeed
-     *
-     * @return $this
-     * @throws IdNullException
-     */
-    public function sync(): static
-    {
-        if (! ($id = $this->getId())) {
-            throw new IdNullException();
-        }
-
-        $response = Api::update($this->url($id), [
-            $this->lightspeedResource => $this->container()
-        ]);
-
-        $this->merge($response);
-
-        return $this;
     }
 
     /**

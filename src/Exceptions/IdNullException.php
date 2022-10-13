@@ -2,7 +2,7 @@
 
 namespace JesseGall\LightspeedSDK\Exceptions;
 
-class IdNullException extends \Exception
+class IdNullException extends \RuntimeException
 {
 
     public function __construct()

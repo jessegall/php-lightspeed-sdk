@@ -708,18 +708,18 @@ class Variant extends Resource
     }
 
     /**
-     * @return array|null
+     * @return Image|null
      */
-    public function getImage(): ?array
+    public function getImage(): ?Image
     {
         return $this->get('image');
     }
 
     /**
-     * @param array|null $image
+     * @param Image|null $image
      * @return $this
      */
-    public function setImage(array $image = null): static
+    public function setImage(Image $image = null): static
     {
         return $this->set('image', $image);
     }

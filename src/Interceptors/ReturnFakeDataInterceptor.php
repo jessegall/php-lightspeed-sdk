@@ -11,15 +11,15 @@ use JesseGall\Proxy\Interactions\Status;
 class ReturnFakeDataInterceptor implements Intercepts
 {
 
-    public function intercept(Interacts $interaction, object $interactor = null): void
+    public function intercept(Interacts $interaction, object $caller = null): void
     {
-        if (! $this->isReadInteraction($interaction, $interactor)) {
+        if (! $this->isReadInteraction($interaction)) {
             return;
         }
 
         $url = $this->getUrl($interaction);
 
-        $data = $this->getFakeData($interactor);
+        $data = $this->getFakeData($caller);
 
         if (! str_contains($url, '/')) {
             $data = [$data];
@@ -30,12 +30,8 @@ class ReturnFakeDataInterceptor implements Intercepts
         $interaction->setStatus(Status::FULFILLED);
     }
 
-    private function isReadInteraction(Interacts $interaction, object $interactor = null): bool
+    protected function isReadInteraction(Interacts $interaction): bool
     {
-        if (! ($interactor instanceof Resource)) {
-            return false;
-        }
-
         if (! ($interaction instanceof InteractsWithMethod)) {
             return false;
         }
@@ -49,18 +45,14 @@ class ReturnFakeDataInterceptor implements Intercepts
         return true;
     }
 
-    private function getUrl(InteractsWithMethod $interaction): string
+    protected function getUrl(InteractsWithMethod $interaction): string
     {
         [$url] = explode('?', $interaction->getParameters()[0]);
 
         return $url;
     }
 
-    /**
-     * @param Resource $resource
-     * @return mixed
-     */
-    private function getFakeData(Resource $resource): array
+    protected function getFakeData(Resource $resource): array
     {
         $lightspeedResource = $resource->getLightspeedResource();
 

@@ -25,6 +25,8 @@ class TestCase extends BaseTestCase
         parent::tearDown();
 
         Api::clearInterceptors();
+
+        Api::clearCache();
     }
 
 }

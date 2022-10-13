@@ -3,9 +3,11 @@
 namespace JesseGall\LightspeedSDK;
 
 use Closure;
+use JesseGall\LightspeedSDK\Handlers\TransformExceptionHandler;
 use JesseGall\LightspeedSDK\Interceptors\ReturnFakeDataInterceptor;
 use JesseGall\Proxy\Contracts\HandlesCache;
 use JesseGall\Proxy\Contracts\Intercepts;
+use JesseGall\Proxy\DecorateMode;
 use JesseGall\Proxy\Proxy;
 use WebshopappApiClient;
 use WebshopappApiException;
@@ -150,7 +152,7 @@ class Api
     /**
      * @return Proxy&WebshopappApiClient
      */
-    protected static function client(): Proxy
+    public static function client(): Proxy
     {
         if (! isset(self::$instance)) {
             $sdk = LightspeedSDK::instance();
@@ -161,6 +163,12 @@ class Api
                 $sdk->get('api.secret'),
                 $sdk->get('api.language'),
             ));
+
+            $proxy->getForwarder()->registerExceptionHandler(
+                new TransformExceptionHandler()
+            );
+
+            $proxy->setDecorateMode(DecorateMode::ALWAYS);
 
             self::$instance = $proxy;
         }
@@ -177,7 +185,6 @@ class Api
     {
         return self::client()->getCache();
     }
-
 
     /**
      * Set the cache handler
@@ -209,6 +216,16 @@ class Api
     public static function clearInterceptors(): void
     {
         self::client()->getForwarder()->clearInterceptors();
+    }
+
+    /**
+     * Clears the cache
+     *
+     * @return void
+     */
+    public static function clearCache(): void
+    {
+        self::client()->getCache()->clear();
     }
 
     /**
