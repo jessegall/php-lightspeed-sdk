@@ -712,7 +712,7 @@ class Variant extends Resource
      */
     public function getImage(): ?Image
     {
-        return $this->get('image');
+        return $this->get('image') ?: null;
     }
 
     /**
