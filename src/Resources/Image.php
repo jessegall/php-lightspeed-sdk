@@ -4,26 +4,9 @@ namespace JesseGall\LightspeedSDK\Resources;
 
 /**
  * Image
- *
- * @link https://developers.lightspeedhq.com/ecom/endpoints/image
  */
 class Image extends Resource
 {
-
-    /**
-     * The api endpoint of the resource.
-     *
-     * @var string
-     */
-    protected string $endpoint = '/images';
-
-    /**
-     * The lightspeed resource this class represents
-     *
-     * @var string
-     */
-    protected string $lightspeedResource = 'image';
-
 
     /**
      * @return string|null
