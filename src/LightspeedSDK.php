@@ -2,7 +2,6 @@
 
 namespace JesseGall\LightspeedSDK;
 
-use Closure;
 use Dotenv\Dotenv;
 use JesseGall\ContainsData\ContainsData;
 
@@ -27,10 +26,30 @@ class LightspeedSDK
     {
         $env = (Dotenv::createMutable(__DIR__ . "/../"))->load();
 
-        $this->set('api.server', $env['LIGHTSPEED_API_SERVER']);
-        $this->set('api.key', $env['LIGHTSPEED_API_KEY']);
-        $this->set('api.secret', $env['LIGHTSPEED_API_SECRET']);
-        $this->set('api.language', $env['LIGHTSPEED_API_LANGUAGE']);
+        $this->setServer($env['LIGHTSPEED_API_SERVER']);
+        $this->setKey($env['LIGHTSPEED_API_KEY']);
+        $this->setSecret($env['LIGHTSPEED_API_SECRET']);
+        $this->setLanguage($env['LIGHTSPEED_API_LANGUAGE']);
+    }
+
+    public function setServer(string $server): void
+    {
+        $this->set('api.server', $server);
+    }
+
+    public function setKey(string $key): void
+    {
+        $this->set('api.key', $key);
+    }
+
+    public function setSecret(string $secret): void
+    {
+        $this->set('api.secret', $secret);
+    }
+
+    public function setLanguage(string $language): void
+    {
+        $this->set('api.language', $language);
     }
 
 }

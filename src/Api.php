@@ -120,6 +120,8 @@ use WebshopappApiException;
  * @method static \WebshopappApiResourceWebhooks webhooks()
  * @method static array read(string $url, array $params = [])
  * @method static array update(string $url, array $payload, array $options = [])
+ * @method static array create(string $url, array $payload, array $options = [])
+ * @method static array delete(string $url)
  */
 class Api
 {

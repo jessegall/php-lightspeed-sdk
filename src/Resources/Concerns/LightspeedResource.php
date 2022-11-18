@@ -37,7 +37,7 @@ trait LightspeedResource
 
     public static function create(array $data = []): static
     {
-        // TODO: Implement create() method.
+        //Api::create()
     }
 
     public function hydrate(): bool
