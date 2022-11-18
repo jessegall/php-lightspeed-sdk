@@ -9,7 +9,7 @@ class LightspeedSDK
 {
     use ContainsData;
 
-    private static LightspeedSDK $instance;
+    public static LightspeedSDK $instance;
 
     private function __construct() { }
 
