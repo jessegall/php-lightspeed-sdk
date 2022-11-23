@@ -3,6 +3,7 @@
 namespace JesseGall\LightspeedSDK;
 
 use Closure;
+use JesseGall\LightspeedSDK\Handlers\RetryTooManyRequestsExceptionHandler;
 use JesseGall\LightspeedSDK\Handlers\TransformExceptionHandler;
 use JesseGall\LightspeedSDK\Interceptors\ReturnFakeDataInterceptor;
 use JesseGall\Proxy\Contracts\HandlesCache;
@@ -133,7 +134,9 @@ class Api
      */
     protected static Proxy $instance;
 
-    protected function __construct() { }
+    protected function __construct()
+    {
+    }
 
     /**
      * @throws WebshopappApiException
@@ -168,6 +171,10 @@ class Api
 
             $proxy->getForwarder()->registerExceptionHandler(
                 new TransformExceptionHandler()
+            );
+
+            $proxy->getForwarder()->registerExceptionHandler(
+                new RetryTooManyRequestsExceptionHandler()
             );
 
             $proxy->setDecorateMode(DecorateMode::ALWAYS);
