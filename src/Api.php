@@ -3,12 +3,9 @@
 namespace JesseGall\LightspeedSDK;
 
 use Closure;
-use JesseGall\LightspeedSDK\Handlers\TransformExceptionHandler;
 use JesseGall\LightspeedSDK\Interceptors\ReturnFakeDataInterceptor;
 use JesseGall\Proxy\Contracts\HandlesCache;
 use JesseGall\Proxy\Contracts\Intercepts;
-use JesseGall\Proxy\DecorateMode;
-use JesseGall\Proxy\Proxy;
 use WebshopappApiClient;
 use WebshopappApiException;
 
@@ -127,13 +124,11 @@ class Api
 {
 
     /**
-     * The proxy that's wrapped around the api client
+     * The webshop api client
      *
-     * @var Proxy<WebshopappApiClient>
+     * @var WebshopApiClientProxy
      */
-    protected static Proxy $instance;
-
-    protected function __construct() { }
+    protected static WebshopApiClientProxy $instance;
 
     /**
      * @throws WebshopappApiException
@@ -152,27 +147,19 @@ class Api
     }
 
     /**
-     * @return Proxy&WebshopappApiClient
+     * @return WebshopApiClientProxy
      */
-    public static function client(): Proxy
+    public static function client(): WebshopApiClientProxy
     {
         if (! isset(self::$instance)) {
             $sdk = LightspeedSDK::instance();
 
-            $proxy = new Proxy(new WebshopappApiClient(
+            self::$instance = new WebshopApiClientProxy(
                 $sdk->get('api.server'),
                 $sdk->get('api.key'),
                 $sdk->get('api.secret'),
-                $sdk->get('api.language'),
-            ));
-
-            $proxy->getForwarder()->registerExceptionHandler(
-                new TransformExceptionHandler()
+                $sdk->get('api.language')
             );
-
-            $proxy->setDecorateMode(DecorateMode::ALWAYS);
-
-            self::$instance = $proxy;
         }
 
         return self::$instance;
@@ -197,45 +184,6 @@ class Api
     public static function setCacheHandler(HandlesCache $handler): void
     {
         self::client()->setCache($handler);
-    }
-
-    /**
-     * Register an interceptor.
-     *
-     * @param Intercepts|Closure|class-string<Intercepts>|Closure[]|class-string<Intercepts>[] $interceptor
-     * @return void
-     */
-    public static function registerInterceptor(Intercepts|Closure|string|array $interceptor): void
-    {
-        self::client()->getForwarder()->registerInterceptor($interceptor);
-    }
-
-    /**
-     * Removes all the interceptors
-     *
-     * @return void
-     */
-    public static function clearInterceptors(): void
-    {
-        self::client()->getForwarder()->clearInterceptors();
-    }
-
-    /**
-     * Clears the cache
-     *
-     * @return void
-     */
-    public static function clearCache(): void
-    {
-        self::client()->getCache()->clear();
-    }
-
-    /**
-     * @return void
-     */
-    public static function fake(): void
-    {
-        self::registerInterceptor(new ReturnFakeDataInterceptor());
     }
 
 }

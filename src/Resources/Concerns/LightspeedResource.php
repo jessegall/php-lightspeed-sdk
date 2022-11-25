@@ -37,7 +37,15 @@ trait LightspeedResource
 
     public static function create(array $data = []): static
     {
-        //Api::create()
+        $resource = new static();
+
+        $response = Api::create($resource->getEndpoint(), [
+            $resource->getLightspeedResource() => $data
+        ]);
+
+        $resource->merge($response);
+
+        return $resource;
     }
 
     public function hydrate(): bool
@@ -70,7 +78,12 @@ trait LightspeedResource
 
     public function delete(): bool
     {
-        // TODO: Implement delete() method.
-    }
+        if (! ($id = $this->getId())) {
+            return false;
+        }
 
+        $response = Api::delete($this->url($id));
+
+        return is_null($response);
+    }
 }

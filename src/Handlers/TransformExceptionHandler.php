@@ -4,14 +4,14 @@ namespace JesseGall\LightspeedSDK\Handlers;
 
 use JesseGall\LightspeedSDK\Exceptions\Lightspeed\ResourceNotFoundException;
 use JesseGall\LightspeedSDK\Resources\Resource;
-use JesseGall\Proxy\Contracts\HandlesFailedStrategies;
-use JesseGall\Proxy\Strategies\Exceptions\ExecutionException;
+use JesseGall\Proxy\Forwarder\Contracts\HandlesFailedStrategies;
+use JesseGall\Proxy\Forwarder\Strategies\Exceptions\ExecutionException;
 use WebshopappApiException;
 
 class TransformExceptionHandler implements HandlesFailedStrategies
 {
 
-    public function handle(ExecutionException $exception)
+    public function handle(ExecutionException $exception): void
     {
         $original = $exception->getException();
 
