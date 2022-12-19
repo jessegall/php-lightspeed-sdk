@@ -2,8 +2,7 @@
 
 This package is a comprehensive set of tools for interacting with the Lightspeed eCommerce API
 in PHP. It includes classes for each of the Lightspeed resources, allowing you to perform CRUD operations and
-manage relations easily. With support for lazy loading of relations, you can optimize your data retrieval and keep your
-application performant. Whether you're building an application that integrates with Lightspeed or looking for a simple
+manage relations easily. Whether you're building an application that integrates with Lightspeed or looking for a simple
 way to manage your online store, this package has you covered.
 
 ## Table of contents
