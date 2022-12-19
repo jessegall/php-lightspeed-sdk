@@ -6,9 +6,17 @@ use JesseGall\LightspeedSDK\Api;
 use JesseGall\LightspeedSDK\Exceptions\Lightspeed\ResourceNotFoundException;
 use JesseGall\Resources\ResourceCollection;
 
+/**
+ * @template T of \JesseGall\Resources\Resource
+ * @implements \JesseGall\Resources\RemoteResource<T>
+ */
 trait LightspeedResource
 {
 
+    /**
+     * @param array $params
+     * @return \JesseGall\Resources\RemoteResource<T>
+     */
     public static function all(array $params = []): ResourceCollection
     {
         $response = Api::read((new static)->getEndpoint(), $params);

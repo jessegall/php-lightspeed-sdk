@@ -7,6 +7,9 @@ use JesseGall\Resources\ResourceCollection;
 /**
  * Order
  *
+ * @implements \JesseGall\Resources\RemoteResource<\JesseGall\LightspeedSDK\Resources\Order>
+ *
+ *
  * @link https://developers.lightspeedhq.com/ecom/endpoints/order
  */
 class Order extends Resource

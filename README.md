@@ -31,7 +31,7 @@ composer require jessegall/lightspeed-sdk
 ## Usage
 
 To use the package, you will need to first set your Lightspeed API key and secret in your environment.
-You can do this by creating a .env file in the root of your project and setting the 
+You can do this by creating a .env file in the root of your project and setting the
 `LIGHTSPEED_API_KEY`, `LIGHTSPEED_API_SECRET`, `LIGHTSPEED_API_SERVER` and `LIGHTSPEED_API_LANGUAGE` variables:
 
 ```
@@ -48,6 +48,17 @@ use JesseGall\LightspeedSDK\LightspeedSDK;
 
 $sdk = LightspeedSDK::instance();
 $sdk->loadEnvironmentVariables();
+```
+
+Alternatively, you can set these values manually by using the `setServer`, `setKey`, `setSecret`, and `setLanguage`
+methods of the LightspeedSDK class:
+
+```php
+$sdk = LightspeedSDK::instance();
+$sdk->setServer('your-api-server');
+$sdk->setKey('your-api-key');
+$sdk->setSecret('your-api-secret');
+$sdk->setLanguage('your-api-language');
 ```
 
 You can then use the resource classes to perform CRUD operations on the corresponding resources in the Lightspeed API.
