@@ -24,19 +24,21 @@ and `Order`.
 
 You can install the package using Composer:
 
-```php
+```bash
 composer require jessegall/lightspeed-sdk
 ```
 
 ## Usage
 
 To use the package, you will need to first set your Lightspeed API key and secret in your environment.
-You can do this by creating a .env file in the root of your project and setting the `LIGHTSPEED_API_KEY`
-and `LIGHTSPEED_API_SECRET` variables:
+You can do this by creating a .env file in the root of your project and setting the 
+`LIGHTSPEED_API_KEY`, `LIGHTSPEED_API_SECRET`, `LIGHTSPEED_API_SERVER` and `LIGHTSPEED_API_LANGUAGE` variables:
 
 ```
 LIGHTSPEED_API_KEY=your_api_key
 LIGHTSPEED_API_SECRET=your_api_secret
+LIGHTSPEED_API_SERVER=eu1
+LIGHTSPEED_API_LANGUAGE=en
 ```
 
 Next, you can use the LightspeedSDK class to load your API key and secret and set them on the SDK instance:
