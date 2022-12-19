@@ -2,11 +2,8 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
-use InvalidArgumentException;
 use JesseGall\ContainsData\ReferenceMissingException;
 use JesseGall\LightspeedSDK\Api;
-use JesseGall\LightspeedSDK\Exceptions\IdNullException;
-use JesseGall\LightspeedSDK\Exceptions\Lightspeed\ResourceNotFoundException;
 use JesseGall\LightspeedSDK\Resources\Concerns\LightspeedResource;
 use JesseGall\Resources\RemoteResource;
 use JesseGall\Resources\Resource as BaseResource;
@@ -68,34 +65,26 @@ class Resource extends BaseResource implements RemoteResource
     }
 
     /**
-     * Map the item(s) to the given resource type.
-     * If the relation is not loaded, fetch the data from lightspeed.
+     * Get the relation with the given name.
+     *
+     * If the relation is not loaded, it will be lazy loaded.
      *
      * @param string $key
-     * @param class-string<\JesseGall\LightspeedSDK\Resources\Resource> $type
+     * @param string $type
      * @param bool $asCollection
      * @return BaseResource|ResourceCollection|null
      */
     public function relation(string $key, string $type, bool $asCollection = false): BaseResource|ResourceCollection|null
     {
-        if (! class_exists($type)) {
-            throw new InvalidArgumentException("Type $type is not a valid class");
-        }
-
-        if (! is_subclass_of($type, self::class)) {
-            throw new InvalidArgumentException("Type $type is not a subclass of Resource");
-        }
-
         try {
-            $relation = BaseResource::relation($key, $type, $asCollection);
+            return BaseResource::relation($key, $type, $asCollection);
         } catch (ReferenceMissingException) {
             $this->loadRelation($key);
 
             return $this->relation($key, $type, $asCollection);
         }
-
-        return $relation;
     }
+
 
     /**
      * Load the relation data from lightspeed
@@ -103,7 +92,7 @@ class Resource extends BaseResource implements RemoteResource
      * @param string $key
      * @return void
      */
-    protected function loadRelation(string $key): void
+    public function loadRelation(string $key): void
     {
         $url = $this->getRelationUrl($key);
 

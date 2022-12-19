@@ -2,8 +2,8 @@
 
 namespace JesseGall\LightspeedSDK;
 
-use JesseGall\LightspeedSDK\Handlers\RetryTooManyRequestsExceptionHandler;
-use JesseGall\LightspeedSDK\Handlers\TransformExceptionHandler;
+use JesseGall\LightspeedSDK\Handlers\RetryTooManyRequestsHandler;
+use JesseGall\LightspeedSDK\Handlers\ExceptionTransformer;
 use JesseGall\Proxy\DecorateMode;
 use JesseGall\Proxy\Proxy;
 
@@ -20,8 +20,8 @@ class WebshopApiClientProxy extends Proxy
         $this->decorateMode = DecorateMode::ALWAYS;
 
         $this->getForwarder()->registerExceptionHandler([
-            new TransformExceptionHandler(),
-            new RetryTooManyRequestsExceptionHandler()
+            new ExceptionTransformer(),
+            new RetryTooManyRequestsHandler()
         ]);
     }
 
