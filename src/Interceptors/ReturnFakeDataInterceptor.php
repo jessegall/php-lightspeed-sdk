@@ -56,7 +56,7 @@ class ReturnFakeDataInterceptor implements Intercepts
     {
         $lightspeedResource = $resource->getLightspeedResource();
 
-        $data = json_decode(file_get_contents(__DIR__ . "/../../generator/resources/$lightspeedResource.json"), true);
+        $data = json_decode(file_get_contents(__DIR__ . "/../../resources/$lightspeedResource.json"), true);
 
         [$key] = array_keys($data);
 

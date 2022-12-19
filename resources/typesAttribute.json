@@ -1,0 +1,20 @@
+{
+    "typesAttribute": {
+        "id": 8273,
+        "sortOrder": 1,
+        "type": {
+            "resource": {
+                "id": 3052,
+                "url": "types/3052",
+                "link": "https://api.shoplightspeed.com/us/types/3052.json"
+            }
+        },
+        "attribute": {
+            "resource": {
+                "id": 7214,
+                "url": "attributes/7214",
+                "link": "https://api.shoplightspeed.com/us/attributes/7214.json"
+            }
+        }
+    }
+}

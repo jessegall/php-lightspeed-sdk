@@ -1,0 +1,142 @@
+{
+    "product": {
+        "id": 20967267,
+        "createdAt": "2019-05-28T15:25:46+00:00",
+        "updatedAt": "2019-05-28T17:16:16+00:00",
+        "isVisible": true,
+        "visibility": "visible",
+        "hasMatrix": false,
+        "data01": "",
+        "data02": "",
+        "data03": "",
+        "url": "lookin-sharp-tee",
+        "title": "Lookin' Sharp T-Shirt",
+        "fulltitle": "Lookin' Sharp T-Shirt",
+        "description": "Description of the Lookin' Sharp T-Shirt",
+        "content": "<p>Long Description of the Lookin' Sharp T-Shirt</p>",
+        "set": {
+            "id": 2785,
+            "createdAt": "2019-05-28T15:32:12+00:00",
+            "updatedAt": "2019-05-28T15:42:59+00:00",
+            "name": "Shirts",
+            "options": [
+                {
+                    "id": 4626,
+                    "sortOrder": 1,
+                    "name": "Size",
+                    "values": [
+                        {
+                            "id": 14045,
+                            "sortOrder": 1,
+                            "name": "S"
+                        },
+                        {
+                            "id": 14046,
+                            "sortOrder": 2,
+                            "name": "M"
+                        },
+                        {
+                            "id": 14047,
+                            "sortOrder": 3,
+                            "name": "L"
+                        }
+                    ]
+                }
+            ]
+        },
+        "brand": {
+            "resource": {
+                "id": 1171202,
+                "url": "brands/1171202",
+                "link": "https://api.shoplightspeed.com/us/brands/1171202.json"
+            }
+        },
+        "categories": {
+            "resource": {
+                "id": false,
+                "url": "categories/products?product=20967267",
+                "link": "https://api.shoplightspeed.com/us/categories/products.json?product=20967267"
+            }
+        },
+        "deliverydate": {
+            "resource": {
+                "id": 6488,
+                "url": "deliverydates/6488",
+                "link": "https://api.shoplightspeed.com/us/deliverydates/6488.json"
+            }
+        },
+        "image": {
+            "createdAt": "2019-05-28T15:25:46+00:00",
+            "updatedAt": "2019-05-28T15:25:46+00:00",
+            "extension": "jpg",
+            "size": 86649,
+            "title": "17x35x-jcfk-88na-udwd-5hck-z63u-img-16-e0aa4f57-f4",
+            "thumb": "https://cdn.shoplightspeed.com/shops/000001/files/14119398/50x50x2/17x35x-jcfk-88na-udwd-5hck-z63u-img-16-e0aa4f57-f4.jpg",
+            "src": "https://cdn.shoplightspeed.com/shops/000001/files/14119398/17x35x-jcfk-88na-udwd-5hck-z63u-img-16-e0aa4f57-f4.jpg"
+        },
+        "images": {
+            "resource": {
+                "id": false,
+                "url": "products/20967267/images",
+                "link": "https://api.shoplightspeed.com/us/products/20967267/images.json"
+            }
+        },
+        "relations": {
+            "resource": {
+                "id": false,
+                "url": "products/20967267/relations",
+                "link": "https://api.shoplightspeed.com/us/products/20967267/relations.json"
+            }
+        },
+        "metafields": {
+            "resource": {
+                "id": false,
+                "url": "products/20967267/metafields",
+                "link": "https://api.shoplightspeed.com/us/products/20967267/metafields.json"
+            }
+        },
+        "reviews": {
+            "resource": {
+                "id": false,
+                "url": "reviews?product=20967267",
+                "link": "https://api.shoplightspeed.com/us/reviews.json?product=20967267"
+            }
+        },
+        "type": false,
+        "attributes": {
+            "resource": {
+                "id": false,
+                "url": "products/20967267/attributes",
+                "link": "https://api.shoplightspeed.com/us/products/20967267/attributes.json"
+            }
+        },
+        "supplier": {
+            "resource": {
+                "id": 78794,
+                "url": "suppliers/78794",
+                "link": "https://api.shoplightspeed.com/us/suppliers/78794.json"
+            }
+        },
+        "tags": {
+            "resource": {
+                "id": false,
+                "url": "tags/products?product=20967267",
+                "link": "https://api.shoplightspeed.com/us/tags/products.json?product=20967267"
+            }
+        },
+        "variants": {
+            "resource": {
+                "id": false,
+                "url": "variants?product=20967267",
+                "link": "https://api.shoplightspeed.com/us/variants.json?product=20967267"
+            }
+        },
+        "movements": {
+            "resource": {
+                "id": false,
+                "url": "variants/movements?product=20967267",
+                "link": "https://api.shoplightspeed.com/us/variants/movements.json?product=20967267"
+            }
+        }
+    }
+}

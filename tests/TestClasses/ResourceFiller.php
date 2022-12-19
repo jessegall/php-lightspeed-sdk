@@ -22,10 +22,15 @@ class ResourceFiller
 
         $class = str_replace('_', '', $reflection->getShortName());
 
-        return json_decode(
-            file_get_contents(__DIR__ . '/../../generator/resources/' . lcfirst($class) . '.json'),
-            true
-        )[lcfirst($class)];
+        $string = file_get_contents(__DIR__ . '/../../resources/' . lcfirst($class) . '.json');
+
+        $json = json_decode($string, true);
+
+        if (is_null($json)) {
+            return [];
+        }
+
+        return $json[lcfirst($class)];
     }
 
 }

@@ -1,0 +1,19 @@
+
+{
+    "webhook": {
+        "id": 64674,
+        "createdAt": "2019-08-07T19:23:09+00:00",
+        "updatedAt": "2019-08-07T19:23:09+00:00",
+        "isActive": true,
+        "itemGroup": "products",
+        "itemAction": "*",
+        "language": {
+            "id": 18,
+            "code": "us",
+            "locale": "en_US",
+            "title": "English (US)"
+        },
+        "format": "xml",
+        "address": "https://requestb.in/12345"
+    }
+}
