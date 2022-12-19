@@ -1,9 +1,0 @@
-{
-    "invoiceMetafield": {
-        "id": 5758039,
-        "createdAt": "2019-09-16T20:35:31+00:00",
-        "updatedAt": "2019-09-16T20:35:31+00:00",
-        "key": "external_email",
-        "value": "info@lightspeedhq.com"
-    }
-}

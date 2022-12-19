@@ -1,9 +1,0 @@
-{
-    "shopTracking": {
-        "id": 99,
-        "createdAt": "2019-08-07T18:14:34+00:00",
-        "updatedAt": "2019-08-07T18:14:34+00:00",
-        "isEnabled": true,
-        "content": "console.log(123456789)"
-    }
-}

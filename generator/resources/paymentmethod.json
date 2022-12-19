@@ -1,7 +1,0 @@
-{
-    "paymentmethod": {
-        "id": 126,
-        "key": "invoice",
-        "title": "Pay by invoice"
-    }
-}
