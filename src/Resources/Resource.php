@@ -79,7 +79,11 @@ class Resource extends BaseResource implements RemoteResource
         try {
             return BaseResource::relation($key, $type, $asCollection);
         } catch (ReferenceMissingException) {
-            $this->loadRelation($key);
+            if ($this->lazyLoadRelations) {
+                $this->loadRelation($key);
+            } else {
+                return null;
+            }
 
             return $this->relation($key, $type, $asCollection);
         }
@@ -96,7 +100,7 @@ class Resource extends BaseResource implements RemoteResource
     {
         $url = $this->getRelationUrl($key);
 
-        $data = $this->lazyLoadRelations ? Api::read($url) : null;
+        $data = Api::read($url);
 
         $this->set($key, $data);
     }
