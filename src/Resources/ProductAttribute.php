@@ -2,6 +2,8 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\LightspeedSDK\Resources\Concerns\LightspeedAttributeResource;
+
 /**
  * ProductAttribute
  *
@@ -9,6 +11,7 @@ namespace JesseGall\LightspeedSDK\Resources;
  */
 class ProductAttribute extends Resource
 {
+    use LightspeedAttributeResource;
 
     /**
      * The api endpoint of the resource.
@@ -40,23 +43,6 @@ class ProductAttribute extends Resource
     public function setValue(string $value = null): static
     {
         return $this->set('value', $value);
-    }
-
-    /**
-     * @return array|null
-     */
-    public function getAttribute(): ?array
-    {
-        return $this->get('attribute');
-    }
-
-    /**
-     * @param array|null $attribute
-     * @return $this
-     */
-    public function setAttribute(array $attribute = null): static
-    {
-        return $this->set('attribute', $attribute);
     }
 
 }

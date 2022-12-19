@@ -28,7 +28,7 @@
         "jessegall/proxy": "^1.0.0",
         "jessegall/invader": "^1.0",
         "jessegall/resources": "^0.1.13",
-        "jessegall/proxy-utils": "dev-main"
+        "jessegall/proxy-utils": "v0.1.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",

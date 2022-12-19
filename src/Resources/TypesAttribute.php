@@ -2,6 +2,8 @@
 
 namespace JesseGall\LightspeedSDK\Resources;
 
+use JesseGall\LightspeedSDK\Resources\Concerns\LightspeedAttributeResource;
+
 /**
  * TypesAttribute
  *
@@ -9,6 +11,7 @@ namespace JesseGall\LightspeedSDK\Resources;
  */
 class TypesAttribute extends Resource
 {
+    use LightspeedAttributeResource;
 
     /**
      * The api endpoint of the resource.
@@ -66,34 +69,6 @@ class TypesAttribute extends Resource
     public function setType(Type $type = null): static
     {
         $this->set('type.resource.embedded', $type);
-
-        return $this;
-    }
-
-    /**
-     * @return Attribute|null
-     */
-    public function getAttribute(): ?Attribute
-    {
-        return $this->relation('attribute.resource.embedded', Attribute::class);
-    }
-
-
-    /**
-     * @return int|null
-     */
-    public function getAttributeId(): ?int
-    {
-        return $this->get('attribute.resource.id');
-    }
-
-    /**
-     * @param Attribute|null $attribute
-     * @return $this
-     */
-    public function setAttribute(Attribute $attribute = null): static
-    {
-        $this->set('attribute.resource.embedded', $attribute);
 
         return $this;
     }

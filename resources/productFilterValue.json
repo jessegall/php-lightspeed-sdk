@@ -1,0 +1,19 @@
+{
+    "productFilterValue": {
+        "id": 3928,
+        "filter": {
+            "resource": {
+                "id": 3934,
+                "url": "filters/3934",
+                "link": "https://api.shoplightspeed.com/us/filters/3934.json"
+            }
+        },
+        "filtervalue": {
+            "resource": {
+                "id": 29110,
+                "url": "filters/3934/values/29110",
+                "link": "https://api.shoplightspeed.com/us/filters/3934/values/29110.json"
+            }
+        }
+    }
+}

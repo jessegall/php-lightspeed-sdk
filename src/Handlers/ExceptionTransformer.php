@@ -23,7 +23,7 @@ class ExceptionTransformer extends BaseExceptionTransformer
                     return new ResourceNotFoundException(get_class($caller), $caller->getId());
                 }
 
-                return $exception;
+                return $original;
             }
         ]);
     }

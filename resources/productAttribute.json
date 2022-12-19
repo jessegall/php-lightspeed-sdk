@@ -1,0 +1,18 @@
+{
+    "productAttribute": {
+        "id": 14973,
+        "value": "USA",
+        "attribute": {
+            "id": 14973,
+            "title": "Made In",
+            "defaultValue": "Canada",
+            "types": {
+                "resource": {
+                    "id": false,
+                    "url": "types/attributes?attribute=14973",
+                    "link": "https://api.shoplightspeed.com/us/types/attributes.json?attribute=14973"
+                }
+            }
+        }
+    }
+}
