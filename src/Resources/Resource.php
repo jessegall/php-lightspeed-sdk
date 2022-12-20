@@ -3,7 +3,7 @@
 namespace JesseGall\LightspeedSDK\Resources;
 
 use JesseGall\ContainsData\ReferenceMissingException;
-use JesseGall\LightspeedSDK\Api\Api;
+use JesseGall\LightspeedSDK\Api\LightspeedApi;
 use JesseGall\LightspeedSDK\Resources\Concerns\LightspeedResource;
 use JesseGall\Resources\RemoteResource;
 use JesseGall\Resources\Resource as BaseResource;
@@ -112,7 +112,7 @@ class Resource extends BaseResource implements RemoteResource
     {
         $url = $this->getRelationUrl($key);
 
-        $data = Api::read($url);
+        $data = LightspeedApi::read($url);
 
         $this->set($key, $data);
     }

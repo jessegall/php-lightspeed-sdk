@@ -2,9 +2,8 @@
 
 namespace JesseGall\LightspeedSDK\Api;
 
-use Closure;
 use JesseGall\LightspeedSDK\LightspeedSDK;
-use JesseGall\LightspeedSDK\WebshopApiClientProxy;
+use JesseGall\LightspeedSDK\WebshopappApiClientProxy;
 use JesseGall\Proxy\Contracts\HandlesCache;
 use JesseGall\Proxy\Contracts\Intercepts;
 use WebshopappApiClient;
@@ -120,42 +119,40 @@ use WebshopappApiException;
  * @method static array update(string $url, array $payload, array $options = [])
  * @method static array create(string $url, array $payload, array $options = [])
  * @method static array delete(string $url)
+ * @method static array count(string $resource)
+ *
  */
-class Api
+class LightspeedApi
 {
 
     /**
      * The webshop api client
      *
-     * @var WebshopApiClientProxy
+     * @var WebshopappApiClientProxy
      */
-    protected static WebshopApiClientProxy $instance;
+    protected static WebshopappApiClientProxy $instance;
 
     /**
      * @throws WebshopappApiException
      */
     public static function __callStatic(string $method, array $parameters)
     {
-        if (method_exists(WebshopappApiClient::class, $method)) {
+        if (method_exists(WebshopappApiClient::class, $method) || method_exists(WebshopappApiClientProxy::class, $method)) {
             return self::client()->{$method}(...$parameters);
-        }
-
-        if (property_exists(WebshopappApiClient::class, $method)) {
-            return self::client()->{$method};
         }
 
         return null;
     }
 
     /**
-     * @return WebshopApiClientProxy
+     * @return WebshopappApiClientProxy
      */
-    public static function client(): WebshopApiClientProxy
+    public static function client(): WebshopappApiClientProxy
     {
         if (! isset(self::$instance)) {
             $sdk = LightspeedSDK::instance();
 
-            self::$instance = new WebshopApiClientProxy(
+            self::$instance = new WebshopappApiClientProxy(
                 $sdk->get('api.server'),
                 $sdk->get('api.key'),
                 $sdk->get('api.secret'),
@@ -169,12 +166,11 @@ class Api
     /**
      * Mock the api client
      *
-     * @param Closure|null $interceptor
      * @return void
      */
-    public static function mock(Closure $interceptor = null)
+    public static function mock(): void
     {
-        self::client()->mock($interceptor);
+        self::client()->mock();
     }
 
     /**
@@ -196,6 +192,26 @@ class Api
     public static function setCacheHandler(HandlesCache $handler): void
     {
         self::client()->setCache($handler);
+    }
+
+    /**
+     * Clear interceptor
+     *
+     * @return void
+     */
+    public static function clearInterceptors(): void
+    {
+        self::client()->getForwarder()->getInterceptors()->clear();
+    }
+
+    /**
+     * Clear cache
+     *
+     * @return void
+     */
+    public static function clearCache(): void
+    {
+        self::client()->getCacheHandler()->clear();
     }
 
 }

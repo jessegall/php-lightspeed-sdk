@@ -2,7 +2,7 @@
 
 namespace JesseGall\LightspeedSDK\Tests;
 
-use JesseGall\LightspeedSDK\Api\Api;
+use JesseGall\LightspeedSDK\Api\LightspeedApi;
 use JesseGall\LightspeedSDK\LightspeedSDK;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
@@ -24,9 +24,9 @@ class TestCase extends BaseTestCase
     {
         parent::tearDown();
 
-        Api::clearInterceptors();
+        LightspeedApi::clearInterceptors();
 
-        Api::clearCache();
+        LightspeedApi::clearCache();
     }
 
 }

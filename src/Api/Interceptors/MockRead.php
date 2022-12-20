@@ -21,11 +21,15 @@ class MockRead implements Intercepts
 
         $url = $this->getUrl($interaction);
 
-        $data = $this->getMockData($caller instanceof Resource ? $caller : $interaction->getParameter(0));
+        if (str_ends_with($url, '/count')) {
+            $data = 10;
+        } else {
+            $data = $this->getMockData($caller instanceof Resource ? $caller : $interaction->getParameter(0));
 
-        // Check if the read action is for a single resource or a collection
-        if (! str_contains($url, '/')) {
-            $data = [$data, $data, $data];
+            // Check if the read action is for a single resource or a collection
+            if (! str_contains($url, '/')) {
+                $data = [$data, $data, $data];
+            }
         }
 
         $interaction->setResult($data);
@@ -40,7 +44,7 @@ class MockRead implements Intercepts
 
     protected function getUrl(InvokesMethod $interaction): string
     {
-        [$url] = explode('?', $interaction->getParameters()[0]);
+        [$url] = explode('?', $interaction->getParameter(0));
 
         return $url;
     }

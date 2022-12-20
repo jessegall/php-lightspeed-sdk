@@ -2,7 +2,7 @@
 
 namespace JesseGall\LightspeedSDK\Tests;
 
-use JesseGall\LightspeedSDK\Api\Api;
+use JesseGall\LightspeedSDK\Api\LightspeedApi;
 use JesseGall\LightspeedSDK\Exceptions\IdNullException;
 use JesseGall\LightspeedSDK\Exceptions\Lightspeed\ResourceNotFoundException;
 use JesseGall\LightspeedSDK\Tests\TestClasses\TestResource;
@@ -15,10 +15,15 @@ class LightspeedResourceTest extends TestCase
     {
         parent::setUp();
 
-        Api::mock();
+        LightspeedApi::mock();
     }
 
-    public function test__when_all__Then_collection_of_resources_returned()
+    public function test__When_count__Then_count_returned()
+    {
+        $this->assertEquals(10, TestResource::count());
+    }
+
+    public function test__when_all__Then_collection_of_resources()
     {
         $resources = TestResource::all();
 
@@ -36,7 +41,7 @@ class LightspeedResourceTest extends TestCase
 
     public function test__When_resource_not_found__then_null()
     {
-        Api::client()->getForwarder()->registerInterceptor(function () {
+        LightspeedApi::client()->getForwarder()->registerInterceptor(function () {
             throw new ResourceNotFoundException(TestResource::class, 1);
         });
 

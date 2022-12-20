@@ -2,7 +2,6 @@
 
 namespace JesseGall\LightspeedSDK;
 
-use Closure;
 use JesseGall\LightspeedSDK\Api\Interceptors\MockCreate;
 use JesseGall\LightspeedSDK\Api\Interceptors\MockDelete;
 use JesseGall\LightspeedSDK\Api\Interceptors\MockRead;
@@ -15,7 +14,7 @@ use JesseGall\Proxy\Proxy;
 /**
  * @mixin \WebshopappApiClient
  */
-class WebshopApiClientProxy extends Proxy
+class WebshopappApiClientProxy extends Proxy
 {
 
     public function __construct(string $server, string $key, string $secret, string $language)
@@ -30,14 +29,18 @@ class WebshopApiClientProxy extends Proxy
         ]);
     }
 
-    public function mock(Closure $interceptor = null): void
+    public function count(string $resource): int
+    {
+        return $this->read($resource . '/count');
+    }
+
+    public function mock(): void
     {
         $this->getForwarder()->registerInterceptor([
             new MockRead(),
             new MockCreate(),
             new MockUpdate(),
             new MockDelete(),
-            $interceptor ?: fn() => null
         ]);
     }
 

@@ -2,7 +2,7 @@
 
 namespace JesseGall\LightspeedSDK\Resources\Concerns;
 
-use JesseGall\LightspeedSDK\Api\Api;
+use JesseGall\LightspeedSDK\Api\LightspeedApi;
 use JesseGall\LightspeedSDK\Exceptions\IdNullException;
 use JesseGall\LightspeedSDK\Exceptions\Lightspeed\ResourceNotFoundException;
 use JesseGall\Resources\ResourceCollection;
@@ -14,6 +14,15 @@ trait LightspeedResource
 {
 
     /**
+     * @param array $params
+     * @return int
+     */
+    public static function count(array $params = []): int
+    {
+        return LightspeedApi::count((new static)->getEndpoint());
+    }
+
+    /**
      * Return a collection of all remote resources
      *
      * @param array $params
@@ -21,7 +30,7 @@ trait LightspeedResource
      */
     public static function all(array $params = []): ResourceCollection
     {
-        $response = Api::read((new static)->getEndpoint(), $params);
+        $response = LightspeedApi::read((new static)->getEndpoint(), $params);
 
         if (! array_is_list($response)) {
             $response = [$response];
@@ -61,7 +70,7 @@ trait LightspeedResource
     {
         $resource = new static();
 
-        $response = Api::create($resource->getEndpoint(), [
+        $response = LightspeedApi::create($resource->getEndpoint(), [
             $resource->getLightspeedResource() => $data
         ]);
 
@@ -82,7 +91,7 @@ trait LightspeedResource
             throw new IdNullException();
         }
 
-        $data = Api::read($this->url($id));
+        $data = LightspeedApi::read($this->url($id));
 
         $this->container($data);
 
@@ -101,7 +110,7 @@ trait LightspeedResource
             throw new IdNullException();
         }
 
-        $response = Api::update($this->url($id), [
+        $response = LightspeedApi::update($this->url($id), [
             $this->lightspeedResource => $this->container()
         ]);
 
@@ -122,7 +131,7 @@ trait LightspeedResource
             throw new IdNullException();
         }
 
-        $response = Api::delete($this->url($id));
+        $response = LightspeedApi::delete($this->url($id));
 
         return is_null($response);
     }
