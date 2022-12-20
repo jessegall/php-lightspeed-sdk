@@ -119,7 +119,7 @@ use WebshopappApiException;
  * @method static array update(string $url, array $payload, array $options = [])
  * @method static array create(string $url, array $payload, array $options = [])
  * @method static array delete(string $url)
- * @method static array count(string $resource)
+ * @method static int count(string $resource, array $params = [])
  *
  */
 class LightspeedApi

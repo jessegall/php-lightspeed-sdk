@@ -32,7 +32,7 @@ class LightspeedResourceTest extends TestCase
         $this->assertEquals('test/count', $url);
     }
 
-    public function test__when_all__Then_collection_of_resources()
+    public function test__When_all__Then_collection_of_resources()
     {
         $method = null;
         $url = null;

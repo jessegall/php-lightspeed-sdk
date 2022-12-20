@@ -19,7 +19,7 @@ trait LightspeedResource
      */
     public static function count(array $params = []): int
     {
-        return LightspeedApi::count((new static)->getEndpoint());
+        return LightspeedApi::count((new static)->getEndpoint(), $params);
     }
 
     /**

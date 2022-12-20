@@ -29,9 +29,9 @@ class WebshopappApiClientProxy extends Proxy
         ]);
     }
 
-    public function count(string $resource): int
+    public function count(string $resource, array $params = []): int
     {
-        return $this->read($resource . '/count');
+        return $this->read($resource . '/count', $params);
     }
 
 }
