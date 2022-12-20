@@ -12,18 +12,16 @@ use JesseGall\Proxy\Interactions\Status;
 class MockResponse implements Intercepts
 {
 
-    private string $method;
     private Closure $value;
 
-    public function __construct(string $method, Closure $value)
+    public function __construct(Closure $value)
     {
-        $this->method = $method;
         $this->value = $value;
     }
 
     public function handle(Interacts $interaction, object $caller = null): void
     {
-        if (! ($interaction instanceof InvokesMethod && $interaction->getMethod() === $this->method)) {
+        if (! ($interaction instanceof InvokesMethod)) {
             return;
         }
 
