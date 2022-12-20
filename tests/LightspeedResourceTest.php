@@ -19,13 +19,13 @@ class LightspeedResourceTest extends TestCase
         $method = null;
         $url = null;
 
-        LightspeedApi::registerInterceptor(
-            new MockResponse(function (InvokesMethod $interaction) use ($count, &$method, &$url) {
+        LightspeedApi::registerInterceptor(new MockResponse(
+            function (InvokesMethod $interaction) use ($count, &$method, &$url) {
                 $method = $interaction->getMethod();
                 $url = $interaction->getParameter(0);
                 return $count;
-            })
-        );
+            }
+        ));
 
         $this->assertEquals($count, TestResource::count());
         $this->assertEquals('read', $method);
@@ -34,21 +34,20 @@ class LightspeedResourceTest extends TestCase
 
     public function test__when_all__Then_collection_of_resources()
     {
-        $resources = [
-            ['id' => 1],
-            ['id' => 2],
-            ['id' => 3],
-        ];
         $method = null;
         $url = null;
 
-        LightspeedApi::registerInterceptor(
-            new MockResponse(function (InvokesMethod $interaction) use ($resources, &$method, &$url) {
+        LightspeedApi::registerInterceptor(new MockResponse(
+            function (InvokesMethod $interaction) use (&$method, &$url) {
                 $method = $interaction->getMethod();
                 $url = $interaction->getParameter(0);
-                return $resources;
-            })
-        );
+                return [
+                    ['id' => 1],
+                    ['id' => 2],
+                    ['id' => 3],
+                ];
+            }
+        ));
 
         $resources = TestResource::all();
 
@@ -64,13 +63,13 @@ class LightspeedResourceTest extends TestCase
         $method = null;
         $url = null;
 
-        LightspeedApi::registerInterceptor(
-            new MockResponse(function (InvokesMethod $interaction) use ($id, &$method, &$url) {
+        LightspeedApi::registerInterceptor(new MockResponse(
+            function (InvokesMethod $interaction) use ($id, &$method, &$url) {
                 $method = $interaction->getMethod();
                 $url = $interaction->getParameter(0);
                 return ['id' => $id];
-            })
-        );
+            }
+        ));
 
         $resource = TestResource::find($id);
 
@@ -96,16 +95,16 @@ class LightspeedResourceTest extends TestCase
         $method = null;
         $url = null;
 
-        LightspeedApi::registerInterceptor(
-            new MockResponse(function (InvokesMethod $interaction) use (&$method, &$url) {
+        LightspeedApi::registerInterceptor(new MockResponse(
+            function (InvokesMethod $interaction) use (&$method, &$url) {
                 $method = $interaction->getMethod();
                 $url = $interaction->getParameter(0);
                 return [
                     'id' => 123,
                     'title' => 'test',
                 ];
-            })
-        );
+            }
+        ));
 
         $resource = TestResource::create();
 
@@ -128,17 +127,27 @@ class LightspeedResourceTest extends TestCase
 
     public function test__When_hydrate__Then_resource_hydrated()
     {
-        $data = [
-            'title' => 'test',
-        ];
+        $method = null;
+        $url = null;
 
-        LightspeedApi::registerInterceptor(new MockResponse(fn() => $data));
+        LightspeedApi::registerInterceptor(new MockResponse(
+            function (InvokesMethod $interaction) use (&$method, &$url) {
+                $method = $interaction->getMethod();
+                $url = $interaction->getParameter(0);
+                return [
+                    'id' => 123,
+                    'title' => 'test',
+                ];
+            }
+        ));
 
         $resource = new TestResource(['id' => 123]);
 
         $resource->hydrate();
 
         $this->assertEquals('test', $resource->getTitle());
+        $this->assertEquals('read', $method);
+        $this->assertEquals('test/123', $url);
     }
 
     public function test__Given_resource_without_id__When_sync__Then_exception_thrown()
@@ -196,7 +205,7 @@ class LightspeedResourceTest extends TestCase
         ));
 
         $resource = new TestResource(['id' => 123]);
-        
+
         $this->assertEquals(true, $resource->delete());
         $this->assertEquals('delete', $method);
     }
