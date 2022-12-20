@@ -2,20 +2,22 @@
 
 namespace JesseGall\LightspeedSDK\Resources\Concerns;
 
-use JesseGall\LightspeedSDK\Api;
+use JesseGall\LightspeedSDK\Api\Api;
+use JesseGall\LightspeedSDK\Exceptions\IdNullException;
 use JesseGall\LightspeedSDK\Exceptions\Lightspeed\ResourceNotFoundException;
 use JesseGall\Resources\ResourceCollection;
 
 /**
  * @template T of \JesseGall\Resources\Resource
- * @implements \JesseGall\Resources\RemoteResource<T>
  */
 trait LightspeedResource
 {
 
     /**
+     * Return a collection of all remote resources
+     *
      * @param array $params
-     * @return \JesseGall\Resources\RemoteResource<T>
+     * @return \JesseGall\Resources\ResourceCollection<T>
      */
     public static function all(array $params = []): ResourceCollection
     {
@@ -28,6 +30,12 @@ trait LightspeedResource
         return static::collection($response);
     }
 
+    /**
+     * Find a remote resource by key
+     *
+     * @param int|string $key
+     * @return static|null
+     */
     public static function find(int|string $key): ?static
     {
         try {
@@ -43,6 +51,12 @@ trait LightspeedResource
         }
     }
 
+    /**
+     * Create a remote resource
+     *
+     * @param array $data
+     * @return static
+     */
     public static function create(array $data = []): static
     {
         $resource = new static();
@@ -56,10 +70,16 @@ trait LightspeedResource
         return $resource;
     }
 
+    /**
+     * Fill the resource with remote data.
+     * Return true when successfully hydrated.
+     *
+     * @return bool
+     */
     public function hydrate(): bool
     {
         if (! ($id = $this->getId())) {
-            return false;
+            throw new IdNullException();
         }
 
         $data = Api::read($this->url($id));
@@ -69,10 +89,16 @@ trait LightspeedResource
         return true;
     }
 
+    /**
+     * Sync the local resource with the remote resource.
+     * Return true when successfully synced.
+     *
+     * @return bool
+     */
     public function sync(): bool
     {
         if (! ($id = $this->getId())) {
-            return false;
+            throw new IdNullException();
         }
 
         $response = Api::update($this->url($id), [
@@ -84,10 +110,16 @@ trait LightspeedResource
         return true;
     }
 
+    /**
+     * Delete the remote resource.
+     * Return true when successfully deleted.
+     *
+     * @return bool
+     */
     public function delete(): bool
     {
         if (! ($id = $this->getId())) {
-            return false;
+            throw new IdNullException();
         }
 
         $response = Api::delete($this->url($id));

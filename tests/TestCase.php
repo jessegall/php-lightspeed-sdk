@@ -2,7 +2,7 @@
 
 namespace JesseGall\LightspeedSDK\Tests;
 
-use JesseGall\LightspeedSDK\Api;
+use JesseGall\LightspeedSDK\Api\Api;
 use JesseGall\LightspeedSDK\LightspeedSDK;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 

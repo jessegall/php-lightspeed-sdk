@@ -3,12 +3,18 @@
 namespace JesseGall\LightspeedSDK\Resources;
 
 use JesseGall\ContainsData\ReferenceMissingException;
-use JesseGall\LightspeedSDK\Api;
+use JesseGall\LightspeedSDK\Api\Api;
 use JesseGall\LightspeedSDK\Resources\Concerns\LightspeedResource;
 use JesseGall\Resources\RemoteResource;
 use JesseGall\Resources\Resource as BaseResource;
 use JesseGall\Resources\ResourceCollection;
 
+/**
+ * Resource
+ *
+ * @implements RemoteResource<\JesseGall\LightspeedSDK\Resources\Resource>
+ * @uses LightspeedResource<\JesseGall\LightspeedSDK\Resources\Resource>
+ */
 class Resource extends BaseResource implements RemoteResource
 {
     use LightspeedResource;
@@ -26,6 +32,13 @@ class Resource extends BaseResource implements RemoteResource
      * @var string
      */
     protected string $lightspeedResource;
+
+    /**
+     * Indicates if the resource exists on the remote server
+     *
+     * @var bool
+     */
+    protected bool $exists = false;
 
     /**
      * Indicates whether missing relations should be lazy loaded.
@@ -65,14 +78,13 @@ class Resource extends BaseResource implements RemoteResource
     }
 
     /**
-     * Get the relation with the given name.
+     * Map the given item(s) to the given resource type
      *
-     * If the relation is not loaded, it will be lazy loaded.
-     *
+     * @template T of \JesseGall\Resources\Resource
      * @param string $key
-     * @param string $type
+     * @param class-string<\JesseGall\Resources\Resource> $type
      * @param bool $asCollection
-     * @return BaseResource|ResourceCollection|null
+     * @return T|ResourceCollection<T>|null
      */
     public function relation(string $key, string $type, bool $asCollection = false): BaseResource|ResourceCollection|null
     {
@@ -121,18 +133,18 @@ class Resource extends BaseResource implements RemoteResource
     }
 
     /**
-     * @return int|string
+     * @return int|string|null
      */
-    public function getId(): int|string
+    public function getId(): int|string|null
     {
         return $this->get('id');
     }
 
     /**
-     * @param int|string $id
+     * @param int|string|null $id
      * @return $this
      */
-    public function setId(int|string $id): static
+    public function setId(int|string|null $id): static
     {
         return $this->set('id', $id);
     }

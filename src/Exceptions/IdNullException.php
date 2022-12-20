@@ -9,4 +9,5 @@ class IdNullException extends \RuntimeException
     {
         parent::__construct("The ID of the resource is null");
     }
+
 }

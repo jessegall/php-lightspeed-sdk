@@ -1,9 +1,10 @@
 <?php
 
-namespace JesseGall\LightspeedSDK;
+namespace JesseGall\LightspeedSDK\Api;
 
 use Closure;
-use JesseGall\LightspeedSDK\Interceptors\ReturnFakeDataInterceptor;
+use JesseGall\LightspeedSDK\LightspeedSDK;
+use JesseGall\LightspeedSDK\WebshopApiClientProxy;
 use JesseGall\Proxy\Contracts\HandlesCache;
 use JesseGall\Proxy\Contracts\Intercepts;
 use WebshopappApiClient;
@@ -163,6 +164,17 @@ class Api
         }
 
         return self::$instance;
+    }
+
+    /**
+     * Mock the api client
+     *
+     * @param Closure|null $interceptor
+     * @return void
+     */
+    public static function mock(Closure $interceptor = null)
+    {
+        self::client()->mock($interceptor);
     }
 
     /**

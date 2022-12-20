@@ -2,8 +2,13 @@
 
 namespace JesseGall\LightspeedSDK;
 
-use JesseGall\LightspeedSDK\Handlers\RetryTooManyRequestsHandler;
+use Closure;
+use JesseGall\LightspeedSDK\Api\Interceptors\MockCreate;
+use JesseGall\LightspeedSDK\Api\Interceptors\MockDelete;
+use JesseGall\LightspeedSDK\Api\Interceptors\MockRead;
+use JesseGall\LightspeedSDK\Api\Interceptors\MockUpdate;
 use JesseGall\LightspeedSDK\Handlers\ExceptionTransformer;
+use JesseGall\LightspeedSDK\Handlers\RetryTooManyRequestsHandler;
 use JesseGall\Proxy\DecorateMode;
 use JesseGall\Proxy\Proxy;
 
@@ -22,6 +27,17 @@ class WebshopApiClientProxy extends Proxy
         $this->getForwarder()->registerExceptionHandler([
             new ExceptionTransformer(),
             new RetryTooManyRequestsHandler()
+        ]);
+    }
+
+    public function mock(Closure $interceptor = null): void
+    {
+        $this->getForwarder()->registerInterceptor([
+            new MockRead(),
+            new MockCreate(),
+            new MockUpdate(),
+            new MockDelete(),
+            $interceptor ?: fn() => null
         ]);
     }
 

@@ -12,6 +12,25 @@ class TestResource extends Resource
     protected string $lightspeedResource = 'test';
 
     /**
+     * @return string|null
+     */
+    public function getTitle(): ?string
+    {
+        return $this->get('title');
+    }
+
+    /**
+     * @param string $title
+     * @return $this
+     */
+    public function setTitle(string $title): static
+    {
+        $this->set('title', $title);
+
+        return $this;
+    }
+
+    /**
      * @return TestResource
      */
     public function getSingleRelation(): TestResource

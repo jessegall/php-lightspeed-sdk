@@ -4,7 +4,7 @@
         "createdAt": "2019-05-28T15:25:46+00:00",
         "updatedAt": "2019-05-28T17:16:16+00:00",
         "title": "Test resource",
-        "description": "this is a test resource",
+        "description": "This is a test resource",
         "singleRelation": {
             "resource": {
                 "id": 1171202,
