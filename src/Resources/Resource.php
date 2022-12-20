@@ -3,7 +3,7 @@
 namespace JesseGall\LightspeedSDK\Resources;
 
 use JesseGall\ContainsData\ReferenceMissingException;
-use JesseGall\LightspeedSDK\Api\LightspeedApi;
+use JesseGall\LightspeedSDK\LightspeedApi;
 use JesseGall\LightspeedSDK\Resources\Concerns\LightspeedResource;
 use JesseGall\Resources\RemoteResource;
 use JesseGall\Resources\Resource as BaseResource;

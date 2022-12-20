@@ -2,12 +2,12 @@
 
 namespace JesseGall\LightspeedSDK;
 
-use JesseGall\LightspeedSDK\Api\Interceptors\MockCreate;
-use JesseGall\LightspeedSDK\Api\Interceptors\MockDelete;
-use JesseGall\LightspeedSDK\Api\Interceptors\MockRead;
-use JesseGall\LightspeedSDK\Api\Interceptors\MockUpdate;
 use JesseGall\LightspeedSDK\Handlers\ExceptionTransformer;
 use JesseGall\LightspeedSDK\Handlers\RetryTooManyRequestsHandler;
+use JesseGall\LightspeedSDK\Tests\TestClasses\Interceptors\MockCreate;
+use JesseGall\LightspeedSDK\Tests\TestClasses\Interceptors\MockDelete;
+use JesseGall\LightspeedSDK\Tests\TestClasses\Interceptors\MockRead;
+use JesseGall\LightspeedSDK\Tests\TestClasses\Interceptors\MockUpdate;
 use JesseGall\Proxy\DecorateMode;
 use JesseGall\Proxy\Proxy;
 
@@ -32,16 +32,6 @@ class WebshopappApiClientProxy extends Proxy
     public function count(string $resource): int
     {
         return $this->read($resource . '/count');
-    }
-
-    public function mock(): void
-    {
-        $this->getForwarder()->registerInterceptor([
-            new MockRead(),
-            new MockCreate(),
-            new MockUpdate(),
-            new MockDelete(),
-        ]);
     }
 
 }

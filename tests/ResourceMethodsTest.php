@@ -21,7 +21,6 @@ use JesseGall\LightspeedSDK\Resources\CategoryImage;
 use JesseGall\LightspeedSDK\Resources\Contact;
 use JesseGall\LightspeedSDK\Resources\Customer;
 use JesseGall\LightspeedSDK\Resources\CustomerLogin;
-use JesseGall\LightspeedSDK\Resources\CustomerToken;
 use JesseGall\LightspeedSDK\Resources\CustomStatus;
 use JesseGall\LightspeedSDK\Resources\Dashboard;
 use JesseGall\LightspeedSDK\Resources\Deliverydate;
@@ -95,7 +94,7 @@ use JesseGall\LightspeedSDK\Resources\Webhook;
 use JesseGall\LightspeedSDK\Tests\TestClasses\ResourceFiller;
 use JesseGall\Resources\ResourceCollection;
 
-class ResourcesTest extends TestCase
+class ResourceMethodsTest extends TestCase
 {
 
     private function testMethods(string $type)

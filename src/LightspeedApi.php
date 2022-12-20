@@ -1,11 +1,11 @@
 <?php
 
-namespace JesseGall\LightspeedSDK\Api;
+namespace JesseGall\LightspeedSDK;
 
-use JesseGall\LightspeedSDK\LightspeedSDK;
-use JesseGall\LightspeedSDK\WebshopappApiClientProxy;
+use Closure;
+use JesseGall\LightspeedSDK\Exceptions\UnknownMethodException;
 use JesseGall\Proxy\Contracts\HandlesCache;
-use JesseGall\Proxy\Contracts\Intercepts;
+use JesseGall\Proxy\Forwarder\Contracts\Intercepts;
 use WebshopappApiClient;
 use WebshopappApiException;
 
@@ -133,7 +133,7 @@ class LightspeedApi
     protected static WebshopappApiClientProxy $instance;
 
     /**
-     * @throws WebshopappApiException
+     * @throws WebshopappApiException|UnknownMethodException
      */
     public static function __callStatic(string $method, array $parameters)
     {
@@ -141,7 +141,7 @@ class LightspeedApi
             return self::client()->{$method}(...$parameters);
         }
 
-        return null;
+        return throw new UnknownMethodException($method);
     }
 
     /**
@@ -164,23 +164,13 @@ class LightspeedApi
     }
 
     /**
-     * Mock the api client
-     *
-     * @return void
-     */
-    public static function mock(): void
-    {
-        self::client()->mock();
-    }
-
-    /**
      * Returns the cache handler
      *
      * @return HandlesCache
      */
     public static function getCacheHandler(): HandlesCache
     {
-        return self::client()->getCache();
+        return self::client()->getCacheHandler();
     }
 
     /**
@@ -191,7 +181,18 @@ class LightspeedApi
      */
     public static function setCacheHandler(HandlesCache $handler): void
     {
-        self::client()->setCache($handler);
+        self::client()->setCacheHandler($handler);
+    }
+
+    /**
+     * Register interceptor
+     *
+     * @param Intercepts|Closure|string|array $interceptor
+     * @return void
+     */
+    public static function registerInterceptor(Intercepts|Closure|string|array $interceptor): void
+    {
+        self::client()->getForwarder()->registerInterceptor($interceptor);
     }
 
     /**

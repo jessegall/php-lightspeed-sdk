@@ -2,9 +2,9 @@
 
 namespace JesseGall\LightspeedSDK\Resources\Concerns;
 
-use JesseGall\LightspeedSDK\Api\LightspeedApi;
 use JesseGall\LightspeedSDK\Exceptions\IdNullException;
 use JesseGall\LightspeedSDK\Exceptions\Lightspeed\ResourceNotFoundException;
+use JesseGall\LightspeedSDK\LightspeedApi;
 use JesseGall\Resources\ResourceCollection;
 
 /**
