@@ -1,5 +1,7 @@
 # php-lightspeed-sdk (eCom)
 
+![workflow](https://github.com/jessegall/php-lightspeed-sdk/actions/workflows/php.yml/badge.svg)
+
 This package is a comprehensive set of tools for interacting with the Lightspeed eCommerce API
 in PHP. It includes classes for each of the Lightspeed resources, allowing you to perform CRUD operations and
 manage relations easily. Whether you're building an application that integrates with Lightspeed or looking for a simple
