@@ -1,6 +1,7 @@
 # php-lightspeed-sdk (eCom)
 
 [![Build](https://github.com/jessegall/php-lightspeed-sdk/actions/workflows/php.yml/badge.svg)](https://github.com/jessegall/php-lightspeed-sdk/actions/workflows/php.yml)
+[![codecov](https://codecov.io/github/jessegall/php-lightspeed-sdk/branch/main/graph/badge.svg?token=V6GGO06GC9)](https://codecov.io/github/jessegall/php-lightspeed-sdk)
 
 This package is a comprehensive set of tools for interacting with the Lightspeed eCommerce API
 in PHP. It includes classes for each of the Lightspeed resources, allowing you to perform CRUD operations and
