@@ -64,12 +64,18 @@ You can then use the resource classes to perform CRUD operations on the correspo
 
 ### Example: Working with Orders
 
-To retrieve a list of orders:
+To retrieve the total order count
 
 ```php
 use JesseGall\LightspeedSDK\Resources\Order;
 
-$orders = Order::all(); 
+$count = Order::count();
+````
+
+To retrieve a collection of orders:
+
+```php
+$orders = Order::all();
 ```
 
 To retrieve a single order by ID:
@@ -87,11 +93,17 @@ $order->sync(); // Sync the order with lightspeed
 
 ### Example: Working with Products
 
-To retrieve a list of products:
+To retrieve the total product count
 
 ```php
 use JesseGall\LightspeedSDK\Resources\Product;
 
+$count = Product::count();
+```
+
+To retrieve a collection of products:
+
+```php
 $products = Product::all();
 ```
 
