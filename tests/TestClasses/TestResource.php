@@ -46,4 +46,17 @@ class TestResource extends Resource
         return $this->relation('multipleRelation.resource.embedded', TestResource::class, true);
     }
 
+    /**
+     * Set exists value
+     *
+     * @param bool $exists
+     * @return $this
+     */
+    public function setExists(bool $exists): static
+    {
+        $this->exists = $exists;
+
+        return $this;
+    }
+
 }

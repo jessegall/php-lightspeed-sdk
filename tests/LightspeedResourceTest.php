@@ -150,6 +150,17 @@ class LightspeedResourceTest extends TestCase
         $this->assertEquals('test/123', $url);
     }
 
+    public function test__When_hydrate__Then_exists_true()
+    {
+        LightspeedApi::registerInterceptor(new MockResponse(fn() => []));
+
+        $resource = new TestResource(['id' => 123]);
+
+        $resource->hydrate();
+
+        $this->assertTrue($resource->exists());
+    }
+
     public function test__Given_resource_without_id__When_sync__Then_exception_thrown()
     {
         $resource = new TestResource();
@@ -208,6 +219,19 @@ class LightspeedResourceTest extends TestCase
 
         $this->assertEquals(true, $resource->delete());
         $this->assertEquals('delete', $method);
+    }
+
+    public function test__Given_exists_true__When_delete__Then_exists_false()
+    {
+        LightspeedApi::registerInterceptor(new MockResponse(fn() => null));
+
+        $resource = new TestResource(['id' => 123]);
+
+        $resource->setExists(true);
+
+        $resource->delete();
+
+        $this->assertFalse($resource->exists());
     }
 
 }

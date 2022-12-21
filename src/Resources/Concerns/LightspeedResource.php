@@ -14,6 +14,13 @@ trait LightspeedResource
 {
 
     /**
+     * Indicates if the resource exists on the remote server
+     *
+     * @var bool
+     */
+    protected bool $exists = false;
+
+    /**
      * @param array $params
      * @return int
      */
@@ -95,7 +102,7 @@ trait LightspeedResource
 
         $this->container($data);
 
-        return true;
+        return $this->exists = true;
     }
 
     /**
@@ -133,6 +140,23 @@ trait LightspeedResource
 
         $response = LightspeedApi::delete($this->url($id));
 
-        return is_null($response);
+        $deleted = is_null($response);
+
+        if ($deleted) {
+            $this->exists = false;
+        }
+
+        return $deleted;
     }
+
+    /**
+     * Returns true when the resource exists on the remote server
+     *
+     * @return bool
+     */
+    public function exists(): bool
+    {
+        return $this->exists;
+    }
+
 }

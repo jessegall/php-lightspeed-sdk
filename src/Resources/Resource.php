@@ -34,13 +34,6 @@ class Resource extends BaseResource implements RemoteResource
     protected string $lightspeedResource;
 
     /**
-     * Indicates if the resource exists on the remote server
-     *
-     * @var bool
-     */
-    protected bool $exists = false;
-
-    /**
      * Indicates whether missing relations should be lazy loaded.
      *
      * @var bool
