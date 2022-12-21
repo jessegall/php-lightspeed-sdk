@@ -2,6 +2,7 @@
     "name": "jessegall/lightspeed-sdk",
     "license": "MIT",
     "minimum-stability": "dev",
+    "description": "A comprehensive set of tools for interacting with the Lightspeed eCommerce API in PHP. It includes classes for each of the Lightspeed resources, allowing you to perform CRUD operations and manage relations easily.",
     "autoload": {
         "psr-4": {
             "JesseGall\\LightspeedSDK\\": "src/"
