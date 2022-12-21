@@ -15,9 +15,14 @@ class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->sdk = LightspeedSDK::instance();
+        $sdk = LightspeedSDK::instance();
 
-        $this->sdk->loadEnvironmentVariables();
+        $sdk->setKey('test_key');
+        $sdk->setSecret('test_secret');
+        $sdk->setServer('test_server');
+        $sdk->setLanguage('test_language');
+
+        $this->sdk = $sdk;
     }
 
     protected function tearDown(): void
