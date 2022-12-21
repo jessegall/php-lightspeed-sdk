@@ -37,7 +37,7 @@
         "spatie/ray": "^1.36"
     },
     "scripts": {
-        "test": "@php -dxdebug.mode=coverage ./vendor/bin/phpunit --colors=auto --testdox",
+        "test": "@php -dxdebug.mode=coverage ./vendor/bin/phpunit --colors=auto ",
         "test-coverage": "@test --coverage-html=report",
         "test-filter": "@test --filter="
     }
