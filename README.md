@@ -91,7 +91,7 @@ To update an existing order:
 
 ```php
 $order->setStatus('shipped');
-$order->sync(); // Sync the order with lightspeed
+$order->save(); // Save the local changes and upload to lightspeed
 ```
 
 ### Example: Working with Products
@@ -132,7 +132,7 @@ To update an existing product:
 
 ```php
 $product->setName('Updated Product Name');
-$product->sync();
+$product->save(); // Save the local changes and upload to lightspeed
 ```
 
 To delete a product:

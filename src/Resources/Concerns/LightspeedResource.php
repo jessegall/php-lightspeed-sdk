@@ -100,18 +100,36 @@ trait LightspeedResource
 
         $data = LightspeedApi::read($this->url($id));
 
-        $this->container($data);
+        $this->merge($data, false);
 
         return $this->exists = true;
     }
 
     /**
-     * Sync the local resource with the remote resource.
-     * Return true when successfully synced.
+     * Loads the latest data from the remote source.
+     *
+     * Warning: this will overwrite any local changes
      *
      * @return bool
      */
-    public function sync(): bool
+    public function refresh(): bool
+    {
+        $id = $this->getId();
+
+        $this->clear();
+
+        $this->setId($id);
+
+        return $this->hydrate();
+    }
+
+    /**
+     * Save the local changes to the remote source.
+     * Return true when successfully saved.
+     *
+     * @return bool
+     */
+    public function save(): bool
     {
         if (! ($id = $this->getId())) {
             throw new IdNullException();

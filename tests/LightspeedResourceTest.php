@@ -150,6 +150,27 @@ class LightspeedResourceTest extends TestCase
         $this->assertEquals('test/123', $url);
     }
 
+    public function test__When_hydrate__Then_local_data_is_preserved()
+    {
+        LightspeedApi::registerInterceptor(new MockResponse(
+            function () {
+                return [
+                    'id' => 123,
+                    'title' => 'test',
+                ];
+            }
+        ));
+
+        $resource = new TestResource([
+            'id' => 123,
+            'title' => 'local'
+        ]);
+
+        $resource->hydrate();
+
+        $this->assertEquals('local', $resource->getTitle());
+    }
+
     public function test__When_hydrate__Then_exists_true()
     {
         LightspeedApi::registerInterceptor(new MockResponse(fn() => []));
@@ -161,16 +182,16 @@ class LightspeedResourceTest extends TestCase
         $this->assertTrue($resource->exists());
     }
 
-    public function test__Given_resource_without_id__When_sync__Then_exception_thrown()
+    public function test__Given_resource_without_id__When_save__Then_exception_thrown()
     {
         $resource = new TestResource();
 
         $this->expectException(IdNullException::class);
 
-        $resource->sync();
+        $resource->save();
     }
 
-    public function test__When_sync__Then_resource_synced()
+    public function test__When_save__Then_resource_saved()
     {
         $method = null;
         $url = null;
@@ -187,7 +208,7 @@ class LightspeedResourceTest extends TestCase
 
         $resource = new TestResource(['id' => 123]);
 
-        $resource->sync();
+        $resource->save();
 
         $this->assertEquals(123, $resource->getId());
         $this->assertEquals('test', $resource->getTitle());
@@ -232,6 +253,54 @@ class LightspeedResourceTest extends TestCase
         $resource->delete();
 
         $this->assertFalse($resource->exists());
+    }
+
+    public function test__When_refresh__Then_resource_refreshed()
+    {
+        $method = null;
+        $url = null;
+
+        LightspeedApi::registerInterceptor(new MockResponse(
+            function (InvokesMethod $interaction) use (&$method, &$url) {
+                $method = $interaction->getMethod();
+                $url = $interaction->getParameter(0);
+                return [
+                    'id' => 123,
+                    'title' => 'test',
+                ];
+            }
+        ));
+
+        $resource = new TestResource(['id' => 123]);
+
+        $resource->refresh();
+
+        $this->assertEquals('test', $resource->getTitle());
+        $this->assertEquals('read', $method);
+        $this->assertEquals('test/123', $url);
+    }
+
+    public function test__When_refresh__Then_local_data_is_overwritten()
+    {
+        LightspeedApi::registerInterceptor(new MockResponse(
+            function () {
+                return [
+                    'id' => 123,
+                    'title' => 'expected',
+                ];
+            }
+        ));
+
+        $resource = new TestResource([
+            'id' => 123,
+            'title' => 'should_be_overwritten',
+            'someRandomProperty' => 'should_be_null'
+        ]);
+
+        $resource->refresh();
+
+        $this->assertEquals('expected', $resource->getTitle());
+        $this->assertNull($resource->get('someRandomProperty'));
     }
 
 }
