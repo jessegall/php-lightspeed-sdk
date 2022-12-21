@@ -38,4 +38,4 @@ jobs:
       - name: Upload coverage reports to Codecov with GitHub Action
         uses: codecov/codecov-action@v3
         with:
-          flags: backend
+          flags: build
