@@ -6,6 +6,7 @@ use Closure;
 use JesseGall\LightspeedSDK\Exceptions\UnknownMethodException;
 use JesseGall\Proxy\Contracts\HandlesCache;
 use JesseGall\Proxy\Forwarder\Contracts\Intercepts;
+use JesseGall\Resources\Api;
 use WebshopappApiClient;
 use WebshopappApiException;
 
@@ -115,14 +116,8 @@ use WebshopappApiException;
  * @method static \WebshopappApiResourceVariantsBulk variantsBulk()
  * @method static \WebshopappApiResourceVariantsMovements variantsMovements()
  * @method static \WebshopappApiResourceWebhooks webhooks()
- * @method static array read(string $url, array $params = [])
- * @method static array update(string $url, array $payload, array $options = [])
- * @method static array create(string $url, array $payload, array $options = [])
- * @method static array delete(string $url)
- * @method static int count(string $resource, array $params = [])
- *
  */
-class LightspeedApi
+class LightspeedApi implements Api
 {
 
     /**
@@ -215,4 +210,37 @@ class LightspeedApi
         self::client()->getCacheHandler()->clear();
     }
 
+    public function count(string $resource, array $params = []): int
+    {
+        return self::client()->count($this->getResourceUrl($resource), $params);
+    }
+
+    public function get(string $resource, int|string $id = null, array $params = []): array
+    {
+        return self::client()->read($this->getResourceUrl($resource, $id), $params);
+    }
+
+    public function create(string $resource, array $data): array
+    {
+        return self::client()->create($this->getResourceUrl($resource), $data);
+    }
+
+    public function update(string $resource, int|string $id, array $data = []): array
+    {
+        return self::client()->update($this->getResourceUrl($resource, $id), $data);
+    }
+
+    public function delete(string $resource, int|string $id): void
+    {
+        self::client()->delete($this->getResourceUrl($resource, $id));
+    }
+
+    private function getResourceUrl(string $resourceType, int|string $id = null): string
+    {
+        $resource = new $resourceType;
+
+        $endpoint = $resource->getEndpoint();
+
+        return $id ? "$endpoint/$id" : $endpoint;
+    }
 }

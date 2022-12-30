@@ -2,10 +2,9 @@
 
 namespace JesseGall\LightspeedSDK\Handlers;
 
-use JesseGall\LightspeedSDK\Exceptions\Lightspeed\ResourceNotFoundException;
-use JesseGall\LightspeedSDK\Resources\Resource;
 use JesseGall\Proxy\Forwarder\Strategies\Exceptions\ExecutionException;
 use JesseGall\ProxyUtils\Handlers\ExceptionTransformer as BaseExceptionTransformer;
+use JesseGall\Resources\Exceptions\ApiException;
 use WebshopappApiException;
 
 class ExceptionTransformer extends BaseExceptionTransformer
@@ -17,13 +16,7 @@ class ExceptionTransformer extends BaseExceptionTransformer
             WebshopappApiException::class => function (ExecutionException $exception) {
                 $original = $exception->getException();
 
-                $caller = $exception->getStrategy()->getCaller();
-
-                if ($original->getCode() === 404 && $caller instanceof Resource) {
-                    return new ResourceNotFoundException(get_class($caller), $caller->getId());
-                }
-
-                return $original;
+                return new ApiException($original->getMessage(), $original->getCode());
             }
         ]);
     }

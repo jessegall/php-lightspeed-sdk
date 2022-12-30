@@ -5,6 +5,7 @@ namespace JesseGall\LightspeedSDK\Resources;
 use JesseGall\ContainsData\ReferenceMissingException;
 use JesseGall\LightspeedSDK\LightspeedApi;
 use JesseGall\LightspeedSDK\Resources\Concerns\LightspeedResource;
+use JesseGall\Resources\Api;
 use JesseGall\Resources\RemoteResource;
 use JesseGall\Resources\Resource as BaseResource;
 use JesseGall\Resources\ResourceCollection;
@@ -39,17 +40,6 @@ class Resource extends BaseResource implements RemoteResource
      * @var bool
      */
     protected bool $lazyLoadRelations = true;
-
-    /**
-     * Returns the api url of the resource.
-     *
-     * @param int|string $id
-     * @return string
-     */
-    private function url(int|string $id): string
-    {
-        return "$this->endpoint/$id";
-    }
 
     /**
      * Set data using in the resource using the dot notation.
@@ -93,7 +83,6 @@ class Resource extends BaseResource implements RemoteResource
             return $this->relation($key, $type, $asCollection);
         }
     }
-
 
     /**
      * Load the relation data from lightspeed
@@ -181,5 +170,4 @@ class Resource extends BaseResource implements RemoteResource
     {
         $this->lazyLoadRelations = $lazyLoadRelations;
     }
-
 }

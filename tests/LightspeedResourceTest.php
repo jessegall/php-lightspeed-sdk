@@ -2,12 +2,11 @@
 
 namespace JesseGall\LightspeedSDK\Tests;
 
-use JesseGall\LightspeedSDK\Exceptions\IdNullException;
-use JesseGall\LightspeedSDK\Exceptions\Lightspeed\ResourceNotFoundException;
 use JesseGall\LightspeedSDK\LightspeedApi;
 use JesseGall\LightspeedSDK\Tests\TestClasses\Interceptors\MockResponse;
 use JesseGall\LightspeedSDK\Tests\TestClasses\TestResource;
 use JesseGall\Proxy\Interactions\Contracts\InvokesMethod;
+use JesseGall\Resources\Exceptions\ApiException;
 use JesseGall\Resources\ResourceCollection;
 
 class LightspeedResourceTest extends TestCase
@@ -84,7 +83,7 @@ class LightspeedResourceTest extends TestCase
         $id = 123;
 
         LightspeedApi::registerInterceptor(new MockResponse(
-            fn() => throw new ResourceNotFoundException(TestResource::class, $id)
+            fn() => throw new ApiException('', 404)
         ));
 
         $this->assertNull(TestResource::find($id));
@@ -114,15 +113,6 @@ class LightspeedResourceTest extends TestCase
         $this->assertEquals('test', $resource->getTitle());
         $this->assertEquals('create', $method);
         $this->assertEquals('test', $url);
-    }
-
-    public function test__Given_resource_without_id__When_hydrate__Then_exception_thrown()
-    {
-        $resource = new TestResource();
-
-        $this->expectException(IdNullException::class);
-
-        $resource->hydrate();
     }
 
     public function test__When_hydrate__Then_resource_hydrated()
@@ -182,15 +172,6 @@ class LightspeedResourceTest extends TestCase
         $this->assertTrue($resource->exists());
     }
 
-    public function test__Given_resource_without_id__When_save__Then_exception_thrown()
-    {
-        $resource = new TestResource();
-
-        $this->expectException(IdNullException::class);
-
-        $resource->save();
-    }
-
     public function test__When_save__Then_resource_saved()
     {
         $method = null;
@@ -208,21 +189,14 @@ class LightspeedResourceTest extends TestCase
 
         $resource = new TestResource(['id' => 123]);
 
+        $resource->setExists(true);
+
         $resource->save();
 
         $this->assertEquals(123, $resource->getId());
         $this->assertEquals('test', $resource->getTitle());
         $this->assertEquals('update', $method);
         $this->assertEquals('test/123', $url);
-    }
-
-    public function test__Given_resource_without_id__When_delete__Then_exception_thrown()
-    {
-        $resource = new TestResource();
-
-        $this->expectException(IdNullException::class);
-
-        $resource->delete();
     }
 
     public function test__When_delete__Then_resource_deleted()
@@ -237,6 +211,8 @@ class LightspeedResourceTest extends TestCase
         ));
 
         $resource = new TestResource(['id' => 123]);
+
+        $resource->setExists(true);
 
         $this->assertEquals(true, $resource->delete());
         $this->assertEquals('delete', $method);
@@ -273,6 +249,8 @@ class LightspeedResourceTest extends TestCase
 
         $resource = new TestResource(['id' => 123]);
 
+        $resource->setExists(true);
+
         $resource->refresh();
 
         $this->assertEquals('test', $resource->getTitle());
@@ -296,6 +274,8 @@ class LightspeedResourceTest extends TestCase
             'title' => 'should_be_overwritten',
             'someRandomProperty' => 'should_be_null'
         ]);
+
+        $resource->setExists(true);
 
         $resource->refresh();
 
