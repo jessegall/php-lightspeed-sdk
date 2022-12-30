@@ -6,6 +6,7 @@ use JesseGall\ContainsData\ReferenceMissingException;
 use JesseGall\LightspeedSDK\LightspeedApi;
 use JesseGall\LightspeedSDK\Resources\Concerns\LightspeedResource;
 use JesseGall\Resources\Api;
+use JesseGall\Resources\Concerns\IsRemote;
 use JesseGall\Resources\RemoteResource;
 use JesseGall\Resources\Resource as BaseResource;
 use JesseGall\Resources\ResourceCollection;
@@ -18,7 +19,7 @@ use JesseGall\Resources\ResourceCollection;
  */
 class Resource extends BaseResource implements RemoteResource
 {
-    use LightspeedResource;
+    use IsRemote;
 
     /**
      * The api endpoint of the resource.
@@ -40,6 +41,16 @@ class Resource extends BaseResource implements RemoteResource
      * @var bool
      */
     protected bool $lazyLoadRelations = true;
+
+    /**
+     * Return the api instance
+     *
+     * @return Api
+     */
+    protected static function api(): Api
+    {
+        return new LightspeedApi();
+    }
 
     /**
      * Set data using in the resource using the dot notation.
@@ -94,7 +105,7 @@ class Resource extends BaseResource implements RemoteResource
     {
         $url = $this->getRelationUrl($key);
 
-        $data = LightspeedApi::read($url);
+        $data = $this->api()->read($url);
 
         $this->set($key, $data);
     }

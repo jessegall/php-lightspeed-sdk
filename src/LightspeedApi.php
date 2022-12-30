@@ -3,120 +3,11 @@
 namespace JesseGall\LightspeedSDK;
 
 use Closure;
-use JesseGall\LightspeedSDK\Exceptions\UnknownMethodException;
 use JesseGall\Proxy\Contracts\HandlesCache;
 use JesseGall\Proxy\Forwarder\Contracts\Intercepts;
 use JesseGall\Resources\Api;
-use WebshopappApiClient;
 use WebshopappApiException;
 
-/**
- * @method static \WebshopappApiResourceAccount account()
- * @method static \WebshopappApiResourceAccountMetafields accountMetafields()
- * @method static \WebshopappApiResourceAccountPermissions accountPermissions()
- * @method static \WebshopappApiResourceAccountRatelimit accountRatelimit()
- * @method static \WebshopappApiResourceAdditionalcosts additionalcosts()
- * @method static \WebshopappApiResourceAttributes attributes()
- * @method static \WebshopappApiResourceBlogs blogs()
- * @method static \WebshopappApiResourceBlogsArticles blogsArticles()
- * @method static \WebshopappApiResourceBlogsArticlesImage blogsArticlesImage()
- * @method static \WebshopappApiResourceBlogsArticlesTags blogsArticlesTags()
- * @method static \WebshopappApiResourceBlogsComments blogsComments()
- * @method static \WebshopappApiResourceBlogsTags blogsTags()
- * @method static \WebshopappApiResourceBrands brands()
- * @method static \WebshopappApiResourceBrandsImage brandsImage()
- * @method static \WebshopappApiResourceCatalog catalog()
- * @method static \WebshopappApiResourceCategories categories()
- * @method static \WebshopappApiResourceCategoriesImage categoriesImage()
- * @method static \WebshopappApiResourceCategoriesProducts categoriesProducts()
- * @method static \WebshopappApiResourceCategoriesProductsBulk categoriesProductsBulk()
- * @method static \WebshopappApiResourceCheckouts checkouts()
- * @method static \WebshopappApiResourceCheckoutsOrder checkoutsOrder()
- * @method static \WebshopappApiResourceCheckoutsPayment_methods checkoutsPayment_methods()
- * @method static \WebshopappApiResourceCheckoutsProducts checkoutsProducts()
- * @method static \WebshopappApiResourceCheckoutsShipment_methods checkoutsShipment_methods()
- * @method static \WebshopappApiResourceCheckoutsValidate checkoutsValidate()
- * @method static \WebshopappApiResourceContacts contacts()
- * @method static \WebshopappApiResourceCountries countries()
- * @method static \WebshopappApiResourceCustomers customers()
- * @method static \WebshopappApiResourceCustomersLogin customersLogin()
- * @method static \WebshopappApiResourceCustomersMetafields customersMetafields()
- * @method static \WebshopappApiResourceCustomersTokens customersTokens()
- * @method static \WebshopappApiResourceDashboard dashboard()
- * @method static \WebshopappApiResourceDeliverydates deliverydates()
- * @method static \WebshopappApiResourceDiscountrules discountrules()
- * @method static \WebshopappApiResourceDiscounts discounts()
- * @method static \WebshopappApiResourceEvents events()
- * @method static \WebshopappApiResourceExternal_services external_services()
- * @method static \WebshopappApiResourceFiles files()
- * @method static \WebshopappApiResourceFilters filters()
- * @method static \WebshopappApiResourceFiltersValues filtersValues()
- * @method static \WebshopappApiResourceGroups groups()
- * @method static \WebshopappApiResourceGroupsCustomers groupsCustomers()
- * @method static \WebshopappApiResourceInvoices invoices()
- * @method static \WebshopappApiResourceInvoicesItems invoicesItems()
- * @method static \WebshopappApiResourceInvoicesMetafields invoicesMetafields()
- * @method static \WebshopappApiResourceLanguages languages()
- * @method static \WebshopappApiResourceLocations locations()
- * @method static \WebshopappApiResourceMetafields metafields()
- * @method static \WebshopappApiResourceOrders orders()
- * @method static \WebshopappApiResourceOrdersCredit ordersCredit()
- * @method static \WebshopappApiResourceOrdersMetafields ordersMetafields()
- * @method static \WebshopappApiResourceOrdersProducts ordersProducts()
- * @method static \WebshopappApiResourceOrdersCustomstatuses ordersCustomstatuses()
- * @method static \WebshopappApiResourceOrdersEvents ordersEvents()
- * @method static \WebshopappApiResourcePaymentmethods paymentmethods()
- * @method static \WebshopappApiResourceProducts products()
- * @method static \WebshopappApiResourceProductsAttributes productsAttributes()
- * @method static \WebshopappApiResourceProductsFiltervalues productsFiltervalues()
- * @method static \WebshopappApiResourceProductsImages productsImages()
- * @method static \WebshopappApiResourceProductsMetafields productsMetafields()
- * @method static \WebshopappApiResourceProductsRelations productsRelations()
- * @method static \WebshopappApiResourceQuotes quotes()
- * @method static \WebshopappApiResourceQuotesConvert quotesConvert()
- * @method static \WebshopappApiResourceQuotesPaymentmethods quotesPaymentmethods()
- * @method static \WebshopappApiResourceQuotesProducts quotesProducts()
- * @method static \WebshopappApiResourceQuotesShippingmethods quotesShippingmethods()
- * @method static \WebshopappApiResourceRedirects redirects()
- * @method static \WebshopappApiResourceReturns returns()
- * @method static \WebshopappApiResourceReviews reviews()
- * @method static \WebshopappApiResourceSets sets()
- * @method static \WebshopappApiResourceShipments shipments()
- * @method static \WebshopappApiResourceShipmentsMetafields shipmentsMetafields()
- * @method static \WebshopappApiResourceShipmentsProducts shipmentsProducts()
- * @method static \WebshopappApiResourceShippingmethods shippingmethods()
- * @method static \WebshopappApiResourceShippingmethodsCountries shippingmethodsCountries()
- * @method static \WebshopappApiResourceShippingmethodsValues shippingmethodsValues()
- * @method static \WebshopappApiResourceShop shop()
- * @method static \WebshopappApiResourceShopCompany shopCompany()
- * @method static \WebshopappApiResourceShopJavascript shopJavascript()
- * @method static \WebshopappApiResourceShopLimits shopLimits()
- * @method static \WebshopappApiResourceShopMetafields shopMetafields()
- * @method static \WebshopappApiResourceShopScripts shopScripts()
- * @method static \WebshopappApiResourceShopSettings shopSettings()
- * @method static \WebshopappApiResourceShopTracking shopTracking()
- * @method static \WebshopappApiResourceShopWebsite shopWebsite()
- * @method static \WebshopappApiResourceSubscriptions subscriptions()
- * @method static \WebshopappApiResourceSuppliers suppliers()
- * @method static \WebshopappApiResourceTags tags()
- * @method static \WebshopappApiResourceTagsProducts tagsProducts()
- * @method static \WebshopappApiResourceTaxes taxes()
- * @method static \WebshopappApiResourceTaxesOverrides taxesOverrides()
- * @method static \WebshopappApiResourceTextpages textpages()
- * @method static \WebshopappApiResourceThemeCategories themeCategories()
- * @method static \WebshopappApiResourceThemeProducts themeProducts()
- * @method static \WebshopappApiResourceTickets tickets()
- * @method static \WebshopappApiResourceTicketsMessages ticketsMessages()
- * @method static \WebshopappApiResourceTime time()
- * @method static \WebshopappApiResourceTypes types()
- * @method static \WebshopappApiResourceTypesAttributes typesAttributes()
- * @method static \WebshopappApiResourceVariants variants()
- * @method static \WebshopappApiResourceVariantsImage variantsImage()
- * @method static \WebshopappApiResourceVariantsMetafields variantsMetafields()
- * @method static \WebshopappApiResourceVariantsBulk variantsBulk()
- * @method static \WebshopappApiResourceVariantsMovements variantsMovements()
- * @method static \WebshopappApiResourceWebhooks webhooks()
- */
 class LightspeedApi implements Api
 {
 
@@ -126,18 +17,6 @@ class LightspeedApi implements Api
      * @var WebshopappApiClientProxy
      */
     protected static WebshopappApiClientProxy $instance;
-
-    /**
-     * @throws WebshopappApiException|UnknownMethodException
-     */
-    public static function __callStatic(string $method, array $parameters)
-    {
-        if (method_exists(WebshopappApiClient::class, $method) || method_exists(WebshopappApiClientProxy::class, $method)) {
-            return self::client()->{$method}(...$parameters);
-        }
-
-        return throw new UnknownMethodException($method);
-    }
 
     /**
      * @return WebshopappApiClientProxy
@@ -210,32 +89,91 @@ class LightspeedApi implements Api
         self::client()->getCacheHandler()->clear();
     }
 
+    /**
+     * Get the data from the given url
+     *
+     * @param string $url
+     * @return array
+     */
+    public function read(string $url): array
+    {
+        return self::client()->read($url);
+    }
+
+    /**
+     * Get the total count of the given resource.
+     *
+     * @param string $resource
+     * @param array $params
+     * @return int
+     */
     public function count(string $resource, array $params = []): int
     {
-        return self::client()->count($this->getResourceUrl($resource), $params);
+        return self::client()->count($this->parseUrl($resource), $params);
     }
 
+    /**
+     * Get data for the given resource or collection of resources.
+     *
+     * @param string $resource
+     * @param int|string|null $id
+     * @param array $params
+     * @return array
+     * @throws WebshopappApiException
+     */
     public function get(string $resource, int|string $id = null, array $params = []): array
     {
-        return self::client()->read($this->getResourceUrl($resource, $id), $params);
+        return self::client()->read($this->parseUrl($resource, $id), $params);
     }
 
+    /**
+     * Create a new resource.
+     *
+     * @param string $resource
+     * @param array $data
+     * @return array
+     * @throws WebshopappApiException
+     */
     public function create(string $resource, array $data): array
     {
-        return self::client()->create($this->getResourceUrl($resource), $data);
+        return self::client()->create($this->parseUrl($resource), $data);
     }
 
+    /**
+     * Update the given resource.
+     *
+     * @param string $resource
+     * @param int|string $id
+     * @param array $data
+     * @return array
+     * @throws WebshopappApiException
+     */
     public function update(string $resource, int|string $id, array $data = []): array
     {
-        return self::client()->update($this->getResourceUrl($resource, $id), $data);
+        return self::client()->update($this->parseUrl($resource, $id), $data);
     }
 
+    /**
+     * Delete the given resource.
+     *
+     * @param string $resource
+     * @param int|string $id
+     * @return void
+     * @throws WebshopappApiException
+     */
     public function delete(string $resource, int|string $id): void
     {
-        self::client()->delete($this->getResourceUrl($resource, $id));
+        self::client()->delete($this->parseUrl($resource, $id));
     }
 
-    private function getResourceUrl(string $resourceType, int|string $id = null): string
+    /**
+     * Get the resource url.
+     *
+     * @param string $resourceType
+     * @param int|string|null $id
+     * @return string
+     */
+    private function parseUrl(string $resourceType, int|string $id = null): string
     {
         $resource = new $resourceType;
 
